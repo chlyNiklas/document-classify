@@ -14,8 +14,7 @@ test_hypotheses:
   primary_focus: commercial_information
   candidate_dimensions:
   - section: Ausgangslage und Auftrag
-    observation: Die Ausschreibung ist eröffnet und die Zuschlagsentscheidung steht
-      aus.
+    observation: Die Ausschreibung ist eröffnet und die Zuschlagsentscheidung steht aus.
     review_required: true
   - section: Geltungsbereich und beteiligte Stellen
     observation: Ein Bewertungsblatt enthält Preis- und Qualitätsmerkmale der Anbieter.
@@ -30,8 +29,7 @@ test_hypotheses:
     observation: Die Vertraulichkeit der Offerte ist vertraglich geregelt.
     review_required: true
   - section: Fachliche Einordnung
-    observation: Die informationssicherheitsrechtliche Einstufung bedarf gesonderter
-      Prüfung.
+    observation: Die informationssicherheitsrechtliche Einstufung bedarf gesonderter Prüfung.
     review_required: true
 privacy_assessment:
   status: not_yet_validated
@@ -47,3 +45,39 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Vergabestatus, Angebotsinhalte und Interessen des Bundes müssen berücksichtigt werden.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: dem zugehörigen Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten
+    locator: full_text_search
+    verified_in_document: true
+  - quote: berücksichtigt sowohl den Erstellungszeitpunkt als auch zwischenzeitliche Änderungen im Betrieb, in der
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

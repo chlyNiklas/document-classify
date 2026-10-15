@@ -39,3 +39,38 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: not_classified
+  candidate_levels_for_review:
+  - not_classified
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Öffentliche Bekanntgabe; eine klassifizierungsbedürftige zusätzliche Information ist aus den geprüften
+    Kernaussagen nicht ersichtlich.
+  evidence_excerpts:
+  - quote: innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als
+      öffentliche
+    locator: full_text_search
+    verified_in_document: true
+  - quote: öffentlichen Orientierung Diese Angabe wurde im Geschäftsgang mehrfach wiedergegeben; die vorliegende
+    locator: full_text_search
+    verified_in_document: true
+  - quote: 'mitzudenken. Für eine korrekte Auslegung ist folgende Einzelheit wesentlich: Der öffentliche Ansprechpartner
+      ist'
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context: []
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

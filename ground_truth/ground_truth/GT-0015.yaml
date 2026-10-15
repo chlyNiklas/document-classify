@@ -52,3 +52,38 @@ review:
   status: draft
   reviewer: null
   approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Befragungsresultate können rückführbare Aussagen enthalten; ISV-Schadenskriterien separat prüfen.
+  evidence_excerpts:
+  - quote: bekannten Dienstplänen könnte die Person für einen begrenzten Empfängerkreis erkennbar machen.
+    locator: full_text_search
+    verified_in_document: true
+  - quote: beschreibt einen betrieblichen Prozess und enthält keine unmittelbar identifizierende Angabe. Die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die nächsten Workshops sollen die Zusammenarbeit zwischen Betrieb und Fachbereichen verbessern.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

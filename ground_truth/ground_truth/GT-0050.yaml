@@ -17,8 +17,7 @@ test_hypotheses:
     observation: Bei sechs von fünfzehn Dossiers fehlen formale Abnahmeprotokolle.
     review_required: true
   - section: Geltungsbereich und beteiligte Stellen
-    observation: Die Feststellung betrifft dokumentierte Prozesse, nicht die Schuld
-      Einzelner.
+    observation: Die Feststellung betrifft dokumentierte Prozesse, nicht die Schuld Einzelner.
     review_required: true
   - section: Dokumentierte Feststellungen
     observation: Eine Lieferantenbewertung enthält vorläufige Vertragsrisiken.
@@ -27,8 +26,7 @@ test_hypotheses:
     observation: Zwei Massnahmen wurden terminiert, aber noch nicht abgeschlossen.
     review_required: true
   - section: Bisherige Bearbeitung
-    observation: Eine Managementzusammenfassung ist zur späteren Veröffentlichung
-      vorgesehen.
+    observation: Eine Managementzusammenfassung ist zur späteren Veröffentlichung vorgesehen.
     review_required: true
   - section: Fachliche Einordnung
     observation: Die Auswirkungen einer frühzeitigen Offenlegung sind noch zu würdigen.
@@ -47,3 +45,38 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Prüfungsbefunde sind anhand ihrer möglichen Auswirkungen bei Offenlegung zu beurteilen.
+  evidence_excerpts:
+  - quote: nicht beschlossen. Bei sechs von fünfzehn Dossiers fehlen formale Abnahmeprotokolle. Im Arbeitsjournal
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: sechs von fünfzehn Dossiers fehlen formale Abnahmeprotokolle. Bei der Übertragung in einen anderen
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

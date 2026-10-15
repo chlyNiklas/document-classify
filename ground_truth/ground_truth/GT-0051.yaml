@@ -14,19 +14,16 @@ test_hypotheses:
   primary_focus: administrative_proceedings
   candidate_dimensions:
   - section: Ausgangslage und Auftrag
-    observation: Im Verfahren gegen die fiktive Person Martin Beispiel ist eine Anhörung
-      offen.
+    observation: Im Verfahren gegen die fiktive Person Martin Beispiel ist eine Anhörung offen.
     review_required: true
   - section: Geltungsbereich und beteiligte Stellen
-    observation: Die Akte enthält Angaben zu möglichen Verfahrensverstössen und einer
-      früheren Sanktion.
+    observation: Die Akte enthält Angaben zu möglichen Verfahrensverstössen und einer früheren Sanktion.
     review_required: true
   - section: Dokumentierte Feststellungen
     observation: Eine Stellungnahme bestreitet einen Teil der zugrunde gelegten Tatsachen.
     review_required: true
   - section: Datenbasis und Nachvollziehbarkeit
-    observation: Ein Abschnitt nennt gesundheitliche Umstände zur Begründung einer
-      Fristerstreckung.
+    observation: Ein Abschnitt nennt gesundheitliche Umstände zur Begründung einer Fristerstreckung.
     review_required: true
   - section: Bisherige Bearbeitung
     observation: Die Sachbearbeitung hält Beweise und unbewiesene Behauptungen getrennt.
@@ -48,3 +45,38 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Der Verfahrenskontext kann schutzrelevant sein; DSG-Kategorien begründen nicht automatisch ISV-Klassifizierung.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Ein Abschnitt nennt gesundheitliche Umstände zur Begründung einer Fristerstreckung. Zu Beginn der
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Abschnitt nennt gesundheitliche Umstände zur Begründung einer Fristerstreckung. Die zuständige
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

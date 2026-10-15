@@ -14,28 +14,23 @@ test_hypotheses:
   primary_focus: verfahren
   candidate_dimensions:
   - section: Anlass des Verfahrens
-    observation: Die Akte nennt die natürliche Person Lara Winter (fiktiv), das Geschäftszeichen
-      V-26-041 sowie Kontaktinformationen.
+    observation: Die Akte nennt die natürliche Person Lara Winter (fiktiv), das Geschäftszeichen V-26-041 sowie
+      Kontaktinformationen.
     review_required: true
   - section: Bisheriger Ablauf
-    observation: Ein Schreiben enthält Angaben zu einem gegen sie laufenden verwaltungsrechtlichen
-      Verfahren.
+    observation: Ein Schreiben enthält Angaben zu einem gegen sie laufenden verwaltungsrechtlichen Verfahren.
     review_required: true
   - section: Beweismittel
-    observation: Ein Abschnitt enthält Gesundheitsangaben als Begründung für ein versäumtes
-      Fristdatum.
+    observation: Ein Abschnitt enthält Gesundheitsangaben als Begründung für ein versäumtes Fristdatum.
     review_required: true
   - section: Anhörung
-    observation: Die Vertretung führte aus, dass eine frühere Angabe falsch interpretiert
-      worden sei.
+    observation: Die Vertretung führte aus, dass eine frühere Angabe falsch interpretiert worden sei.
     review_required: true
   - section: Akteneinsicht
-    observation: Die Korrespondenz nennt zusätzlich zwei Auskunftspersonen und deren
-      dienstliche Kontaktdaten.
+    observation: Die Korrespondenz nennt zusätzlich zwei Auskunftspersonen und deren dienstliche Kontaktdaten.
     review_required: true
   - section: Interne Bearbeitung
-    observation: Es existiert ein zeitlich befristeter Vermerk über eine noch offene
-      Abklärung.
+    observation: Es existiert ein zeitlich befristeter Vermerk über eine noch offene Abklärung.
     review_required: true
   - section: Risiken der Fehlinterpretation
     observation: Die Akte enthält besonders schützenswerte Angaben über ein Verwaltungsverfahren.
@@ -57,3 +52,39 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Der Verfahrenskontext kann schutzrelevant sein; DSG-Kategorien begründen nicht automatisch ISV-Klassifizierung.
+  evidence_excerpts:
+  - quote: Abschnitt enthält Gesundheitsangaben als Begründung für ein versäumtes Fristdatum. Der Abschnitt
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Stelle konsultiert bei Bedarf den einschlägigen Klassifizierungskatalog. Vor einer Weitergabe soll
+      geprüft
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Prüfung muss Datenschutz und Informationsklassifizierung getrennt dokumentieren. Vor einer Weitergabe
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

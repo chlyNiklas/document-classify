@@ -17,15 +17,13 @@ test_hypotheses:
     observation: Drei Projekte konkurrieren um eine gemeinsame Investitionsreserve.
     review_required: true
   - section: Geltungsbereich und beteiligte Stellen
-    observation: Die bevorzugte Variante verschiebt den Ersatz eines Altgeräts um
-      ein Quartal.
+    observation: Die bevorzugte Variante verschiebt den Ersatz eines Altgeräts um ein Quartal.
     review_required: true
   - section: Dokumentierte Feststellungen
     observation: Der Entwurf nennt die verantwortlichen Funktionen ohne Mitarbeitendennamen.
     review_required: true
   - section: Datenbasis und Nachvollziehbarkeit
-    observation: Eine vorläufige Risikobewertung ist noch nicht von der Finanzstelle
-      bestätigt.
+    observation: Eine vorläufige Risikobewertung ist noch nicht von der Finanzstelle bestätigt.
     review_required: true
   - section: Bisherige Bearbeitung
     observation: Die Summen basieren auf zwei Angeboten unterschiedlicher Firmen.
@@ -47,3 +45,44 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Entscheidungsgrundlagen sind anhand des konkreten Schutzinteresses und möglichen Schadens einzustufen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: An der Bearbeitung wirkten die fachlich verantwortliche Stelle, die zuständige Koordination und eine
+      prüfende Zweitperson mit. Die Aufgaben sind in einem separaten Arbeitsauftrag beschrieben; der vorliegende
+      Bericht erse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Feststellungen wurden mit den im Geschäftsdossier verfügbaren Unterlagen abgeglichen. Ein offener
+      Punkt wird ausdrücklich als offen bezeichnet, damit eine vorläufige Beobachtung nicht als abgeschlossener
+      Befund ersch
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

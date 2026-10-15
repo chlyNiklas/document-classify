@@ -20,8 +20,7 @@ test_hypotheses:
     observation: Die Darstellung nennt Sicherheitszonen und logische Abhängigkeiten.
     review_required: true
   - section: Dokumentierte Feststellungen
-    observation: Ein Abschnitt beschreibt eine mögliche Ausfallkaskade beim zentralen
-      Identitätsdienst.
+    observation: Ein Abschnitt beschreibt eine mögliche Ausfallkaskade beim zentralen Identitätsdienst.
     review_required: true
   - section: Datenbasis und Nachvollziehbarkeit
     observation: Es werden keine Nutzerkonten, Zugangsdaten oder Klarnamen genannt.
@@ -46,3 +45,38 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Architekturdetails können schutzrelevante technische Abhängigkeiten offenlegen; konkrete Folgen prüfen.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: mit dem zugehörigen Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten
+    locator: full_text_search
+    verified_in_document: true
+  - quote: sich an die zurzeit bekannten Einzelheiten und vermeidet eine vorgreifende Gesamtbewertung.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

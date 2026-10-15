@@ -15,20 +15,17 @@ facts:
   evidence:
   - section: 1
     heading: Teilnehmende
-    quote: 'Mara Keller (Vorsitz), Luis Frei (Betrieb), Sven Vogt (Beschaffung), Nina Blum (Protokoll).
-      Entschuldigt:'
+    quote: 'Mara Keller (Vorsitz), Luis Frei (Betrieb), Sven Vogt (Beschaffung), Nina Blum (Protokoll). Entschuldigt:'
   - section: 2
     heading: 'Traktandum 1: Stand der Migration'
-    quote: Von 42 vorgesehenen Anwendungen wurden 31 umgestellt. Das Team beschliesst, die allgemeine
-      Projektübersic
+    quote: Von 42 vorgesehenen Anwendungen wurden 31 umgestellt. Das Team beschliesst, die allgemeine Projektübersic
   - section: 3
     heading: 'Traktandum 2: Betrieb'
-    quote: Die Administrationsoberfläche des Altsystems bleibt bis zur Freigabe des Rückbauplans erreichbar.
-      Der gen
+    quote: Die Administrationsoberfläche des Altsystems bleibt bis zur Freigabe des Rückbauplans erreichbar. Der
+      gen
   - section: 4
     heading: Pendenzen
-    quote: Luis Frei klärt bis 20. Oktober die Abhängigkeiten; Sven Vogt bereitet einen Entwurf für die
-      Beschaffungs
+    quote: Luis Frei klärt bis 20. Oktober die Abhängigkeiten; Sven Vogt bereitet einen Entwurf für die Beschaffungs
 legal_assessment:
   review_status: PENDING_LEGAL_REVIEW
   information_security:
@@ -43,3 +40,43 @@ review:
   status: draft
   reviewer: null
   approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Bei Protokollen sind Schutzinteressen und Offenlegungsfolgen der einzelnen Traktanden zu beurteilen.
+  evidence_excerpts:
+  - quote: 'Mara Keller (Vorsitz), Luis Frei (Betrieb), Sven Vogt (Beschaffung), Nina Blum (Protokoll). Entschuldigt:
+      Lea Maurer.'
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Von 42 vorgesehenen Anwendungen wurden 31 umgestellt. Das Team beschliesst, die allgemeine Projektübersicht
+      nach der nächsten Sitzung zu aktualisieren. Die öffentlich angekündigte Einführung bleibt auf Ende November
+      gepl
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Administrationsoberfläche des Altsystems bleibt bis zur Freigabe des Rückbauplans erreichbar. Der
+      genaue Rückbauzeitpunkt wurde nicht entschieden. Ein separates Betriebskonzept mit Detailangaben liegt dem
+      Protokoll n
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

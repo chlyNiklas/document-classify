@@ -14,27 +14,22 @@ test_hypotheses:
   primary_focus: indirekte_identifizierung
   candidate_dimensions:
   - section: Hintergrund
-    observation: Die Abteilung umfasst neun Personen und nur eine Leitung für die
-      Spezialfunktion Nachtkoordination.
+    observation: Die Abteilung umfasst neun Personen und nur eine Leitung für die Spezialfunktion Nachtkoordination.
     review_required: true
   - section: Einsatzfähigkeit
-    observation: Die medizinische Information wurde in einem Gespräch mit der Personalstelle
-      mitgeteilt.
+    observation: Die medizinische Information wurde in einem Gespräch mit der Personalstelle mitgeteilt.
     review_required: true
   - section: Dienstplanung
     observation: Der Dienstplan nennt Kalenderwochen und die Übergabe wichtiger Aufgaben.
     review_required: true
   - section: Kommunikation
-    observation: Eine medizinische Begründung ist für die Dienstinformation nicht
-      erforderlich.
+    observation: Eine medizinische Begründung ist für die Dienstinformation nicht erforderlich.
     review_required: true
   - section: Leistungsbeurteilung
-    observation: Daneben wird die aktuelle Verfügbarkeit für bestimmte Aufgaben eingeschränkt
-      beschrieben.
+    observation: Daneben wird die aktuelle Verfügbarkeit für bestimmte Aufgaben eingeschränkt beschrieben.
     review_required: true
   - section: Bearbeitungszweck
-    observation: Eine automatisierte Profilbildung ist aus dem dokumentierten Vorgehen
-      nicht ersichtlich.
+    observation: Eine automatisierte Profilbildung ist aus dem dokumentierten Vorgehen nicht ersichtlich.
     review_required: true
   - section: Informationsklassifizierung
     observation: Eine Rechtsgrundlage für diese direkte Ableitung wurde nicht dokumentiert.
@@ -56,3 +51,44 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Interne Personal- oder Organisationsinformationen begründen nicht allein eine ISV-Stufe.
+  evidence_excerpts:
+  - quote: Die Kombination von Gesundheits- und Arbeitsplatzangaben könnte zu einer breiteren Einschätzung der Person
+      führen. Für die Einordnung ist zu beachten, ob die Angaben als einzelne Beobachtungen, als zusammengefasste
+      Infor
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Einige Beteiligte schlugen wegen der Gesundheitsangabe unmittelbar VERTRAULICH vor. Eine Rechtsgrundlage
+      für diese direkte Ableitung wurde nicht dokumentiert. Der Abschnitt dokumentiert den derzeitigen Kenntnisstand;
+      Änd
+    locator: full_text_search
+    verified_in_document: true
+  - quote: DSG-Kategorie und ISV-Klassifizierungsstufe sind unabhängig zu prüfen. Für die Einordnung ist zu beachten,
+      ob die Angaben als einzelne Beobachtungen, als zusammengefasste Informationen oder als Aussagen über konkrete
+      Per
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

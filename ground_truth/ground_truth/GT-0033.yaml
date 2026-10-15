@@ -17,8 +17,7 @@ test_hypotheses:
     observation: Eine von drei Funktionen ist im Standort West nur einmal besetzt.
     review_required: true
   - section: Geltungsbereich und beteiligte Stellen
-    observation: Die betroffene Fachperson kehrte nach längerer medizinischer Behandlung
-      zurück.
+    observation: Die betroffene Fachperson kehrte nach längerer medizinischer Behandlung zurück.
     review_required: true
   - section: Dokumentierte Feststellungen
     observation: Der Arbeitsort wird geändert, ohne einen Namen im Dokument zu nennen.
@@ -30,8 +29,7 @@ test_hypotheses:
     observation: Die medizinischen Angaben entstammen einem vertraulichen Personalgespräch.
     review_required: true
   - section: Fachliche Einordnung
-    observation: Der Entwurf ist bisher nicht durch die betroffene Person geprüft
-      worden.
+    observation: Der Entwurf ist bisher nicht durch die betroffene Person geprüft worden.
     review_required: true
 privacy_assessment:
   status: not_yet_validated
@@ -47,3 +45,44 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Interne Personal- oder Organisationsinformationen begründen nicht allein eine ISV-Stufe.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: An der Bearbeitung wirkten die fachlich verantwortliche Stelle, die zuständige Koordination und eine
+      prüfende Zweitperson mit. Die Aufgaben sind in einem separaten Arbeitsauftrag beschrieben; der vorliegende
+      Bericht erse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Feststellungen wurden mit den im Geschäftsdossier verfügbaren Unterlagen abgeglichen. Ein offener
+      Punkt wird ausdrücklich als offen bezeichnet, damit eine vorläufige Beobachtung nicht als abgeschlossener
+      Befund ersch
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

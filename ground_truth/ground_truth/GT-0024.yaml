@@ -14,16 +14,13 @@ test_hypotheses:
   primary_focus: sicherheitsrisiko
   candidate_dimensions:
   - section: Prüfauftrag
-    observation: Der Bericht unterscheidet reproduzierbare Beobachtungen von hypothetischen
-      Angriffspfaden.
+    observation: Der Bericht unterscheidet reproduzierbare Beobachtungen von hypothetischen Angriffspfaden.
     review_required: true
   - section: Systemübersicht
-    observation: Die Dokumentation führt Rollen, Schnittstellentypen und Abhängigkeiten
-      auf, jedoch keine Passwörter.
+    observation: Die Dokumentation führt Rollen, Schnittstellentypen und Abhängigkeiten auf, jedoch keine Passwörter.
     review_required: true
   - section: Beobachtete Schwachstelle
-    observation: Eine Wiederholung im Testsystem zeigte eine unbeabsichtigte Einsicht
-      in Konfigurationsmetadaten.
+    observation: Eine Wiederholung im Testsystem zeigte eine unbeabsichtigte Einsicht in Konfigurationsmetadaten.
     review_required: true
   - section: Mögliche Folgen
     observation: Ob diese Annahme zutrifft, ist derzeit nicht bestätigt.
@@ -54,3 +51,40 @@ information_security_assessment:
 approval:
   legal_reviewer: null
   date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: VERTRAULICH
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Schwachstellen und Ausnutzbarkeit können ein betroffenes Schutzinteresse berühren; Risiken und Wirksamkeit
+    von Gegenmassnahmen fehlen.
+  evidence_excerpts:
+  - quote: Untersucht wurde eine nicht öffentlich erreichbare Testumgebung einer zentralen Identitätsplattform.
+      Der
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Auftraggeber prüft die Übertragbarkeit auf den Produktivbetrieb. Vor einer Weitergabe soll geprüft
+    locator: full_text_search
+    verified_in_document: true
+  - quote: In einer Testkonfiguration war eine zusätzliche Berechtigungsprüfung in einem administrativen Ablauf
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.
