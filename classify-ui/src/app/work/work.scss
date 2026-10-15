@@ -1,0 +1,10 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+.work {
+	display: flex;
+	flex-direction: column;
+	gap: variables.$ob-spacing-xxl;
+	margin: variables.$ob-spacing-xxl 0;
+	padding: 0 variables.$ob-spacing-lg;
+}
+

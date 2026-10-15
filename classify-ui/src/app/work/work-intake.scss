@@ -1,0 +1,8 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+@use "../shared/demo-shared" as demo-shared;
+
+@include demo-shared.demo-card();
+
+.work-intake__reject {
+	margin-top: variables.$ob-spacing-xxl;
+}

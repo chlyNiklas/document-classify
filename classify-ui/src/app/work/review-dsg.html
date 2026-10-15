@@ -1,0 +1,26 @@
+<section class="card review-card" data-testid="dsg-card">
+	<header class="card__header">
+		<h3 class="card__title">{{ 'koby.work.dsg.title' | translate }}</h3>
+	</header>
+	<p class="card__hint">{{ 'koby.work.dsg.possible' | translate }}</p>
+
+	<div class="tilerow" role="list">
+		@for (tileKey of tileKeys; track tileKey) {
+			<div
+				class="tile"
+				[class.tile--marked]="isMarked(tileKey)"
+				[attr.data-testid]="'dsg-tile-' + tileKey"
+			>
+				<b>{{ 'koby.work.dsg.tile.' + tileKey | translate }}</b>
+				<span>{{ 'koby.work.dsg.tile-desc.' + tileKey | translate }}</span>
+			</div>
+		}
+	</div>
+
+	<p class="review-card__justification">
+		<strong>{{ 'koby.work.justification' | translate }}</strong>
+		{{ result().justification }}
+	</p>
+
+	<app-work-evidence [references]="references()" (requestPreview)="requestPreview.emit()" />
+</section>

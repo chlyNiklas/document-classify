@@ -1,0 +1,15 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+@use "../shared/demo-shared" as demo-shared;
+
+@include demo-shared.demo-card();
+@include demo-shared.demo-tiles();
+
+.review-card__justification {
+	color: variables.$ob-gray-dark;
+	margin: variables.$ob-spacing-default 0 0;
+
+	strong {
+		color: variables.$ob-primary;
+	}
+}

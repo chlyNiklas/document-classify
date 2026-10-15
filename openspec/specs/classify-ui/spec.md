@@ -1,7 +1,7 @@
 # classify-ui Specification
 
 ## Purpose
-Defines the end-user surface of the Classify UI: submitting a Document to the Classify Service and showing the Classification verbatim. It pins the upload contract, the honesty rules (nothing hidden or re-worded), trilingual support, and the local Docker delivery as an agreed baseline before real classifications replace the placeholder service behavior.
+Defines the end-user surface of the Classify UI: the document-review workbench (Arbeitsbereich and Regelwerk). While the classification response contract is being extended, all classification results are simulated with demo data; the workbench pins multi-document intake, the review flows for ISG and DSG proposals, findings traceability, the honesty rule that results are labelled as simulated with no legal effect, the trilingual UI, and the local Docker delivery.
 
 ## Requirements
 

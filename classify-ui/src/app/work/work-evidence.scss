@@ -1,0 +1,50 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+.evidence-header {
+	align-items: center;
+	display: flex;
+	font-weight: 600;
+	gap: variables.$ob-spacing-sm;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.evidence-list {
+	display: flex;
+	flex-direction: column;
+	gap: variables.$ob-spacing-default;
+}
+
+.evidence {
+	border-top: 1px solid variables.$ob-gray-light;
+	padding: variables.$ob-spacing-default 0;
+
+	&__quote {
+		margin: 0 0 variables.$ob-spacing-xs;
+	}
+
+	&__meta {
+		align-items: center;
+		color: variables.$ob-gray-dark;
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$ob-spacing-sm;
+		font-size: variables.$ob-font-size-sm;
+	}
+
+	&__letter {
+		align-items: center;
+		background-color: variables.$ob-primary;
+		border-radius: variables.$ob-border-radius-base;
+		color: #ffffff;
+		display: inline-flex;
+		font-weight: 600;
+		height: 15px;
+		justify-content: center;
+		width: 15px;
+	}
+
+	&__spacer {
+		flex: 1 1 auto;
+	}
+}

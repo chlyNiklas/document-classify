@@ -1,0 +1,66 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+// Shared off-canvas content
+.demo-guidance ol {
+	padding-left: 1.2rem;
+
+	li + li {
+		margin-top: variables.$ob-spacing-default;
+	}
+}
+
+.demo-doc-preview__page {
+	background-color: #ffffff;
+	border: 1px solid variables.$ob-gray-light;
+	overflow-x: hidden;
+	padding: variables.$ob-spacing-xxl;
+}
+
+.demo-doc-preview__header {
+	color: variables.$ob-gray-dark;
+	display: flex;
+	font-size: variables.$ob-font-size-sm;
+	justify-content: space-between;
+	margin-bottom: variables.$ob-spacing-xxl;
+}
+
+.demo-doc-preview__heading {
+	font-size: variables.$ob-font-size-lg;
+	font-weight: 600;
+	margin-bottom: variables.$ob-spacing-xxl;
+}
+
+.demo-doc-preview__sign {
+	color: variables.$ob-gray-dark;
+}
+
+.demo-evidence-mark {
+	background-color: variables.$ob-success-light;
+	border-radius: variables.$ob-border-radius-base;
+	color: inherit;
+	padding: 1px 2px;
+}
+
+.demo-evidence-mark__letter {
+	align-items: center;
+	background-color: variables.$ob-primary;
+	border-radius: variables.$ob-border-radius-base;
+	color: #ffffff;
+	display: inline-flex;
+	font-size: variables.$ob-font-size-xs;
+	font-weight: 600;
+	height: 15px;
+	justify-content: center;
+	margin-right: 4px;
+	vertical-align: 2px;
+	width: 15px;
+}
+
+.demo-doc-json__body {
+	background-color: variables.$ob-gray-extra-light;
+	max-height: 56vh;
+	overflow: auto;
+	padding: variables.$ob-spacing-default;
+	white-space: pre-wrap;
+	word-break: break-word;
+}

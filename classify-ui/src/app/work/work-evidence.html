@@ -1,0 +1,30 @@
+<ob-collapse iconPosition="justified">
+	<span obCollapseHeader class="evidence-header">
+		{{ 'koby.work.evidence.title' | translate }}
+		<mat-chip-set>
+			<mat-chip>{{ references().length }}</mat-chip>
+		</mat-chip-set>
+	</span>
+	<div obCollapseMain>
+		<div class="evidence-list">
+			@for (reference of references(); track reference.quote) {
+				<div class="evidence">
+					<p class="evidence__quote">«{{ reference.quote }}»</p>
+					<div class="evidence__meta">
+						<span class="evidence__letter">{{ reference.letter }}</span>
+						<span>
+							{{ 'koby.work.evidence.page' | translate }} {{ reference.page }}
+							@if (reference.para !== undefined) {
+								· {{ 'koby.work.evidence.paragraph' | translate }} {{ reference.para }}
+							}
+						</span>
+						<span class="evidence__spacer"></span>
+						<button type="button" mat-button obButton="secondary" (click)="requestPreview.emit()">
+							{{ 'koby.work.evidence.show' | translate }}
+						</button>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</ob-collapse>

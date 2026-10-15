@@ -1,0 +1,46 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+.work-review {
+	display: flex;
+	flex-direction: column;
+	gap: variables.$ob-spacing-xxl;
+}
+
+.work-review__header {
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+	gap: variables.$ob-spacing-default;
+
+	h2 {
+		margin: 0;
+	}
+}
+
+.work-review__document {
+	color: variables.$ob-gray-dark;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.work-review__footer {
+	align-items: center;
+	border-top: 1px solid variables.$ob-gray-light;
+	display: flex;
+	flex-wrap: wrap;
+	gap: variables.$ob-spacing-default;
+	justify-content: space-between;
+	padding-top: variables.$ob-spacing-xxl;
+}
+
+.work-review__actions {
+	align-items: center;
+	display: flex;
+	gap: variables.$ob-spacing-default;
+}
+
+.work-review__disclaimer {
+	color: variables.$ob-gray-dark;
+	max-width: 480px;
+}

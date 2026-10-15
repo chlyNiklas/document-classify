@@ -1,0 +1,75 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+// Shared class primitives of the demo workbench, included by the component stylesheets
+// (component encapsulation needs one copy per component).
+
+@mixin demo-card() {
+	.card {
+		background-color: #ffffff;
+		border: 1px solid variables.$ob-gray-light;
+		border-radius: variables.$ob-border-radius-base;
+		padding: variables.$ob-spacing-xxl;
+	}
+
+	.card__header {
+		align-items: baseline;
+		display: flex;
+		flex-wrap: wrap;
+		gap: variables.$ob-spacing-default;
+		justify-content: space-between;
+	}
+
+	.card__title {
+		font-size: variables.$ob-font-size-lg;
+		margin: 0;
+	}
+
+	.card__aside,
+	.card__hint {
+		color: variables.$ob-gray-dark;
+	}
+}
+
+@mixin demo-tiles() {
+	.tilerow {
+		display: grid;
+		gap: variables.$ob-spacing-sm;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
+
+	.tile {
+		border: 1px solid variables.$ob-gray-light;
+		border-radius: variables.$ob-border-radius-base;
+		display: flex;
+		flex-direction: column;
+		gap: variables.$ob-spacing-xs;
+		padding: variables.$ob-spacing-default;
+
+		b {
+			font-weight: 600;
+		}
+
+		small {
+			font-size: variables.$ob-font-size-xs;
+		}
+
+		span,
+		small {
+			color: variables.$ob-gray-dark;
+		}
+
+		&__note {
+			font-size: variables.$ob-font-size-xs;
+		}
+
+		&--marked {
+			background-color: variables.$ob-success-light;
+			border-color: variables.$ob-primary;
+		}
+
+		&--disabled {
+			background-color: variables.$ob-gray-extra-light;
+			color: variables.$ob-gray;
+		}
+	}
+}

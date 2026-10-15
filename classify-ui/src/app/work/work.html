@@ -1,0 +1,16 @@
+<section class="work" data-testid="work-page">
+	<ob-alert type="info" class="work__guidance-alert">
+		<strong>{{ 'koby.work.guidance-alert.title' | translate }}</strong>
+		<p>{{ 'koby.work.guidance-alert.text' | translate }}</p>
+	</ob-alert>
+
+	<app-work-intake (canceled)="cancel($event)" />
+
+	@if (busyDocument(); as document) {
+		<app-work-busy [document]="document" (canceled)="cancel($event)" />
+	}
+
+	@if (pendingDocument(); as document) {
+		<app-work-review [document]="document" />
+	}
+</section>
