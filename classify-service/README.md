@@ -8,7 +8,7 @@ The current implementation provides:
 - a synchronous classification endpoint backed by the configured KOBY LLM;
 - text extraction for PDF, DOCX, and UTF-8 plain-text uploads.
 
-It does not yet perform OCR, chunking, persistence or metadata updates.
+It does not yet perform OCR, persistence or metadata updates.
 
 ## Requirements
 
@@ -39,20 +39,32 @@ The token and model request timeout defaults to 120 seconds and can be changed w
 `KOBY_TIMEOUT_SECONDS`. Timeout, connection, protocol, and HTTP status failures are reported
 separately without exposing credentials or response contents.
 
+The service requests `low` model reasoning effort by default because classification uses explicit
+rules and a constrained schema. Configure `KOBY_REASONING_EFFORT` as `low`, `medium`, or `high`
+if the selected KOBY model supports a different tradeoff.
+
 The service loads the compact `REGELWERK_ISG_KLASSIFIZIERUNG.md` and
-`REGELWERK_DSG_KLASSIFIZIERUNG.md` policy packs from the repository root at startup. It sends both
-to KOBY in one request and validates the two assessments independently. Deployments that store the
-files elsewhere can set `KOBY_ISG_RULEBOOK_PATH` and `KOBY_DSG_RULEBOOK_PATH` to absolute paths.
-Startup fails if either policy pack cannot be loaded.
+`REGELWERK_DSG_KLASSIFIZIERUNG.md` policy packs from the repository root at startup. It sends two
+concurrent KOBY requests: one with only the ISG/ISV rules and one with only the DSG rules. The
+service validates and, when necessary, retries each assessment independently before combining them
+into one response. Deployments that store the files elsewhere can set `KOBY_ISG_RULEBOOK_PATH` and
+`KOBY_DSG_RULEBOOK_PATH` to absolute paths. Startup fails if either policy pack cannot be loaded.
 
 Before the KOBY call, the service also detects formally valid AHV numbers and passes only a masked,
 structured finding to the model. The deterministic finding is merged into the validated DSG result,
 so an omitted AHV finding cannot result in `keine personendaten`.
 
-If KOBY returns malformed JSON or violates the nested schema, the service sends one corrective
-request containing only the validation messages, never the invalid output. A second invalid response
-is returned as HTTP 502 with the schema locations that still failed and is logged without document
-content.
+Documents longer than 50,000 extracted characters are split on paragraph, line, sentence, or word
+boundaries. Each policy pipeline processes its chunks sequentially, while the ISG/ISV and DSG
+pipelines run in parallel, keeping at most two KOBY requests active. The service conservatively
+aggregates the highest classification and detection levels, deduplicates reasons and legal bases,
+and sums DSG findings across non-overlapping chunks. Configure the threshold with
+`KOBY_CLASSIFY_CLASSIFICATION_CHUNK_CHARACTERS`.
+
+If either KOBY response contains malformed JSON or violates its schema, only that assessment gets
+one corrective request containing the validation messages, never the invalid output. A second
+invalid response is returned as HTTP 502 with the schema locations that still failed and is logged
+without document content.
 
 The API is then available at `http://127.0.0.1:8000` and the OpenAPI UI at `http://127.0.0.1:8000/docs`.
 
@@ -85,7 +97,7 @@ The response contains independent ISG/ISV and DSG assessments:
 ```json
 {
   "isg_isv": {
-    "classification": "nicht klassifiziert",
+    "classification": "unclassified",
     "reasons": [
       "Kein konkretes Schadensszenario nach Art. 18–20 ISV ist erkennbar."
     ],
@@ -94,7 +106,7 @@ The response contains independent ISG/ISV and DSG assessments:
     ]
   },
   "dsg": {
-    "classification": "personendaten",
+    "classification": "personal_data",
     "reasons": [
       "Das Dokument enthält eine formal gültige AHV-Nummer."
     ],

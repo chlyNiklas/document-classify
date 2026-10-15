@@ -2,7 +2,7 @@ import asyncio
 import json
 import ssl
 from time import monotonic
-from typing import Any
+from typing import Any, Literal
 
 import httpx
 import truststore
@@ -22,20 +22,20 @@ class KobyClient:
         token_url: str | None,
         client_id: str | None,
         client_secret: str | None,
-        system_prompt: str,
         model: str | None = None,
         ca_bundle: str | None = None,
         verify_tls: bool = True,
         timeout_seconds: float = 60.0,
+        reasoning_effort: Literal["low", "medium", "high"] | None = "low",
     ) -> None:
         self._url = self._chat_completions_url(url)
         self._token_url = token_url
         self._client_id = client_id
         self._client_secret = client_secret
-        self._system_prompt = system_prompt
         self._model = model
         self._timeout_seconds = timeout_seconds
         self._timeout = httpx.Timeout(timeout_seconds)
+        self._reasoning_effort = reasoning_effort
         self._tls_verifier = self._create_tls_verifier(ca_bundle, verify_tls)
         self._access_token: str | None = None
         self._token_expires_at = 0.0
@@ -61,13 +61,16 @@ class KobyClient:
             return ssl.create_default_context(cafile=ca_bundle)
         return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 
-    async def classify(
+    async def assess(
         self,
         text: str,
         *,
+        assessment: Literal["isg_isv", "dsg"],
+        system_prompt: str,
         deterministic_findings: list[DsgFinding] | None = None,
         validation_feedback: str | None = None,
         language: ResponseLanguage = ResponseLanguage.GERMAN,
+        document_part: tuple[int, int] | None = None,
     ) -> str:
         if not all((self._url, self._token_url, self._client_id, self._client_secret)):
             raise KobyClientError(
@@ -75,10 +78,6 @@ class KobyClient:
                 "KOBY_CLIENT_SECRET must be configured"
             )
 
-        deterministic_findings_json = json.dumps(
-            [finding.model_dump(mode="json") for finding in deterministic_findings or []],
-            ensure_ascii=False,
-        )
         correction = ""
         if validation_feedback:
             correction = (
@@ -91,27 +90,51 @@ class KobyClient:
             ResponseLanguage.FRENCH: "Französisch",
             ResponseLanguage.ITALIAN: "Italienisch",
         }[language]
+        canonical_fields = (
+            "classification, category, profiling und high_risk_profiling"
+            if assessment == "dsg"
+            else "classification"
+        )
         language_instruction = (
             f"Schreibe alle Einträge in den Feldern reasons auf {language_name} "
-            f"(Sprachcode {language.value}). Die Werte in classification, category, "
-            "profiling und high_risk_profiling sind kanonische API-Werte und müssen "
+            f"(Sprachcode {language.value}). Die Werte in {canonical_fields} sind "
+            "kanonische API-Werte und müssen "
             "unverändert aus dem vorgegebenen Schema übernommen werden.\n\n"
         )
+        assessment_instruction = ""
+        if assessment == "dsg":
+            deterministic_findings_json = json.dumps(
+                [finding.model_dump(mode="json") for finding in deterministic_findings or []],
+                ensure_ascii=False,
+            )
+            assessment_instruction = (
+                "Führe nur die DSG-Beurteilung aus. Die folgenden deterministischen "
+                "Befunde wurden vom Service validiert und müssen berücksichtigt werden. "
+                "Erfinde keine weiteren deterministischen Befunde.\n\n"
+                "<deterministische-befunde>\n"
+                f"{deterministic_findings_json}\n"
+                "</deterministische-befunde>\n\n"
+            )
+        else:
+            assessment_instruction = "Führe nur die ISG/ISV-Beurteilung aus.\n\n"
+
+        part_instruction = ""
+        if document_part and document_part[1] > 1:
+            part_instruction = (
+                f"Du analysierst Teil {document_part[0]} von {document_part[1]} des "
+                "Dokuments. Beurteile die in diesem Teil vorhandenen Inhalte eigenständig; "
+                "der Service führt die Teilresultate anschliessend zusammen.\n\n"
+            )
+
         payload: dict[str, Any] = {
             "messages": [
-                {"role": "system", "content": self._system_prompt},
+                {"role": "system", "content": system_prompt},
                 {
                     "role": "user",
                     "content": (
-                        f"{correction}{language_instruction}Analysiere den Inhalt zwischen "
-                        "den Dokumentmarkierungen. "
-                        "Die folgenden "
-                        "deterministischen Befunde wurden vom Service validiert und müssen in der "
-                        "DSG-Beurteilung berücksichtigt werden. Erfinde keine weiteren "
-                        "deterministischen Befunde.\n\n"
-                        "<deterministische-befunde>\n"
-                        f"{deterministic_findings_json}\n"
-                        "</deterministische-befunde>\n\n"
+                        f"{correction}{language_instruction}{part_instruction}Analysiere den "
+                        "Inhalt zwischen den Dokumentmarkierungen. "
+                        f"{assessment_instruction}"
                         f"<dokument>\n{text}\n</dokument>"
                     ),
                 },
@@ -120,6 +143,8 @@ class KobyClient:
         }
         if self._model:
             payload["model"] = self._model
+        if self._reasoning_effort:
+            payload["reasoning_effort"] = self._reasoning_effort
 
         try:
             async with httpx.AsyncClient(

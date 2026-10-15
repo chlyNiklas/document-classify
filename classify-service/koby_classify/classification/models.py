@@ -5,16 +5,16 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 
 class InformationClassification(StrEnum):
-    NOT_CLASSIFIED = "nicht klassifiziert"
-    INTERNAL = "intern"
-    CONFIDENTIAL = "vertraulich"
-    SECRET = "geheim"
+    NOT_CLASSIFIED = "unclassified"
+    INTERNAL = "internal"
+    CONFIDENTIAL = "confidential"
+    SECRET = "secret"
 
 
 class DataProtectionClassification(StrEnum):
-    NO_PERSONAL_DATA = "keine personendaten"
-    PERSONAL_DATA = "personendaten"
-    SENSITIVE_PERSONAL_DATA = "besonders schützenswerte personendaten"
+    NO_PERSONAL_DATA = "no_personal_data"
+    PERSONAL_DATA = "personal_data"
+    SENSITIVE_PERSONAL_DATA = "sensitive_personal_data"
 
 
 class DataProtectionFindingCategory(StrEnum):
@@ -57,10 +57,13 @@ class IsgIsvAssessment(BaseModel):
 
         if self.classification is InformationClassification.SECRET:
             reasons = " ".join(self.reasons)
-            if "Eskalation" not in reasons or not re.search(
-                r"Art\.\s*24\s+ISV", references
-            ):
-                raise ValueError("geheim requires escalation and an Art. 24 ISV reference")
+            mentions_escalation = re.search(
+                r"\b(?:Eskalation|escalade|escalation)\b",
+                reasons,
+                flags=re.IGNORECASE,
+            )
+            if not mentions_escalation or not re.search(r"Art\.\s*24\s+ISV", references):
+                raise ValueError("secret requires escalation and an Art. 24 ISV reference")
 
         return self
 
@@ -93,7 +96,7 @@ class DsgAssessment(BaseModel):
 
         if self.classification is DataProtectionClassification.NO_PERSONAL_DATA:
             if self.findings:
-                raise ValueError("keine personendaten cannot contain findings")
+                raise ValueError("no_personal_data cannot contain findings")
             if self.profiling is not DetectionStatus.NOT_DETECTED:
                 raise ValueError("profiling requires personal data")
             if self.high_risk_profiling is not DetectionStatus.NOT_DETECTED:
@@ -108,7 +111,7 @@ class DsgAssessment(BaseModel):
                 for finding in self.findings
             ):
                 raise ValueError(
-                    "besonders schützenswerte personendaten requires a sensitive finding"
+                    "sensitive_personal_data requires a sensitive finding"
                 )
         elif any(
             finding.category is DataProtectionFindingCategory.SENSITIVE_PERSONAL_DATA

@@ -1,7 +1,7 @@
 import json
 from functools import lru_cache
 from pathlib import Path
-from typing import Annotated
+from typing import Annotated, Literal
 
 from pydantic import AliasChoices, BeforeValidator, Field, SecretStr
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
@@ -46,6 +46,10 @@ class Settings(BaseSettings):
         gt=0,
         validation_alias="KOBY_TIMEOUT_SECONDS",
     )
+    koby_reasoning_effort: Literal["low", "medium", "high"] | None = Field(
+        default="low",
+        validation_alias="KOBY_REASONING_EFFORT",
+    )
     isg_rulebook_path: Path | None = Field(
         default=None,
         validation_alias="KOBY_ISG_RULEBOOK_PATH",
@@ -58,6 +62,7 @@ class Settings(BaseSettings):
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
     max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)
     max_extracted_characters: int = Field(default=100_000, gt=0)
+    classification_chunk_characters: int = Field(default=50_000, gt=0)
     cors_origins: Annotated[list[str], NoDecode, BeforeValidator(_split_origins)] = [
         "http://localhost:4200"
     ]
