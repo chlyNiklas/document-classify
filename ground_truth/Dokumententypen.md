@@ -1,4 +1,4 @@
-# Koby Ground Truth – Dokumententypen
+# Ground Truth – Dokumententypen
 
 ## Übersicht
 
