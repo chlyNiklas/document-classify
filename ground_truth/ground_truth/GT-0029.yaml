@@ -1,0 +1,59 @@
+schema_version: '1.0'
+test:
+  id: GT-0029
+  source_document_type: DOC-08
+  title: Beschaffungsdossier für einen verwaltungsweiten Übersetzungsdienst
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0029_DOC-08.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: d63f04e6b0211bb06ac5565b429dd92e0efdbb468f04b6bafbc4f8b79ea87650
+test_hypotheses:
+  primary_focus: vertraulichkeitsklausel
+  candidate_dimensions:
+  - section: Gegenstand
+    observation: Das Dossier enthält Leistungsanforderungen, Terminvorgaben und einen
+      Kriterienkatalog.
+    review_required: true
+  - section: Anbieterkontakte
+    observation: Die Tabelle nennt Namen, geschäftliche Rufnummern und Funktionen.
+    review_required: true
+  - section: Technische Anforderungen
+    observation: Das Dossier beschreibt Schnittstellen, Verfügbarkeit und Protokollierung
+      auf Anforderungsebene.
+    review_required: true
+  - section: Preismodell
+    observation: Eine Vergleichstabelle zeigt unterschiedliche Wartungs- und Schulungsanteile.
+    review_required: true
+  - section: Vertraulichkeitsklausel
+    observation: Die Formulierung ist eine Vertragsbestimmung und keine Klassifizierung
+      nach ISG/ISV.
+    review_required: true
+  - section: Evaluation
+    observation: Die Unterlagen zeigen vorläufige Gewichtungen, die noch genehmigt
+      werden müssen.
+    review_required: true
+  - section: Offene Fragen
+    observation: Einige Anforderungen werden als Option und nicht als Mindeststandard
+      diskutiert.
+    review_required: true
+  - section: Dokumentenstatus
+    observation: Ein Entwurfsvermerk ist nicht gleichbedeutend mit einer konkreten
+      ISV-Einstufung.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

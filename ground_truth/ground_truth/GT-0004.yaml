@@ -1,0 +1,46 @@
+schema_version: 0.1-draft
+case_id: GT-0004
+document:
+  filename: GT-0004_DOC-04.docx
+  type_id: DOC-04
+  format: docx
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Projektauftrag: Digitales Formulararchiv'
+  focus:
+  - financial_context
+  - catalogue_mapping
+  - missing_context
+facts:
+  evidence:
+  - section: 1
+    heading: Ausgangslage
+    quote: Die gegenwärtige Ablage von Formularvorlagen ist uneinheitlich. Das Projekt soll veröffentlichte
+      Vorlagen
+  - section: 2
+    heading: Zielsetzung
+    quote: Einführung einer Suche nach Fachgebiet und Publikationsjahr. Es werden keine ausgefüllten Formulare
+      übern
+  - section: 3
+    heading: Ressourcen
+    quote: Für die Initialphase sind 140 Personentage sowie ein Budgetrahmen von CHF 180 000 geplant.
+      Die Beträge si
+  - section: 4
+    heading: Risiken und Entscheide
+    quote: Eine Veröffentlichung des vorliegenden Projektauftrags ist nicht vorgesehen. Ob die Budget-
+      und Entscheid
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

@@ -1,0 +1,45 @@
+schema_version: 0.1-draft
+case_id: GT-0002
+document:
+  filename: GT-0002_DOC-02.docx
+  type_id: DOC-02
+  format: docx
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Protokoll: Koordinationssitzung Migration'
+  focus:
+  - ordinary_personal_data
+  - missing_context
+facts:
+  evidence:
+  - section: 1
+    heading: Teilnehmende
+    quote: 'Mara Keller (Vorsitz), Luis Frei (Betrieb), Sven Vogt (Beschaffung), Nina Blum (Protokoll).
+      Entschuldigt:'
+  - section: 2
+    heading: 'Traktandum 1: Stand der Migration'
+    quote: Von 42 vorgesehenen Anwendungen wurden 31 umgestellt. Das Team beschliesst, die allgemeine
+      Projektübersic
+  - section: 3
+    heading: 'Traktandum 2: Betrieb'
+    quote: Die Administrationsoberfläche des Altsystems bleibt bis zur Freigabe des Rückbauplans erreichbar.
+      Der gen
+  - section: 4
+    heading: Pendenzen
+    quote: Luis Frei klärt bis 20. Oktober die Abhängigkeiten; Sven Vogt bereitet einen Entwurf für die
+      Beschaffungs
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

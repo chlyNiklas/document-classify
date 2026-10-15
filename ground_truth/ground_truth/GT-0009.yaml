@@ -1,0 +1,42 @@
+schema_version: 0.1-draft
+case_id: GT-0009
+document:
+  filename: GT-0009_DOC-16.txt
+  type_id: DOC-16
+  format: txt
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Systemübersicht: zentraler Identitätsdienst'
+  focus:
+  - technical_risk
+  - no_personal_data
+  - missing_context
+facts:
+  evidence:
+  - section: 1
+    heading: Systemzweck
+    quote: Der zentrale Identitätsdienst übernimmt die Anmeldung für die Anwendungen Orion, Vega und Atlas.
+      Die Anme
+  - section: 2
+    heading: Betriebsabhängigkeiten
+    quote: 'Eine Fehlkonfiguration der Richtlinienverteilung könnte bewirken, dass alle drei Anwendungen
+      keine neuen '
+  - section: 3
+    heading: Weiteres Vorgehen
+    quote: Ein Architekturreview soll Möglichkeiten zur Entkopplung prüfen. Die Kritikalität der betroffenen
+      Geschäf
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

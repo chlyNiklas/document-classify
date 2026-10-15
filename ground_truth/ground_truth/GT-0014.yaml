@@ -1,0 +1,54 @@
+schema_version: 0.2-draft
+case_id: GT-0014
+document:
+  filename: GT-0014_DOC-13.docx
+  type_id: DOC-13
+  format: docx
+  synthetic: true
+  language: de-CH
+  sha256: 60370ebf9a816b1a7ef32b082dd3cf3e42cb501012858a2e748545012ded08bb
+scenario:
+  title: Auswertung eines Bewerbungsdossiers für die Fachstelle Datenqualität
+  length_words_approx: 299
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Anlass und Verfahren
+    quote: Für eine befristete Stelle im Bereich Datenqualität gingen acht Bewerbungen ein. Die Auswahlkom
+    reference_status: provisional
+  - section_index: 2
+    heading: Ausbildung und Berufserfahrung
+    quote: Nora Feld verfügt über einen Masterabschluss in Informationswissenschaften und vier Jahre Beruf
+    reference_status: provisional
+  - section_index: 3
+    heading: Referenzauskunft
+    quote: Ein früherer Vorgesetzter bestätigte die fachliche Zuverlässigkeit und die konstruktive Zusamme
+    reference_status: provisional
+  - section_index: 4
+    heading: Zusammenfassende Würdigung
+    quote: Die Kommission bewertet Fachwissen und Qualitätsbewusstsein als überdurchschnittlich; kommunika
+    reference_status: provisional
+  - section_index: 5
+    heading: Entscheidvorbereitung
+    quote: Vor einem Entscheid soll ein zweites Gespräch stattfinden. Dabei werden zwei fallbasierte Aufga
+    reference_status: provisional
+  - section_index: 6
+    heading: Verteilung und Aufbewahrung
+    quote: Der Bericht geht ausschliesslich an die Auswahlkommission und HR. Nach Abschluss des Verfahrens
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

@@ -1,0 +1,366 @@
+schema_version: '1.0'
+dataset:
+  id: koby-ground-truth
+  title: Dokumenttypen für synthetische ISG/ISV- und DSG-Testfälle
+  status: draft
+  target_documents: 100
+  purpose: Planungsgrundlage für die Generierung und fachliche Validierung synthetischer Testdokumente.
+    Dokumenttypen und technische Dateiformate sind getrennte Achsen. Diese Datei enthält ausdrücklich
+    keine verbindlichen rechtlichen Soll-Einstufungen.
+  classification_frameworks:
+  - ISG
+  - ISV
+  - DSG
+  classification_catalogues:
+  - id: BIT
+    status: pending_import
+  - id: BV
+    status: pending_import
+  supported_formats_note: 'Aktueller Umfang: Word (DOCX), PDF (durchsuchbar oder Scan), Plain Text (TXT).
+    PowerPoint und Excel sind zurückgestellt.'
+file_formats:
+- id: pdf_text
+  extension: .pdf
+  description: Durchsuchbares PDF
+  extraction_tests:
+  - text
+  - tables
+  - headers_footers
+  - annotations
+  - metadata
+- id: pdf_scan
+  extension: .pdf
+  description: Gescanntes PDF
+  extraction_tests:
+  - ocr
+  - image_only_pages
+  - recognition_errors
+- id: docx
+  extension: .docx
+  description: Word-Dokument
+  extraction_tests:
+  - paragraphs
+  - tables
+  - headers_footers
+  - comments
+  - tracked_changes
+  - metadata
+- id: txt
+  extension: .txt
+  description: Reiner Text
+  extraction_tests:
+  - encoding
+  - plain_text
+review_splits:
+  development: 50
+  validation: 25
+  blind_test: 25
+  assignment_rule: Inhaltliche Varianten desselben Basisszenarios müssen demselben Split angehören, damit
+    kein Informationsleck zwischen Entwicklung und Blindtest entsteht.
+document_types:
+- id: DOC-01
+  name: Öffentliche Medienmitteilung
+  category: kommunikation
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  - txt
+  focus:
+  - negative_control
+  - public_information
+  - names_of_officials
+- id: DOC-02
+  name: Allgemeines Sitzungsprotokoll
+  category: fuehrung
+  count: 5
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - basic_personal_data
+  - mixed_topics
+  - contextual_classification
+- id: DOC-03
+  name: Interne Aktennotiz
+  category: administration
+  count: 5
+  suitable_formats:
+  - docx
+  - pdf_text
+  - txt
+  focus:
+  - indirect_identification
+  - missing_context
+  - ambiguous_disclosure_impact
+- id: DOC-04
+  name: Projektantrag / Projektauftrag
+  category: projektmanagement
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - organisational_context
+  - financial_information
+  - catalogue_mapping
+- id: DOC-05
+  name: Statusbericht / Lagebericht
+  category: fuehrung
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - aggregated_information
+  - combined_risk
+  - classification_context
+- id: DOC-06
+  name: Managementbericht / Entscheidungsnotiz
+  category: fuehrung
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  - txt
+  focus:
+  - management_summary
+  - aggregated_information
+  - cross_section_inference
+- id: DOC-07
+  name: Budget- und Finanzbericht
+  category: finanzen
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - financial_context
+  - budget_figures
+  - sensitive_project_information
+- id: DOC-08
+  name: Beschaffungsunterlagen / Offerte
+  category: beschaffung
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - commercial_information
+  - supplier_contacts
+  - applicable_catalogue
+- id: DOC-09
+  name: Vertragsentwurf / Vereinbarung
+  category: recht
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - personal_data
+  - confidentiality_terms_vs_legal_classification
+- id: DOC-10
+  name: Personalverzeichnis / Kontaktliste
+  category: personal
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - direct_identifiers
+  - ordinary_personal_data
+  - linking_keys
+- id: DOC-11
+  name: Personalbeurteilung / Leistungsbericht
+  category: personal
+  count: 5
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - performance_data
+  - personality_assessment
+  - sensitive_vs_ordinary
+- id: DOC-12
+  name: Gesundheits- oder Absenzenakte
+  category: personal
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_scan
+  - pdf_text
+  focus:
+  - health_data
+  - indirect_identification
+  - sensitive_personal_data
+- id: DOC-13
+  name: Rekrutierungs- und Bewerbungsdossier
+  category: personal
+  count: 4
+  suitable_formats:
+  - pdf_text
+  - docx
+  focus:
+  - personal_data
+  - references
+  - mixed_data_categories
+- id: DOC-14
+  name: Statistik / anonymisierter Bericht
+  category: statistik
+  count: 4
+  suitable_formats:
+  - pdf_text
+  focus:
+  - anonymisation
+  - small_groups
+  - reidentification_risk
+  - negative_control
+- id: DOC-15
+  name: Umfrage- und Befragungsauswertung
+  category: statistik
+  count: 4
+  suitable_formats:
+  - pdf_text
+  focus:
+  - free_text_identifiers
+  - profiling_indicators
+  - aggregation
+- id: DOC-16
+  name: Systemarchitektur / technische Systemdokumentation
+  category: it_sicherheit
+  count: 5
+  suitable_formats:
+  - pdf_text
+  - docx
+  focus:
+  - technical_risk
+  - textual_architecture
+  - no_personal_data
+- id: DOC-17
+  name: Schwachstellenbericht / Penetrationstest
+  category: it_sicherheit
+  count: 4
+  suitable_formats:
+  - pdf_text
+  - docx
+  focus:
+  - exploitability
+  - disclosure_impact
+  - context_dependent_classification
+- id: DOC-18
+  name: Sicherheitsvorfall / Incident-Report
+  category: it_sicherheit
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  focus:
+  - technical_and_personal_data
+  - timelines
+  - combined_findings
+- id: DOC-19
+  name: Berechtigungs- und Zugriffsübersicht
+  category: it_betrieb
+  count: 4
+  suitable_formats:
+  - docx
+  - pdf_text
+  - txt
+  focus:
+  - user_identifiers
+  - system_privileges
+  - cross_section_linkage
+- id: DOC-20
+  name: Audit- und Prüfbericht
+  category: compliance
+  count: 4
+  suitable_formats:
+  - pdf_text
+  - docx
+  focus:
+  - control_weaknesses
+  - legal_context
+  - third_party_information
+- id: DOC-21
+  name: Verwaltungs- oder Strafverfahrensakte
+  category: verfahren
+  count: 4
+  suitable_formats:
+  - pdf_scan
+  - pdf_text
+  - docx
+  focus:
+  - sensitive_personal_data
+  - procedural_context
+  - identification
+- id: DOC-22
+  name: Korrespondenz / E-Mail-Export
+  category: kommunikation
+  count: 4
+  suitable_formats:
+  - txt
+  - pdf_text
+  - docx
+  focus:
+  - quoted_content
+  - multiple_people
+  - misleading_instructions
+- id: DOC-23
+  name: Datenexport / textbasierte Fallliste
+  category: datenbestand
+  count: 4
+  suitable_formats:
+  - txt
+  - docx
+  - pdf_text
+  focus:
+  - cross_section_linkage
+  - identifiers
+  - derived_attributes
+  - personality_assessment
+- id: DOC-24
+  name: Weisung / Richtlinie / Arbeitshilfe
+  category: governance
+  count: 4
+  suitable_formats:
+  - pdf_text
+  - docx
+  focus:
+  - quoted_classification_labels
+  - policy_vs_document_content
+  - negative_control
+scenario_dimensions:
+  privacy:
+  - no_personal_data
+  - ordinary_personal_data
+  - sensitive_personal_data
+  - direct_identification
+  - indirect_identification
+  - reidentification_possible
+  - personality_assessment_possible
+  - profiling_indicated
+  - insufficient_processing_context
+  information_security:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+  - catalogue_condition
+  - catalogue_exception
+  - multiple_information_types
+  robustness:
+  - misleading_classification_label
+  - prompt_injection
+  - contradictory_sections
+  - hidden_content
+  - incomplete_extraction
+  - language_variation
+  - cross_section_or_document_linkage
+annotation_policy:
+  legal_outcomes_are_not_derived_from_document_type: true
+  ground_truth_must_be_manually_validated: true
+  distinguish_not_present_from_not_assessable: true
+  keep_fact_findings_separate_from_legal_assessment: true
+  every_positive_finding_requires_evidence_location: true
+  classification_catalogue_entries_require_source_and_version: true
+  use_only_synthetic_persons_and_organisations: true

@@ -1,0 +1,41 @@
+schema_version: 0.1-draft
+case_id: GT-0001
+document:
+  filename: GT-0001_DOC-01.pdf
+  type_id: DOC-01
+  format: pdf
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Medienmitteilung: Pilotbetrieb Bürgerportal'
+  focus:
+  - negative_control
+  - ordinary_personal_data
+facts:
+  evidence:
+  - section: 1
+    heading: Neues Bürgerportal startet in Pilotphase
+    quote: 'Das fiktive Bundesamt für Digitale Dienste (BDD) eröffnet am 2. November 2026 einen Pilotbetrieb
+      für das '
+  - section: 2
+    heading: Öffentlich zugängliche Informationen
+    quote: Das Angebot enthält ausschliesslich bereits veröffentlichte Informationen. Die Rückmeldungen
+      erfolgen übe
+  - section: 3
+    heading: Kontakt
+    quote: Medienanfragen beantwortet Dr. Nora Beispiel, Leiterin Kommunikation, unter medien@bdd.example.
+      Die zustä
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: not_classified
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

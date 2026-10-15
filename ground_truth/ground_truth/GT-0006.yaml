@@ -1,0 +1,46 @@
+schema_version: 0.1-draft
+case_id: GT-0006
+document:
+  filename: GT-0006_DOC-11.docx
+  type_id: DOC-11
+  format: docx
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Mitarbeiterbeurteilung: Jahresgespräch'
+  focus:
+  - ordinary_personal_data
+  - personality_assessment_possible
+  - sensitive_vs_ordinary
+facts:
+  evidence:
+  - section: 1
+    heading: Person und Aufgabe
+    quote: 'Beurteilte Person: Timo Berger, Sachbearbeiter Service Desk, Personal-ID F-2047. Vorgesetzte:
+      Eva Sommer.'
+  - section: 2
+    heading: Leistung
+    quote: 'Bearbeitungsqualität: 4 von 5. Termintreue: 3 von 5. Kommunikation mit internen Kundinnen
+      und Kunden: 4 v'
+  - section: 3
+    heading: Zusammenfassende Einschätzung
+    quote: Timo Berger arbeitet sehr zuverlässig in wiederkehrenden Fällen, benötigt bei mehrdeutigen
+      Eskalationen g
+  - section: 4
+    heading: Entwicklungsvereinbarung
+    quote: Bis März 2027 wird ein Schulungsplan ausgearbeitet. Es werden keine medizinischen Angaben,
+      Strafverfahren
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

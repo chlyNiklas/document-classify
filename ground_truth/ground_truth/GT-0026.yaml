@@ -1,0 +1,56 @@
+schema_version: '1.0'
+test:
+  id: GT-0026
+  source_document_type: DOC-06
+  title: Entscheidungsnotiz zur Konsolidierung regionaler Dienste
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0026_DOC-06.docx
+  format: docx
+  synthetic: true
+  sha256: 2440710e7f9f7753208b7b814962075249a229322be2e764947c625c5b83b317
+test_hypotheses:
+  primary_focus: kontextabhaengigkeit
+  candidate_dimensions:
+  - section: Management Summary
+    observation: Drei Szenarien unterscheiden sich in Kosten, Personalbedarf und Übergangszeit.
+    review_required: true
+  - section: Wirtschaftliche Eckwerte
+    observation: Szenario B sieht höhere Investitionen und später eintretende Einsparungen
+      vor.
+    review_required: true
+  - section: Betriebliche Auswirkungen
+    observation: Für zwei Standorte wird eine Phase mit parallelem Betrieb empfohlen.
+    review_required: true
+  - section: Personalfolgen
+    observation: Der Bericht enthält keine namentlichen Personalentscheide, jedoch
+      eine kleine Funktionsgruppe mit nur einer Person.
+    review_required: true
+  - section: Optionenvergleich
+    observation: Bei Szenario C ist die Versorgung eines kleinen Standorts zeitweise
+      eingeschränkt.
+    review_required: true
+  - section: Abhängigkeiten
+    observation: Ein Teil der Termine wird im Projektportfolio als vorläufig geführt.
+    review_required: true
+  - section: Beschlussantrag
+    observation: Die spätere Standortentscheidung bleibt ausdrücklich vorbehalten.
+    review_required: true
+  - section: Offene Punkte
+    observation: Die Vorlage enthält dazu Fragen, aber keine endgültigen Antworten.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

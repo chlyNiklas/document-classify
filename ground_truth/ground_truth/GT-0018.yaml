@@ -1,0 +1,58 @@
+schema_version: 0.2-draft
+case_id: GT-0018
+document:
+  filename: GT-0018_DOC-20.docx
+  type_id: DOC-20
+  format: docx
+  synthetic: true
+  language: de-CH
+  sha256: 52506dc9a09f17e48fb0db26b0e1d530015f80602c9c8389304f55c395329ab1
+scenario:
+  title: 'Interner Auditbericht: Dokumentationspflichten im Servicemanagement'
+  length_words_approx: 284
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Prüfgegenstand
+    quote: Die Interne Revision untersuchte, ob Störungen, Änderungen und technische Freigaben im Servicem
+    reference_status: provisional
+  - section_index: 2
+    heading: Methode
+    quote: Das Prüfteam führte acht Interviews, prüfte Stichproben aus dem Ticketsystem und verglich diese
+    reference_status: provisional
+  - section_index: 3
+    heading: Feststellung A – Dokumentation
+    quote: In elf von vierzig Vorgängen war die Begründung für die Prioritätsvergabe unvollständig. Daraus
+    reference_status: provisional
+  - section_index: 4
+    heading: Feststellung B – Prozessabweichung
+    quote: Bei drei Notfalländerungen wurden Freigaben erst am folgenden Arbeitstag dokumentiert. Die tech
+    reference_status: provisional
+  - section_index: 5
+    heading: Verantwortlichkeiten
+    quote: Für den Massnahmenplan verantwortlich sind die Prozessverantwortliche Olivia Muster und der Bet
+    reference_status: provisional
+  - section_index: 6
+    heading: Beurteilung der Weitergabe
+    quote: Der Bericht ist derzeit für die geprüften Bereiche und die Führung bestimmt. Eine Veröffentlich
+    reference_status: provisional
+  - section_index: 7
+    heading: Massnahmenplan
+    quote: 'Bis 15. November wird eine verbindliche Vorlage für Priorisierungsentscheidungen erstellt. Bis '
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

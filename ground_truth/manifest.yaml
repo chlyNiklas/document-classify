@@ -1,0 +1,74 @@
+dataset_id: koby-ground-truth
+batch: GT-0021..GT-0030
+status: pending_legal_review
+cases:
+- id: GT-0021
+  title: Weisung zur Verwendung generativer Assistenzsysteme
+  document_type: DOC-24
+  format: docx
+  words_approx: 1625
+  document: documents/GT-0021_DOC-24.docx
+  ground_truth: ground_truth/GT-0021.yaml
+- id: GT-0022
+  title: Fallübersicht zur Koordination von Unterstützungsleistungen
+  document_type: DOC-23
+  format: txt
+  words_approx: 1615
+  document: documents/GT-0022_DOC-23.txt
+  ground_truth: ground_truth/GT-0022.yaml
+- id: GT-0023
+  title: Aktennotiz zum verwaltungsrechtlichen Prüfverfahren
+  document_type: DOC-21
+  format: pdf_text
+  words_approx: 1607
+  document: documents/GT-0023_DOC-21.pdf
+  ground_truth: ground_truth/GT-0023.yaml
+- id: GT-0024
+  title: Technischer Schwachstellenbericht zur Identitätsplattform
+  document_type: DOC-17
+  format: pdf_text
+  words_approx: 1592
+  document: documents/GT-0024_DOC-17.pdf
+  ground_truth: ground_truth/GT-0024.yaml
+- id: GT-0025
+  title: Statistische Auswertung zu Arbeitsabsenzen
+  document_type: DOC-14
+  format: pdf_text
+  words_approx: 1583
+  document: documents/GT-0025_DOC-14.pdf
+  ground_truth: ground_truth/GT-0025.yaml
+- id: GT-0026
+  title: Entscheidungsnotiz zur Konsolidierung regionaler Dienste
+  document_type: DOC-06
+  format: docx
+  words_approx: 1567
+  document: documents/GT-0026_DOC-06.docx
+  ground_truth: ground_truth/GT-0026.yaml
+- id: GT-0027
+  title: Aktennotiz zur internen Personalplanung
+  document_type: DOC-03
+  format: docx
+  words_approx: 1601
+  document: documents/GT-0027_DOC-03.docx
+  ground_truth: ground_truth/GT-0027.yaml
+- id: GT-0028
+  title: Bericht zu einer Fehlkonfiguration im Serviceportal
+  document_type: DOC-18
+  format: pdf_text
+  words_approx: 1575
+  document: documents/GT-0028_DOC-18.pdf
+  ground_truth: ground_truth/GT-0028.yaml
+- id: GT-0029
+  title: Beschaffungsdossier für einen verwaltungsweiten Übersetzungsdienst
+  document_type: DOC-08
+  format: pdf_text
+  words_approx: 1549
+  document: documents/GT-0029_DOC-08.pdf
+  ground_truth: ground_truth/GT-0029.yaml
+- id: GT-0030
+  title: Lagebericht zur Stabilität eines gemeinsamen Basisdienstes
+  document_type: DOC-05
+  format: txt
+  words_approx: 1555
+  document: documents/GT-0030_DOC-05.txt
+  ground_truth: ground_truth/GT-0030.yaml

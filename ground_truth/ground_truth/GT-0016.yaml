@@ -1,0 +1,58 @@
+schema_version: 0.2-draft
+case_id: GT-0016
+document:
+  filename: GT-0016_DOC-17.pdf
+  type_id: DOC-17
+  format: pdf
+  synthetic: true
+  language: de-CH
+  sha256: a9c7f7e21da27a0b79f2de2e387352f8206bbc33cad6939107d61c1cfec9355d
+scenario:
+  title: 'Prüfbericht: Härtungszustand einer Fachanwendung'
+  length_words_approx: 333
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Auftrag und Umfang
+    quote: Im September 2026 wurde die fiktive Fachanwendung LYNX im Test- und Produktionskontext auf grun
+    reference_status: provisional
+  - section_index: 2
+    heading: Feststellung 1 – Rollen
+    quote: In einer von vier geprüften Administrationsgruppen waren drei ehemalige Projektkonten weiterhin
+    reference_status: provisional
+  - section_index: 3
+    heading: Feststellung 2 – Änderungsmanagement
+    quote: Für zwei Konfigurationsänderungen fehlte die dokumentierte Freigabe durch die vorgesehene zweit
+    reference_status: provisional
+  - section_index: 4
+    heading: Feststellung 3 – Protokollierung
+    quote: Die Logübermittlung war an zwei Tagen unterbrochen. Die Ursachenanalyse deutet auf einen Kapazi
+    reference_status: provisional
+  - section_index: 5
+    heading: Risikoeinschätzung
+    quote: Die Anwendung unterstützt mehrere Geschäftsprozesse. Deren rechtliche oder betriebliche Kritika
+    reference_status: provisional
+  - section_index: 6
+    heading: Massnahmen
+    quote: Der Betrieb soll die Gruppenzuordnungen bereinigen, den Freigabeprozess schriftlich präzisieren
+    reference_status: provisional
+  - section_index: 7
+    heading: Weitergabe
+    quote: 'Der Bericht ist an Betrieb, Informationssicherheit und zuständige Führung gerichtet. Vor einer '
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
