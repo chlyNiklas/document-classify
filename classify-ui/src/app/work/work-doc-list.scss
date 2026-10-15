@@ -1,7 +1,6 @@
 @use "@oblique/oblique/styles/scss/core/variables";
 @use "../shared/demo-shared" as demo-shared;
 
-
 .doclist {
 	margin-top: variables.$ob-spacing-lg;
 	overflow-x: auto;
@@ -12,7 +11,6 @@
 	display: flex;
 	gap: variables.$ob-spacing-sm;
 }
-
 
 // Lets the select button blend into the table cell instead of showing the
 // native button box (padding, line-height, background from the core styles).
@@ -32,21 +30,12 @@
 	font-weight: 600;
 }
 
-.doclist__meta {
-	color: variables.$ob-gray-dark;
-	display: block;
-}
-
 .doclist__status--done {
 	color: variables.$ob-success;
 }
 
 .doclist__status--busy {
 	color: variables.$ob-warning;
-}
-
-.doclist__row--selected {
-	border-left: 4px solid variables.$ob-primary;
 }
 
 .doclist__empty {
