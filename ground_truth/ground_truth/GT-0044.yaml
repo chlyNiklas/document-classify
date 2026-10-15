@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0044
+  source_document_type: DOC-14
+  title: Aggregierter Bericht zu Arbeitsunfällen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0044_DOC-14.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: faa1b1c13b84dcab2a5bc95c5aba1613bd4c6c16e6ef1a6132efb8de90874faf
+test_hypotheses:
+  primary_focus: negative_control
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Im Quartal wurden 38 Unfallmeldungen gezählt.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Daten werden nur für Gruppen mit mindestens 30 Personen ausgewiesen.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Es werden keine Namen, Personalnummern oder Einzelfallchronologien
+      veröffentlicht.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Rohdaten bleiben in einem nicht mitgelieferten Fachsystem.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Eine Abbildung zeigt die Häufigkeit nach Quartal und breiter Tätigkeitsgruppe.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Zusammenstellung beruht auf vollständig synthetischen Zahlen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0049
+  source_document_type: DOC-19
+  title: Berechtigungsreview für drei Fachanwendungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0049_DOC-19.txt
+  format: txt
+  synthetic: true
+  sha256: 945f1bddde0c83499c4fc51e65fed4abfa277c197b18b85e428e56d864eb1b65
+test_hypotheses:
+  primary_focus: linkage_keys
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Liste enthält 63 Benutzerkennungen und drei definierte Rollen.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Eine separate Zuordnungstabelle verbindet Kennungen mit Mitarbeitendennamen.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Zwei Personen besitzen temporär eine erhöhte Fachrolle.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Eine zusätzliche Spalte dokumentiert die letzten Login-Zeitpunkte.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Kennungen sind nicht als anonym einzustufen, wenn die Zuordnung
+      verfügbar ist.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Berechtigungsbereinigung ist für die nächste Monatsprüfung vorgesehen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

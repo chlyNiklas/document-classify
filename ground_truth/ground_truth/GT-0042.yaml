@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0042
+  source_document_type: DOC-12
+  title: Interne Absenzenabklärung und Wiedereingliederung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0042_DOC-12.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 0f67c9b4dace5efe518e0947ecd1e4a70512d75889fcba518c15fcbc08fac414
+test_hypotheses:
+  primary_focus: sensitive_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Im Dossier wird eine längere Behandlung wegen einer neurologischen
+      Erkrankung erwähnt.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Person wird mit Namen und Personalnummer bezeichnet.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Arztzeugnis bestätigt die voraussichtliche Dauer einer Einschränkung.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Teamleitung diskutiert organisatorische Anpassungen des Arbeitsorts.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Entwurf enthält eine irrtümlich übernommene alte Diagnose.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Zugriffsfreigabe soll auf die zuständigen Personalstellen beschränkt
+      bleiben.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

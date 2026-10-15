@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0058
+  source_document_type: DOC-12
+  title: Verlaufsbericht einer beruflichen Wiedereingliederung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0058_DOC-12.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 2d551848d363b134debb683d795c027b6e249410661cba7bb7deea35891a58fc
+test_hypotheses:
+  primary_focus: sensitive_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Der Verlauf betrifft eine namentlich bezeichnete fiktive Mitarbeiterin.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Akte enthält Angaben zu physiotherapeutischer Behandlung und
+      Arbeitsfähigkeit.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Bericht beschreibt stufenweise angepasste Arbeitspensen.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein älteres Formular enthält einen inzwischen korrigierten Datumsfehler.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die vorgesetzte Stelle benötigt nur Angaben zur Einsatzplanung.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Medizinische Details sind für eine weitergehende Verteilung nicht
+      vorgesehen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

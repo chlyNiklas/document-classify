@@ -1,0 +1,50 @@
+schema_version: '1.0'
+test:
+  id: GT-0037
+  source_document_type: DOC-07
+  title: Mehrjahresbudget und interne Szenariorechnung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0037_DOC-07.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 72301ec95c7b297c767d8e9400fd19ac0647133a9192235c97d49f7542424547
+test_hypotheses:
+  primary_focus: financial_context
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Rechnung unterscheidet zwischen gesicherten Mitteln und Planwerten.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Eine geplante Sanierung hängt von der Bewilligung eines Folgeprojekts
+      ab.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Für das Jahr 2028 sind mehrere ausdrücklich unverbindliche Ansätze
+      vermerkt.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Unterlagen enthalten keine Angaben zu natürlichen Personen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Angebotspreis wurde aus einer noch laufenden Verhandlung übernommen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Ein öffentlicher Finanzbericht enthält nur die bereits beschlossenen
+      Summen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

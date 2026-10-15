@@ -1,0 +1,50 @@
+schema_version: '1.0'
+test:
+  id: GT-0054
+  source_document_type: DOC-24
+  title: Arbeitshilfe zur Auslegung interner Kennzeichnungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0054_DOC-24.docx
+  format: docx
+  synthetic: true
+  sha256: d46b2fd340d6a7a8f3e91d5ed52b1456d3f9419512faf7f5a192543c175bf2ec
+test_hypotheses:
+  primary_focus: misleading_classification_label
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Schulungsfolie zitiert mehrfach INTERN und VERTRAULICH als Beispiele.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Eine Mustergeschichte enthält den Ausdruck streng geheim ohne materiellen
+      Sachbezug.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Der Text erläutert, dass Wörter im Dokument kein automatischer Klassifizierungsentscheid
+      sind.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Personenbeispiele tragen künstliche Namen und haben keine realen
+      Vorbilder.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Arbeitshilfe unterscheidet Datenschutzprüfung und Informationsklassifizierung.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Ein Hinweis fordert bei fehlendem Kontext eine fachliche Rückfrage.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

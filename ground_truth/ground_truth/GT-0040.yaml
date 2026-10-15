@@ -1,0 +1,47 @@
+schema_version: '1.0'
+test:
+  id: GT-0040
+  source_document_type: DOC-10
+  title: Aktualisiertes Telefon- und Rollenverzeichnis
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0040_DOC-10.txt
+  format: txt
+  synthetic: true
+  sha256: 4781e1c84bab3e81325cba4f8bdf4256be6f87261f9d9bfc7d12b847a9a46b48
+test_hypotheses:
+  primary_focus: ordinary_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Das Verzeichnis umfasst 47 dienstliche Kontaktdatensätze.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Jeder Eintrag nennt Vorname, Nachname, Team, Durchwahl und Funktionsadresse.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die Spalte Diensttelefon enthält keine privaten Rufnummern.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Eine Abteilung hat nur eine stellvertretende Leitungsfunktion.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Veröffentlichung ist auf den internen Dienstbereich beschränkt.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Zwei Einträge sind wegen Stellenwechsel als veraltet gekennzeichnet.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0050
+  source_document_type: DOC-20
+  title: Auditbericht zur Lieferantensteuerung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0050_DOC-20.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: b3d24447d60657651476fd94936a5a3f4f8202d6880d27cdf412247c2c01ca50
+test_hypotheses:
+  primary_focus: control_weaknesses
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Bei sechs von fünfzehn Dossiers fehlen formale Abnahmeprotokolle.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Feststellung betrifft dokumentierte Prozesse, nicht die Schuld
+      Einzelner.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Eine Lieferantenbewertung enthält vorläufige Vertragsrisiken.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Zwei Massnahmen wurden terminiert, aber noch nicht abgeschlossen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Eine Managementzusammenfassung ist zur späteren Veröffentlichung
+      vorgesehen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Auswirkungen einer frühzeitigen Offenlegung sind noch zu würdigen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

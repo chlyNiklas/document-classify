@@ -1,0 +1,50 @@
+schema_version: '1.0'
+test:
+  id: GT-0041
+  source_document_type: DOC-11
+  title: Leistungsbeurteilung einer Sachbearbeiterin
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0041_DOC-11.docx
+  format: docx
+  synthetic: true
+  sha256: 6ed12f0091636835aedcebb8da9fa301184820d5f0a003f603e1d36725764a46
+test_hypotheses:
+  primary_focus: personality_assessment_possible
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Beurteilung betrifft Nora Beispiel und die Periode Januar bis
+      September.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Vorgesetzte beschreibt Arbeitsqualität, Zuverlässigkeit und Lernbereitschaft.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die Mitarbeiterin widerspricht zwei Bewertungen und legt eine Stellungnahme
+      bei.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Das Dokument enthält Angaben zu Konflikten am Arbeitsplatz, aber
+      keine Diagnose.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Beurteilung wird für ein Entwicklungsgespräch verwendet.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Es gibt keinen Hinweis auf eine automatisierte Profilerstellung.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

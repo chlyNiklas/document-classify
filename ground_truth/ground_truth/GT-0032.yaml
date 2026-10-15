@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0032
+  source_document_type: DOC-02
+  title: Protokoll der bereichsübergreifenden Steuerungssitzung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0032_DOC-02.docx
+  format: docx
+  synthetic: true
+  sha256: f0d646f621cad649c6b33201e36ef75edd6fd808f5dbefae0be9052c160af738
+test_hypotheses:
+  primary_focus: ordinary_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: In der Sitzung nahmen neun namentlich aufgeführte Mitarbeitende teil.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Entscheid über den Pilotbetrieb wurde auf Ende November vertagt.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die Sitzungsvorlage enthielt einen Budgetvergleich ohne personenbezogene
+      Angaben.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein Teilnehmender beantragte die Korrektur eines missverständlich
+      formulierten Votums.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Traktandum betraf vorläufige Wartungsfenster eines internen Systems.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Protokollfreigabe steht zum Zeitpunkt der Ablage noch aus.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0057
+  source_document_type: DOC-06
+  title: Strategienotiz zur Zusammenlegung zweier Servicestellen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0057_DOC-06.docx
+  format: docx
+  synthetic: true
+  sha256: 5651e06390bfc3a18af7aecdfe1482e706474f7e1ff9550f71f06710a36a67a5
+test_hypotheses:
+  primary_focus: combined_inference
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Strategienotiz beschreibt drei mögliche Standorte und Personalbedarfe.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Anhang enthält die Personalzahlen je sehr kleiner Funktionseinheit.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Es gibt noch keinen formellen Entscheid über die Verlagerung.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Einige Funktionen sind in einer Region jeweils nur einmal vertreten.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Kostenschätzung basiert auf offen gelegten öffentlichen Mietwerten.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Wirkung einer vorzeitigen Bekanntgabe auf laufende Gespräche
+      wird erörtert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,50 @@
+schema_version: '1.0'
+test:
+  id: GT-0034
+  source_document_type: DOC-04
+  title: Projektauftrag zur Erneuerung des Terminportals
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0034_DOC-04.docx
+  format: docx
+  synthetic: true
+  sha256: 8e5b910dd9e183a1e573254eaa093eb0194afd5d503a66bee8416ac059f79716
+test_hypotheses:
+  primary_focus: catalogue_mapping
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Das Portal vermittelt jährlich rund 180000 Termine an regionale Stellen.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Das geplante Budget beträgt 3,2 Millionen fiktive Franken.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Der Auftrag umfasst ein Anmeldeverfahren und eine Schnittstelle zu
+      Bestandsdiensten.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein externer Partner soll ausschliesslich synthetische Testdaten
+      erhalten.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Wirtschaftlichkeitsrechnung enthält Annahmen über künftige Betriebskosten.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die technische Zielarchitektur ist vor der Sicherheitsprüfung noch
+      offen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0059
+  source_document_type: DOC-16
+  title: Betriebshandbuch für den regionalen Datenaustausch
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0059_DOC-16.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 8825b6e6937548104d54c389903825b22ea69e7bdb8774f24d0f295233a53e60
+test_hypotheses:
+  primary_focus: technical_dependencies
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Ein Nachrichtendienst übermittelt technische Quittungen zwischen
+      vier Systemen.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Das Handbuch beschreibt Konfigurationsparameter und Wartungsabläufe.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Schaubild zeigt die Abhängigkeit vom gemeinsamen Schlüsseldienst.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Alle Personenbezeichnungen sind ausschliesslich Rollenbezeichnungen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die enthaltenen Beispieladressen liegen in reservierten Testnetzbereichen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Eine konkrete Einordnung erfordert die Prüfung des betroffenen Betriebsumfelds.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0035
+  source_document_type: DOC-05
+  title: Quartalslagebericht zum Fachbetrieb Bürgerregister
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0035_DOC-05.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 14d4fd06814ccbc3cacfb3a93dc1ce1301c0e0c774d90d508113016088c8bc9c
+test_hypotheses:
+  primary_focus: combined_risk
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Der Dienst war im Berichtszeitraum zu 99,6 Prozent erreichbar.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Drei Regionen meldeten wiederkehrende Verzögerungen bei Batchläufen.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Prozessdiagramm macht eine zentrale technische Abhängigkeit sichtbar.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die berichteten Fallzahlen sind nach Monat und Region zusammengefasst.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Abgleich mit regionalen Veröffentlichungen könnte einzelne Kleingruppen
+      erkennbar machen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Abteilung plant eine externe Kurzfassung ohne technische Einzelheiten.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
