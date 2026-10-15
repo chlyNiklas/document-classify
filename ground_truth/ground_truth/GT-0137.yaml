@@ -1,0 +1,45 @@
+schema_version: '1.2'
+test_id: GT-0137
+document:
+  filename: GT-0137_DOC-18.pdf
+  document_type_id: DOC-18
+  format: pdf
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: VERTRAULICH
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 2
+  - ISV Art. 19 lit. b
+  reasoning: Die im Sachverhalt dargestellten konkreten Offenlegungsfolgen entsprechen
+    dem erheblichen Beeinträchtigungstatbestand nach Art. 19 lit. b ISV. Keine Klassifizierung
+    aufgrund von Kennzeichnungen, Bearbeitungsanweisungen oder bloss vorhandenen Personendaten.
+  supporting_evidence:
+  - section: Sachverhalt und wesentliche Abhängigkeiten
+    quote: Die Unterlage erläutert, welche Entscheidungen inhaltlich voneinander abhängen
+      und welche beteiligten Stellen eine Freigabe erst nach Abstimmung erteilen können.
+      Ein unerledigter Entscheid könnte die gemeinsame Massnahme verzögern. Der Text
+  - section: Folgen einer unberechtigten Kenntnisnahme
+    quote: Eine vorzeitige Kenntnisnahme der ungelösten Abstimmungspunkte könnte den
+      Gegenspielern erlauben, die Durchführung der konkreten Bundes-Sicherheitsoperation
+      zu vereiteln. Es wäre damit nicht nur ein einzelner Routineeinsatz erschwert,
+      sondern das Ziel der noch laufenden gemeinsamen Operation ernsthaft gefährdet.
+  classification_not_based_on:
+  - document_label
+  - handling_instruction
+  - presence_of_personal_data
+  assumptions:
+  - Der dargestellte Sachverhalt besteht tatsächlich und ist zum Beurteilungszeitpunkt
+    relevant.
+  - Der Inhalt ist nicht bereits öffentlich verfügbar.
+  - Die beschriebenen erheblichen Folgen sind sachlich plausibel und fachlich nachgewiesen.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetisch konstruiert zur Prüfung von VERTRAULICH gemäss Art. 19 ISV; noch
+    keine juristisch validierte Ground Truth.

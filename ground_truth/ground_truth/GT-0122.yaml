@@ -1,0 +1,47 @@
+schema_version: '1.2'
+test_id: GT-0122
+document:
+  filename: GT-0122_DOC-05.pdf
+  document_type_id: DOC-05
+  format: pdf
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: VERTRAULICH
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 2
+  - ISV Art. 19 lit. a
+  reasoning: Die im Sachverhalt dargestellten konkreten Offenlegungsfolgen entsprechen
+    dem erheblichen Beeinträchtigungstatbestand nach Art. 19 lit. a ISV. Keine Klassifizierung
+    aufgrund von Kennzeichnungen, Bearbeitungsanweisungen oder bloss vorhandenen Personendaten.
+  supporting_evidence:
+  - section: Sachverhalt und wesentliche Abhängigkeiten
+    quote: Jede Variante setzt einen zeitlich abgestimmten Beschluss der Fachstelle,
+      der Finanzkoordination und zweier Vollzugsstellen voraus. Vor der abschliessenden
+      Auswertung sind die Bestätigungen bewusst nur intern abgestimmt. Eine einzelne
+      öffen
+  - section: Folgen einer unberechtigten Kenntnisnahme
+    quote: Kämen die Zwischenvarianten frühzeitig nach aussen, könnten betroffene
+      Akteure ihre Eingaben auf die unreifen Annahmen ausrichten und die Abstimmung
+      aller vier Stellen während mindestens einer Arbeitswoche erheblich behindern.
+      Die Leitung geht davon aus, dass weder eine einzelne Terminverschiebung noch
+      bloss ein Reputa
+  classification_not_based_on:
+  - document_label
+  - handling_instruction
+  - presence_of_personal_data
+  assumptions:
+  - Der dargestellte Sachverhalt besteht tatsächlich und ist zum Beurteilungszeitpunkt
+    relevant.
+  - Der Inhalt ist nicht bereits öffentlich verfügbar.
+  - Die beschriebenen erheblichen Folgen sind sachlich plausibel und fachlich nachgewiesen.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetisch konstruiert zur Prüfung von VERTRAULICH gemäss Art. 19 ISV; noch
+    keine juristisch validierte Ground Truth.

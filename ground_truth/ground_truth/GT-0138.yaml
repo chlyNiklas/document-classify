@@ -1,0 +1,46 @@
+schema_version: '1.2'
+test_id: GT-0138
+document:
+  filename: GT-0138_DOC-20.txt
+  document_type_id: DOC-20
+  format: txt
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: VERTRAULICH
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 2
+  - ISV Art. 19 lit. f
+  reasoning: Die im Sachverhalt dargestellten konkreten Offenlegungsfolgen entsprechen
+    dem erheblichen Beeinträchtigungstatbestand nach Art. 19 lit. f ISV. Keine Klassifizierung
+    aufgrund von Kennzeichnungen, Bearbeitungsanweisungen oder bloss vorhandenen Personendaten.
+  supporting_evidence:
+  - section: Sachverhalt und wesentliche Abhängigkeiten
+    quote: Das betroffene Verfahren liefert die gemeinsame Datengrundlage für überregionale
+      Entscheidungen. Bei gleichzeitigen Fehlern können die angeschlossenen Stellen
+      nicht zuverlässig erkennen, ob widersprüchliche Meldungen bereits bereinigt
+      wurde
+  - section: Folgen einer unberechtigten Kenntnisnahme
+    quote: Bei gezielter Störung auf Grundlage der noch unbekannten Abhängigkeit wäre
+      die Koordinations- und Betriebsfähigkeit der beteiligten kritischen Infrastrukturen
+      erheblich erschwert. Das Risiko liegt in einem tatsächlichen Betriebshindernis
+      über den Einzelbetrieb hinaus, nicht lediglich in einem abstrakten IT-Risiko.
+  classification_not_based_on:
+  - document_label
+  - handling_instruction
+  - presence_of_personal_data
+  assumptions:
+  - Der dargestellte Sachverhalt besteht tatsächlich und ist zum Beurteilungszeitpunkt
+    relevant.
+  - Der Inhalt ist nicht bereits öffentlich verfügbar.
+  - Die beschriebenen erheblichen Folgen sind sachlich plausibel und fachlich nachgewiesen.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetisch konstruiert zur Prüfung von VERTRAULICH gemäss Art. 19 ISV; noch
+    keine juristisch validierte Ground Truth.

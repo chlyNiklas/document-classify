@@ -1,0 +1,45 @@
+schema_version: '1.2'
+test_id: GT-0132
+document:
+  filename: GT-0132_DOC-05.pdf
+  document_type_id: DOC-05
+  format: pdf
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: VERTRAULICH
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 2
+  - ISV Art. 19 lit. f
+  reasoning: Die im Sachverhalt dargestellten konkreten Offenlegungsfolgen entsprechen
+    dem erheblichen Beeinträchtigungstatbestand nach Art. 19 lit. f ISV. Keine Klassifizierung
+    aufgrund von Kennzeichnungen, Bearbeitungsanweisungen oder bloss vorhandenen Personendaten.
+  supporting_evidence:
+  - section: Sachverhalt und wesentliche Abhängigkeiten
+    quote: Die Lageanalyse beschreibt eine noch bestehende Abhängigkeit zwischen Datenabgleich,
+      Freigabe der Transportkapazitäten und überregionaler Umleitung. Sie zeigt, dass
+      sich einzelne Wiederanlaufentscheidungen gegenseitig blockieren können, wen
+  - section: Folgen einer unberechtigten Kenntnisnahme
+    quote: Eine gezielte Ausnutzung dieses Wissens könnte den Betrieb einer kritischen
+      Transportinfrastruktur während einer grösseren Störung erheblich erschweren.
+      Die Folgen reichen im Szenario über eine lokale Verspätung oder einen vermeidbaren
+      administrativen Mehraufwand deutlich hinaus.
+  classification_not_based_on:
+  - document_label
+  - handling_instruction
+  - presence_of_personal_data
+  assumptions:
+  - Der dargestellte Sachverhalt besteht tatsächlich und ist zum Beurteilungszeitpunkt
+    relevant.
+  - Der Inhalt ist nicht bereits öffentlich verfügbar.
+  - Die beschriebenen erheblichen Folgen sind sachlich plausibel und fachlich nachgewiesen.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetisch konstruiert zur Prüfung von VERTRAULICH gemäss Art. 19 ISV; noch
+    keine juristisch validierte Ground Truth.

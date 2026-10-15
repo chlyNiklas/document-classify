@@ -1,0 +1,15 @@
+Fiktive Schweizer Bundesverwaltung · Fachunterlage · 15. Oktober 2026
+
+Zentrale Abhängigkeiten bei einer kritischen Informationsdrehscheibe
+
+Ausgangslage
+Der interne Prüfbericht untersucht eine fiktive zentrale Informationsdrehscheibe, auf deren Lageabgleich mehrere Betreiber kritischer Infrastruktur angewiesen sind. Die Prüfer beschreiben eine Abhängigkeit, die trotz bereits eingeleiteter Massnahmen noch besteht.
+
+Sachverhalt und wesentliche Abhängigkeiten
+Das betroffene Verfahren liefert die gemeinsame Datengrundlage für überregionale Entscheidungen. Bei gleichzeitigen Fehlern können die angeschlossenen Stellen nicht zuverlässig erkennen, ob widersprüchliche Meldungen bereits bereinigt wurden. Der Bericht ordnet die Abhängigkeit konkreten Betriebsfolgen zu und macht keine technischen Ausnutzungsschritte öffentlich.
+
+Folgen einer unberechtigten Kenntnisnahme
+Bei gezielter Störung auf Grundlage der noch unbekannten Abhängigkeit wäre die Koordinations- und Betriebsfähigkeit der beteiligten kritischen Infrastrukturen erheblich erschwert. Das Risiko liegt in einem tatsächlichen Betriebshindernis über den Einzelbetrieb hinaus, nicht lediglich in einem abstrakten IT-Risiko.
+
+Weiteres Vorgehen
+Die Prüfer fordern einen unabhängigen Rückfallkanal und gemeinsame Tests. Erst nach dokumentiertem Nachweis der Wirksamkeit soll die neue Betriebsphase freigegeben werden.

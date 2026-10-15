@@ -1,0 +1,45 @@
+schema_version: '1.2'
+test_id: GT-0126
+document:
+  filename: GT-0126_DOC-22.docx
+  document_type_id: DOC-22
+  format: docx
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: VERTRAULICH
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 2
+  - ISV Art. 19 lit. c
+  reasoning: Die im Sachverhalt dargestellten konkreten Offenlegungsfolgen entsprechen
+    dem erheblichen Beeinträchtigungstatbestand nach Art. 19 lit. c ISV. Keine Klassifizierung
+    aufgrund von Kennzeichnungen, Bearbeitungsanweisungen oder bloss vorhandenen Personendaten.
+  supporting_evidence:
+  - section: Sachverhalt und wesentliche Abhängigkeiten
+    quote: In zwei Nachrichten werden die berufliche Vorgeschichte, ein aussergewöhnlicher
+      Wechsel der Zuständigkeit und die Teilnahme an einem seltenen Verfahren miteinander
+      verknüpft. Für sich genommen sind die Angaben nicht eindeutig; zusammengenom
+  - section: Folgen einer unberechtigten Kenntnisnahme
+    quote: Eine Offenlegung würde die Identität einer exponierten Person im Zusammenhang
+      mit Bundesstrafverfolgung preisgeben. Damit wäre der Tatbestand der Offenlegung
+      nach Art. 19 lit. c ISV einschlägig. Das Dokument enthält bewusst keine detaillierten
+      operativen Methoden oder Anleitungen zur Kontaktaufnahme.
+  classification_not_based_on:
+  - document_label
+  - handling_instruction
+  - presence_of_personal_data
+  assumptions:
+  - Der dargestellte Sachverhalt besteht tatsächlich und ist zum Beurteilungszeitpunkt
+    relevant.
+  - Der Inhalt ist nicht bereits öffentlich verfügbar.
+  - Die beschriebenen erheblichen Folgen sind sachlich plausibel und fachlich nachgewiesen.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetisch konstruiert zur Prüfung von VERTRAULICH gemäss Art. 19 ISV; noch
+    keine juristisch validierte Ground Truth.
