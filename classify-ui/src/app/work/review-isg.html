@@ -1,0 +1,49 @@
+<section class="card review-card" data-testid="isg-card">
+	<header class="card__header">
+		<h3 class="card__title">{{ 'koby.work.isg.title' | translate }}</h3>
+		<mat-chip-set>
+			<mat-chip class="info">{{ 'koby.work.tile.ai-proposal' | translate }} · {{ confidenceLabel() }}</mat-chip>
+		</mat-chip-set>
+	</header>
+	<p class="card__hint">{{ 'koby.work.isg.possible' | translate }}</p>
+
+	<div class="tilerow" role="list">
+		@for (tileKey of tileKeys; track tileKey) {
+			<div
+				class="tile"
+				[class.tile--marked]="isMarked(tileKey)"
+				[class.tile--disabled]="isDisabled(tileKey)"
+				[attr.data-testid]="'isg-tile-' + tileKey"
+			>
+				<b>{{ 'koby.work.isg.tile.' + tileKey | translate }}</b>
+				<span>{{ 'koby.work.isg.tile-desc.' + tileKey | translate }}</span>
+				@if (isDisabled(tileKey)) {
+					<small class="tile__note">
+						{{ 'koby.work.isg.note-never' | translate }}
+					</small>
+				} @else if (isMarked(tileKey)) {
+					<small class="tile__note">
+						{{ 'koby.work.tile.confidence' | translate: {confidence: tileConfidence(tileKey)} }}
+					</small>
+				}
+			</div>
+		}
+	</div>
+
+	@if (hasLowConfidence()) {
+		<ob-alert type="warning" data-testid="low-confidence-hint">
+			<strong>{{ 'koby.work.low-confidence.title' | translate }}</strong>
+			{{ 'koby.work.low-confidence.text' | translate }}
+		</ob-alert>
+	}
+
+	<p class="review-card__justification">
+		<strong>{{ 'koby.work.justification' | translate }}</strong>
+		{{ result().justification }}
+	</p>
+	<button type="button" mat-button obButton="secondary" (click)="requestJson.emit()">
+		{{ 'koby.work.json.action' | translate }}
+	</button>
+
+	<app-work-evidence [references]="references()" (requestPreview)="requestPreview.emit()" />
+</section>

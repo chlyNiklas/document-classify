@@ -1,0 +1,25 @@
+@if (rows().length > 0) {
+	<ul class="doclist" data-testid="doc-list">
+		@for (row of rows(); track row.id) {
+			<li class="doclist__row" [class.doclist__row--selected]="row.selected">
+				<button type="button" class="doclist__select" (click)="select(row.id)">
+					<span class="doclist__name">{{ row.name }}</span>
+					<span class="doclist__meta">{{ row.meta }}</span>
+				</button>
+				<mat-chip-set>
+					<mat-chip [class.warning]="row.busy" [class.success]="!row.busy">
+						{{ row.statusLabel | translate }}
+					</mat-chip>
+					<mat-chip>{{ row.tag }}</mat-chip>
+				</mat-chip-set>
+				@if (row.busy) {
+					<button type="button" mat-button obButton="secondary" (click)="cancel(row.id)">
+						{{ 'koby.work.cancel.label' | translate }}
+					</button>
+				}
+			</li>
+		}
+	</ul>
+} @else {
+	<p class="doclist__empty">{{ 'koby.work.empty' | translate }}</p>
+}

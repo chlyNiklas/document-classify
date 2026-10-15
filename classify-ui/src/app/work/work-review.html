@@ -1,0 +1,32 @@
+<section class="work-review" data-testid="review-area">
+	<div class="work-review__header">
+		<h2>{{ 'koby.work.review.title' | translate }}</h2>
+		<span class="work-review__document">{{ document().name }}</span>
+		<mat-chip-set>
+			<mat-chip class="success">{{ 'koby.work.status.pending' | translate }}</mat-chip>
+		</mat-chip-set>
+	</div>
+
+	<app-review-isg [result]="document().result" (requestJson)="openJson()" />
+
+	<app-review-dsg [result]="document().result" />
+
+	<footer class="work-review__footer">
+		<p class="work-review__disclaimer">
+			<strong></strong>
+			{{ 'koby.work.disclaimer' | translate }}
+		</p>
+		<div class="work-review__actions">
+			<button type="button" mat-button obButton="primary" (click)="addMoreDocument()">
+				{{ 'koby.work.upload-more' | translate }}
+			</button>
+		</div>
+		<input
+			#moreFilesInput
+			type="file"
+			hidden
+			multiple
+			(change)="readMoreFiles($event)"
+		/>
+	</footer>
+</section>

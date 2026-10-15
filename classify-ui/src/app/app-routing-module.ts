@@ -1,11 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, type Routes} from '@angular/router';
 import {ObUnknownRouteModule} from '@oblique/oblique';
-import {Home} from './home/home';
+import {Work} from './work/work';
+import {Rules} from './rules/rules';
 
 const routes: Routes = [
-	{path: '', redirectTo: 'home', pathMatch: 'full'},
-	{path: 'home', component: Home},
+	{path: '', redirectTo: 'work', pathMatch: 'full'},
+	{path: 'work', component: Work},
+	{path: 'rules', component: Rules},
 	{path: '**', redirectTo: 'unknown-route'}
 ];
 

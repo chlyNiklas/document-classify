@@ -1,0 +1,36 @@
+<section class="card work-intake" data-testid="work-intake">
+	<header class="card__header">
+		<h2 class="card__title">{{ 'koby.work.documents.title' | translate }}</h2>
+		<span class="card__aside">{{ 'koby.work.documents.count' | translate: {count: documentCount()} }}</span>
+	</header>
+
+	<ob-drop-zone [accept]="accept()" [maxFileSize]="maxFileSize()" (uploadEvent)="onUploadEvent($event)" />
+
+	@if (hasRejections()) {
+		<ob-alert type="error" class="work-intake__reject">
+			<strong>{{ 'koby.work.reject.title' | translate }}</strong>
+			@for (rejection of rejectedFiles(); track rejection.file) {
+				<p>
+					@if (rejection.reasonIsFormat) {
+						{{
+							'koby.work.reject.format'
+								| translate: {
+									file: rejection.file,
+									types: accept().join(', '),
+									limit: maxFileSize()
+								}
+						}}
+					}
+					@if (rejection.reasonIsSize) {
+						{{
+							'koby.work.reject.size'
+								| translate: {file: rejection.file, limit: maxFileSize()}
+						}}
+					}
+				</p>
+			}
+		</ob-alert>
+	}
+
+	<app-work-doc-list (canceled)="cancel($event)" />
+</section>

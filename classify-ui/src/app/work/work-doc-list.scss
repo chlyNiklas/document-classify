@@ -1,0 +1,44 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+@use "../shared/demo-shared" as demo-shared;
+
+
+.doclist {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.doclist__row {
+	align-items: center;
+	border-top: 1px solid variables.$ob-gray-light;
+	display: flex;
+	flex-wrap: wrap;
+	gap: variables.$ob-spacing-sm;
+	padding: variables.$ob-spacing-sm 0;
+}
+
+.doclist__row--selected {
+	border-left: 4px solid variables.$ob-primary;
+	padding-left: variables.$ob-spacing-sm;
+}
+
+.doclist__select {
+	flex: 1 1 240px;
+	text-align: left;
+}
+
+.doclist__name {
+	display: block;
+	font-weight: 600;
+}
+
+.doclist__meta {
+	color: variables.$ob-gray-dark;
+	display: block;
+}
+
+.doclist__empty {
+	color: variables.$ob-gray-dark;
+}

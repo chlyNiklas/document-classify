@@ -1,0 +1,105 @@
+<section class="rules" data-testid="rules-page">
+	<div class="rules__intro">
+		<div class="rules__intro-text">
+			<h1 class="page-title">{{ 'koby.rules.title' | translate }}</h1>
+			<p class="page-subtitle">{{ 'koby.rules.subtitle' | translate }}</p>
+		</div>
+		<span class="rules__version">
+			<mat-chip-set>
+				<mat-chip class="success">{{ 'koby.rules.version' | translate }}</mat-chip>
+			</mat-chip-set>
+		</span>
+	</div>
+
+	<section class="card" data-testid="isg-card">
+		<header class="card__header">
+			<h2 class="card__title">{{ 'koby.rules.isg.title' | translate }}</h2>
+			<span>{{ 'koby.rules.isg.note' | translate }}</span>
+		</header>
+		<div class="rules__table-scroll">
+			<table data-testid="isg-table">
+				<thead>
+					<tr>
+						<th scope="col">{{ 'koby.rules.isg.column.category' | translate }}</th>
+						<th scope="col">{{ 'koby.rules.isg.column.meaning' | translate }}</th>
+						<th scope="col">{{ 'koby.rules.isg.column.basis' | translate }}</th>
+						<th scope="col">{{ 'koby.rules.isg.column.proposal' | translate }}</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for (row of rows; track row.key) {
+						<tr [attr.data-testid]="'isg-row-' + row.key">
+							<td class="rules__key">{{ 'koby.rules.isg.label.' + row.key | translate }}</td>
+							<td>{{ 'koby.rules.isg.desc.' + row.key | translate }}</td>
+							<td class="rules__nowrap">{{ 'koby.rules.isg.basis.' + row.key | translate }}</td>
+							<td class="rules__nowrap">
+								@if (row.proposed) {
+									<mat-chip-set>
+										<mat-chip class="success" data-testid="proposal-yes">
+											{{ 'koby.rules.isg.yes' | translate }}
+										</mat-chip>
+									</mat-chip-set>
+								} @else {
+									<mat-chip-set>
+										<mat-chip class="warning" data-testid="proposal-no">
+											{{ 'koby.rules.isg.no' | translate }}
+										</mat-chip>
+									</mat-chip-set>
+								}
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<div class="rules__cards">
+		<section class="card" data-testid="dsg-card">
+			<header class="card__header">
+				<h2 class="card__title">{{ 'koby.rules.dsg.title' | translate }}</h2>
+				<span>{{ 'koby.rules.dsg.note' | translate }}</span>
+			</header>
+			<dl class="rules__definitions">
+				<dt>{{ 'koby.rules.dsg.term.none' | translate }}</dt>
+				<dd>{{ 'koby.rules.dsg.def.none' | translate }}</dd>
+				<dt>{{ 'koby.rules.dsg.term.personal' | translate }}</dt>
+				<dd>{{ 'koby.rules.dsg.def.personal' | translate }}</dd>
+				<dt>{{ 'koby.rules.dsg.term.sensitive' | translate }}</dt>
+				<dd>{{ 'koby.rules.dsg.def.sensitive' | translate }}</dd>
+				<dt>{{ 'koby.rules.dsg.term.profiling' | translate }}</dt>
+				<dd>{{ 'koby.rules.dsg.def.profiling' | translate }}</dd>
+				<dt>{{ 'koby.rules.dsg.term.profiling_high' | translate }}</dt>
+				<dd>{{ 'koby.rules.dsg.def.profiling_high' | translate }}</dd>
+			</dl>
+		</section>
+
+		<section class="card" data-testid="principles-card">
+			<header class="card__header">
+				<h2 class="card__title">{{ 'koby.rules.principles.title' | translate }}</h2>
+			</header>
+			<dl class="rules__definitions">
+				<dt>{{ 'koby.rules.principles.term.confidence' | translate }}</dt>
+				<dd>{{ 'koby.rules.principles.def.confidence' | translate }}</dd>
+				<dt>{{ 'koby.rules.principles.term.justification' | translate }}</dt>
+				<dd>{{ 'koby.rules.principles.def.justification' | translate }}</dd>
+				<dt>{{ 'koby.rules.principles.term.evidence' | translate }}</dt>
+				<dd>{{ 'koby.rules.principles.def.evidence' | translate }}</dd>
+			</dl>
+		</section>
+
+		<section class="card" data-testid="operations-card">
+			<header class="card__header">
+				<h2 class="card__title">{{ 'koby.rules.operations.title' | translate }}</h2>
+			</header>
+			<dl class="rules__definitions">
+				<dt>{{ 'koby.rules.operations.term.model' | translate }}</dt>
+				<dd>{{ 'koby.rules.operations.def.model' | translate }}</dd>
+				<dt>{{ 'koby.rules.operations.term.pii' | translate }}</dt>
+				<dd>{{ 'koby.rules.operations.def.pii' | translate }}</dd>
+				<dt>{{ 'koby.rules.operations.term.offs' | translate }}</dt>
+				<dd>{{ 'koby.rules.operations.def.offs' | translate }}</dd>
+			</dl>
+		</section>
+	</div>
+</section>

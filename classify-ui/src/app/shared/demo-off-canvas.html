@@ -1,0 +1,25 @@
+@switch (content()?.kind) {
+	@case ('guidance') {
+		<section class="demo-guidance">
+			<h3>{{ 'koby.chrome.guidance.title' | translate }}</h3>
+			<ol>
+				<li>{{ 'koby.chrome.guidance.point-1' | translate }}</li>
+				<li>{{ 'koby.chrome.guidance.point-2' | translate }}</li>
+				<li>{{ 'koby.chrome.guidance.point-3' | translate }}</li>
+				<li>{{ 'koby.chrome.guidance.point-4' | translate }}</li>
+			</ol>
+		</section>
+	}
+	@case ('preview') {
+		<app-demo-doc-preview />
+	}
+	@case ('json') {
+		<section class="demo-doc-json">
+			<p class="demo-doc-json__hint">{{ 'koby.work.json.hint' | translate }}</p>
+			<pre class="demo-doc-json__body">{{ jsonFinding() }}</pre>
+			<button type="button" mat-button obButton="secondary" (click)="copyJson()">
+				{{ 'koby.work.json.copy' | translate }}
+			</button>
+		</section>
+	}
+}

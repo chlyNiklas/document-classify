@@ -1,6 +1,19 @@
-<ob-master-layout [navigation]="[{ url: 'home', label: 'i18n.oblique.header.navigation.home' }]">
-	<ng-container obHeaderTitle>classify-ui</ng-container>
+<ob-master-layout
+	[navigation]="[
+		{url: 'work', label: 'koby.chrome.navigation.work'},
+		{url: 'rules', label: 'koby.chrome.navigation.rules'}
+	]"
+>
+	<ng-container obHeaderTitle>{{ 'koby.chrome.title' | translate }}</ng-container>
 	<ng-container obFooterInfo>
-		<p>&copy; {{ year() }} Koby Classify</p>
+		<p>&copy; {{ year() }} {{ 'koby.chrome.footer.owner' | translate }}</p>
+	</ng-container>
+
+	<!-- Shared off-canvas sidebar content (guidance, document preview, findings JSON). -->
+	<ng-container obOffCanvasTitle>{{ offCanvasTitle() }}</ng-container>
+	<ng-container obOffCanvasContent>
+		@if (preview.content()) {
+			<app-demo-off-canvas />
+		}
 	</ng-container>
 </ob-master-layout>

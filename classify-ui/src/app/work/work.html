@@ -1,0 +1,24 @@
+<section class="work" data-testid="work-page">
+	<div class="work__intro">
+		<h1 class="page-title">{{ 'koby.work.title' | translate }}</h1>
+		<p class="page-subtitle">{{ 'koby.work.subtitle' | translate }}</p>
+	</div>
+
+	<ob-alert type="info" class="work__guidance-alert">
+		<strong>{{ 'koby.work.guidance-alert.title' | translate }}</strong>
+		<p>{{ 'koby.work.guidance-alert.text' | translate }}</p>
+		<button type="button" class="btn btn-secondary" (click)="openGuidance()">
+			{{ 'koby.chrome.guidance.action' | translate }}
+		</button>
+	</ob-alert>
+
+	<app-work-intake (canceled)="cancel($event)" />
+
+	@if (busyDocument(); as document) {
+		<app-work-busy [document]="document" (canceled)="cancel($event)" />
+	}
+
+	@if (pendingDocument(); as document) {
+		<app-work-review [document]="document" />
+	}
+</section>
