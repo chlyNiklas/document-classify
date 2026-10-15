@@ -1,10 +1,13 @@
 import asyncio
+import json
 import ssl
 from time import monotonic
 from typing import Any
 
 import httpx
 import truststore
+
+from koby_classify.classification.models import DsgFinding
 
 
 class KobyClientError(Exception):
@@ -31,6 +34,7 @@ class KobyClient:
         self._client_secret = client_secret
         self._system_prompt = system_prompt
         self._model = model
+        self._timeout_seconds = timeout_seconds
         self._timeout = httpx.Timeout(timeout_seconds)
         self._tls_verifier = self._create_tls_verifier(ca_bundle, verify_tls)
         self._access_token: str | None = None
@@ -57,20 +61,44 @@ class KobyClient:
             return ssl.create_default_context(cafile=ca_bundle)
         return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 
-    async def classify(self, text: str) -> str:
+    async def classify(
+        self,
+        text: str,
+        *,
+        deterministic_findings: list[DsgFinding] | None = None,
+        validation_feedback: str | None = None,
+    ) -> str:
         if not all((self._url, self._token_url, self._client_id, self._client_secret)):
             raise KobyClientError(
                 "KOBY_LLM_URL, KOBY_TOKEN_URL, KOBY_CLIENT_ID, and "
                 "KOBY_CLIENT_SECRET must be configured"
             )
 
+        deterministic_findings_json = json.dumps(
+            [finding.model_dump(mode="json") for finding in deterministic_findings or []],
+            ensure_ascii=False,
+        )
+        correction = ""
+        if validation_feedback:
+            correction = (
+                "Der vorherige Ausgabeversuch war ungültig. Erzeuge die gesamte JSON-Antwort "
+                "neu und korrigiere diese Validierungsfehler:\n"
+                f"<validierungsfehler>{validation_feedback}</validierungsfehler>\n\n"
+            )
         payload: dict[str, Any] = {
             "messages": [
                 {"role": "system", "content": self._system_prompt},
                 {
                     "role": "user",
                     "content": (
-                        "Analysiere den Inhalt zwischen den Dokumentmarkierungen.\n\n"
+                        f"{correction}Analysiere den Inhalt zwischen den Dokumentmarkierungen. "
+                        "Die folgenden "
+                        "deterministischen Befunde wurden vom Service validiert und müssen in der "
+                        "DSG-Beurteilung berücksichtigt werden. Erfinde keine weiteren "
+                        "deterministischen Befunde.\n\n"
+                        "<deterministische-befunde>\n"
+                        f"{deterministic_findings_json}\n"
+                        "</deterministische-befunde>\n\n"
                         f"<dokument>\n{text}\n</dokument>"
                     ),
                 },
@@ -100,6 +128,10 @@ class KobyClient:
             raise KobyClientError(
                 f"KOBY returned HTTP {error.response.status_code}"
             ) from error
+        except httpx.TimeoutException as error:
+            raise KobyClientError(
+                f"KOBY request timed out after {self._timeout_seconds:g} seconds"
+            ) from error
         except httpx.ConnectError as error:
             error_message = str(error).lower()
             if "certificate" in error_message:
@@ -108,8 +140,14 @@ class KobyClient:
                     "testing only, set KOBY_VERIFY_TLS=false"
                 ) from error
             raise KobyClientError("Could not connect to KOBY") from error
+        except httpx.RequestError as error:
+            raise KobyClientError(
+                f"KOBY request failed ({type(error).__name__})"
+            ) from error
         except httpx.HTTPError as error:
-            raise KobyClientError("KOBY request failed") from error
+            raise KobyClientError(
+                f"KOBY request failed ({type(error).__name__})"
+            ) from error
 
         try:
             body = response.json()

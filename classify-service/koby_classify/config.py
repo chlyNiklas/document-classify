@@ -41,9 +41,18 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("KOBY_CLIENT_SECRET", "KOBY_API_KEY"),
     )
     koby_model: str | None = Field(default=None, validation_alias="KOBY_MODEL")
+    koby_timeout_seconds: float = Field(
+        default=120.0,
+        gt=0,
+        validation_alias="KOBY_TIMEOUT_SECONDS",
+    )
     isg_rulebook_path: Path | None = Field(
         default=None,
         validation_alias="KOBY_ISG_RULEBOOK_PATH",
+    )
+    dsg_rulebook_path: Path | None = Field(
+        default=None,
+        validation_alias="KOBY_DSG_RULEBOOK_PATH",
     )
     koby_ca_bundle: str | None = Field(default=None, validation_alias="KOBY_CA_BUNDLE")
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
