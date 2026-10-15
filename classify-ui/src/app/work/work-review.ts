@@ -1,4 +1,4 @@
-import {Component, type ElementRef, computed, inject, input, output, viewChild} from '@angular/core';
+import {Component, type ElementRef, computed, inject, input, viewChild} from '@angular/core';
 import {ObOffCanvasService} from '@oblique/oblique';
 import {DemoPreviewService} from '../shared/demo-preview.service';
 import {type DemoDocumentWithResult, MockClassificationService} from '../mock/mock-classification.service';
@@ -11,9 +11,6 @@ import {type DemoDocumentWithResult, MockClassificationService} from '../mock/mo
 })
 export class WorkReview {
 	readonly document = input.required<DemoDocumentWithResult>();
-
-	/** Requests to open the findings JSON of the shown document in the shared off-canvas (ISG card). */
-	readonly requestJson = output();
 
 	readonly moreFilesInput = viewChild.required<ElementRef<HTMLInputElement>>('moreFilesInput');
 

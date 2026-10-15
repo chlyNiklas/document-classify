@@ -136,8 +136,12 @@ The Regelwerk route SHALL show a versioned reference of the classification rules
 - **THEN** the "geheim" row indicates that this category is not proposal-capable and is only classified manually
 
 ### Requirement: Review guidance
-The master-layout header (and the info alert in the Arbeitsbereich) SHALL provide a "Hinweise zur Prüfung" action opening guidance that states: results are proposals without legal effect, to check findings via "Im Dokument anzeigen", that low confidence means the model is undecided, and that "geheim" is only classified manually.
+The master-layout header SHALL provide a "Hinweise zur Prüfung" action opening guidance that states: results are proposals without legal effect, to check findings via "Im Dokument anzeigen", that low confidence means the model is undecided, and that "geheim" is only classified manually. The info alert in the Arbeitsbereich SHALL show the guidance title and text only, without an additional trigger action.
 
 #### Scenario: Opening the guidance
-- **WHEN** the end user activates the "Hinweise zur Prüfung" action
+- **WHEN** the end user activates the "Hinweise zur Prüfung" action in the master-layout header
 - **THEN** the guidance panel with those four points is displayed
+
+#### Scenario: Info alert without trigger
+- **WHEN** the Arbeitsbereich info alert is displayed
+- **THEN** it shows only the guidance title and text, without a "Hinweise zur Prüfung" button

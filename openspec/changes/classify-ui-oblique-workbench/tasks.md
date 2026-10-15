@@ -30,7 +30,7 @@
 ## 5. Chrome: navigation, guidance, notifications
 
 - [ ] 5.1 Update `app.html` master layout: main-navigation items "Arbeitsbereich" (`/work`) and "Regelwerk" (`/rules`), demo badge and avatar/name in the topbar; verify route switching via navigation works in the unit test harness
-- [ ] 5.2 Add the "Hinweise zur Prüfung" guidance surface (header action + `ob-alert` trigger, content opened via off-canvas) with the four guidance points; verify unit test covers the header action opening the panel
+- [ ] 5.2 Add the "Hinweise zur Prüfung" guidance surface (header action opening the off-canvas with the four guidance points; the Arbeitsbereich info alert shows title/text only, without a trigger button); verify unit test covers the header action opening the panel
 
 ## 6. i18n and cleanup
 

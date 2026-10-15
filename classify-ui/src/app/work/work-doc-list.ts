@@ -2,12 +2,11 @@ import {Component, computed, inject, output} from '@angular/core';
 import {MockClassificationService} from '../mock/mock-classification.service';
 import {fileSizeValue} from '../shared/demo-presenters';
 
-/** Document list row view: name, meta text, tag, status label and cancel flag. */
+/** Document list row view: name, meta text, status label and cancel flag. */
 export interface DocumentRow {
 	id: string;
 	name: string;
 	meta: string;
-	tag: string;
 	statusLabel: string;
 	busy: boolean;
 	selected: boolean;
@@ -26,12 +25,13 @@ export class WorkDocList {
 			id: entry.id,
 			name: entry.name,
 			meta: [entry.ext.toUpperCase(), fileSizeValue(entry.size)].filter(meta => meta.length > 0).join(' · '),
-			tag: entry.tag,
 			statusLabel: entry.status === 'busy' ? 'koby.work.status.busy' : 'koby.work.status.pending',
 			busy: entry.status === 'busy',
 			selected: entry.id === selectedId
 		}));
 	});
+
+	readonly displayedColumns: readonly string[] = ['filename', 'status', 'actions'];
 
 	readonly canceled = output<string>();
 

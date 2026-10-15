@@ -1,5 +1,5 @@
 import {Component, computed, input, output} from '@angular/core';
-import {confidenceValue, evidenceByScope, evidenceReferences} from '../shared/demo-presenters';
+import {evidenceByScope, evidenceReferences} from '../shared/demo-presenters';
 import type {DemoDocumentResult} from '../mock/mock-classification.service';
 
 /** The five DSG assessment tile keys per Art. 5 DSG. */
@@ -18,7 +18,6 @@ export class ReviewDsg {
 	readonly requestPreview = output();
 
 	readonly tileKeys = dsgTileKeys;
-	readonly dsgConfidenceLabel = computed(() => confidenceValue(this.result().dsgConfidence));
 	readonly references = computed(() =>
 		evidenceReferences(evidenceByScope(this.result().evidence, 'dsg'), this.result().evidenceLetters)
 	);

@@ -18,6 +18,9 @@ import {
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {Work} from './work/work';
 import {WorkIntake} from './work/work-intake';
@@ -47,6 +50,9 @@ registerLocaleData(localeITCH);
 		ObButtonModule,
 		MatButtonModule,
 		MatChipsModule,
+		MatIconModule,
+		MatTableModule,
+		MatTooltipModule,
 		MatProgressBarModule,
 		ObFileUploadModule,
 		ObAlertModule,
@@ -63,6 +69,7 @@ registerLocaleData(localeITCH);
 		provideBrowserGlobalErrorListeners(),
 		provideZoneChangeDetection({eventCoalescing: true}),
 		provideObliqueConfiguration({
+			icon: {registerObliqueIcons: true},
 			translate: {locales: {locales: ['de-CH', 'fr-CH', 'it-CH'], defaultLanguage: 'de'}},
 			accessibilityStatement: {
 				applicationName: 'classify-ui',

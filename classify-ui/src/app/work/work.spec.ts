@@ -1,5 +1,7 @@
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {ObEUploadEventType, type ObIUploadEvent, ObNotificationService, provideObliqueTestingConfiguration} from '@oblique/oblique';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 import {AppModule} from '../app-module';
 import {Work} from './work';
@@ -30,6 +32,13 @@ describe('Work', () => {
 		const notification = TestBed.inject(ObNotificationService);
 		notificationInfo = vi.spyOn(notification, 'info');
 
+		// Oblique's testing configuration mocks the icon registration away, so the
+		// icons used by the document list actions column are stubbed here.
+		const sanitizer = TestBed.inject(DomSanitizer);
+		const iconRegistry = TestBed.inject(MatIconRegistry);
+		iconRegistry.addSvgIconLiteral('eye', sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg"></svg>'));
+		iconRegistry.addSvgIconLiteral('delete', sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg"></svg>'));
+
 		fixture = TestBed.createComponent(Work);
 	});
 
@@ -56,13 +65,13 @@ describe('Work', () => {
 		return fixture.nativeElement as HTMLElement;
 	}
 
-	it('renders one document row with status and tag badges per added file (list render)', () => {
+	it('renders one document row with status and actions per added file (table render)', () => {
 		addFile('lohnliste_abteilung_q3.csv', 2048, 'csv');
 		addFile('netzwerkplan_standort.pdf', 4096, 'pdf');
 		fixture.detectChanges();
 
 		expect(element().querySelectorAll('.doclist__row')).toHaveLength(2);
-		expect(element().querySelectorAll('.doclist__row mat-chip')).toHaveLength(4);
+		expect(element().querySelectorAll('.doclist__row .doclist__status')).toHaveLength(2);
 		expect(element().querySelector('.doclist__row .doclist__name')?.textContent).toBe('lohnliste_abteilung_q3.csv');
 	});
 
@@ -78,6 +87,10 @@ describe('Work', () => {
 
 		expect(element().querySelector('.doclist__row--selected')).toBe(selects[1].closest('.doclist__row'));
 		expect(classification.selectedDocument()?.ext).toBe('pdf');
+
+		const views = element().querySelectorAll<HTMLButtonElement>('[data-testid="doc-view"]');
+		expect(views[1].disabled).toBe(true);
+		expect(views[0].disabled).toBe(false);
 	});
 
 	it('rejects unsupported formats and over-sized files with an alert while keeping existing documents', () => {
@@ -122,7 +135,7 @@ describe('Work', () => {
 		addFile('typ_pruefung.docx', 1024, 'docx');
 		fixture.detectChanges();
 
-		element().querySelectorAll<HTMLButtonElement>('.doclist__row button')[1].click();
+		element().querySelector<HTMLButtonElement>('[data-testid="doc-cancel"]')?.click();
 		fixture.detectChanges();
 
 		expect(notificationInfo).toHaveBeenCalled();
@@ -149,13 +162,12 @@ describe('Work', () => {
 		expect(element().querySelectorAll('[data-testid="isg-card"] .tile--marked')).toHaveLength(1);
 	});
 
-	it('the DSG assessment shows the simulated proposal tile with its confidence', () => {
+	it('the DSG assessment shows the simulated proposal tile', () => {
 		addFile('vertrauensaerztliche_Beurteilung_Personalmedizin.docx', 2048, 'docx');
 		runAnalysis();
 
 		expect(element().querySelectorAll('[data-testid^="dsg-tile-"]')).toHaveLength(5);
 		expect(element().querySelector('[data-testid="dsg-tile-sensitive"]')?.className).toContain('tile--marked');
-		expect(element().textContent).toContain('95 %');
 	});
 
 	it('the evidence accordions toggle and list quotes with letters', () => {

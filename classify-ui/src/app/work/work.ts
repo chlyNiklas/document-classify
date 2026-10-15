@@ -1,5 +1,5 @@
 import {Component, effect, inject, viewChild} from '@angular/core';
-import {ObNotificationService, ObOffCanvasService, ObSpinnerService} from '@oblique/oblique';
+import {ObNotificationService, ObSpinnerService} from '@oblique/oblique';
 import {
 	type DemoDocumentAwaitingAnalysis,
 	type DemoDocumentWithResult,
@@ -23,7 +23,6 @@ export class Work {
 
 	private readonly service = inject(MockClassificationService);
 	private readonly preview = inject(DemoPreviewService);
-	private readonly offCanvas = inject(ObOffCanvasService);
 	private readonly notification = inject(ObNotificationService);
 	private readonly spinnerService = inject(ObSpinnerService);
 
@@ -49,12 +48,6 @@ export class Work {
 	pendingDocument: () => DemoDocumentWithResult | null = () => {
 		const selected = this.service.selectedDocument();
 		return selected?.status === 'pending' ? selected : null;
-	};
-
-	/** Opens the shared off-canvas with the "Hinweise zur Prüfung" guidance (ob-alert trigger). */
-	openGuidance: () => void = () => {
-		this.preview.open({kind: 'guidance'});
-		this.offCanvas.open = true;
 	};
 
 	/** Cancels the analysis; the document is removed and the cancellation confirmed by notification. */

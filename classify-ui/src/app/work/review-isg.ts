@@ -16,12 +16,10 @@ const lowConfidenceThreshold = 0.7;
 export class ReviewIsg {
 	readonly result = input.required<DemoDocumentResult>();
 
-	/** Requests to open the document preview or the findings JSON of the shown document. */
+	/** Requests to open the document preview of the shown document. */
 	readonly requestPreview = output();
-	readonly requestJson = output();
 
 	readonly tileKeys = isgTileKeys;
-	readonly confidenceLabel = computed(() => confidenceValue(this.result().confidence));
 	readonly hasLowConfidence = computed(() => this.result().confidence < lowConfidenceThreshold);
 	readonly references = computed(() =>
 		evidenceReferences(evidenceByScope(this.result().evidence, 'isg'), this.result().evidenceLetters)

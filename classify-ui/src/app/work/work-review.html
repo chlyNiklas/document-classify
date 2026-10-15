@@ -5,9 +5,12 @@
 		<mat-chip-set>
 			<mat-chip class="success">{{ 'koby.work.status.pending' | translate }}</mat-chip>
 		</mat-chip-set>
+		<button type="button" mat-button obButton="secondary" (click)="openJson()">
+			{{ 'koby.work.json.action' | translate }}
+		</button>
 	</div>
 
-	<app-review-isg [result]="document().result" (requestJson)="openJson()" />
+	<app-review-isg [result]="document().result" />
 
 	<app-review-dsg [result]="document().result" />
 
