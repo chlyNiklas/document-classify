@@ -35,6 +35,11 @@ file instead, set `KOBY_CA_BUNDLE` to its absolute path. TLS verification remain
 For local testing against a known internal endpoint with a non-standard certificate,
 `KOBY_VERIFY_TLS=false` is available; do not use that setting in production.
 
+The service loads `REGELWERK_ISG_KLASSIFIZIERUNG.md` from the repository root at startup and sends
+that rulebook as the authoritative system instruction for every classification. Deployments that
+store it elsewhere must set `KOBY_ISG_RULEBOOK_PATH` to its absolute path. Startup fails if the
+rulebook cannot be loaded, preventing classifications without the approved rules.
+
 The API is then available at `http://127.0.0.1:8000` and the OpenAPI UI at `http://127.0.0.1:8000/docs`.
 
 ## CORS
@@ -51,6 +56,15 @@ Classify a document:
 ```bash
 curl -X POST http://127.0.0.1:8000/v1/classify \
   -F 'file=@/absolute/path/to/document.pdf'
+```
+
+The response follows the rulebook contract:
+
+```json
+{
+  "klassifizierung": "intern",
+  "begruendung": "... (Art. 18 Abs. 1 Bst. a ISV)."
+}
 ```
 
 The upload limit defaults to 10 MiB and extracted text is limited to 100,000 characters. These

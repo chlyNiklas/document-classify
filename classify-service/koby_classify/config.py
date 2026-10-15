@@ -1,5 +1,6 @@
 import json
 from functools import lru_cache
+from pathlib import Path
 from typing import Annotated
 
 from pydantic import AliasChoices, BeforeValidator, Field, SecretStr
@@ -40,6 +41,10 @@ class Settings(BaseSettings):
         validation_alias=AliasChoices("KOBY_CLIENT_SECRET", "KOBY_API_KEY"),
     )
     koby_model: str | None = Field(default=None, validation_alias="KOBY_MODEL")
+    isg_rulebook_path: Path | None = Field(
+        default=None,
+        validation_alias="KOBY_ISG_RULEBOOK_PATH",
+    )
     koby_ca_bundle: str | None = Field(default=None, validation_alias="KOBY_CA_BUNDLE")
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
     max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)

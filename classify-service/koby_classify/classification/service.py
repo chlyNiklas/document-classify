@@ -1,8 +1,9 @@
+from pydantic import ValidationError
+
 from koby_classify.adapters.koby import KobyClient, KobyClientError
 from koby_classify.classification.models import (
     ClassificationRequest,
     ClassificationResponse,
-    ClassificationStatus,
 )
 
 
@@ -20,8 +21,10 @@ class ClassificationService:
         except KobyClientError as error:
             raise ClassificationUnavailableError(str(error)) from error
 
-        return ClassificationResponse(
-            status=ClassificationStatus.COMPLETED,
-            model_output=model_output,
-        )
+        try:
+            return ClassificationResponse.model_validate_json(model_output)
+        except ValidationError as error:
+            raise ClassificationUnavailableError(
+                "KOBY response does not satisfy the ISG rulebook schema"
+            ) from error
 
