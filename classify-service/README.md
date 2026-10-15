@@ -130,6 +130,37 @@ Every response is a recommendation and always requires review by the responsible
 matter specialist. Uncertainty and missing context are reported in `reasons`; there is therefore no
 per-result `review_required` flag.
 
+## Evaluate the classifier
+
+With the API running, evaluate every discovered `GT-*.yaml` case and write a JSON report:
+
+```bash
+uv run python -m koby_classify.evaluation \
+  --dataset ../ground_truth \
+  --output ../evaluation-results/latest.json
+```
+
+The evaluator exercises the public multipart HTTP endpoint, validates every successful response
+against the API schema, retains each raw prediction, and reports latency, failures, prediction
+distributions, accuracy, macro-F1, and over- versus under-classification. It discovers annotations
+directly so that cases missing from `manifest.yaml` are still evaluated, while reporting manifest
+and checksum inconsistencies.
+
+Only explicit `information_security.expected_classification` values are scored. Earlier
+`isv_expected_classification_proposal` values marked as non-ground-truth are reported but excluded
+from metrics. The current corpus has no scoreable DSG labels, so DSG prediction distributions are
+reported without an accuracy claim.
+
+Inspect dataset integrity and label coverage without calling the API:
+
+```bash
+uv run python -m koby_classify.evaluation --dataset ../ground_truth --validate-only
+```
+
+Use `--case GT-0101` (repeatable) or `--limit 5` for a smaller run. The defaults are two concurrent
+requests, German response reasons, a 180-second per-request timeout, and
+`http://127.0.0.1:8000/v1/classify` as the endpoint.
+
 The upload limit defaults to 10 MiB and extracted text is limited to 100,000 characters. These
 limits can be changed with `KOBY_CLASSIFY_MAX_UPLOAD_BYTES` and
 `KOBY_CLASSIFY_MAX_EXTRACTED_CHARACTERS`. PDFs must contain a text layer; scanned PDFs require OCR,
