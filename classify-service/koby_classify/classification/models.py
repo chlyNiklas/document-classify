@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 
 
 class ClassificationStatus(StrEnum):
-    RECEIVED = "received"
+    COMPLETED = "completed"
 
 
 class ClassificationRequest(BaseModel):
@@ -15,4 +15,5 @@ class ClassificationRequest(BaseModel):
 
 class ClassificationResponse(BaseModel):
     status: ClassificationStatus
+    model_output: str
 
