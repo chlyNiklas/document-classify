@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0108
+document:
+  filename: GT-0108_DOC-19.txt
+  document_type_id: DOC-19
+  format: txt
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. b
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. b ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Die erste Kontrollrunde beginnt erst nach der Übergabe der Besucherlisten.
+      Danach erfolgt eine zweite Runde durch das rückwärtige Treppenhaus; die Ablösung
+      des Empfangsteams wird zeitlich ge
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Bei unberechtigter Kenntnisnahme könnten Personen ihre unerlaubten Zutrittsversuche
+      zeitlich auf die vorübergehend schwächere Abstimmung der Teams ausrichten. Dies
+      würde die Durchführung der Kontrollaufgabe erschweren un
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

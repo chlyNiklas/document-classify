@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0101
+document:
+  filename: GT-0101_DOC-03.docx
+  document_type_id: DOC-03
+  format: docx
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. a
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. a ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Für den kommenden Abschluss wird die Eingangskontrolle um 08.20 Uhr gestartet.
+      Erst nach dem Abgleich der Eingangszahlen mit dem Journal der Vorperiode gibt
+      die Koordinationsstelle die Liste
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Eine gezielte Störung oder irreführende Rückfrage während dieses kurzen
+      Abgleichfensters würde die Freigabe der regulären Zahlungen verzögern. Betroffen
+      wären übliche Monatsprozesse einer Verwaltungseinheit, nicht die Ha
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

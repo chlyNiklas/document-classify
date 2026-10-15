@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0106
+document:
+  filename: GT-0106_DOC-03.docx
+  document_type_id: DOC-03
+  format: docx
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. b
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. b ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: 'Am betreffenden Tag wird die Reihenfolge der Kontrollen verändert, weil
+      ein Zugang zeitweise durch einen Lieferdienst genutzt werden muss. Die einzelnen
+      Kontrollpunkte bleiben grundsätzlich '
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Die genaue Reihenfolge würde einer unberechtigten Person erlauben, die
+      Kontrollen gezielt zu umgehen oder durch unnötige Meldungen zu verzögern. Die
+      Folge wäre eine Erschwerung eines begrenzten Sicherheitseinsatzes. Es l
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

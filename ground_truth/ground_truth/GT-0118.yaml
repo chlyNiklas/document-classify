@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0118
+document:
+  filename: GT-0118_DOC-03.txt
+  document_type_id: DOC-03
+  format: txt
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. f
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. f ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Einer der Kantone hat in der Fachrunde eine vorläufige technische Lösung
+      angeboten, die politische Freigabe dafür steht jedoch noch aus. Der andere Kanton
+      favorisiert eine abweichende Umsetz
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Eine vorzeitige Verbreitung der nicht freigegebenen Zugeständnisse könnte
+      zu gegenseitigen Vorwürfen führen und die für das Formular notwendige Abstimmung
+      zeitweise blockieren. Das würde die Beziehungen zwischen den bete
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

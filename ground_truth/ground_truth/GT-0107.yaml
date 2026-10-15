@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0107
+document:
+  filename: GT-0107_DOC-05.pdf
+  document_type_id: DOC-05
+  format: pdf
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. b
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. b ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Die operative Koordination erhält jeweils am Vorabend die Rückmeldung,
+      welcher Fahrzeugpool zur Verfügung steht. Während des derzeitigen Umbaus muss
+      ein Team seinen Treffpunkt kurzfristig än
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Ein frühzeitiges Bekanntwerden der konkreten Abfolge könnte dazu führen,
+      dass kontrollpflichtige Personen einer einzelnen Kontrolle ausweichen oder dass
+      die Teams mit gezielten Anfragen aufgehalten werden. Die Kontrollen
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

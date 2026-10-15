@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0104
+document:
+  filename: GT-0104_DOC-24.pdf
+  document_type_id: DOC-24
+  format: pdf
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. a
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. a ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Die Außenstellen übermitteln ihre Rückmeldungen nicht direkt in die zentrale
+      Übersicht, sondern zuerst an eine Sammelstelle, die die Zuordnung prüft. Bei
+      abweichenden Zahlen wird bis 14.00 U
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: 'Falls eine unberechtigte Person die Übergabekette während der befristeten
+      Phase gezielt stört, können die Tagesübersichten unvollständig oder verspätet
+      erstellt werden. Das erschwert einen wichtigen Koordinationsprozess '
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0111
+document:
+  filename: GT-0111_DOC-03.docx
+  document_type_id: DOC-03
+  format: docx
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. e
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. e ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: 'Der derzeitige Vorschlag sieht vor, den strittigen Punkt zur Datenfeld-Bezeichnung
+      zuerst im kleinen Fachkreis zu erörtern und erst danach im gemeinsamen Plenum
+      aufzunehmen. In der internen '
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Würde die interne Gesprächsreihenfolge vorzeitig bekannt, könnte die Partnerseite
+      die zeitliche Konzession einfordern, ohne im Gegenzug die erwünschte Anpassung
+      vorzunehmen. Die Schweiz wäre bei dieser fachtechnischen Ab
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.

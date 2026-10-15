@@ -1,0 +1,46 @@
+schema_version: '1.1'
+test_id: GT-0113
+document:
+  filename: GT-0113_DOC-08.txt
+  document_type_id: DOC-08
+  format: txt
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: INTERN
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 Abs. 1
+  - ISV Art. 18 Abs. 1 lit. e
+  reasoning: Die konkreten Informationen ermöglichen bei unberechtigter Kenntnisnahme
+    eine begrenzte Beeinträchtigung des in Art. 18 Abs. 1 lit. e ISV beschriebenen
+    Schutzinteresses. Eine erhebliche Beeinträchtigung nach Art. 19 ISV ist im konstruierten
+    Sachverhalt nicht erkennbar.
+  supporting_evidence:
+  - section: Feststellungen zum laufenden Verfahren
+    quote: Der interne Gesprächsplan enthält die noch nicht offengelegte obere Kostenschätzung
+      für einen Pilotbetrieb sowie die Rangfolge der Aspekte, bei denen die Verwaltung
+      zu Anpassungen bereit wär
+  - section: Mögliche Auswirkungen bei vorzeitiger Bekanntgabe
+    quote: Wenn einzelne Anbieter diese Verhandlungsreihenfolge und die obere Kostenschätzung
+      vorzeitig kennen, könnten sie ihre ersten Preisvorschläge gezielt am internen
+      Spielraum ausrichten. Die wirtschaftliche Position des Bund
+  classification_not_based_on:
+  - im_document_label
+  - handling_instruction
+  - personal_data_presence
+  assumptions:
+  - Die geschilderte laufende Operation beziehungsweise Abstimmung ist real und noch
+    nicht abgeschlossen.
+  - Die Angaben sind nicht bereits anderweitig öffentlich bekannt.
+  - Die im Dokument beschriebenen begrenzten Auswirkungen entsprechen dem tatsächlichen
+    Sachverhalt.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Synthetischer, bewusst auf INTERN zugeschnittener Prüffall; fachliche Freigabe
+    steht aus.
