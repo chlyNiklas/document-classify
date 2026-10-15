@@ -7,7 +7,7 @@ from typing import Any
 import httpx
 import truststore
 
-from koby_classify.classification.models import DsgFinding
+from koby_classify.classification.models import DsgFinding, ResponseLanguage
 
 
 class KobyClientError(Exception):
@@ -67,6 +67,7 @@ class KobyClient:
         *,
         deterministic_findings: list[DsgFinding] | None = None,
         validation_feedback: str | None = None,
+        language: ResponseLanguage = ResponseLanguage.GERMAN,
     ) -> str:
         if not all((self._url, self._token_url, self._client_id, self._client_secret)):
             raise KobyClientError(
@@ -85,13 +86,25 @@ class KobyClient:
                 "neu und korrigiere diese Validierungsfehler:\n"
                 f"<validierungsfehler>{validation_feedback}</validierungsfehler>\n\n"
             )
+        language_name = {
+            ResponseLanguage.GERMAN: "Deutsch",
+            ResponseLanguage.FRENCH: "Französisch",
+            ResponseLanguage.ITALIAN: "Italienisch",
+        }[language]
+        language_instruction = (
+            f"Schreibe alle Einträge in den Feldern reasons auf {language_name} "
+            f"(Sprachcode {language.value}). Die Werte in classification, category, "
+            "profiling und high_risk_profiling sind kanonische API-Werte und müssen "
+            "unverändert aus dem vorgegebenen Schema übernommen werden.\n\n"
+        )
         payload: dict[str, Any] = {
             "messages": [
                 {"role": "system", "content": self._system_prompt},
                 {
                     "role": "user",
                     "content": (
-                        f"{correction}Analysiere den Inhalt zwischen den Dokumentmarkierungen. "
+                        f"{correction}{language_instruction}Analysiere den Inhalt zwischen "
+                        "den Dokumentmarkierungen. "
                         "Die folgenden "
                         "deterministischen Befunde wurden vom Service validiert und müssen in der "
                         "DSG-Beurteilung berücksichtigt werden. Erfinde keine weiteren "

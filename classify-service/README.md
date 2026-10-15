@@ -69,8 +69,16 @@ Classify a document:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/v1/classify \
+  -H 'Accept-Language: de' \
   -F 'file=@/absolute/path/to/document.pdf'
 ```
+
+`Accept-Language` controls the language of the human-readable `reasons`. Supported languages are
+German (`de`), French (`fr`), and Italian (`it`); German is used when the header is absent or no
+supported language is requested. Regional and weighted values such as `fr-CH, de;q=0.8` are
+supported. Classification, finding-category, and detection-status values remain stable canonical
+API values and are not translated. The selected language is also returned in the
+`Content-Language` response header.
 
 The response contains independent ISG/ISV and DSG assessments:
 

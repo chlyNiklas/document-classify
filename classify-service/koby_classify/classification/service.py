@@ -9,6 +9,7 @@ from koby_classify.classification.models import (
     ClassificationResponse,
     DataProtectionClassification,
     DsgFinding,
+    ResponseLanguage,
 )
 
 
@@ -23,7 +24,12 @@ class ClassificationService:
     def __init__(self, koby: KobyClient) -> None:
         self._koby = koby
 
-    async def classify(self, request: ClassificationRequest) -> ClassificationResponse:
+    async def classify(
+        self,
+        request: ClassificationRequest,
+        *,
+        language: ResponseLanguage = ResponseLanguage.GERMAN,
+    ) -> ClassificationResponse:
         deterministic_findings = detect_structured_personal_data(request.text)
         validation_feedback: str | None = None
 
@@ -33,6 +39,7 @@ class ClassificationService:
                     request.text,
                     deterministic_findings=deterministic_findings,
                     validation_feedback=validation_feedback,
+                    language=language,
                 )
             except KobyClientError as error:
                 raise ClassificationUnavailableError(str(error)) from error
@@ -44,6 +51,7 @@ class ClassificationService:
                 return self._merge_deterministic_findings(
                     response,
                     deterministic_findings,
+                    language,
                 )
             except ValidationError as error:
                 validation_feedback = self._validation_feedback(error)
@@ -86,6 +94,7 @@ class ClassificationService:
     def _merge_deterministic_findings(
         response: ClassificationResponse,
         deterministic_findings: list[DsgFinding],
+        language: ResponseLanguage,
     ) -> ClassificationResponse:
         if not deterministic_findings:
             return response
@@ -106,10 +115,20 @@ class ClassificationService:
             response.dsg.classification = DataProtectionClassification.PERSONAL_DATA
 
         if "ahv_number" in findings_by_type:
-            deterministic_reason = (
-                "Eine formal gültige AHV-Nummer wurde deterministisch erkannt; "
-                "sie ist ein Personenidentifikator."
-            )
+            deterministic_reason = {
+                ResponseLanguage.GERMAN: (
+                    "Eine formal gültige AHV-Nummer wurde deterministisch erkannt; "
+                    "sie ist ein Personenidentifikator."
+                ),
+                ResponseLanguage.FRENCH: (
+                    "Un numéro AVS formellement valide a été détecté de manière "
+                    "déterministe; il s'agit d'un identifiant personnel."
+                ),
+                ResponseLanguage.ITALIAN: (
+                    "È stato rilevato in modo deterministico un numero AVS formalmente "
+                    "valido; si tratta di un identificatore personale."
+                ),
+            }[language]
             if model_reported_no_personal_data:
                 response.dsg.reasons = [deterministic_reason]
             elif deterministic_reason not in response.dsg.reasons:

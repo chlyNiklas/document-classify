@@ -33,7 +33,7 @@ def build_assessment_system_prompt(isg_rulebook: str, dsg_rulebook: str) -> str:
     response_shape = {
         "isg_isv": {
             "classification": "nicht klassifiziert | intern | vertraulich | geheim",
-            "reasons": ["1 bis 5 kurze Begründungen auf Deutsch"],
+            "reasons": ["<1 bis 5 kurze Begründungen in der angeforderten Sprache>"],
             "legal_basis": ["mindestens eine konkrete ISG/ISV-Referenz"],
         },
         "dsg": {
@@ -41,7 +41,7 @@ def build_assessment_system_prompt(isg_rulebook: str, dsg_rulebook: str) -> str:
                 "keine personendaten | personendaten | "
                 "besonders schützenswerte personendaten"
             ),
-            "reasons": ["1 bis 5 kurze Begründungen auf Deutsch"],
+            "reasons": ["<1 bis 5 kurze Begründungen in der angeforderten Sprache>"],
             "legal_basis": ["mindestens eine konkrete DSG-Referenz"],
             "findings": [
                 {
@@ -70,6 +70,9 @@ Gib ausschliesslich ein JSON-Objekt in exakt dieser Struktur zurück:
 
 Keine Markdown-Formatierung, keine Codeblöcke und keine zusätzlichen Felder. Nenne in den
 Findings niemals unmaskierte Identifikatoren oder wörtliche besonders schützenswerte Inhalte.
+Schreibe die Begründungen in der im Benutzerauftrag angeforderten Sprache. Die Werte der
+Klassifizierungs-, Kategorie- und Erkennungsfelder sind kanonische API-Werte und werden nicht
+übersetzt.
 Beide Ergebnisse sind Vorschläge und müssen immer durch eine zuständige Person rechtlich und
 fachlich geprüft werden.
 

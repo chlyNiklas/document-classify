@@ -28,6 +28,12 @@ class DetectionStatus(StrEnum):
     DETECTED = "erkannt"
 
 
+class ResponseLanguage(StrEnum):
+    GERMAN = "de"
+    FRENCH = "fr"
+    ITALIAN = "it"
+
+
 class ClassificationRequest(BaseModel):
     text: str = Field(min_length=1)
     source: str | None = None
