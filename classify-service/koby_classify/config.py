@@ -1,7 +1,18 @@
+import json
 from functools import lru_cache
+from typing import Annotated
 
-from pydantic import AliasChoices, Field, SecretStr
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import AliasChoices, BeforeValidator, Field, SecretStr
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
+
+
+def _split_origins(value: object) -> object:
+    if isinstance(value, str):
+        stripped = value.strip()
+        if stripped.startswith("["):
+            return json.loads(stripped)
+        return [origin.strip() for origin in stripped.split(",") if origin.strip()]
+    return value
 
 
 class Settings(BaseSettings):
@@ -33,6 +44,9 @@ class Settings(BaseSettings):
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
     max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)
     max_extracted_characters: int = Field(default=100_000, gt=0)
+    cors_origins: Annotated[list[str], NoDecode, BeforeValidator(_split_origins)] = [
+        "http://localhost:4200"
+    ]
 
 
 @lru_cache

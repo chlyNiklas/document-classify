@@ -1,0 +1,21 @@
+# Version control
+.git/
+
+# Local virtualenv (created by uv sync on the host)
+.venv/
+
+# Local environment files
+.env
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Test/tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# uv lock must remain available for uv sync --frozen, but ignore other uv state
+.uv-cache/

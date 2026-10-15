@@ -1,0 +1,35 @@
+@use "@oblique/oblique/styles/scss/core/variables";
+
+.classify-pending {
+	margin: variables.$ob-spacing-xxl auto;
+	text-align: center;
+}
+
+.classify-card {
+	margin: variables.$ob-spacing-xxl auto;
+	border: 1px solid variables.$ob-gray-light;
+	border-radius: 4px;
+	max-width: 720px;
+	padding: variables.$ob-spacing-default;
+
+	&--error {
+		border-color: variables.$ob-error;
+	}
+
+	&__title {
+		margin-top: 0;
+
+		.classify-card--error & {
+			color: variables.$ob-error;
+		}
+	}
+
+	&__body {
+		background-color: variables.$ob-gray-extra-light;
+		margin: 0;
+		overflow-x: auto;
+		padding: variables.$ob-spacing-default;
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+}

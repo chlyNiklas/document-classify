@@ -1,0 +1,20 @@
+name: document-classify
+
+services:
+  classify-service:
+    build: ./classify-service
+    container_name: classify-service
+    ports:
+      - "8000:8000"
+    environment:
+      KOBY_CLASSIFY_cors_origins: http://localhost:4200
+    restart: unless-stopped
+
+  classify-ui:
+    build: ./classify-ui
+    container_name: classify-ui
+    ports:
+      - "4200:80"
+    depends_on:
+      - classify-service
+    restart: unless-stopped

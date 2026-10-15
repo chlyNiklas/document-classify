@@ -1,0 +1,12 @@
+.git/
+.github/
+node_modules/
+dist/
+.angular/
+coverage/
+.vscode/
+src/environments/environment.*.ts
+!src/environments/environment.prod.ts
+.eslintcache
+Dockerfile
+.dockerignore

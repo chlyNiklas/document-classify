@@ -37,6 +37,13 @@ For local testing against a known internal endpoint with a non-standard certific
 
 The API is then available at `http://127.0.0.1:8000` and the OpenAPI UI at `http://127.0.0.1:8000/docs`.
 
+## CORS
+
+The API enables CORS so browser front-ends can call it directly. The allowed origins are
+configured via `KOBY_CLASSIFY_cors_origins` (a comma-separated list of origins). The
+default is `http://localhost:4200`, the Angular dev server. Only `GET` and `POST`
+requests are allowed, without credentials.
+
 ## Example
 
 Classify a document:
