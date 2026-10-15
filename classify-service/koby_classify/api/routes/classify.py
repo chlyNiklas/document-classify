@@ -55,7 +55,7 @@ def select_response_language(accept_language: str | None) -> ResponseLanguage:
 async def classify(
     file: Annotated[
         UploadFile,
-        File(description="A PDF, DOCX, or UTF-8 plain-text document"),
+        File(description="A PDF, DOCX, Markdown, or UTF-8 plain-text document"),
     ],
     response: Response,
     service: Annotated[ClassificationService, Depends(get_classification_service)],

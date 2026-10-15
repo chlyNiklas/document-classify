@@ -87,8 +87,8 @@ const trustDocSample: DemoSample = {
 
 const payrollSample: DemoSample = {
 	id: 'B22',
-	file: 'B22_lohnliste_informatik_q3.csv',
-	type: 'csv',
+	file: 'B22_lohnliste_informatik_q3.txt',
+	type: 'txt',
 	pages: 1,
 	durationSeconds: 1.9,
 	tag: 'Personalfinanzen',
@@ -120,8 +120,8 @@ const payrollSample: DemoSample = {
 
 const offerSample: DemoSample = {
 	id: 'A03',
-	file: 'A03_offerte_rz_erweiterung_los2.xlsx',
-	type: 'xlsx',
+	file: 'A03_offerte_rz_erweiterung_los2.docx',
+	type: 'docx',
 	pages: 3,
 	durationSeconds: 3.6,
 	tag: 'Beschaffung',

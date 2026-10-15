@@ -1,4 +1,4 @@
-import {Component, type ElementRef, computed, inject, input, viewChild} from '@angular/core';
+import {Component, type ElementRef, inject, input, viewChild} from '@angular/core';
 import {ObOffCanvasService} from '@oblique/oblique';
 import {DemoPreviewService} from '../shared/demo-preview.service';
 import {type DemoDocumentWithResult, MockClassificationService} from '../mock/mock-classification.service';
@@ -15,8 +15,6 @@ export class WorkReview {
 	readonly moreFilesInput = viewChild.required<ElementRef<HTMLInputElement>>('moreFilesInput');
 
 	/** Additional-document upload accepts the same file list as the drop zone. */
-	readonly accept = computed(() => this.service.acceptedExtensions.map(extension => `.${extension}`));
-
 	private readonly service = inject(MockClassificationService);
 	private readonly preview = inject(DemoPreviewService);
 	private readonly offCanvas = inject(ObOffCanvasService);

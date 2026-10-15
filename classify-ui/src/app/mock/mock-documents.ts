@@ -4,24 +4,8 @@ import {type DemoSample, demoSamples} from './demo-samples';
 export const demoSampleExtensions: readonly string[] = [
 	'pdf',
 	'docx',
-	'doc',
-	'xlsx',
-	'xls',
-	'csv',
-	'txt',
 	'md',
-	'eml',
-	'msg',
-	'ics',
-	'xml',
-	'pptx',
-	'rtf',
-	'odt',
-	'png',
-	'jpg',
-	'jpeg',
-	'tif',
-	'tiff'
+	'txt'
 ];
 
 export type {DemoSample};
@@ -45,24 +29,8 @@ const nameRules: readonly (readonly [RegExp, string])[] = [
 const defaultSampleByExtension: Readonly<Record<string, string>> = {
 	pdf: 'B16',
 	docx: 'B08',
-	doc: 'B08',
-	xlsx: 'A03',
-	xls: 'A03',
-	csv: 'B22',
-	txt: 'B16',
 	md: 'B16',
-	eml: 'B07',
-	msg: 'B07',
-	ics: 'B08',
-	xml: 'B08',
-	pptx: 'B08',
-	rtf: 'B08',
-	odt: 'B08',
-	png: 'A07',
-	jpg: 'A07',
-	jpeg: 'A07',
-	tif: 'A07',
-	tiff: 'A07'
+	txt: 'B16'
 };
 
 /** Maps an uploaded file name to the sample whose content the simulated analysis is based on. */

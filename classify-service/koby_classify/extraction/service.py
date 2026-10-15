@@ -63,6 +63,7 @@ def _document_type(filename: str | None, content_type: str | None) -> str:
     by_extension = {
         ".pdf": "pdf",
         ".docx": "docx",
+        ".md": "markdown",
         ".txt": "text",
     }
     if extension in by_extension:
@@ -72,12 +73,15 @@ def _document_type(filename: str | None, content_type: str | None) -> str:
     by_content_type = {
         "application/pdf": "pdf",
         DOCX_CONTENT_TYPE: "docx",
+        "text/markdown": "markdown",
         "text/plain": "text",
     }
     if normalized_content_type in by_content_type:
         return by_content_type[normalized_content_type]
 
-    raise UnsupportedDocumentTypeError("Only PDF, DOCX, and plain-text files are supported")
+    raise UnsupportedDocumentTypeError(
+        "Only PDF, DOCX, Markdown, and plain-text files are supported"
+    )
 
 
 def _extract_pdf(content: bytes) -> str:

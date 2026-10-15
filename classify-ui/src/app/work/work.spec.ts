@@ -66,17 +66,17 @@ describe('Work', () => {
 	}
 
 	it('renders one document row with status and actions per added file (table render)', () => {
-		addFile('lohnliste_abteilung_q3.csv', 2048, 'csv');
+		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
 		addFile('netzwerkplan_standort.pdf', 4096, 'pdf');
 		fixture.detectChanges();
 
 		expect(element().querySelectorAll('.doclist__row')).toHaveLength(2);
 		expect(element().querySelectorAll('.doclist__row .doclist__status')).toHaveLength(2);
-		expect(element().querySelector('.doclist__row .doclist__name')?.textContent).toBe('lohnliste_abteilung_q3.csv');
+		expect(element().querySelector('.doclist__row .doclist__name')?.textContent).toBe('lohnliste_abteilung_q3.txt');
 	});
 
 	it('selection switches the review area to the selected document', () => {
-		addFile('lohnliste_abteilung_q3.csv', 2048, 'csv');
+		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
 		addFile('netzwerkplan_standort.pdf', 4096, 'pdf');
 		vi.runAllTimers();
 		fixture.detectChanges();
@@ -94,7 +94,7 @@ describe('Work', () => {
 	});
 
 	it('rejects unsupported formats and over-sized files with an alert while keeping existing documents', () => {
-		addFile('lohnliste_abteilung_q3.csv', 2048, 'csv');
+		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
 		vi.runAllTimers();
 		fixture.detectChanges();
 		const acceptedCountBefore = classification.documents().length;

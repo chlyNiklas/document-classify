@@ -30,9 +30,9 @@ describe('MockClassificationService', () => {	let service: MockClassificationSer
 
 	it('the upload name mapping never resolves to the manual-only level', () => {
 		const names = [
-			'lohnliste_q3.csv',
+			'lohnliste_q3.txt',
 			'vertrauensaerztliche_beurteilung.docx',
-			'offerte_rz_erweiterung.xlsx',
+			'offerte_rz_erweiterung.pdf',
 			'netzwerkplan.pdf',
 			'protokoll_amtsleitung.docx',
 			'FAQ_Datenschutz.pdf',
@@ -47,8 +47,8 @@ describe('MockClassificationService', () => {	let service: MockClassificationSer
 	});
 
 	it('validates unsupported formats and over-sized files without touching existing documents', () => {
-		const first = service.validate([makeFile('bericht.csv', 10), makeFile('video.mp4', 10), makeFile('riesig.pdf', 60 * bytesPerMegabyteValue)]);
-		expect(first.accepted.map(entry => entry.file.name)).toEqual(['bericht.csv']);
+		const first = service.validate([makeFile('bericht.txt', 10), makeFile('video.mp4', 10), makeFile('riesig.pdf', 60 * bytesPerMegabyteValue)]);
+		expect(first.accepted.map(entry => entry.file.name)).toEqual(['bericht.txt']);
 		expect(first.rejected).toEqual([
 			{name: 'video.mp4', reason: 'format'},
 			{name: 'riesig.pdf', reason: 'size'}
