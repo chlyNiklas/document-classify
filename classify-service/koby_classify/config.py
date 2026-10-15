@@ -1,6 +1,6 @@
 from functools import lru_cache
 
-from pydantic import Field, SecretStr
+from pydantic import AliasChoices, Field, SecretStr
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -16,14 +16,23 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     api_prefix: str = "/v1"
     koby_llm_url: str | None = Field(default=None, validation_alias="KOBY_LLM_URL")
-    koby_api_key: SecretStr | None = Field(default=None, validation_alias="KOBY_API_KEY")
-    koby_model: str | None = Field(default=None, validation_alias="KOBY_MODEL")
-    koby_api_key_header: str = Field(
-        default="Authorization",
-        validation_alias="KOBY_API_KEY_HEADER",
+    koby_token_url: str = Field(
+        default=(
+            "https://r.auth.koby.admin.ch/realms/"
+            "fbcfa3d6-6fad-43fb-9d37-0c76a28495f6/protocol/openid-connect/token"
+        ),
+        validation_alias="KOBY_TOKEN_URL",
     )
+    koby_client_id: str | None = Field(default=None, validation_alias="KOBY_CLIENT_ID")
+    koby_client_secret: SecretStr | None = Field(
+        default=None,
+        validation_alias=AliasChoices("KOBY_CLIENT_SECRET", "KOBY_API_KEY"),
+    )
+    koby_model: str | None = Field(default=None, validation_alias="KOBY_MODEL")
     koby_ca_bundle: str | None = Field(default=None, validation_alias="KOBY_CA_BUNDLE")
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
+    max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)
+    max_extracted_characters: int = Field(default=100_000, gt=0)
 
 
 @lru_cache

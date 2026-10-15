@@ -1,4 +1,6 @@
+import asyncio
 import ssl
+from time import monotonic
 from typing import Any
 
 import httpx
@@ -25,19 +27,24 @@ class KobyClient:
         self,
         *,
         url: str | None,
-        api_key: str | None,
+        token_url: str | None,
+        client_id: str | None,
+        client_secret: str | None,
         model: str | None = None,
-        api_key_header: str = "Authorization",
         ca_bundle: str | None = None,
         verify_tls: bool = True,
         timeout_seconds: float = 60.0,
     ) -> None:
         self._url = self._chat_completions_url(url)
-        self._api_key = api_key
+        self._token_url = token_url
+        self._client_id = client_id
+        self._client_secret = client_secret
         self._model = model
-        self._api_key_header = api_key_header
         self._timeout = httpx.Timeout(timeout_seconds)
         self._tls_verifier = self._create_tls_verifier(ca_bundle, verify_tls)
+        self._access_token: str | None = None
+        self._token_expires_at = 0.0
+        self._token_lock = asyncio.Lock()
 
     @staticmethod
     def _chat_completions_url(url: str | None) -> str | None:
@@ -60,8 +67,11 @@ class KobyClient:
         return truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 
     async def classify(self, text: str) -> str:
-        if not self._url or not self._api_key:
-            raise KobyClientError("KOBY_LLM_URL and KOBY_API_KEY must be configured")
+        if not all((self._url, self._token_url, self._client_id, self._client_secret)):
+            raise KobyClientError(
+                "KOBY_LLM_URL, KOBY_TOKEN_URL, KOBY_CLIENT_ID, and "
+                "KOBY_CLIENT_SECRET must be configured"
+            )
 
         payload: dict[str, Any] = {
             "messages": [
@@ -73,21 +83,21 @@ class KobyClient:
         if self._model:
             payload["model"] = self._model
 
-        headers = {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        }
-        if self._api_key_header.lower() == "authorization":
-            headers[self._api_key_header] = f"Bearer {self._api_key}"
-        else:
-            headers[self._api_key_header] = self._api_key
-
         try:
             async with httpx.AsyncClient(
                 timeout=self._timeout,
                 verify=self._tls_verifier,
             ) as client:
-                response = await client.post(self._url, headers=headers, json=payload)
+                access_token = await self._get_access_token(client)
+                response = await client.post(
+                    self._url,
+                    headers={
+                        "Accept": "application/json",
+                        "Authorization": f"Bearer {access_token}",
+                        "Content-Type": "application/json",
+                    },
+                    json=payload,
+                )
                 response.raise_for_status()
         except httpx.HTTPStatusError as error:
             raise KobyClientError(
@@ -113,3 +123,43 @@ class KobyClient:
         if not isinstance(content, str) or not content.strip():
             raise KobyClientError("KOBY returned an empty response")
         return content.strip()
+
+    async def _get_access_token(self, client: httpx.AsyncClient) -> str:
+        if self._access_token and monotonic() < self._token_expires_at:
+            return self._access_token
+
+        async with self._token_lock:
+            if self._access_token and monotonic() < self._token_expires_at:
+                return self._access_token
+
+            response = await client.post(
+                self._token_url,
+                data={"grant_type": "client_credentials"},
+                auth=httpx.BasicAuth(self._client_id, self._client_secret),
+                headers={"Accept": "application/json"},
+            )
+            if response.is_error:
+                raise KobyClientError(
+                    f"KOBY token endpoint returned HTTP {response.status_code}"
+                )
+
+            try:
+                token_data = response.json()
+                access_token = token_data["access_token"]
+            except (KeyError, TypeError, ValueError) as error:
+                raise KobyClientError(
+                    "KOBY token endpoint returned an unexpected response shape"
+                ) from error
+
+            if not isinstance(access_token, str) or not access_token.strip():
+                raise KobyClientError("KOBY token endpoint returned an empty access token")
+
+            try:
+                lifetime = max(float(token_data.get("expires_in", 60)), 0)
+            except (TypeError, ValueError):
+                lifetime = 60
+            refresh_margin = min(30, lifetime * 0.1)
+
+            self._access_token = access_token.strip()
+            self._token_expires_at = monotonic() + max(lifetime - refresh_margin, 0)
+            return self._access_token
