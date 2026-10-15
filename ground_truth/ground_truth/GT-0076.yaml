@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0076
+  source_document_type: DOC-12
+  title: Dossier zum gestuften Wiedereinstieg
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0076_DOC-12.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 1f8782f7e4d7e5d053005303fbd4247df1109c6b09b2214c95bc6ebf85ac443c
+test_hypotheses:
+  primary_focus: health_data
+  candidate_dimensions:
+  - evidence: Eine künstliche Mitarbeitendenakte enthält einen ärztlich bestätigten Genesungsverlauf
+    review_required: true
+  - evidence: Die Personalnummer ermöglicht die direkte Zuordnung zur Person
+    review_required: true
+  - evidence: Eine geplante Anpassung der Arbeitszeit wird beschrieben
+    review_required: true
+  - evidence: Ein medizinischer Befund ist in einem Annex enthalten
+    review_required: true
+  - evidence: Die Führungskraft kennt nur die arbeitsorganisatorische Empfehlung
+    review_required: true
+  - evidence: Die Akte enthält eine fiktive und ausdrücklich nicht reale Diagnose
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

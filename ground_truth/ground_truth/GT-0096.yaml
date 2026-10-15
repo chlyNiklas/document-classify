@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0096
+  source_document_type: DOC-08
+  title: Angebotsvergleich für Übersetzungsleistungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0096_DOC-08.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 08db60308ba3c2b52a4c79886d9e05e20f4e49ed5c19d5c3727d19f5ee47b3f3
+test_hypotheses:
+  primary_focus: commercial_information
+  candidate_dimensions:
+  - evidence: Drei Unternehmen offerieren Sprachdienstleistungen
+    review_required: true
+  - evidence: Die Kontaktdaten gehören zu namentlichen Ansprechpersonen
+    review_required: true
+  - evidence: Preisblätter enthalten Geschäftsbedingungen und Rabattstaffeln
+    review_required: true
+  - evidence: Eine Anbieterin nutzt eine allgemein gehaltene Geheimhaltungsklausel
+    review_required: true
+  - evidence: Ein Anhängsel wurde fälschlich mit einer höchsten Einstufung überschrieben
+    review_required: true
+  - evidence: Die Vergabestelle hat noch keine Zuschlagsentscheidung getroffen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

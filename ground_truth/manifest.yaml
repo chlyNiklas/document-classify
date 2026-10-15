@@ -1,9 +1,9 @@
 schema_version: '1.1'
 dataset_id: koby-ground-truth
-coverage: GT-0001..GT-0060
+coverage: GT-0001..GT-0100
 status: pending_legal_review
 source: document_types_source.yaml
-total_documents: 60
+total_documents: 100
 batches:
 - range: GT-0001..GT-0010
   included: true
@@ -16,6 +16,14 @@ batches:
 - range: GT-0041..GT-0050
   included: true
 - range: GT-0051..GT-0060
+  included: true
+- range: GT-0061..GT-0070
+  included: true
+- range: GT-0071..GT-0080
+  included: true
+- range: GT-0081..GT-0090
+  included: true
+- range: GT-0091..GT-0100
   included: true
 cases:
 - id: GT-0001
@@ -677,4 +685,444 @@ cases:
   words: 2240
   pages_pdf: null
   sha256: 3fe6dac2a828483f77911fafe469c1ee1a9b54e91227124e3130aec6f1942cc0
+  legal_review_status: pending_legal_review
+- id: GT-0061
+  batch: GT-0061..GT-0070
+  document_type: DOC-21
+  format: pdf_text
+  title: Chronologie eines Bewilligungsverfahrens mit Einsprache
+  document: documents/GT-0061_DOC-21.pdf
+  ground_truth: ground_truth/GT-0061.yaml
+  words: 5006
+  pages_pdf: 9
+  sha256: d8ca5f7fec4ca478e1cf2bdea68058240e5dcc6d16e2a6372be3c6a899b0b029
+  legal_review_status: pending_legal_review
+- id: GT-0062
+  batch: GT-0061..GT-0070
+  document_type: DOC-22
+  format: docx
+  title: Korrespondenz zur Berichtigung einer Registereintragung
+  document: documents/GT-0062_DOC-22.docx
+  ground_truth: ground_truth/GT-0062.yaml
+  words: 4889
+  pages_pdf: null
+  sha256: 9e70fa95dc8c12fdb6f62a50512506caf9c60fe34e12938ffcb2c72a55fd96ad
+  legal_review_status: pending_legal_review
+- id: GT-0063
+  batch: GT-0061..GT-0070
+  document_type: DOC-23
+  format: txt
+  title: Textbasierte Fallliste eines Unterstützungsprogramms
+  document: documents/GT-0063_DOC-23.txt
+  ground_truth: ground_truth/GT-0063.yaml
+  words: 4855
+  pages_pdf: null
+  sha256: 11ff6eae8de1d7949c9651c1b770dcf30bba21d7bd00b1433b0412682fe8058b
+  legal_review_status: pending_legal_review
+- id: GT-0064
+  batch: GT-0061..GT-0070
+  document_type: DOC-24
+  format: pdf_text
+  title: Richtlinie zur Veröffentlichung statistischer Auswertungen
+  document: documents/GT-0064_DOC-24.pdf
+  ground_truth: ground_truth/GT-0064.yaml
+  words: 4890
+  pages_pdf: 9
+  sha256: f56e4a0c5f02570ee8aa720b4d7ea10d29f06d597f5be49a00d027dd629b6bf4
+  legal_review_status: pending_legal_review
+- id: GT-0065
+  batch: GT-0061..GT-0070
+  document_type: DOC-01
+  format: docx
+  title: Medieninformation zum barrierefreien Onlineangebot
+  document: documents/GT-0065_DOC-01.docx
+  ground_truth: ground_truth/GT-0065.yaml
+  words: 4863
+  pages_pdf: null
+  sha256: 028947391cddf682082c8c7ef21af4e80c82a20dac936c34674ae9ea684e7868
+  legal_review_status: pending_legal_review
+- id: GT-0066
+  batch: GT-0061..GT-0070
+  document_type: DOC-02
+  format: pdf_text
+  title: Protokoll der Koordinationsrunde Datenqualität
+  document: documents/GT-0066_DOC-02.pdf
+  ground_truth: ground_truth/GT-0066.yaml
+  words: 4953
+  pages_pdf: 9
+  sha256: 88e6c703834dfdae4fca6060cacc37ebe005054dde9ee2ef9dec3fa06505286a
+  legal_review_status: pending_legal_review
+- id: GT-0067
+  batch: GT-0061..GT-0070
+  document_type: DOC-03
+  format: docx
+  title: Aktennotiz zur Erreichbarkeit eines regionalen Dienstes
+  document: documents/GT-0067_DOC-03.docx
+  ground_truth: ground_truth/GT-0067.yaml
+  words: 4858
+  pages_pdf: null
+  sha256: 472e0ab869eab1a1c313a47aaf2a5a8049d9bb182f1a5911e3c099e862c0bbb3
+  legal_review_status: pending_legal_review
+- id: GT-0068
+  batch: GT-0061..GT-0070
+  document_type: DOC-04
+  format: docx
+  title: Pilotauftrag für ein digitales Formularsystem
+  document: documents/GT-0068_DOC-04.docx
+  ground_truth: ground_truth/GT-0068.yaml
+  words: 4854
+  pages_pdf: null
+  sha256: 5a7d5291b8c51eb4c9a710b4cb7a35df5c70e762c1a28ba772db876ac6f19b52
+  legal_review_status: pending_legal_review
+- id: GT-0069
+  batch: GT-0061..GT-0070
+  document_type: DOC-05
+  format: pdf_text
+  title: Lagebericht zur saisonalen Auslastung von Schaltern
+  document: documents/GT-0069_DOC-05.pdf
+  ground_truth: ground_truth/GT-0069.yaml
+  words: 4867
+  pages_pdf: 9
+  sha256: b1ea479073bbf8cb09e2136544d794a717a47abbd944134dcdcbd30573b76888
+  legal_review_status: pending_legal_review
+- id: GT-0070
+  batch: GT-0061..GT-0070
+  document_type: DOC-06
+  format: docx
+  title: Entscheidungsgrundlage zur Auslagerung von Archivleistungen
+  document: documents/GT-0070_DOC-06.docx
+  ground_truth: ground_truth/GT-0070.yaml
+  words: 4844
+  pages_pdf: null
+  sha256: 1e2e344395934b9253f3dbfe42b0c2c92748b1acf30f38c9db1ced14266aa9e7
+  legal_review_status: pending_legal_review
+- id: GT-0071
+  batch: GT-0071..GT-0080
+  document_type: DOC-07
+  format: pdf_text
+  title: Finanzbericht zum Ersatz alter Lagerinfrastruktur
+  document: documents/GT-0071_DOC-07.pdf
+  ground_truth: ground_truth/GT-0071.yaml
+  words: 4881
+  pages_pdf: 9
+  sha256: beac38e898d5d517cc7775cd7359f4d951a0ba17f21f781adc81e728ac58c7eb
+  legal_review_status: pending_legal_review
+- id: GT-0072
+  batch: GT-0071..GT-0080
+  document_type: DOC-08
+  format: docx
+  title: Vergabeunterlagen für eine kantonsübergreifende Hotline
+  document: documents/GT-0072_DOC-08.docx
+  ground_truth: ground_truth/GT-0072.yaml
+  words: 4845
+  pages_pdf: null
+  sha256: 63daeb6a6fc72635c5bb4765973baf0097fd3fc77fdbc0aecb89101c29a69152
+  legal_review_status: pending_legal_review
+- id: GT-0073
+  batch: GT-0071..GT-0080
+  document_type: DOC-09
+  format: docx
+  title: Rahmenvertrag zur Wartung von Archivsoftware
+  document: documents/GT-0073_DOC-09.docx
+  ground_truth: ground_truth/GT-0073.yaml
+  words: 4838
+  pages_pdf: null
+  sha256: 3d45266ba3c3a0a3ac493e7972d5ad49326f7f5705bd8383046af3f54177d0e8
+  legal_review_status: pending_legal_review
+- id: GT-0074
+  batch: GT-0071..GT-0080
+  document_type: DOC-10
+  format: pdf_text
+  title: Dienstliches Kontaktregister der Fachstellen
+  document: documents/GT-0074_DOC-10.pdf
+  ground_truth: ground_truth/GT-0074.yaml
+  words: 4890
+  pages_pdf: 9
+  sha256: 81e26ac3c73e6944c5a2ee90c34247937806d85e8f7fc1054ee7b84ca35aef5d
+  legal_review_status: pending_legal_review
+- id: GT-0075
+  batch: GT-0071..GT-0080
+  document_type: DOC-11
+  format: docx
+  title: Qualifikationsbericht für eine Weiterbildung
+  document: documents/GT-0075_DOC-11.docx
+  ground_truth: ground_truth/GT-0075.yaml
+  words: 4867
+  pages_pdf: null
+  sha256: d492744b5ee52f6bf368983c8eafbdcaf76b64b52df54af5bc0ea3b191f31f83
+  legal_review_status: pending_legal_review
+- id: GT-0076
+  batch: GT-0071..GT-0080
+  document_type: DOC-12
+  format: pdf_text
+  title: Dossier zum gestuften Wiedereinstieg
+  document: documents/GT-0076_DOC-12.pdf
+  ground_truth: ground_truth/GT-0076.yaml
+  words: 4908
+  pages_pdf: 9
+  sha256: 1f8782f7e4d7e5d053005303fbd4247df1109c6b09b2214c95bc6ebf85ac443c
+  legal_review_status: pending_legal_review
+- id: GT-0077
+  batch: GT-0071..GT-0080
+  document_type: DOC-13
+  format: docx
+  title: Bewerbungsunterlagen für Sachverständigenstelle
+  document: documents/GT-0077_DOC-13.docx
+  ground_truth: ground_truth/GT-0077.yaml
+  words: 4826
+  pages_pdf: null
+  sha256: d38e079a4110cd28c5328f92c54333539de2ebd4547b60879938063af56f432b
+  legal_review_status: pending_legal_review
+- id: GT-0078
+  batch: GT-0071..GT-0080
+  document_type: DOC-14
+  format: pdf_text
+  title: Statistischer Bericht zu regionaler Beratung
+  document: documents/GT-0078_DOC-14.pdf
+  ground_truth: ground_truth/GT-0078.yaml
+  words: 4896
+  pages_pdf: 9
+  sha256: 3ec0d932208deb215ff2e5e35c47bcfef06c3829e8cc7a5c565fef2332996c64
+  legal_review_status: pending_legal_review
+- id: GT-0079
+  batch: GT-0071..GT-0080
+  document_type: DOC-15
+  format: pdf_text
+  title: Bericht einer Befragung von Kleinstteams
+  document: documents/GT-0079_DOC-15.pdf
+  ground_truth: ground_truth/GT-0079.yaml
+  words: 4876
+  pages_pdf: 9
+  sha256: a3c64f697e6d4af2d69e15420318f8e70d6e56e7c43ab93edbf02188b41ba654
+  legal_review_status: pending_legal_review
+- id: GT-0080
+  batch: GT-0071..GT-0080
+  document_type: DOC-16
+  format: docx
+  title: Systemübersicht für den Datenaustauschdienst
+  document: documents/GT-0080_DOC-16.docx
+  ground_truth: ground_truth/GT-0080.yaml
+  words: 4819
+  pages_pdf: null
+  sha256: 411eb821c3857f82c41840f31139b6b847e336a9e6d98c9af00d91f79e42f43f
+  legal_review_status: pending_legal_review
+- id: GT-0081
+  batch: GT-0081..GT-0090
+  document_type: DOC-17
+  format: pdf_text
+  title: Prüfbericht zu Schwachstellen im Dokumentenportal
+  document: documents/GT-0081_DOC-17.pdf
+  ground_truth: ground_truth/GT-0081.yaml
+  words: 4860
+  pages_pdf: 9
+  sha256: e9a2f11c8fac4d5b8e89440114ec50654ae18fd0f8b5193a2db7392fc6f3434f
+  legal_review_status: pending_legal_review
+- id: GT-0082
+  batch: GT-0081..GT-0090
+  document_type: DOC-18
+  format: docx
+  title: Abschlussbericht zu einem fingierten Sicherheitsereignis
+  document: documents/GT-0082_DOC-18.docx
+  ground_truth: ground_truth/GT-0082.yaml
+  words: 4851
+  pages_pdf: null
+  sha256: 5573f18e36525b9a8825e7105dc8943b04f241312a5783c20448954e85ab9765
+  legal_review_status: pending_legal_review
+- id: GT-0083
+  batch: GT-0081..GT-0090
+  document_type: DOC-19
+  format: txt
+  title: Rollen- und Berechtigungskonzept für eine Fachapplikation
+  document: documents/GT-0083_DOC-19.txt
+  ground_truth: ground_truth/GT-0083.yaml
+  words: 4811
+  pages_pdf: null
+  sha256: 29fb719e26b0c2c783fc33c216842ffb59136ecfe713edb13a69f46c19ba09f0
+  legal_review_status: pending_legal_review
+- id: GT-0084
+  batch: GT-0081..GT-0090
+  document_type: DOC-20
+  format: pdf_text
+  title: Prüfbericht zur Nachvollziehbarkeit von Beschaffungen
+  document: documents/GT-0084_DOC-20.pdf
+  ground_truth: ground_truth/GT-0084.yaml
+  words: 4890
+  pages_pdf: 9
+  sha256: 80309ea42ab78bd0516c95b6d148475d0b19185c46dbdce6c3139a3ec09a4db6
+  legal_review_status: pending_legal_review
+- id: GT-0085
+  batch: GT-0081..GT-0090
+  document_type: DOC-21
+  format: docx
+  title: Aktennotiz zu einem Disziplinarverfahren
+  document: documents/GT-0085_DOC-21.docx
+  ground_truth: ground_truth/GT-0085.yaml
+  words: 4853
+  pages_pdf: null
+  sha256: f6991059d6fa11b4cacc1b23f162bfd4ca876cdb09b7cfa8aa0af098213aed26
+  legal_review_status: pending_legal_review
+- id: GT-0086
+  batch: GT-0081..GT-0090
+  document_type: DOC-22
+  format: pdf_text
+  title: E-Mail-Austausch über einen falschen Verteiler
+  document: documents/GT-0086_DOC-22.pdf
+  ground_truth: ground_truth/GT-0086.yaml
+  words: 4925
+  pages_pdf: 9
+  sha256: 911588ddeded346cc20e944a826d56b5de558926604494e5521af097264a43e7
+  legal_review_status: pending_legal_review
+- id: GT-0087
+  batch: GT-0081..GT-0090
+  document_type: DOC-23
+  format: docx
+  title: Textprotokoll einer anonymisierten Fallübertragung
+  document: documents/GT-0087_DOC-23.docx
+  ground_truth: ground_truth/GT-0087.yaml
+  words: 4867
+  pages_pdf: null
+  sha256: 3caa5b0d87503862444ab48c0fed4196fe04dc509807b8575e9ac82817781736
+  legal_review_status: pending_legal_review
+- id: GT-0088
+  batch: GT-0081..GT-0090
+  document_type: DOC-24
+  format: docx
+  title: Leitfaden zur Kennzeichnung vertraulicher Informationen
+  document: documents/GT-0088_DOC-24.docx
+  ground_truth: ground_truth/GT-0088.yaml
+  words: 4826
+  pages_pdf: null
+  sha256: 1926a13018483b760cfed333971a33ca1867174955dde43bd499a4ac78aec48d
+  legal_review_status: pending_legal_review
+- id: GT-0089
+  batch: GT-0081..GT-0090
+  document_type: DOC-01
+  format: pdf_text
+  title: Öffentliche Mitteilung zur Umstellung eines Servicetelefons
+  document: documents/GT-0089_DOC-01.pdf
+  ground_truth: ground_truth/GT-0089.yaml
+  words: 4859
+  pages_pdf: 9
+  sha256: f0488d8b541416038dcf7c83a7c9b7ac08edcf9bfe97d56182bbc255b8d6e977
+  legal_review_status: pending_legal_review
+- id: GT-0090
+  batch: GT-0081..GT-0090
+  document_type: DOC-02
+  format: docx
+  title: Sitzungsprotokoll zur Priorisierung von Betriebsvorfällen
+  document: documents/GT-0090_DOC-02.docx
+  ground_truth: ground_truth/GT-0090.yaml
+  words: 4857
+  pages_pdf: null
+  sha256: 6052b8d1a004a09a51325f7edc476b0a183f93144980451abc00511fdd355c8f
+  legal_review_status: pending_legal_review
+- id: GT-0091
+  batch: GT-0091..GT-0100
+  document_type: DOC-03
+  format: pdf_text
+  title: Vermerk zu einer anonymen Beschwerde
+  document: documents/GT-0091_DOC-03.pdf
+  ground_truth: ground_truth/GT-0091.yaml
+  words: 4920
+  pages_pdf: 9
+  sha256: a9aec4d99fff8cafbf1cc8c6076205144544d31c0c3030ba995460021578ef21
+  legal_review_status: pending_legal_review
+- id: GT-0092
+  batch: GT-0091..GT-0100
+  document_type: DOC-04
+  format: docx
+  title: Konzeptauftrag für ein Schulungsregister
+  document: documents/GT-0092_DOC-04.docx
+  ground_truth: ground_truth/GT-0092.yaml
+  words: 4814
+  pages_pdf: null
+  sha256: a65798ec01c1fb482cc86f15a01e94a21cf504bf60208274de8f6545f8cc8fa9
+  legal_review_status: pending_legal_review
+- id: GT-0093
+  batch: GT-0091..GT-0100
+  document_type: DOC-05
+  format: docx
+  title: Jahresbericht zu einem Hotline-Testbetrieb
+  document: documents/GT-0093_DOC-05.docx
+  ground_truth: ground_truth/GT-0093.yaml
+  words: 4840
+  pages_pdf: null
+  sha256: ec5e0f323690bb5c261837e8c55fee67fac7280b83e7ac181ae9f1fa1c8192ac
+  legal_review_status: pending_legal_review
+- id: GT-0094
+  batch: GT-0091..GT-0100
+  document_type: DOC-06
+  format: pdf_text
+  title: Entscheidungsnotiz zur Konsolidierung von Fachservern
+  document: documents/GT-0094_DOC-06.pdf
+  ground_truth: ground_truth/GT-0094.yaml
+  words: 4835
+  pages_pdf: 9
+  sha256: 3ac2fcd31d389ba5d3aa61fc9329a80518217d4e564bdb0b63628e4caa34253b
+  legal_review_status: pending_legal_review
+- id: GT-0095
+  batch: GT-0091..GT-0100
+  document_type: DOC-07
+  format: docx
+  title: Planrechnung für Standortanpassungen
+  document: documents/GT-0095_DOC-07.docx
+  ground_truth: ground_truth/GT-0095.yaml
+  words: 4813
+  pages_pdf: null
+  sha256: cc54ec162a4aae6a974cfd6c53aa78f776eda009d01da047092152f73e63a686
+  legal_review_status: pending_legal_review
+- id: GT-0096
+  batch: GT-0091..GT-0100
+  document_type: DOC-08
+  format: pdf_text
+  title: Angebotsvergleich für Übersetzungsleistungen
+  document: documents/GT-0096_DOC-08.pdf
+  ground_truth: ground_truth/GT-0096.yaml
+  words: 4843
+  pages_pdf: 9
+  sha256: 08db60308ba3c2b52a4c79886d9e05e20f4e49ed5c19d5c3727d19f5ee47b3f3
+  legal_review_status: pending_legal_review
+- id: GT-0097
+  batch: GT-0091..GT-0100
+  document_type: DOC-09
+  format: docx
+  title: Entwurf zur Auftragsdatenbearbeitung
+  document: documents/GT-0097_DOC-09.docx
+  ground_truth: ground_truth/GT-0097.yaml
+  words: 4844
+  pages_pdf: null
+  sha256: 8fb9c1371004c8b3cbc3d4aa80c86912f195fe8cf22c1804f3fba816db9f7194
+  legal_review_status: pending_legal_review
+- id: GT-0098
+  batch: GT-0091..GT-0100
+  document_type: DOC-10
+  format: docx
+  title: Arbeitsverzeichnis für Krisenvertretungen
+  document: documents/GT-0098_DOC-10.docx
+  ground_truth: ground_truth/GT-0098.yaml
+  words: 4835
+  pages_pdf: null
+  sha256: 1a41d93b66dbe1f1473d8afd53e066d4ddf36464f808e83a76c853544eabb223
+  legal_review_status: pending_legal_review
+- id: GT-0099
+  batch: GT-0091..GT-0100
+  document_type: DOC-11
+  format: pdf_text
+  title: Beurteilung nach einem fachlichen Ausbildungsmodul
+  document: documents/GT-0099_DOC-11.pdf
+  ground_truth: ground_truth/GT-0099.yaml
+  words: 4868
+  pages_pdf: 9
+  sha256: 89cbd71210379da36a7919a927c4596df77529cd8732f72b2ba8cfdb7cf3db82
+  legal_review_status: pending_legal_review
+- id: GT-0100
+  batch: GT-0091..GT-0100
+  document_type: DOC-12
+  format: docx
+  title: Arbeitsmedizinische Empfehlung zu einer Versetzung
+  document: documents/GT-0100_DOC-12.docx
+  ground_truth: ground_truth/GT-0100.yaml
+  words: 4822
+  pages_pdf: null
+  sha256: d3f94856c01002e3febb1a70ee631f08a94aff119c13b39a1ed3f03a3e61f061
   legal_review_status: pending_legal_review

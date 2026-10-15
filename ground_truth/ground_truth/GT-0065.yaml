@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0065
+  source_document_type: DOC-01
+  title: Medieninformation zum barrierefreien Onlineangebot
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0065_DOC-01.docx
+  format: docx
+  synthetic: true
+  sha256: 028947391cddf682082c8c7ef21af4e80c82a20dac936c34674ae9ea684e7868
+test_hypotheses:
+  primary_focus: negative_control
+  candidate_dimensions:
+  - evidence: Eine öffentlich angekündigte Informationsplattform erhält zusätzliche Sprachoptionen
+    review_required: true
+  - evidence: Als Kontakt ist die Pressestelle mit einer geschäftlichen Rufnummer genannt
+    review_required: true
+  - evidence: Die Wirkung wird anhand grosser anonymisierter Nutzergruppen beschrieben
+    review_required: true
+  - evidence: Die Mitteilung gibt keine internen Zugangsdaten preis
+    review_required: true
+  - evidence: Der Entwurf enthält noch eine veraltete Terminzusage
+    review_required: true
+  - evidence: Die Direktion hat die öffentliche Freigabe grundsätzlich beschlossen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

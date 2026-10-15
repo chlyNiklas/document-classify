@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0061
+  source_document_type: DOC-21
+  title: Chronologie eines Bewilligungsverfahrens mit Einsprache
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0061_DOC-21.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: d8ca5f7fec4ca478e1cf2bdea68058240e5dcc6d16e2a6372be3c6a899b0b029
+test_hypotheses:
+  primary_focus: sensitive_personal_data
+  candidate_dimensions:
+  - evidence: Eine fiktive Betreiberin beantragt eine befristete Zulassung; ihre Vertreterin wird namentlich genannt
+    review_required: true
+  - evidence: Eine Eingabe enthält Angaben über ein laufendes verwaltungsrechtliches Verfahren gegen den Betreiber
+    review_required: true
+  - evidence: Ein Zeuge hat seine private Telefonnummer auf einem Begleitblatt hinterlassen
+    review_required: true
+  - evidence: Der Entscheid ist noch nicht rechtskräftig und die Anhörung läuft
+    review_required: true
+  - evidence: Die zusammenfassende öffentliche Mitteilung soll Verfahrensdetails auslassen
+    review_required: true
+  - evidence: Ein Teil der Akten geht auf Angaben einer dritten Partei zurück
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

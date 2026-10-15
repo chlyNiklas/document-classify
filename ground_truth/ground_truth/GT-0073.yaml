@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0073
+  source_document_type: DOC-09
+  title: Rahmenvertrag zur Wartung von Archivsoftware
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0073_DOC-09.docx
+  format: docx
+  synthetic: true
+  sha256: 3d45266ba3c3a0a3ac493e7972d5ad49326f7f5705bd8383046af3f54177d0e8
+test_hypotheses:
+  primary_focus: personal_data
+  candidate_dimensions:
+  - evidence: Der Entwurf enthält Vertragsstrafen und Abnahmebedingungen
+    review_required: true
+  - evidence: Ein Annex nennt Verantwortliche mit geschäftlichen Kontaktdaten
+    review_required: true
+  - evidence: Eine Geheimhaltungsklausel gilt nur zwischen den Vertragsparteien
+    review_required: true
+  - evidence: Für die Verwaltungsklassifizierung fehlt eine konkrete Katalogzuordnung
+    review_required: true
+  - evidence: Die Wartungsorte sind allgemein und ohne Zugangsschemata beschrieben
+    review_required: true
+  - evidence: Eine Vertragspartei hat Änderungsbedarf bei den Haftungsgrenzen angemeldet
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

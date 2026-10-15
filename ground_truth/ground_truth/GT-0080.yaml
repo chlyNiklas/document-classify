@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0080
+  source_document_type: DOC-16
+  title: Systemübersicht für den Datenaustauschdienst
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0080_DOC-16.docx
+  format: docx
+  synthetic: true
+  sha256: 411eb821c3857f82c41840f31139b6b847e336a9e6d98c9af00d91f79e42f43f
+test_hypotheses:
+  primary_focus: technical_risk
+  candidate_dimensions:
+  - evidence: Die Architektur beschreibt logische Dienste und Betriebszonen
+    review_required: true
+  - evidence: Der Entwurf zeigt eine zentrale Abhängigkeit zwischen Schnittstellen
+    review_required: true
+  - evidence: Konkrete Zugangsschlüssel und Passwörter sind ausgeschlossen
+    review_required: true
+  - evidence: Zwei fiktive Hostnamen entsprechen keinem realen Netz
+    review_required: true
+  - evidence: Das Bedrohungsszenario ist ausdrücklich hypothetisch
+    review_required: true
+  - evidence: Eine Offenlegungsbewertung benötigt zusätzliche Angaben über den Betriebszweck
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

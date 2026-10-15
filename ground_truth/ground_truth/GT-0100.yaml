@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0100
+  source_document_type: DOC-12
+  title: Arbeitsmedizinische Empfehlung zu einer Versetzung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0100_DOC-12.docx
+  format: docx
+  synthetic: true
+  sha256: d3f94856c01002e3febb1a70ee631f08a94aff119c13b39a1ed3f03a3e61f061
+test_hypotheses:
+  primary_focus: health_data
+  candidate_dimensions:
+  - evidence: Eine fiktive medizinische Fachstelle bestätigt eine Einschränkung
+    review_required: true
+  - evidence: Die Beurteilung enthält keinen vollständigen Krankheitsverlauf
+    review_required: true
+  - evidence: Eine Person kann über ihre seltene Funktion identifiziert werden
+    review_required: true
+  - evidence: Eine Wiedervorlage ist in drei Monaten vorgesehen
+    review_required: true
+  - evidence: Der Vorgesetzte erhält nur erforderliche organisatorische Angaben
+    review_required: true
+  - evidence: Ein separater Anhang beschreibt eine Diagnose
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0064
+  source_document_type: DOC-24
+  title: Richtlinie zur Veröffentlichung statistischer Auswertungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0064_DOC-24.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: f56e4a0c5f02570ee8aa720b4d7ea10d29f06d597f5be49a00d027dd629b6bf4
+test_hypotheses:
+  primary_focus: quoted_classification_labels
+  candidate_dimensions:
+  - evidence: Die Richtlinie definiert eine Mindestgruppengrösse für externe Tabellen
+    review_required: true
+  - evidence: Eine Beispieltabelle zeigt fiktive aggregierte Werte
+    review_required: true
+  - evidence: Ein Warnbeispiel zitiert ausdrücklich das Wort VERTRAULICH ohne es dem Dokument zuzuweisen
+    review_required: true
+  - evidence: Die Fachstelle prüft zusätzliche Reidentifizierungsrisiken durch öffentliche Quellen
+    review_required: true
+  - evidence: Die Anleitung nennt keine realen Personendaten
+    review_required: true
+  - evidence: Eine Ausnahmeregel erlaubt nur begründete Freigaben
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0074
+  source_document_type: DOC-10
+  title: Dienstliches Kontaktregister der Fachstellen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0074_DOC-10.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 81e26ac3c73e6944c5a2ee90c34247937806d85e8f7fc1054ee7b84ca35aef5d
+test_hypotheses:
+  primary_focus: direct_identifiers
+  candidate_dimensions:
+  - evidence: Die Liste enthält Namen, Rollen und interne Durchwahlen
+    review_required: true
+  - evidence: Eine Sektion ist absichtlich mit alten Kontaktdaten gekennzeichnet
+    review_required: true
+  - evidence: Private Wohnorte und Gesundheitsinformationen fehlen
+    review_required: true
+  - evidence: Eine eindeutige Funktionsbezeichnung kann in kleiner Einheit eine Person bestimmen
+    review_required: true
+  - evidence: Die Liste ist zur internen Erreichbarkeit bestimmt
+    review_required: true
+  - evidence: Eine öffentliche Fassung enthält nur zentrale Funktionspostfächer
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

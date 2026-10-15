@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0097
+  source_document_type: DOC-09
+  title: Entwurf zur Auftragsdatenbearbeitung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0097_DOC-09.docx
+  format: docx
+  synthetic: true
+  sha256: 8fb9c1371004c8b3cbc3d4aa80c86912f195fe8cf22c1804f3fba816db9f7194
+test_hypotheses:
+  primary_focus: personal_data
+  candidate_dimensions:
+  - evidence: Die Vereinbarung benennt Rollen und vertragliche Pflichten
+    review_required: true
+  - evidence: Die Parteien tauschen ausschliesslich synthetische Testdatensätze aus
+    review_required: true
+  - evidence: Geschäftskontakte natürlicher Personen stehen im Unterschriftsbereich
+    review_required: true
+  - evidence: Ein Sicherheitsanhang verweist auf einen noch nicht gelieferten Prüfbericht
+    review_required: true
+  - evidence: Die vertragliche Geheimhaltung ist von der Verwaltungsklassifizierung zu unterscheiden
+    review_required: true
+  - evidence: Ein Unterauftragnehmer muss später benannt werden
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

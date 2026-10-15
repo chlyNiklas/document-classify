@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0090
+  source_document_type: DOC-02
+  title: Sitzungsprotokoll zur Priorisierung von Betriebsvorfällen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0090_DOC-02.docx
+  format: docx
+  synthetic: true
+  sha256: 6052b8d1a004a09a51325f7edc476b0a183f93144980451abc00511fdd355c8f
+test_hypotheses:
+  primary_focus: basic_personal_data
+  candidate_dimensions:
+  - evidence: Ein kleines Leitungsteam bespricht drei bekannte Störungen
+    review_required: true
+  - evidence: Die Anwesenheitsliste enthält dienstliche Personendaten
+    review_required: true
+  - evidence: Ein Einzelfall weist auf eine mögliche medizinisch begründete Abwesenheit hin
+    review_required: true
+  - evidence: Die technische Ursache einer Störung ist noch umstritten
+    review_required: true
+  - evidence: Ein Teil der Betriebshinweise wird vor Weitergabe geschwärzt
+    review_required: true
+  - evidence: Ein Beschluss bleibt bis zur nächsten Sitzung provisorisch
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

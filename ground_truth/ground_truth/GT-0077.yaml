@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0077
+  source_document_type: DOC-13
+  title: Bewerbungsunterlagen für Sachverständigenstelle
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0077_DOC-13.docx
+  format: docx
+  synthetic: true
+  sha256: d38e079a4110cd28c5328f92c54333539de2ebd4547b60879938063af56f432b
+test_hypotheses:
+  primary_focus: personal_data
+  candidate_dimensions:
+  - evidence: Das Dossier nennt Ausbildung und berufliche Referenzen
+    review_required: true
+  - evidence: Ein optionaler Freitext erwähnt eine frühere therapeutische Behandlung
+    review_required: true
+  - evidence: Eine Vergleichsmatrix dokumentiert eine manuelle Eignungsprüfung
+    review_required: true
+  - evidence: Die Kommission erhält nicht alle Anlagen in identischer Fassung
+    review_required: true
+  - evidence: Ein Empfehlungsschreiben enthält Aussagen über Zusammenarbeit
+    review_required: true
+  - evidence: Der Entscheid ist noch nicht eröffnet
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

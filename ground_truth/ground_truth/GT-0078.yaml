@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0078
+  source_document_type: DOC-14
+  title: Statistischer Bericht zu regionaler Beratung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0078_DOC-14.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 3ec0d932208deb215ff2e5e35c47bcfef06c3829e8cc7a5c565fef2332996c64
+test_hypotheses:
+  primary_focus: anonymisation
+  candidate_dimensions:
+  - evidence: Aggregierte Fallzahlen werden nur ab einer ausreichend grossen Gruppe veröffentlicht
+    review_required: true
+  - evidence: Ein einzelner Bezirk mit sehr wenigen Fällen wird zusammengefasst
+    review_required: true
+  - evidence: Gesundheitsbezogene Themen erscheinen nur als anonyme Kategorien
+    review_required: true
+  - evidence: Einzelne Rohdatensätze werden nicht mitgeliefert
+    review_required: true
+  - evidence: Die Zahlen wurden bewusst synthetisch erzeugt
+    review_required: true
+  - evidence: Die Bewertung der Anonymisierung erfolgt anhand verfügbarer Zusatzquellen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

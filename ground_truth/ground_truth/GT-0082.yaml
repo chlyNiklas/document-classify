@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0082
+  source_document_type: DOC-18
+  title: Abschlussbericht zu einem fingierten Sicherheitsereignis
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0082_DOC-18.docx
+  format: docx
+  synthetic: true
+  sha256: 5573f18e36525b9a8825e7105dc8943b04f241312a5783c20448954e85ab9765
+test_hypotheses:
+  primary_focus: technical_and_personal_data
+  candidate_dimensions:
+  - evidence: Eine Fehlkonfiguration führte zu einem kurzzeitigen Zugriffstest
+    review_required: true
+  - evidence: Die Zeitleiste enthält Rollen und geschäftliche Kontakte
+    review_required: true
+  - evidence: Ein Systemauszug zeigt fiktive Nutzerkennungen
+    review_required: true
+  - evidence: Eine externe Meldung wurde geprüft und mangels Voraussetzungen nicht ausgelöst
+    review_required: true
+  - evidence: Es gibt widersprüchliche Angaben zur Dauer der Störung
+    review_required: true
+  - evidence: Die Freigabe zur Weitergabe an den Lieferanten ist offen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

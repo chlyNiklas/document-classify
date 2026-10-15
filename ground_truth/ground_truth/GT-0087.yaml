@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0087
+  source_document_type: DOC-23
+  title: Textprotokoll einer anonymisierten Fallübertragung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0087_DOC-23.docx
+  format: docx
+  synthetic: true
+  sha256: 3caa5b0d87503862444ab48c0fed4196fe04dc509807b8575e9ac82817781736
+test_hypotheses:
+  primary_focus: cross_section_linkage
+  candidate_dimensions:
+  - evidence: Ein Export enthält Fallcodes und grobe Altersgruppen
+    review_required: true
+  - evidence: Eine seltene Kombination aus Tätigkeit und Standort bleibt erhalten
+    review_required: true
+  - evidence: Eine zweite Liste könnte die Codes einer Person zuordnen
+    review_required: true
+  - evidence: Ein Freitext erwähnt ein laufendes Strafverfahren
+    review_required: true
+  - evidence: Die zentrale Identitätstabelle ist nicht Bestandteil des Exports
+    review_required: true
+  - evidence: Der Zweck der Weitergabe an Dritte wurde noch nicht genehmigt
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

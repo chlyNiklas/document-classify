@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0098
+  source_document_type: DOC-10
+  title: Arbeitsverzeichnis für Krisenvertretungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0098_DOC-10.docx
+  format: docx
+  synthetic: true
+  sha256: 1a41d93b66dbe1f1473d8afd53e066d4ddf36464f808e83a76c853544eabb223
+test_hypotheses:
+  primary_focus: direct_identifiers
+  candidate_dimensions:
+  - evidence: Das Verzeichnis enthält Namen von Pikettdienstleistenden
+    review_required: true
+  - evidence: Schichtzeiten und berufliche Kontaktadressen sind angegeben
+    review_required: true
+  - evidence: Ein Feld lässt auf eine einzige Person in einer Nachtschicht schliessen
+    review_required: true
+  - evidence: Private Mobilnummern sollen vor breiter Verteilung entfernt werden
+    review_required: true
+  - evidence: Die Liste enthält keine Diagnosen
+    review_required: true
+  - evidence: Die Aktualisierung muss vom Personalbereich bestätigt werden
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
