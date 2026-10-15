@@ -1,0 +1,42 @@
+schema_version: 0.1-draft
+case_id: GT-0008
+document:
+  filename: GT-0008_DOC-14.pdf
+  type_id: DOC-14
+  format: pdf
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Statistik: Unfallmeldungen im Quartal'
+  focus:
+  - negative_control
+  - anonymisation
+  - aggregated_health_statistics
+facts:
+  evidence:
+  - section: 1
+    heading: Datengrundlage
+    quote: Im dritten Quartal wurden aus einem Verbund mit insgesamt rund 18 000 Beschäftigten 146 Arbeitsunfälle
+      ge
+  - section: 2
+    heading: Veröffentlichung
+    quote: Die Auswertung enthält ausschliesslich aggregierte Gesamtzahlen. Es gibt keine Namen, Fallnummern,
+      Einzel
+  - section: 3
+    heading: Bewertung
+    quote: Aus dem veröffentlichten Datensatz und unter der Annahme, dass keine weiteren Zuordnungsmöglichkeiten
+      bes
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: not_classified
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

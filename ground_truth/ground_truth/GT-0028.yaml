@@ -1,0 +1,58 @@
+schema_version: '1.0'
+test:
+  id: GT-0028
+  source_document_type: DOC-18
+  title: Bericht zu einer Fehlkonfiguration im Serviceportal
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0028_DOC-18.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: aaef94c127c8d6591c93d924f8f8bc8ecf953ca81538a53355f741f1385cf2a0
+test_hypotheses:
+  primary_focus: incident_kombiniert
+  candidate_dimensions:
+  - section: Meldung
+    observation: Eine interne Monitoringmeldung wurde am frühen Morgen durch den Bereitschaftsdienst
+      gesichtet.
+    review_required: true
+  - section: Technischer Kontext
+    observation: Bei einer Änderung war eine Zuordnungsprüfung im Schulungsmandanten
+      fehlerhaft konfiguriert.
+    review_required: true
+  - section: Feststellungen
+    observation: Daneben waren dienstliche E-Mail-Adressen und Zeitstempel gespeichert.
+    review_required: true
+  - section: Personenbezug
+    observation: Die Darstellung war nicht einer realen Person zugeordnet.
+    review_required: true
+  - section: Zeitlicher Verlauf
+    observation: Ein Zugriff stammte nach erster Abklärung aus einem autorisierten
+      automatisierten Test.
+    review_required: true
+  - section: Massnahmen
+    observation: Für produktive Mandanten ergab der erste Abgleich keine identische
+      Fehlkonfiguration.
+    review_required: true
+  - section: Rechtliche Trennung
+    observation: Die Liste der betroffenen realen oder synthetischen Daten ist für
+      die Datenschutzbeurteilung entscheidend.
+    review_required: true
+  - section: Abschlussstatus
+    observation: Die abschliessende forensische Analyse stand noch aus.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0079
+  source_document_type: DOC-15
+  title: Bericht einer Befragung von Kleinstteams
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0079_DOC-15.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: a3c64f697e6d4af2d69e15420318f8e70d6e56e7c43ab93edbf02188b41ba654
+test_hypotheses:
+  primary_focus: free_text_identifiers
+  candidate_dimensions:
+  - evidence: Der Fragebogen erhebt Arbeitszufriedenheit und Belastung
+    review_required: true
+  - evidence: Für ein Dreierteam liegen nur zwei Antworten vor
+    review_required: true
+  - evidence: Ein Freitext benennt eine einzigartige Funktionskombination
+    review_required: true
+  - evidence: Antworten nach Rolle und Altersgruppe sind miteinander verknüpfbar
+    review_required: true
+  - evidence: Die Teilnehmenden waren über aggregierte Auswertung informiert
+    review_required: true
+  - evidence: Eine Veröffentlichung der Kleingruppentabelle wird noch diskutiert
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,45 @@
+schema_version: 0.1-draft
+case_id: GT-0010
+document:
+  filename: GT-0010_DOC-18.pdf
+  type_id: DOC-18
+  format: pdf
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Incident-Report: Fehlversand einer Datei'
+  focus:
+  - ordinary_personal_data
+  - technical_and_personal_data
+  - combined_findings
+facts:
+  evidence:
+  - section: 1
+    heading: Kurzbeschreibung
+    quote: Eine Mitarbeitende versandte eine interne CSV-Datei irrtümlich an eine externe Empfängeradresse.
+      Die exte
+  - section: 2
+    heading: Betroffene Informationen
+    quote: Die Datei enthielt Namen, geschäftliche E-Mail-Adressen und Stellenbezeichnungen von 17 Angestellten.
+      Zus
+  - section: 3
+    heading: Sofortmassnahmen
+    quote: Der Rückruf wurde versucht; die Empfängerin wurde kontaktiert, und das Ereignis wurde der verantwortliche
+  - section: 4
+    heading: Offene Fragen
+    quote: Es liegt noch keine technische Bestätigung der Löschung vor. Die Erforderlichkeit weiterer
+      Meldungen wird
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

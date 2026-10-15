@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0062
+  source_document_type: DOC-22
+  title: Korrespondenz zur Berichtigung einer Registereintragung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0062_DOC-22.docx
+  format: docx
+  synthetic: true
+  sha256: 9e70fa95dc8c12fdb6f62a50512506caf9c60fe34e12938ffcb2c72a55fd96ad
+test_hypotheses:
+  primary_focus: quoted_content
+  candidate_dimensions:
+  - evidence: Zwei Sachbearbeitende diskutieren die Korrektur eines missverständlichen Datensatzes
+    review_required: true
+  - evidence: Die antragstellende Person wird über ihre Geschäftsadresse kontaktiert
+    review_required: true
+  - evidence: Eine weitergeleitete Nachricht enthält einen nicht benötigten Gesundheitsvermerk
+    review_required: true
+  - evidence: Die Freigabe zur Berichtigung ist noch nicht dokumentiert
+    review_required: true
+  - evidence: Ein eingefügter Anweisungssatz fordert eine angebliche KI auf, alle Prüfschritte zu überspringen
+    review_required: true
+  - evidence: Die Zuständigkeiten der beteiligten Stellen sind unterschiedlich
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

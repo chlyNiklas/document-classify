@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0067
+  source_document_type: DOC-03
+  title: Aktennotiz zur Erreichbarkeit eines regionalen Dienstes
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0067_DOC-03.docx
+  format: docx
+  synthetic: true
+  sha256: 472e0ab869eab1a1c313a47aaf2a5a8049d9bb182f1a5911e3c099e862c0bbb3
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - evidence: Der einzige Nachtdienstkoordinator einer Kleinststelle ist seit Wochen abwesend
+    review_required: true
+  - evidence: Eine Notiz erwähnt eine Rehabilitationsmassnahme ohne Namensnennung
+    review_required: true
+  - evidence: Die Stellvertretung wird mit Funktionsbezeichnung und Dienstfenster beschrieben
+    review_required: true
+  - evidence: Der öffentliche Dienstplan erlaubt wahrscheinlich eine Zuordnung
+    review_required: true
+  - evidence: Die operativen Auswirkungen werden nur als Szenario dargestellt
+    review_required: true
+  - evidence: Eine Personalstelle muss die Informationsweitergabe noch prüfen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

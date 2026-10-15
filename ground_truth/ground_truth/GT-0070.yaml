@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0070
+  source_document_type: DOC-06
+  title: Entscheidungsgrundlage zur Auslagerung von Archivleistungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0070_DOC-06.docx
+  format: docx
+  synthetic: true
+  sha256: 1e2e344395934b9253f3dbfe42b0c2c92748b1acf30f38c9db1ced14266aa9e7
+test_hypotheses:
+  primary_focus: management_summary
+  candidate_dimensions:
+  - evidence: Die Leitung vergleicht Eigenbetrieb und externen Dienstleister
+    review_required: true
+  - evidence: Eine Option setzt einen noch unbewilligten Umzug voraus
+    review_required: true
+  - evidence: Es werden nur Funktionen, keine privaten Personaldaten genannt
+    review_required: true
+  - evidence: Eine Preisannahme ist aus laufenden Verhandlungen abgeleitet
+    review_required: true
+  - evidence: Der mögliche Schaden einer vorzeitigen Bekanntgabe muss geprüft werden
+    review_required: true
+  - evidence: Die Entscheidung wurde im Steuerungsgremium vertagt
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0046
+  source_document_type: DOC-16
+  title: Architekturübersicht einer gemeinsamen Authentisierungsplattform
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0046_DOC-16.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 8c625905cdfa0119664c9264caa24934e5f5984bd842ef043b2db4231d434a17
+test_hypotheses:
+  primary_focus: technical_risk_no_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Ein föderierter Anmeldedienst verbindet sieben Fachanwendungen.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Darstellung nennt Sicherheitszonen und logische Abhängigkeiten.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Abschnitt beschreibt eine mögliche Ausfallkaskade beim zentralen
+      Identitätsdienst.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Es werden keine Nutzerkonten, Zugangsdaten oder Klarnamen genannt.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Netzwerkadressen im Beispiel stammen aus reservierten Dokumentationsbereichen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Architektur ist noch in der Sicherheitsabnahme.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

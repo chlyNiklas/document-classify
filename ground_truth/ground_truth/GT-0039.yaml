@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0039
+  source_document_type: DOC-09
+  title: Entwurf einer Rahmenvereinbarung für Beratung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0039_DOC-09.docx
+  format: docx
+  synthetic: true
+  sha256: ddc07e0798aeeb58ac1e3d3a3ca2004bfd94ad30bff153327650ba25f38de8d2
+test_hypotheses:
+  primary_focus: confidentiality_terms_vs_legal_classification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Vertragsparteien verhandeln eine zweijährige Rahmenvereinbarung.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Der Entwurf enthält eine allgemeine Geheimhaltungsklausel.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die namentlich genannten Unterzeichnenden sind ausschliesslich beruflich
+      beteiligt.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Eine Haftungsregelung wurde zwischen den Parteien noch nicht abgestimmt.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Preise sind in einem separat bezeichneten Anhang aufgeführt.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Der Entwurf enthält keinen dokumentierten ISV-Klassifizierungsentscheid.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

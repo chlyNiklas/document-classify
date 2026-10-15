@@ -1,0 +1,21 @@
+Bundesamt für digitale Infrastruktur – Technische Dokumentation
+Systemübersicht: zentraler Identitätsdienst
+Stand: 10. Oktober 2026
+============================================================
+
+Systemzweck
+-----------
+Der zentrale Identitätsdienst übernimmt die Anmeldung für die Anwendungen Orion, Vega und
+Atlas. Die Anmeldung erfolgt über zwei redundante Knoten in unterschiedlichen Betriebszonen.
+
+Betriebsabhängigkeiten
+----------------------
+Eine Fehlkonfiguration der Richtlinienverteilung könnte bewirken, dass alle drei Anwendungen
+keine neuen Sitzungen zulassen. Die Dokumentation benennt diese Abhängigkeit, enthält aber
+weder Zugangsdaten noch ausnutzbare Konfigurationsparameter.
+
+Weiteres Vorgehen
+-----------------
+Ein Architekturreview soll Möglichkeiten zur Entkopplung prüfen. Die Kritikalität der
+betroffenen Geschäftsprozesse ist in diesem Dokument nicht beschrieben.
+

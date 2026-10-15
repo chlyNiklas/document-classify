@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0033
+  source_document_type: DOC-03
+  title: Aktennotiz zur Neuorganisation eines Kleinstteams
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0033_DOC-03.txt
+  format: txt
+  synthetic: true
+  sha256: 497cd1b49fceb553a02a059506db06f05b494d0fc96d029384538789960f7b42
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Eine von drei Funktionen ist im Standort West nur einmal besetzt.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die betroffene Fachperson kehrte nach längerer medizinischer Behandlung
+      zurück.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Der Arbeitsort wird geändert, ohne einen Namen im Dokument zu nennen.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Der Dienstplan im Intranet erlaubt die Zuordnung der einzigen Funktion.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die medizinischen Angaben entstammen einem vertraulichen Personalgespräch.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Der Entwurf ist bisher nicht durch die betroffene Person geprüft
+      worden.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

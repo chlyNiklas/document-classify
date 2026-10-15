@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0072
+  source_document_type: DOC-08
+  title: Vergabeunterlagen für eine kantonsübergreifende Hotline
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0072_DOC-08.docx
+  format: docx
+  synthetic: true
+  sha256: 63daeb6a6fc72635c5bb4765973baf0097fd3fc77fdbc0aecb89101c29a69152
+test_hypotheses:
+  primary_focus: commercial_information
+  candidate_dimensions:
+  - evidence: Der Offertvergleich nennt Leistungen und tarifliche Unterschiede
+    review_required: true
+  - evidence: Die Anbieter werden über berufliche Kontaktpersonen vertreten
+    review_required: true
+  - evidence: Eine Klausel nennt die gesamte Offerte geheim im zivilrechtlichen Sinn
+    review_required: true
+  - evidence: Die Evaluation ist noch nicht abgeschlossen
+    review_required: true
+  - evidence: Technische Annexdaten beschreiben nur einen Testaufbau
+    review_required: true
+  - evidence: Eine fehlerhafte Preisformel wurde vor der Abgabe korrigiert
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

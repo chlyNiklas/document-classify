@@ -1,0 +1,56 @@
+schema_version: '1.0'
+test:
+  id: GT-0024
+  source_document_type: DOC-17
+  title: Technischer Schwachstellenbericht zur Identitätsplattform
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0024_DOC-17.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: a4f199a08f5c2d4d577b27802d4d74db3ad9889c3aafff457c33fd690627641f
+test_hypotheses:
+  primary_focus: sicherheitsrisiko
+  candidate_dimensions:
+  - section: Prüfauftrag
+    observation: Der Bericht unterscheidet reproduzierbare Beobachtungen von hypothetischen
+      Angriffspfaden.
+    review_required: true
+  - section: Systemübersicht
+    observation: Die Dokumentation führt Rollen, Schnittstellentypen und Abhängigkeiten
+      auf, jedoch keine Passwörter.
+    review_required: true
+  - section: Beobachtete Schwachstelle
+    observation: Eine Wiederholung im Testsystem zeigte eine unbeabsichtigte Einsicht
+      in Konfigurationsmetadaten.
+    review_required: true
+  - section: Mögliche Folgen
+    observation: Ob diese Annahme zutrifft, ist derzeit nicht bestätigt.
+    review_required: true
+  - section: Gegenmassnahmen
+    observation: Der erste Nachtest bestätigte die Korrektur in der Laborumgebung.
+    review_required: true
+  - section: Beteiligte Stellen
+    observation: Enthalten sind dienstliche Namen, Rollen und E-Mail-Adressen.
+    review_required: true
+  - section: Einordnung
+    observation: Dieser Vermerk ist keine rechtsverbindliche Einstufung nach ISV.
+    review_required: true
+  - section: Abschluss und Nachkontrolle
+    observation: Ein offener Punkt betrifft die Abgrenzung von Test- und Produktivkonfiguration.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

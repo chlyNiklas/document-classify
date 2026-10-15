@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0055
+  source_document_type: DOC-03
+  title: Aktenvermerk über Rückmeldungen in einer Kleingemeinde
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0055_DOC-03.docx
+  format: docx
+  synthetic: true
+  sha256: 77c88583b0f74042c05bcc2a930e8e6bbe8c50cbbe428fda211f02bc23602666
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Bei einer Ortsbegehung wurden Aussagen von drei Funktionsinhabern
+      erfasst.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die einzige Schulhauswartin einer kleinen Ortschaft wird ohne Namen
+      beschrieben.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Eine Rückmeldung erwähnt eine bevorstehende medizinische Behandlung.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein öffentlicher Gemeinderatsbericht enthält dieselbe seltene Funktion.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Für eine spätere Weitergabe ist eine gekürzte Version vorgesehen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Eine direkte Einwilligung der betroffenen Person ist nicht dokumentiert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

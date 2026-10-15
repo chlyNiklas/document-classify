@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0091
+  source_document_type: DOC-03
+  title: Vermerk zu einer anonymen Beschwerde
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0091_DOC-03.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: a9aec4d99fff8cafbf1cc8c6076205144544d31c0c3030ba995460021578ef21
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - evidence: Eine anonyme Eingabe schildert interne Unstimmigkeiten
+    review_required: true
+  - evidence: Die einzige Person mit einer Spezialfunktion wird indirekt beschrieben
+    review_required: true
+  - evidence: Ein Verweis auf eine längere psychologische Behandlung steht in der Eingabe
+    review_required: true
+  - evidence: Die Verwaltung hat den Wahrheitsgehalt nicht überprüft
+    review_required: true
+  - evidence: Die Beschwerde darf nicht mit einer erwiesenen Tatsache verwechselt werden
+    review_required: true
+  - evidence: Eine datenschutzkonforme Aktenweitergabe wird geprüft
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

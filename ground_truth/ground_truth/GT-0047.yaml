@@ -1,0 +1,51 @@
+schema_version: '1.0'
+test:
+  id: GT-0047
+  source_document_type: DOC-17
+  title: Penetrationstest der zentralen Antragsplattform
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0047_DOC-17.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: a0218fb6a7edb89621ac701c78c663b9ea08c0e9eec3dee4c851757a607f8abf
+test_hypotheses:
+  primary_focus: exploitability
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Im Test wurde eine unzureichend geschützte administrative Schnittstelle
+      gefunden.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Der Nachweis erfolgte in einer isolierten Testumgebung mit synthetischen
+      Konten.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein produktionsnaher Komponentenvergleich deutet auf eine mögliche
+      Betroffenheit hin.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Der Bericht enthält keine Zugangsdaten und keine einsatzfähige Angriffsanleitung.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die technische Verantwortung bewertet die Folgen einer unberechtigten
+      Kenntnisnahme.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Der Hersteller hat eine Korrektur für die nächste Wartung angekündigt.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

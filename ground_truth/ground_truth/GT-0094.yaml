@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0094
+  source_document_type: DOC-06
+  title: Entscheidungsnotiz zur Konsolidierung von Fachservern
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0094_DOC-06.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 3ac2fcd31d389ba5d3aa61fc9329a80518217d4e564bdb0b63628e4caa34253b
+test_hypotheses:
+  primary_focus: management_summary
+  candidate_dimensions:
+  - evidence: Zwei Betriebsvarianten unterscheiden sich bei der Ausfallsicherheit
+    review_required: true
+  - evidence: Ein vertrauliches Lieferantenangebot enthält noch offene Preisannahmen
+    review_required: true
+  - evidence: Die Beschreibung nennt zentrale technische Abhängigkeiten
+    review_required: true
+  - evidence: Das Papier enthält keine privaten Personendaten
+    review_required: true
+  - evidence: Eine Krisenfolgeabschätzung liegt nicht bei
+    review_required: true
+  - evidence: Die Leitung entscheidet nach ergänzender Risikoanalyse
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

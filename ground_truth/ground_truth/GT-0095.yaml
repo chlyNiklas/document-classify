@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0095
+  source_document_type: DOC-07
+  title: Planrechnung für Standortanpassungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0095_DOC-07.docx
+  format: docx
+  synthetic: true
+  sha256: cc54ec162a4aae6a974cfd6c53aa78f776eda009d01da047092152f73e63a686
+test_hypotheses:
+  primary_focus: financial_context
+  candidate_dimensions:
+  - evidence: Die Rechnung erfasst Mietkosten und einmalige Umbauaufwände
+    review_required: true
+  - evidence: Ein Standortvertrag ist noch nicht unterzeichnet
+    review_required: true
+  - evidence: Der Bericht verwendet Funktionsbezeichnungen statt Namen
+    review_required: true
+  - evidence: Einige Beträge sind bereits im öffentlichen Budget enthalten
+    review_required: true
+  - evidence: Die detaillierte Verhandlungsposition ist nicht publiziert
+    review_required: true
+  - evidence: Eine alternative Rechnung enthält ausdrücklich provisorische Zahlen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

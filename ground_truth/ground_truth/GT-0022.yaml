@@ -1,0 +1,58 @@
+schema_version: '1.0'
+test:
+  id: GT-0022
+  source_document_type: DOC-23
+  title: Fallübersicht zur Koordination von Unterstützungsleistungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0022_DOC-23.txt
+  format: txt
+  synthetic: true
+  sha256: 56ab64eb801e88d844b23f8eba4e73dcc0fd018f17557559473f0560de31916f
+test_hypotheses:
+  primary_focus: verknuepfung
+  candidate_dimensions:
+  - section: Zweck und Entstehung
+    observation: Jeder Vorgang enthält eine Fall-ID, eine Kalenderwoche und den bearbeitenden
+      Bereich.
+    review_required: true
+  - section: Datensätze
+    observation: Ein anderer Eintrag nennt chronische Erschöpfung und wiederholte
+      Behandlungstermine.
+    review_required: true
+  - section: Verknüpfungsfelder
+    observation: In einem weiteren Teil wird für F-184 der Standort Nord und die einzige
+      Funktion Einsatzdisposition aufgeführt.
+    review_required: true
+  - section: Sachliche Merkmale
+    observation: Bei drei Fällen werden finanzielle Engpässe und die Rückkehr an den
+      Arbeitsplatz miteinander verbunden.
+    review_required: true
+  - section: Bearbeitungsschritte
+    observation: Die protokollierte Übermittlung erfolgte an vier bezeichnete Stellen.
+    review_required: true
+  - section: Datenqualität
+    observation: Ein anderer Datensatz enthält zwei abweichende Beschäftigungsgrade.
+    review_required: true
+  - section: Risikohinweis
+    observation: Das kleine Team und die seltenen Funktionsbezeichnungen begrenzen
+      den Kreis möglicher Personen stark.
+    review_required: true
+  - section: Weiteres Vorgehen
+    observation: Die fallbezogene Fassung bleibt für die interne Bearbeitung verfügbar.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

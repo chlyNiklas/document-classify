@@ -1,0 +1,59 @@
+schema_version: '1.0'
+test:
+  id: GT-0023
+  source_document_type: DOC-21
+  title: Aktennotiz zum verwaltungsrechtlichen Prüfverfahren
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0023_DOC-21.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 8a5400ef6cedbc58b587b25e5ad5faf731b1c3e1bd52c663db13df2b4ccdc1b5
+test_hypotheses:
+  primary_focus: verfahren
+  candidate_dimensions:
+  - section: Anlass des Verfahrens
+    observation: Die Akte nennt die natürliche Person Lara Winter (fiktiv), das Geschäftszeichen
+      V-26-041 sowie Kontaktinformationen.
+    review_required: true
+  - section: Bisheriger Ablauf
+    observation: Ein Schreiben enthält Angaben zu einem gegen sie laufenden verwaltungsrechtlichen
+      Verfahren.
+    review_required: true
+  - section: Beweismittel
+    observation: Ein Abschnitt enthält Gesundheitsangaben als Begründung für ein versäumtes
+      Fristdatum.
+    review_required: true
+  - section: Anhörung
+    observation: Die Vertretung führte aus, dass eine frühere Angabe falsch interpretiert
+      worden sei.
+    review_required: true
+  - section: Akteneinsicht
+    observation: Die Korrespondenz nennt zusätzlich zwei Auskunftspersonen und deren
+      dienstliche Kontaktdaten.
+    review_required: true
+  - section: Interne Bearbeitung
+    observation: Es existiert ein zeitlich befristeter Vermerk über eine noch offene
+      Abklärung.
+    review_required: true
+  - section: Risiken der Fehlinterpretation
+    observation: Die Akte enthält besonders schützenswerte Angaben über ein Verwaltungsverfahren.
+    review_required: true
+  - section: Verfahrensstand
+    observation: Eine Frist zur Nachreichung wurde bis Ende November verlängert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

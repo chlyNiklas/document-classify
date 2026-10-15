@@ -1,0 +1,50 @@
+Fiktives Bundesamt für Informationsdienste
+Übersicht der Zugriffsrollen im Dokumentendienst
+Betrieb / Rollenreview | 15. Oktober 2026
+==============================================================================
+
+Hintergrund
+-----------
+Für die halbjährliche Überprüfung der Zugriffsberechtigungen wurde eine textbasierte Übersicht
+erstellt. Sie dokumentiert die vorgesehenen Rollen und nennt die aktuell verantwortlichen
+Kontaktpersonen. Authentifizierungsdaten, Token oder Passwörter sind nicht enthalten. Die
+Rollenbeschreibungen dienen als Gesprächsgrundlage und ersetzen keine technisch verbindliche
+Berechtigungsliste.
+
+Rollenmodell
+------------
+Die Rolle READER erlaubt das Lesen freigegebener Ablagen. EDITOR ermöglicht das Ändern von
+Inhalten in zugeordneten Arbeitsbereichen. AUDITOR hat Zugriff auf Prüfprotokolle.
+PLATFORM_ADMIN kann technische Einstellungen verändern, soll jedoch keine regulären
+Fachdossiers öffnen. Diese Trennung ist als Zielzustand beschrieben; Abweichungen werden im
+Rahmen der Revision überprüft.
+
+Kontaktliste
+------------
+Rollenverantwortliche: Elena Maurer (READER und EDITOR), Sandro Frei (AUDITOR), Tom Berger
+(PLATFORM_ADMIN). Die genannten Personen sind für interne Rückfragen erreichbar. Die Übersicht
+führt weder Privatadressen noch Gesundheits- oder Personaldossierdaten. Die Namen dienen der
+Zuordnung von organisatorischer Verantwortung.
+
+Prüffeststellungen
+------------------
+In einem Altprojekt existiert noch eine technische Gruppe mit erweitertem Lesezugriff. Das Team
+konnte keine aktive Verwendung nachweisen, möchte die Gruppe aber erst nach Abschluss einer
+Abhängigkeitsanalyse löschen. Welche Fachdossiers gegebenenfalls erreichbar wären, wird hier
+nicht aufgeführt. Ohne Kenntnis des tatsächlichen Inhalts dieser Dossiers lässt sich das
+Offenlegungsrisiko nicht abschliessend beurteilen.
+
+Trennung von Fakten und Bewertung
+---------------------------------
+Die Dokumentation beschreibt Zuständigkeiten und technische Rechte. Aus der Existenz einer
+Administrationsrolle ergibt sich noch kein Beweis einer kritischen Sicherheitslücke. Ebenso ist
+das Vorhandensein von Personennamen kein ausreichender Grund, eine gesetzliche ISV-
+Klassifizierung automatisch zu bestimmen.
+
+Pendenzen
+---------
+Bis Ende November sollen die Verantwortlichen den Ist-Zustand dokumentieren und die veraltete
+Gruppe bewerten. Ein aktualisierter Bericht wird anschliessend der zuständigen
+Sicherheitsstelle vorgelegt. Die Verteilung dieser Arbeitsfassung ist auf den Rollenreview
+beschränkt.
+

@@ -1,0 +1,45 @@
+schema_version: 0.1-draft
+case_id: GT-0003
+document:
+  filename: GT-0003_DOC-03.txt
+  type_id: DOC-03
+  format: txt
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Aktennotiz: Rückkehr an den Arbeitsplatz'
+  focus:
+  - indirect_identification
+  - sensitive_personal_data
+  - health_data
+facts:
+  evidence:
+  - section: 1
+    heading: Anlass
+    quote: Die einzige Leiterin des Fachbereichs Spezialbeschaffung kehrt nach einem längeren stationären
+      Aufenthalt
+  - section: 2
+    heading: Organisation
+    quote: Der Fachbereich umfasst sechs Mitarbeitende. Die Funktion der Leiterin ist im öffentlichen
+      Organigramm be
+  - section: 3
+    heading: Planung
+    quote: Während der ersten vier Wochen soll die Leiterin keine Rufbereitschaft leisten. Der Entscheid
+      über weiter
+  - section: 4
+    heading: Verteiler
+    quote: Amtsleitung und HR. Eine Auskunft an andere Mitarbeitende ist nicht vorgesehen.
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

@@ -1,0 +1,58 @@
+schema_version: '1.0'
+test:
+  id: GT-0030
+  source_document_type: DOC-05
+  title: Lagebericht zur Stabilität eines gemeinsamen Basisdienstes
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0030_DOC-05.txt
+  format: txt
+  synthetic: true
+  sha256: 267c0879bb05bc7b487da0546f8c7463a30687ba7696cf39481a515856a215f9
+test_hypotheses:
+  primary_focus: aggregation
+  candidate_dimensions:
+  - section: Überblick
+    observation: Die Ursachenanalyse weist auf eine Kombination aus Lastspitzen und
+      Wartungsfenstern hin.
+    review_required: true
+  - section: Betriebslage
+    observation: Der Lagebericht enthält aggregierte Leistungskennzahlen und keine
+      Einzelnutzungsprofile.
+    review_required: true
+  - section: Technische Abhängigkeiten
+    observation: Der Bericht erwähnt eine bekannte Kapazitätsgrenze im Übergabeschritt.
+    review_required: true
+  - section: Rückmeldungen
+    observation: In der Berichtsfassung sind keine Namen oder individuellen Fehlerverläufe
+      enthalten.
+    review_required: true
+  - section: Massnahmen
+    observation: Eine weitere Kapazitätsreserve wird im kommenden Monat geprüft.
+    review_required: true
+  - section: Kommunikation
+    observation: Sie lässt interne Betriebsdetails weg, enthält aber dieselben allgemeinen
+      Leistungszahlen.
+    review_required: true
+  - section: Gesamtbewertung
+    observation: Die Kombination kann mehr preisgeben als die Einzelmeldungen.
+    review_required: true
+  - section: Ausblick
+    observation: Eine definitive Entwarnung ist aufgrund der kurzen Beobachtungszeit
+      noch nicht möglich.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

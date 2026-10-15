@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0066
+  source_document_type: DOC-02
+  title: Protokoll der Koordinationsrunde Datenqualität
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0066_DOC-02.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 88e6c703834dfdae4fca6060cacc37ebe005054dde9ee2ef9dec3fa06505286a
+test_hypotheses:
+  primary_focus: basic_personal_data
+  candidate_dimensions:
+  - evidence: An der Sitzung nehmen sieben Fachvertretungen mit ihren Namen teil
+    review_required: true
+  - evidence: Die Traktanden umfassen zwei technische Rückstände und eine Schulungsmassnahme
+    review_required: true
+  - evidence: Eine Behauptung über ein Teammitglied wurde als unbestätigt gestrichen
+    review_required: true
+  - evidence: Ein unveröffentlichter Vergabetermin wird im Anhang diskutiert
+    review_required: true
+  - evidence: Die Runde verlangt eine Berichtigung der letzten Protokollfassung
+    review_required: true
+  - evidence: Für die Weitergabe an externe Partner ist eine gekürzte Fassung vorgesehen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

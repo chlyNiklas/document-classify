@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0083
+  source_document_type: DOC-19
+  title: Rollen- und Berechtigungskonzept für eine Fachapplikation
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0083_DOC-19.txt
+  format: txt
+  synthetic: true
+  sha256: 29fb719e26b0c2c783fc33c216842ffb59136ecfe713edb13a69f46c19ba09f0
+test_hypotheses:
+  primary_focus: user_identifiers
+  candidate_dimensions:
+  - evidence: Vier Rollen werden mit ihren Befugnissen beschrieben
+    review_required: true
+  - evidence: Ein separates Verzeichnis verknüpft Benutzerkennung und Namen
+    review_required: true
+  - evidence: Eine Administratorfunktion ist nur einmal vergeben
+    review_required: true
+  - evidence: Die Übersicht nennt keine Passwörter oder Token
+    review_required: true
+  - evidence: Ein ausserordentlicher Zugriff wurde nachträglich begründet
+    review_required: true
+  - evidence: Die Notiz sieht eine regelmässige Rezertifizierung vor
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

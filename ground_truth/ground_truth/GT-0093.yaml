@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0093
+  source_document_type: DOC-05
+  title: Jahresbericht zu einem Hotline-Testbetrieb
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0093_DOC-05.docx
+  format: docx
+  synthetic: true
+  sha256: ec5e0f323690bb5c261837e8c55fee67fac7280b83e7ac181ae9f1fa1c8192ac
+test_hypotheses:
+  primary_focus: aggregated_information
+  candidate_dimensions:
+  - evidence: Der Bericht fasst 3400 synthetische Kontakte zusammen
+    review_required: true
+  - evidence: Einige seltene Anfragearten kommen nur in einer Region vor
+    review_required: true
+  - evidence: Es existiert ein internes Fallregister ausserhalb des Berichts
+    review_required: true
+  - evidence: Ein Organigramm nennt mehrere Dienststellen, aber keine Personen
+    review_required: true
+  - evidence: Bei der Auswertung zeigen sich unklare Dubletten
+    review_required: true
+  - evidence: Die Veröffentlichung einer Kurzfassung ist geplant
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

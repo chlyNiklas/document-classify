@@ -1,0 +1,49 @@
+schema_version: '1.0'
+test:
+  id: GT-0060
+  source_document_type: DOC-20
+  title: Übergreifender Prüfbericht zum Datenmanagement
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0060_DOC-20.docx
+  format: docx
+  synthetic: true
+  sha256: 3fe6dac2a828483f77911fafe469c1ee1a9b54e91227124e3130aec6f1942cc0
+test_hypotheses:
+  primary_focus: mixed_issues
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Der Bericht bewertet die Umsetzung von Aufbewahrungsregeln in fünf
+      Teams.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Einige Verfahrensakten sind nicht einheitlich dokumentiert.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Eine Stichprobe enthält einen Hinweis auf unzulässige Gesundheitsdaten
+      in einem Beispielordner.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Originalakte mit Namen ist nicht Bestandteil des Prüfberichts.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Eine technische Massnahme ist erst für das nächste Quartal geplant.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Managementantwort widerspricht einer von vier Feststellungen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

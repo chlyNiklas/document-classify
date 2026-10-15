@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0089
+  source_document_type: DOC-01
+  title: Öffentliche Mitteilung zur Umstellung eines Servicetelefons
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0089_DOC-01.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: f0488d8b541416038dcf7c83a7c9b7ac08edcf9bfe97d56182bbc255b8d6e977
+test_hypotheses:
+  primary_focus: negative_control
+  candidate_dimensions:
+  - evidence: Eine Servicenummer erhält neue Öffnungszeiten
+    review_required: true
+  - evidence: Der öffentliche Ansprechpartner ist eine Funktionsadresse
+    review_required: true
+  - evidence: Die Mitteilung enthält keine Fallakten oder Kontodaten
+    review_required: true
+  - evidence: Ein internes Abstimmungsdatum wurde aus dem Entwurf entfernt
+    review_required: true
+  - evidence: Die Veröffentlichung wurde von der Kommunikationsstelle genehmigt
+    review_required: true
+  - evidence: Alle Zahlen dienen ausschliesslich der öffentlichen Orientierung
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

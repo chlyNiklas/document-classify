@@ -1,0 +1,54 @@
+schema_version: 0.2-draft
+case_id: GT-0020
+document:
+  filename: GT-0020_DOC-22.docx
+  type_id: DOC-22
+  format: docx
+  synthetic: true
+  language: de-CH
+  sha256: 02f80ae70ad41d794e762723b99678fd4f75818d13e4f7f417154d315b736954
+scenario:
+  title: 'E-Mail-Korrespondenz: Austausch zum Berechtigungskonzept'
+  length_words_approx: 262
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Nachricht 1 – Anfrage
+    quote: 'Von: Petra Kurz <petra.kurz@systembetrieb.example>; An: Luca Meier <luca.meier@systembetrieb.ex'
+    reference_status: provisional
+  - section_index: 2
+    heading: Nachricht 2 – Rückmeldung
+    quote: 'Von: Luca Meier; An: Petra Kurz. «Die drei Standardrollen sind beschrieben. Ich habe ergänzt, d'
+    reference_status: provisional
+  - section_index: 3
+    heading: Nachricht 3 – Weitergeleiteter Text
+    quote: 'Von: Petra Kurz; An: Projektgruppe. «Im Anhang steht ein aus einem alten Testhandbuch kopierter'
+    reference_status: provisional
+  - section_index: 4
+    heading: Nachricht 4 – Einordnung
+    quote: 'Von: Luca Meier; An: Projektgruppe. «Die zitierte Zeichenfolge ist offensichtlich keine verbind'
+    reference_status: provisional
+  - section_index: 5
+    heading: Zusammenfassung
+    quote: Der Export enthält geschäftliche E-Mail-Adressen und Namen identifizierbarer Personen sowie all
+    reference_status: provisional
+  - section_index: 6
+    heading: Nächste Schritte
+    quote: Das Team erstellt eine bereinigte Fassung des Rollenmodells und dokumentiert offene Fragen. Das
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

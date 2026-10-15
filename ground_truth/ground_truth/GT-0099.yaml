@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0099
+  source_document_type: DOC-11
+  title: Beurteilung nach einem fachlichen Ausbildungsmodul
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0099_DOC-11.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 89cbd71210379da36a7919a927c4596df77529cd8732f72b2ba8cfdb7cf3db82
+test_hypotheses:
+  primary_focus: performance_data
+  candidate_dimensions:
+  - evidence: Eine Person erhält schriftliche Rückmeldung zu mehreren Kompetenzen
+    review_required: true
+  - evidence: Die Beurteilung enthält konkrete Verhaltensbeobachtungen
+    review_required: true
+  - evidence: Ein Abschnitt wird von der betroffenen Person bestritten
+    review_required: true
+  - evidence: Eine frühere Krankheitsabsenz ist als Kontext erwähnt
+    review_required: true
+  - evidence: Eine automatische Entscheidung oder Profilbildung wird nicht beschrieben
+    review_required: true
+  - evidence: Die Unterlage dient einem persönlichen Fördergespräch
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

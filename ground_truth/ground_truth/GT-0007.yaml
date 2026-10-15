@@ -1,0 +1,46 @@
+schema_version: 0.1-draft
+case_id: GT-0007
+document:
+  filename: GT-0007_DOC-12.docx
+  type_id: DOC-12
+  format: docx
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'HR-Aktennotiz: Absenzen und Wiedereingliederung'
+  focus:
+  - health_data
+  - sensitive_personal_data
+  - direct_identification
+facts:
+  evidence:
+  - section: 1
+    heading: Betroffene Person
+    quote: Leonie Arnold, Mitarbeiterin im Sachgebiet Posteingang, Personal-ID V-117. Zuständig ist HR-Beraterin
+      Mar
+  - section: 2
+    heading: Medizinische Angaben
+    quote: Laut ärztlichem Zeugnis besteht nach einer Operation eine vorübergehende Einschränkung der
+      Belastbarkeit.
+  - section: 3
+    heading: Massnahmen
+    quote: Reduktion der Präsenzzeit und vorläufige Anpassung der Aufgaben. Das Team erhält ausschliesslich
+      die orga
+  - section: 4
+    heading: Aufbewahrung
+    quote: 'Die Aktennotiz wird in der HR-Ablage geführt. Der endgültige Aufbewahrungsentscheid ist nicht
+      Gegenstand '
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null

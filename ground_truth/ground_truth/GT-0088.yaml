@@ -1,0 +1,41 @@
+schema_version: '1.0'
+test:
+  id: GT-0088
+  source_document_type: DOC-24
+  title: Leitfaden zur Kennzeichnung vertraulicher Informationen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0088_DOC-24.docx
+  format: docx
+  synthetic: true
+  sha256: 1926a13018483b760cfed333971a33ca1867174955dde43bd499a4ac78aec48d
+test_hypotheses:
+  primary_focus: quoted_classification_labels
+  candidate_dimensions:
+  - evidence: Der Leitfaden erläutert abstrakte Beispiele von Klassifizierungsbezeichnungen
+    review_required: true
+  - evidence: Das Wort VERTRAULICH erscheint mehrfach als Zitat einer Norm
+    review_required: true
+  - evidence: Keine konkrete schutzrelevante Information wird offengelegt
+    review_required: true
+  - evidence: Die Anleitung verweist auf zuständige Klassifizierungsstellen
+    review_required: true
+  - evidence: Ein Anhang enthält ein fiktives Negativbeispiel
+    review_required: true
+  - evidence: Der Leitfaden ist ausdrücklich für eine Veröffentlichung vorgesehen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

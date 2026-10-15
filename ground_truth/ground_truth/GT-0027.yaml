@@ -1,0 +1,58 @@
+schema_version: '1.0'
+test:
+  id: GT-0027
+  source_document_type: DOC-03
+  title: Aktennotiz zur internen Personalplanung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0027_DOC-03.docx
+  format: docx
+  synthetic: true
+  sha256: 0250c391c9c76c0d9421ca73bbc80992dcbdadd875cea4e3bddab7edc6fd4637
+test_hypotheses:
+  primary_focus: indirekte_identifizierung
+  candidate_dimensions:
+  - section: Hintergrund
+    observation: Die Abteilung umfasst neun Personen und nur eine Leitung für die
+      Spezialfunktion Nachtkoordination.
+    review_required: true
+  - section: Einsatzfähigkeit
+    observation: Die medizinische Information wurde in einem Gespräch mit der Personalstelle
+      mitgeteilt.
+    review_required: true
+  - section: Dienstplanung
+    observation: Der Dienstplan nennt Kalenderwochen und die Übergabe wichtiger Aufgaben.
+    review_required: true
+  - section: Kommunikation
+    observation: Eine medizinische Begründung ist für die Dienstinformation nicht
+      erforderlich.
+    review_required: true
+  - section: Leistungsbeurteilung
+    observation: Daneben wird die aktuelle Verfügbarkeit für bestimmte Aufgaben eingeschränkt
+      beschrieben.
+    review_required: true
+  - section: Bearbeitungszweck
+    observation: Eine automatisierte Profilbildung ist aus dem dokumentierten Vorgehen
+      nicht ersichtlich.
+    review_required: true
+  - section: Informationsklassifizierung
+    observation: Eine Rechtsgrundlage für diese direkte Ableitung wurde nicht dokumentiert.
+    review_required: true
+  - section: Weiteres Vorgehen
+    observation: Die ursprüngliche Fassung bleibt bis zur Klärung kontrolliert abgelegt.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null

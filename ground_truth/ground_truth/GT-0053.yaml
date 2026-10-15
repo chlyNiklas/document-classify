@@ -1,0 +1,48 @@
+schema_version: '1.0'
+test:
+  id: GT-0053
+  source_document_type: DOC-23
+  title: Export aus einer Fallverwaltung mit pseudonymisierten IDs
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0053_DOC-23.txt
+  format: txt
+  synthetic: true
+  sha256: e1fb799671b31f496d43e8ae4b56429d6197f5f6684b94c3e3c3e768113c6e5c
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Liste führt 27 Fälle mit technischen Kennungen wie K-0824.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Tabellenteil beschreibt Unterstützungsbedarf und ungefähre Altersgruppe.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein anderer Teil verknüpft Standort, seltene Funktion und den Eintrittsmonat.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein Anhang ordnet zwei Kennungen über einen Übergabeschlüssel zusammen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Eintrag enthält Informationen über eine psychische Erkrankung.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Daten dürfen nicht allein wegen fehlender Klarnamen als anonym
+      gelten.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
