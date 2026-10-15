@@ -1,9 +1,14 @@
-import {Component, computed, input, output} from '@angular/core';
-import {evidenceByScope, evidenceReferences} from '../shared/demo-presenters';
-import type {DemoDocumentResult} from '../mock/mock-classification.service';
+import {Component, computed, input} from '@angular/core';
+import {
+	type DocumentResult,
+	type DsgClassification,
+	type DsgFindingCategory,
+	detectionKey,
+	findingCategoryKey
+} from '../classification/classification';
 
-/** The five DSG assessment tile keys per Art. 5 DSG. */
-const dsgTileKeys = ['none', 'personal', 'sensitive', 'profiling', 'profiling_high'] as const;
+/** The three DSG classification tiles, keyed by the canonical API value. */
+const dsgTileKeys: readonly DsgClassification[] = ['no_personal_data', 'personal_data', 'sensitive_personal_data'];
 
 @Component({
 	selector: 'app-review-dsg',
@@ -12,18 +17,19 @@ const dsgTileKeys = ['none', 'personal', 'sensitive', 'profiling', 'profiling_hi
 	styleUrl: './review-dsg.scss'
 })
 export class ReviewDsg {
-	readonly result = input.required<DemoDocumentResult>();
-
-	/** Requests to open the document preview of the shown document in the shared off-canvas. */
-	readonly requestPreview = output();
+	readonly result = input.required<DocumentResult>();
 
 	readonly tileKeys = dsgTileKeys;
-	readonly references = computed(() =>
-		evidenceReferences(evidenceByScope(this.result().evidence, 'dsg'), this.result().evidenceLetters)
-	);
+	readonly profilingKey = computed(() => detectionKey(this.result().dsg.profiling));
+	readonly highRiskProfilingKey = computed(() => detectionKey(this.result().dsg.highRiskProfiling));
 
-	/** Whether the DSG tile is the simulated proposal of the shown document. */
-	isMarked(tileKey: string): boolean {
-		return this.result().dsgKind === tileKey;
+	/** Whether the DSG tile is the proposed classification of the shown document. */
+	isMarked(tileKey: DsgClassification): boolean {
+		return this.result().dsg.classification === tileKey;
+	}
+
+	/** i18n key token of a finding category. */
+	categoryKey(category: DsgFindingCategory): string {
+		return findingCategoryKey(category);
 	}
 }

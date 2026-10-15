@@ -1,18 +1,6 @@
 <section class="card work-busy" data-testid="busy-state">
 	<ob-spinner [channel]="spinnerChannel" [fixed]="true" />
-	<h2 class="card__title">{{ 'koby.work.busy.title' | translate }}</h2>
-	<mat-progress-bar [value]="progressPercent()" />
-	<ol class="stages">
-		@for (stageKey of stageKeys; track $index) {
-			<li
-				class="stages__item"
-				[class.stages__item--done]="$index < stageActive() - 1"
-				[class.stages__item--active]="$index === stageActive() - 1"
-			>
-				{{ stageKey | translate }}
-			</li>
-		}
-	</ol>
+	<p class="work-busy__label" data-testid="busy-label">{{ 'koby.work.busy.analysing' | translate }}</p>
 	<button type="button" mat-button obButton="secondary" (click)="cancelCurrent()">
 		{{ 'koby.work.cancel.label' | translate }}
 	</button>

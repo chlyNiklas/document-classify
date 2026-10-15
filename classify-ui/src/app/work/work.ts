@@ -1,11 +1,8 @@
 import {Component, effect, inject, viewChild} from '@angular/core';
 import {ObNotificationService, ObSpinnerService} from '@oblique/oblique';
-import {
-	type DemoDocumentAwaitingAnalysis,
-	type DemoDocumentWithResult,
-	MockClassificationService
-} from '../mock/mock-classification.service';
-import {DemoPreviewService} from '../shared/demo-preview.service';
+import type {DocumentBusy, DocumentPending} from '../classification/classification';
+import {ClassificationService} from '../classification/classification.service';
+import {OffCanvasState} from '../shared/off-canvas-state.service';
 import {WorkIntake} from './work-intake';
 
 /** Spinner channel of the work page busy state. */
@@ -21,8 +18,8 @@ export class Work {
 	/** Access to the intake child (used by the unit tests to simulate upload events). */
 	readonly intakeChild = viewChild.required(WorkIntake);
 
-	private readonly service = inject(MockClassificationService);
-	private readonly preview = inject(DemoPreviewService);
+	private readonly service = inject(ClassificationService);
+	private readonly offCanvasState = inject(OffCanvasState);
 	private readonly notification = inject(ObNotificationService);
 	private readonly spinnerService = inject(ObSpinnerService);
 
@@ -39,21 +36,21 @@ export class Work {
 	}
 
 	/** The document in the busy state (first busy document of the workbench). */
-	busyDocument: () => DemoDocumentAwaitingAnalysis | null = () => {
-		const entry = this.service.documents().find((item): item is DemoDocumentAwaitingAnalysis => item.status === 'busy');
+	busyDocument: () => DocumentBusy | null = () => {
+		const entry = this.service.documents().find((item): item is DocumentBusy => item.status === 'busy');
 		return entry ?? null;
 	};
 
-	/** The selected document once its simulated analysis is finished. */
-	pendingDocument: () => DemoDocumentWithResult | null = () => {
+	/** The selected document once its classification finished. */
+	pendingDocument: () => DocumentPending | null = () => {
 		const selected = this.service.selectedDocument();
 		return selected?.status === 'pending' ? selected : null;
 	};
 
-	/** Cancels the analysis; the document is removed and the cancellation confirmed by notification. */
+	/** Cancels the classification; the document is removed and the cancellation confirmed by notification. */
 	cancel(id: string): void {
 		this.service.cancel(id);
-		this.preview.close();
+		this.offCanvasState.close();
 		this.notification.info({title: 'koby.work.cancel.title', message: 'koby.work.cancel.message'});
 	}
 }

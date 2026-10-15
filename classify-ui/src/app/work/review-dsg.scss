@@ -5,11 +5,53 @@
 @include demo-shared.demo-card();
 @include demo-shared.demo-tiles();
 
-.review-card__justification {
+// The DSG card renders three classification tiles.
+.tilerow {
+	display: flex;
+	gap: variables.$ob-spacing-sm;
+
+	.tile {
+		flex: 1 1 0;
+	}
+}
+
+.dsg-profiling {
+	display: flex;
+	flex-wrap: wrap;
+	gap: variables.$ob-spacing-default;
+	margin: variables.$ob-spacing-default 0 0;
+
+	&__item {
+		border: 1px solid variables.$ob-gray-light;
+		border-radius: variables.$ob-border-radius-base;
+		display: flex;
+		flex-direction: column;
+		gap: variables.$ob-spacing-xs;
+		padding: variables.$ob-spacing-default;
+
+		span {
+			color: variables.$ob-gray-dark;
+		}
+
+		b {
+			font-weight: 600;
+		}
+	}
+}
+
+.review-card__list {
 	color: variables.$ob-gray-dark;
 	margin: variables.$ob-spacing-default 0 0;
 
-	strong {
+	h4 {
 		color: variables.$ob-primary;
+		font-size: inherit;
+		font-weight: 600;
+		margin: 0 0 variables.$ob-spacing-xs;
+	}
+
+	ul {
+		margin: 0;
+		padding-left: variables.$ob-spacing-lg;
 	}
 }

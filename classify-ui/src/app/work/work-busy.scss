@@ -4,28 +4,7 @@
 
 @include demo-shared.demo-card();
 
-.stages {
-	display: flex;
-	flex-direction: column;
-	gap: variables.$ob-spacing-xs;
-	list-style: none;
+.work-busy__label {
+	color: variables.$ob-gray-dark;
 	margin: variables.$ob-spacing-xxl 0;
-	padding: 0;
-
-	&__item {
-		color: variables.$ob-gray-dark;
-
-		&--active {
-			color: variables.$ob-primary;
-			font-weight: 600;
-		}
-
-		&--done {
-			color: variables.$ob-primary;
-		}
-
-		&--done::before {
-			content: '✓ ';
-		}
-	}
 }

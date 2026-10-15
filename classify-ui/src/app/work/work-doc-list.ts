@@ -1,16 +1,31 @@
 import {Component, computed, inject, output} from '@angular/core';
-import {MockClassificationService} from '../mock/mock-classification.service';
+import type {ClassifyDocument} from '../classification/classification';
+import {ClassificationService} from '../classification/classification.service';
 import {fileSizeValue} from '../shared/demo-presenters';
 
-/** Document list row view: name, meta text, status label and cancel flag. */
+/** Document list row view: name, meta text, status label, status flags and the failure reason. */
 export interface DocumentRow {
 	id: string;
 	name: string;
 	meta: string;
 	statusLabel: string;
 	busy: boolean;
+	failed: boolean;
 	selected: boolean;
+	/** i18n key of the visible failure reason (failed documents only). */
+	reasonLabel: string | null;
+	/** i18n key of the remove-action label ("Abbrechen" while analysing, "Dokument entfernen" when failed). */
+	actionLabel: string;
 }
+
+const statusLabels: Record<ClassifyDocument['status'], string> = {
+	busy: 'koby.work.status.busy',
+	pending: 'koby.work.status.pending',
+	failed: 'koby.work.status.failed'
+};
+
+const busyActionLabel = 'koby.work.cancel.label';
+const failedActionLabel = 'koby.work.remove.label';
 
 @Component({
 	selector: 'app-work-doc-list',
@@ -25,9 +40,12 @@ export class WorkDocList {
 			id: entry.id,
 			name: entry.name,
 			meta: [entry.ext.toUpperCase(), fileSizeValue(entry.size)].filter(meta => meta.length > 0).join(' · '),
-			statusLabel: entry.status === 'busy' ? 'koby.work.status.busy' : 'koby.work.status.pending',
+			statusLabel: statusLabels[entry.status],
 			busy: entry.status === 'busy',
-			selected: entry.id === selectedId
+			failed: entry.status === 'failed',
+			selected: entry.id === selectedId,
+			reasonLabel: entry.status === 'failed' ? entry.failureReason : null,
+			actionLabel: entry.status === 'failed' ? failedActionLabel : busyActionLabel
 		}));
 	});
 
@@ -35,7 +53,7 @@ export class WorkDocList {
 
 	readonly canceled = output<string>();
 
-	private readonly service = inject(MockClassificationService);
+	private readonly service = inject(ClassificationService);
 
 	/** Selects the document for the review area. */
 	select(id: string): void {

@@ -3,7 +3,7 @@ import {ObMasterLayoutModule, provideObliqueTestingConfiguration} from '@oblique
 import {beforeAll, vi} from 'vitest';
 import {App} from './app';
 import {AppModule} from './app-module';
-import {DemoPreviewService} from './shared/demo-preview.service';
+import {OffCanvasState} from './shared/off-canvas-state.service';
 
 describe('App', () => {
 	beforeAll(() => {
@@ -48,10 +48,17 @@ describe('App', () => {
 	it('the guidance content state is available for the off-canvas surface', () => {
 		const fixture = TestBed.createComponent(App);
 		const app = fixture.componentInstance;
-		const preview = TestBed.inject(DemoPreviewService);
+		const offCanvasState = TestBed.inject(OffCanvasState);
 
 		app.openGuidance();
 
-		expect(preview.content()?.kind).toBe('guidance');
+		expect(offCanvasState.content()?.kind).toBe('guidance');
+	});
+
+	it('the app header shows the proposal labelling note', () => {
+		const fixture = TestBed.createComponent(App);
+		fixture.detectChanges();
+		const note = (fixture.nativeElement as HTMLElement).querySelector('.app__header-note');
+		expect(note?.textContent).toContain('koby.chrome.header-note');
 	});
 });

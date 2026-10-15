@@ -26,12 +26,25 @@ describe('Rules', () => {
 		expect(element().querySelectorAll('[data-testid="proposal-yes"]')).toHaveLength(3);
 	});
 
-	it('geheim is documented as never proposed (manual classification only)', () => {
+	it('geheim is proposed only on escalation with an Art. 24 ISV reference', () => {
 		fixture.detectChanges();
 		const row = element().querySelector('[data-testid="isg-row-secret"]');
 		expect(row).toBeTruthy();
-		expect(row?.querySelector('[data-testid="proposal-no"]')).toBeTruthy();
+		expect(row?.querySelector('[data-testid="proposal-escalation"]')).toBeTruthy();
 		expect(row?.querySelector('[data-testid="proposal-yes"]')).toBeNull();
+		expect(row?.textContent).toContain('koby.rules.isg.escalation');
+	});
+
+	it('the principles card covers justification, legal basis and findings without confidence or evidence', () => {
+		fixture.detectChanges();
+		const card = element().querySelector('[data-testid="principles-card"]');
+		expect(card).toBeTruthy();
+		expect(card?.querySelector('[data-testid="principles-justification"]')).toBeTruthy();
+		expect(card?.querySelector('[data-testid="principles-legal-basis"]')).toBeTruthy();
+		expect(card?.querySelector('[data-testid="principles-findings"]')).toBeTruthy();
+		expect(card?.textContent).not.toContain('koby.rules.principles.term.confidence');
+		expect(card?.textContent).not.toContain('koby.rules.principles.term.evidence');
+		expect(card?.querySelectorAll('dt')).toHaveLength(3);
 	});
 
 	it('the DSG definitions card lists the five assessment definitions per Art. 5 DSG', () => {

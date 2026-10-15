@@ -38,6 +38,15 @@
 	color: variables.$ob-warning;
 }
 
+.doclist__status--failed {
+	color: variables.$ob-error;
+}
+
+.doclist__reason {
+	display: block;
+	font-size: small;
+}
+
 .doclist__empty {
 	color: variables.$ob-gray-dark;
 }
