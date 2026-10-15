@@ -1,0 +1,87 @@
+schema_version: '1.0'
+test:
+  id: GT-0057
+  source_document_type: DOC-06
+  title: Strategienotiz zur Zusammenlegung zweier Servicestellen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0057_DOC-06.docx
+  format: docx
+  synthetic: true
+  sha256: 5651e06390bfc3a18af7aecdfe1482e706474f7e1ff9550f71f06710a36a67a5
+test_hypotheses:
+  primary_focus: combined_inference
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Strategienotiz beschreibt drei mögliche Standorte und Personalbedarfe.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Anhang enthält die Personalzahlen je sehr kleiner Funktionseinheit.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Es gibt noch keinen formellen Entscheid über die Verlagerung.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Einige Funktionen sind in einer Region jeweils nur einmal vertreten.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Kostenschätzung basiert auf offen gelegten öffentlichen Mietwerten.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Wirkung einer vorzeitigen Bekanntgabe auf laufende Gespräche wird erörtert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Entscheidungsgrundlagen sind anhand des konkreten Schutzinteresses und möglichen Schadens einzustufen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: An der Bearbeitung wirkten die fachlich verantwortliche Stelle, die zuständige Koordination und eine
+      prüfende Zweitperson mit. Die Aufgaben sind in einem separaten Arbeitsauftrag beschrieben; der vorliegende
+      Bericht erse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Kostenschätzung basiert auf offen gelegten öffentlichen Mietwerten. Für die Weiterbearbeitung wird
+      jeweils die aktuelle Version des Geschäftsdossiers verwendet, da vereinzelte Vorabzüge noch abweichende Arbeitsstände
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

@@ -1,0 +1,92 @@
+schema_version: '1.0'
+test:
+  id: GT-0025
+  source_document_type: DOC-14
+  title: Statistische Auswertung zu Arbeitsabsenzen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0025_DOC-14.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 2d7256703b1278517dd28f010a6ac5f8ba67d031c8affccc00477942cfbb1321
+test_hypotheses:
+  primary_focus: anonymisierung
+  candidate_dimensions:
+  - section: Zielsetzung
+    observation: Die Daten wurden vor Erstellung dieses Berichts aggregiert und von direkten Kennungen getrennt.
+    review_required: true
+  - section: Datengrundlage
+    observation: Die Statistik weist für das erste Quartal 2,8 und für das zweite 3,1 Absenztage pro Person aus.
+    review_required: true
+  - section: Aggregation
+    observation: Kleine Teams sind zu einer Sammelkategorie zusammengefasst.
+    review_required: true
+  - section: Gesundheitsbezug
+    observation: Es enthält jedoch keine Einzelfallgeschichten oder personenbezogenen Diagnosen.
+    review_required: true
+  - section: Vergleichsgruppen
+    observation: Aus den Zahlen darf keine Aussage über einzelne Beschäftigte abgeleitet werden.
+    review_required: true
+  - section: Grenzen
+    observation: Eine kleine Verschiebung in den Gruppenzuschnitten kann die Resultate verändern.
+    review_required: true
+  - section: Weitergabe
+    observation: Die Rohdaten liegen getrennt vor und sind nicht Teil der vorliegenden Datei.
+    review_required: true
+  - section: Zusammenfassung
+    observation: Ein direkter Bezug zu identifizierten oder identifizierbaren Personen ist aus dieser Version nicht
+      ersichtlich.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Anonymisierte Statistiken können öffentlich sein; kleine Gruppen und Veröffentlichungskontext gesondert
+    prüfen.
+  evidence_excerpts:
+  - quote: Die Auswertung beschreibt Absenzen nach Quartal und Organisationseinheit. Die Daten wurden vor
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Veröffentlichung ist für eine breite Leserschaft vorgesehen. Für die Einordnung ist zu beachten,
+      ob die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Eine Zelle mit genau einer Person wurde nicht veröffentlicht. Für die Einordnung ist zu beachten, ob
+      die
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

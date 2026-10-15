@@ -1,0 +1,80 @@
+schema_version: '1.0'
+test:
+  id: GT-0080
+  source_document_type: DOC-16
+  title: Systemübersicht für den Datenaustauschdienst
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0080_DOC-16.docx
+  format: docx
+  synthetic: true
+  sha256: 411eb821c3857f82c41840f31139b6b847e336a9e6d98c9af00d91f79e42f43f
+test_hypotheses:
+  primary_focus: technical_risk
+  candidate_dimensions:
+  - evidence: Die Architektur beschreibt logische Dienste und Betriebszonen
+    review_required: true
+  - evidence: Der Entwurf zeigt eine zentrale Abhängigkeit zwischen Schnittstellen
+    review_required: true
+  - evidence: Konkrete Zugangsschlüssel und Passwörter sind ausgeschlossen
+    review_required: true
+  - evidence: Zwei fiktive Hostnamen entsprechen keinem realen Netz
+    review_required: true
+  - evidence: Das Bedrohungsszenario ist ausdrücklich hypothetisch
+    review_required: true
+  - evidence: Eine Offenlegungsbewertung benötigt zusätzliche Angaben über den Betriebszweck
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Architekturdetails können schutzrelevante technische Abhängigkeiten offenlegen; konkrete Folgen prüfen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage dokumentiert einen begrenzten Arbeitsstand. Sie dient der sachgerechten Bearbeitung
+      innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als öffentli
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Sachverhalt entstand im Zusammenspiel mehrerer Fachfunktionen. Einzelne Angaben wurden aus Besprechungsnotizen,
+      E-Mails und vorläufigen Entwürfen übernommen; diese Herkunft ist bei der Würdigung mitzudenken. Für eine
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die zugrunde liegende Aktenlage ist heterogen. Neben eindeutig dokumentierten Beobachtungen finden sich
+      Planungsannahmen, zeitlich gebundene Aussagen und Punkte, zu denen noch Nachweise fehlen. In einer ergänzenden
+      Stell
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

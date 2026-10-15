@@ -1,0 +1,14 @@
+Öffentlicher Jahresrückblick der Bibliothek
+===========================================
+
+AUSGANGSLAGE
+Die Bibliothek einer fiktiven Verwaltungseinheit veröffentlicht ihren kulturellen Jahresrückblick. Sie betreibt einen öffentlichen Lesesaal für Fachliteratur.
+
+INHALT UND EINZELHEITEN
+Der Bericht erläutert die Zahl der Ausleihen in groben Kategorien, die beliebtesten öffentlichen Veranstaltungen und die Öffnungszeiten. Zur Statistik gehören aggregierte Besucherzahlen aus mehr als tausend Besuchen ohne Einzeldatensätze.
+
+EINORDNUNG DES SACHVERHALTS
+Die Werte werden für den öffentlichen Jahresrückblick aggregiert veröffentlicht. Persönliche Ausleihvorgänge oder individuelle Nutzungsprofile sind nicht Bestandteil der Auswertung.
+
+WEITERES VORGEHEN
+Für das nächste Jahr sind zusätzliche offene Vorlesungen und eine aktualisierte Leseliste geplant.

@@ -1,0 +1,72 @@
+schema_version: 0.1-draft
+case_id: GT-0003
+document:
+  filename: GT-0003_DOC-03.txt
+  type_id: DOC-03
+  format: txt
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Aktennotiz: Rückkehr an den Arbeitsplatz'
+  focus:
+  - indirect_identification
+  - sensitive_personal_data
+  - health_data
+facts:
+  evidence:
+  - section: 1
+    heading: Anlass
+    quote: Die einzige Leiterin des Fachbereichs Spezialbeschaffung kehrt nach einem längeren stationären Aufenthalt
+  - section: 2
+    heading: Organisation
+    quote: Der Fachbereich umfasst sechs Mitarbeitende. Die Funktion der Leiterin ist im öffentlichen Organigramm
+      be
+  - section: 3
+    heading: Planung
+    quote: Während der ersten vier Wochen soll die Leiterin keine Rufbereitschaft leisten. Der Entscheid über weiter
+  - section: 4
+    heading: Verteiler
+    quote: Amtsleitung und HR. Eine Auskunft an andere Mitarbeitende ist nicht vorgesehen.
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Interne Personal- oder Organisationsinformationen begründen nicht allein eine ISV-Stufe.
+  evidence_excerpts:
+  - quote: Der Fachbereich umfasst sechs Mitarbeitende. Die Funktion der Leiterin ist im öffentlichen
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

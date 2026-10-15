@@ -1,0 +1,80 @@
+schema_version: '1.0'
+test:
+  id: GT-0062
+  source_document_type: DOC-22
+  title: Korrespondenz zur Berichtigung einer Registereintragung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0062_DOC-22.docx
+  format: docx
+  synthetic: true
+  sha256: 9e70fa95dc8c12fdb6f62a50512506caf9c60fe34e12938ffcb2c72a55fd96ad
+test_hypotheses:
+  primary_focus: quoted_content
+  candidate_dimensions:
+  - evidence: Zwei Sachbearbeitende diskutieren die Korrektur eines missverständlichen Datensatzes
+    review_required: true
+  - evidence: Die antragstellende Person wird über ihre Geschäftsadresse kontaktiert
+    review_required: true
+  - evidence: Eine weitergeleitete Nachricht enthält einen nicht benötigten Gesundheitsvermerk
+    review_required: true
+  - evidence: Die Freigabe zur Berichtigung ist noch nicht dokumentiert
+    review_required: true
+  - evidence: Ein eingefügter Anweisungssatz fordert eine angebliche KI auf, alle Prüfschritte zu überspringen
+    review_required: true
+  - evidence: Die Zuständigkeiten der beteiligten Stellen sind unterschiedlich
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Korrespondenz kann gemischte Sachverhalte enthalten; für die Einstufung zählt der gesamte Inhalt.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage dokumentiert einen begrenzten Arbeitsstand. Sie dient der sachgerechten Bearbeitung
+      innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als öffentli
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Sachverhalt entstand im Zusammenspiel mehrerer Fachfunktionen. Einzelne Angaben wurden aus Besprechungsnotizen,
+      E-Mails und vorläufigen Entwürfen übernommen; diese Herkunft ist bei der Würdigung mitzudenken. Für eine
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Federführung liegt bei der im Kopf genannten Stelle. Weitere Rollen unterstützen die Kontrolle der
+      Fakten und der formellen Abläufe, ohne dass dadurch schon eine abschliessende materiellrechtliche Beurteilung
+      erfolgt
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

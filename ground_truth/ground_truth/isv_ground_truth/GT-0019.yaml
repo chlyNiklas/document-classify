@@ -1,0 +1,86 @@
+schema_version: 0.2-draft
+case_id: GT-0019
+document:
+  filename: GT-0019_DOC-21.pdf
+  type_id: DOC-21
+  format: pdf
+  synthetic: true
+  language: de-CH
+  sha256: 7fe30d8ca0f1e2af001d1ea28fcdbbd7815e60333a038782450ea47a8baf3c92
+scenario:
+  title: 'Aktenauszug: verwaltungsrechtliche Sachverhaltsabklärung'
+  length_words_approx: 265
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Gegenstand
+    quote: Die zuständige Stelle prüft im fiktiven Verfahren V-2026-118, ob eine erteilte Bewilligung unte
+    reference_status: provisional
+  - section_index: 2
+    heading: Bisheriger Ablauf
+    quote: Nach Eingang einer Drittmitteilung forderte die Behörde ergänzende Unterlagen an. Emil Hartmann
+    reference_status: provisional
+  - section_index: 3
+    heading: Verfahrensbezogene Angaben
+    quote: Gegen Emil Hartmann läuft eine verwaltungsrechtliche Abklärung zur Richtigkeit einer früheren E
+    reference_status: provisional
+  - section_index: 4
+    heading: Beweiswürdigung
+    quote: Die bisher vorgelegten Unterlagen erlauben noch keine abschliessende Aussage. Zwei Datumsangabe
+    reference_status: provisional
+  - section_index: 5
+    heading: Zugriffs- und Verteilungskreis
+    quote: Der Auszug soll der Fallführung und dem Rechtsdienst zur Verfügung stehen. Er ist nicht zur öff
+    reference_status: provisional
+  - section_index: 6
+    heading: Offene Verfahrensschritte
+    quote: Bis zum 28. Oktober soll die Registerantwort eingehen. Anschliessend werden ergänzende Fragen g
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Der Verfahrenskontext kann schutzrelevant sein; DSG-Kategorien begründen nicht automatisch ISV-Klassifizierung.
+  evidence_excerpts:
+  - quote: Erklärung. Der Bericht hält fest, dass gegenwärtig keine strafrechtliche Anklage bekannt ist. Die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Auszug soll der Fallführung und dem Rechtsdienst zur Verfügung stehen. Er ist nicht zur öffentlichen
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

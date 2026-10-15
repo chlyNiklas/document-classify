@@ -1,0 +1,80 @@
+schema_version: '1.0'
+test:
+  id: GT-0081
+  source_document_type: DOC-17
+  title: Prüfbericht zu Schwachstellen im Dokumentenportal
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0081_DOC-17.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: e9a2f11c8fac4d5b8e89440114ec50654ae18fd0f8b5193a2db7392fc6f3434f
+test_hypotheses:
+  primary_focus: exploitability
+  candidate_dimensions:
+  - evidence: Ein Testsystem weist unzureichende Sitzungsbegrenzung auf
+    review_required: true
+  - evidence: Ein zweiter Befund betrifft unklare Protokollierung von Administratorzugriffen
+    review_required: true
+  - evidence: Die Tester verwendeten ausschliesslich synthetische Konten
+    review_required: true
+  - evidence: Es werden bewusst keine vollständigen Angriffsanweisungen angegeben
+    review_required: true
+  - evidence: Eine Frist zur Nachprüfung wurde festgehalten
+    review_required: true
+  - evidence: Der mögliche Schaden hängt vom tatsächlichen Produktivbetrieb ab
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: VERTRAULICH
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Schwachstellen und Ausnutzbarkeit können ein betroffenes Schutzinteresse berühren; Risiken und Wirksamkeit
+    von Gegenmassnahmen fehlen.
+  evidence_excerpts:
+  - quote: innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als
+      öffentliche
+    locator: full_text_search
+    verified_in_document: true
+  - quote: noch automatisch klassifiziert. Für die Qualitätssicherung vermerkt die Bearbeitung die jeweilige Quelle,
+      allfällige
+    locator: full_text_search
+    verified_in_document: true
+  - quote: tatsächlichen Produktivbetrieb ab Der Satz wird nicht als allgemeingültige Regel wiedergegeben, sondern
+      als
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

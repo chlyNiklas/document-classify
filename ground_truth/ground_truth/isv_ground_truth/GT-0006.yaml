@@ -1,0 +1,81 @@
+schema_version: 0.1-draft
+case_id: GT-0006
+document:
+  filename: GT-0006_DOC-11.docx
+  type_id: DOC-11
+  format: docx
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Mitarbeiterbeurteilung: Jahresgespräch'
+  focus:
+  - ordinary_personal_data
+  - personality_assessment_possible
+  - sensitive_vs_ordinary
+facts:
+  evidence:
+  - section: 1
+    heading: Person und Aufgabe
+    quote: 'Beurteilte Person: Timo Berger, Sachbearbeiter Service Desk, Personal-ID F-2047. Vorgesetzte: Eva Sommer.'
+  - section: 2
+    heading: Leistung
+    quote: 'Bearbeitungsqualität: 4 von 5. Termintreue: 3 von 5. Kommunikation mit internen Kundinnen und Kunden:
+      4 v'
+  - section: 3
+    heading: Zusammenfassende Einschätzung
+    quote: Timo Berger arbeitet sehr zuverlässig in wiederkehrenden Fällen, benötigt bei mehrdeutigen Eskalationen
+      g
+  - section: 4
+    heading: Entwicklungsvereinbarung
+    quote: Bis März 2027 wird ein Schulungsplan ausgearbeitet. Es werden keine medizinischen Angaben, Strafverfahren
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Personalbeurteilung kann datenschutzrechtlich geschützt sein; ISV-Stufe erfordert eine separate Begründung.
+  evidence_excerpts:
+  - quote: 'Beurteilte Person: Timo Berger, Sachbearbeiter Service Desk, Personal-ID F-2047. Vorgesetzte: Eva Sommer.'
+    locator: full_text_search
+    verified_in_document: true
+  - quote: 'Bearbeitungsqualität: 4 von 5. Termintreue: 3 von 5. Kommunikation mit internen Kundinnen und Kunden:
+      4 von 5. Fachwissen: 4 von 5.'
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Timo Berger arbeitet sehr zuverlässig in wiederkehrenden Fällen, benötigt bei mehrdeutigen Eskalationen
+      gelegentlich Unterstützung und soll im nächsten Halbjahr eine fachliche Weiterbildung besuchen.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

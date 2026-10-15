@@ -1,0 +1,88 @@
+schema_version: '1.0'
+test:
+  id: GT-0032
+  source_document_type: DOC-02
+  title: Protokoll der bereichsübergreifenden Steuerungssitzung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0032_DOC-02.docx
+  format: docx
+  synthetic: true
+  sha256: f0d646f621cad649c6b33201e36ef75edd6fd808f5dbefae0be9052c160af738
+test_hypotheses:
+  primary_focus: ordinary_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: In der Sitzung nahmen neun namentlich aufgeführte Mitarbeitende teil.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Entscheid über den Pilotbetrieb wurde auf Ende November vertagt.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die Sitzungsvorlage enthielt einen Budgetvergleich ohne personenbezogene Angaben.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein Teilnehmender beantragte die Korrektur eines missverständlich formulierten Votums.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Traktandum betraf vorläufige Wartungsfenster eines internen Systems.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Protokollfreigabe steht zum Zeitpunkt der Ablage noch aus.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Bei Protokollen sind Schutzinteressen und Offenlegungsfolgen der einzelnen Traktanden zu beurteilen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: An der Bearbeitung wirkten die fachlich verantwortliche Stelle, die zuständige Koordination und eine
+      prüfende Zweitperson mit. Die Aufgaben sind in einem separaten Arbeitsauftrag beschrieben; der vorliegende
+      Bericht erse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Im Rahmen des Geschäftsgangs wurde die praktische Bedeutung dieses Abschnitts nochmals diskutiert. Ein
+      Entscheid über den Pilotbetrieb wurde auf Ende November vertagt. Bei der Übertragung in einen anderen Bericht
+      könnten
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

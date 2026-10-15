@@ -1,0 +1,82 @@
+schema_version: '1.0'
+test:
+  id: GT-0045
+  source_document_type: DOC-15
+  title: Auswertung einer Mitarbeitendenbefragung in kleinen Teams
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0045_DOC-15.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: cc1f585bf14b15998c957f9bca8ddaa3a9759bcee51d3c69522e2d53d3e4137c
+test_hypotheses:
+  primary_focus: reidentification_risk
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: In der Dienststelle wurden 42 Fragebogen erfasst.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Für das Team Nachtbetrieb liegen lediglich drei Antworten vor.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Freitext erwähnt die einzige Person mit Ausbildungsfunktion und eine längere Abwesenheit.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Auswertung verbindet Altersgruppen, Teamzugehörigkeit und Belastungseinschätzung.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Diagramm weist einen sehr kleinen Teilbereich separat aus.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Vor Publikation soll über eine stärkere Zusammenfassung entschieden werden.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Befragungsresultate können rückführbare Aussagen enthalten; ISV-Schadenskriterien separat prüfen.
+  evidence_excerpts:
+  - quote: wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und vermeidet eine vorgreifende
+    locator: full_text_search
+    verified_in_document: true
+  - quote: ersetzt diesen Auftrag nicht. Für das Team Nachtbetrieb liegen lediglich drei Antworten vor. Im Arbeitsjournal
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

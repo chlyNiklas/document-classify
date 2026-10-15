@@ -1,0 +1,42 @@
+schema_version: '1.3'
+test_id: GT-0141
+document:
+  filename: GT-0141_DOC-01.docx
+  document_type_id: DOC-01
+  format: docx
+  synthetic: true
+information_security:
+  framework: ISG/ISV
+  expected_classification: NOT_CLASSIFIED
+  assessment_status: proposed_pending_legal_review
+  legal_basis:
+  - ISG Art. 13 (Klassifizierungsbedarf anhand der gesetzlichen Schutzinteressen prüfen)
+  reasoning: Der synthetische Sachverhalt beschreibt öffentliche, allgemein zugängliche
+    oder fiktive Sachinformationen. Unter den angegebenen Annahmen sind keine konkreten
+    nachteiligen Offenlegungsfolgen für die durch ISG/ISV erfassten Schutzinteressen
+    ersichtlich. Nichtklassifizierung ist nicht gleichbedeutend mit uneingeschränkter
+    Freigabe aller Bearbeitungen.
+  supporting_evidence:
+  - section: Inhalt und Einzelheiten
+    quote: 'Geplant sind eine Reparaturstation, Führungen zu sicheren Schulwegen und
+      eine Podiumsdiskussion. Die Fachstelle informiert über Öffnungszeiten und die
+      barrierefreie Erreichbarkeit. Als '
+  classification_not_based_on:
+  - document_title
+  - format
+  - absence_or_presence_of_personal_data
+  - confidentiality_wording
+  assumptions:
+  - Die Angaben sind in der beschriebenen Form öffentlich, fiktiv oder zur Veröffentlichung
+    bestimmt.
+  - Es besteht kein zusätzlicher, im Dokument nicht genannter organisatorischer Schutzkontext,
+    der eine Klassifizierung begründet.
+  catalogue_mapping:
+    BIT: null
+    BV: null
+    status: not_checked
+  requires_human_approval: true
+review:
+  status: pending
+  notes: Negativkontrolle; Klassifizierung nach ISV durch fachlichen Review und Katalogabgleich
+    bestätigen.

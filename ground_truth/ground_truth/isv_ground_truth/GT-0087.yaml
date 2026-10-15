@@ -1,0 +1,82 @@
+schema_version: '1.0'
+test:
+  id: GT-0087
+  source_document_type: DOC-23
+  title: Textprotokoll einer anonymisierten Fallübertragung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0087_DOC-23.docx
+  format: docx
+  synthetic: true
+  sha256: 3caa5b0d87503862444ab48c0fed4196fe04dc509807b8575e9ac82817781736
+test_hypotheses:
+  primary_focus: cross_section_linkage
+  candidate_dimensions:
+  - evidence: Ein Export enthält Fallcodes und grobe Altersgruppen
+    review_required: true
+  - evidence: Eine seltene Kombination aus Tätigkeit und Standort bleibt erhalten
+    review_required: true
+  - evidence: Eine zweite Liste könnte die Codes einer Person zuordnen
+    review_required: true
+  - evidence: Ein Freitext erwähnt ein laufendes Strafverfahren
+    review_required: true
+  - evidence: Die zentrale Identitätstabelle ist nicht Bestandteil des Exports
+    review_required: true
+  - evidence: Der Zweck der Weitergabe an Dritte wurde noch nicht genehmigt
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Falllisten mit personenbezogenen Angaben sind datenschutzrechtlich zu würdigen, ISV-Einstufung unabhängig
+    prüfen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage dokumentiert einen begrenzten Arbeitsstand. Sie dient der sachgerechten Bearbeitung
+      innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als öffentli
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Federführung liegt bei der im Kopf genannten Stelle. Weitere Rollen unterstützen die Kontrolle der
+      Fakten und der formellen Abläufe, ohne dass dadurch schon eine abschliessende materiellrechtliche Beurteilung
+      erfolgt
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Es ist zwischen dokumentiertem Inhalt, naheliegenden Folgerungen und bloss denkbaren Zusammenhängen zu
+      unterscheiden. Auch die Abwesenheit eines Namens lässt für sich genommen noch keinen sicheren Schluss über
+      Identifizi
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

@@ -1,0 +1,81 @@
+schema_version: '1.0'
+test:
+  id: GT-0031
+  source_document_type: DOC-01
+  title: Medienmitteilung zur Eröffnung eines regionalen Beratungszentrums
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0031_DOC-01.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 7688f599151310af12c2322fcd4b776e82b61f9ccd77df13a81494d21bf923be
+test_hypotheses:
+  primary_focus: public_information
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die neue Anlaufstelle öffnet am 2. November in einer bereits öffentlichen Liegenschaft.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Leitung wird von der öffentlich genannten Direktorin Eva Beispiel vertreten.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Eine Kontaktadresse der Medienabteilung wird für Rückfragen publiziert.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die vorgestellten Öffnungszeiten sind auf der öffentlichen Website verfügbar.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Bei der Eröffnung werden ausschliesslich aggregierte Besucherzahlen präsentiert.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Ein intern diskutierter Raumwechsel wurde aus der Endfassung entfernt.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: not_classified
+  candidate_levels_for_review:
+  - not_classified
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Öffentliche Bekanntgabe; eine klassifizierungsbedürftige zusätzliche Information ist aus den geprüften
+    Kernaussagen nicht ersichtlich.
+  evidence_excerpts:
+  - quote: nicht beschlossen. Die neue Anlaufstelle öffnet am 2. November in einer bereits öffentlichen Liegenschaft.
+      Im
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die vorgestellten Öffnungszeiten sind auf der öffentlichen Website verfügbar. Zu Beginn der Bearbeitung
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context: []
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

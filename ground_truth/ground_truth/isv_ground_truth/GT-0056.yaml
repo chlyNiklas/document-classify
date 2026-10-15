@@ -1,0 +1,83 @@
+schema_version: '1.0'
+test:
+  id: GT-0056
+  source_document_type: DOC-08
+  title: Ausschreibungsbericht für ein Datenmigrationsvorhaben
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0056_DOC-08.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 010a1707e9ec65bc4044c23359c1099c7f8d6ffb38ea2be3c1e0719a77c623d7
+test_hypotheses:
+  primary_focus: commercial_information
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Ausschreibung ist eröffnet und die Zuschlagsentscheidung steht aus.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Bewertungsblatt enthält Preis- und Qualitätsmerkmale der Anbieter.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Die Namen der beruflichen Kontakte sind im Angebotsdeckblatt genannt.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein interner Kommentar erläutert eine ungeklärte Preisannahme.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Vertraulichkeit der Offerte ist vertraglich geregelt.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die informationssicherheitsrechtliche Einstufung bedarf gesonderter Prüfung.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Vergabestatus, Angebotsinhalte und Interessen des Bundes müssen berücksichtigt werden.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: dem zugehörigen Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten
+    locator: full_text_search
+    verified_in_document: true
+  - quote: berücksichtigt sowohl den Erstellungszeitpunkt als auch zwischenzeitliche Änderungen im Betrieb, in der
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

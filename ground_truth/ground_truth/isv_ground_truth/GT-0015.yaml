@@ -1,0 +1,89 @@
+schema_version: 0.2-draft
+case_id: GT-0015
+document:
+  filename: GT-0015_DOC-15.pdf
+  type_id: DOC-15
+  format: pdf
+  synthetic: true
+  language: de-CH
+  sha256: cb4e23fdd03e0bdaccb3117ea456735ba28e7d4026be875a215e5ac44df06cd5
+scenario:
+  title: Mitarbeitendenbefragung 2026 – Ergebnisse und Freitextkommentare
+  length_words_approx: 318
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Erhebung
+    quote: An der freiwilligen Befragung zur internen Zusammenarbeit beteiligten sich 142 von 210 Mitarbei
+    reference_status: provisional
+  - section_index: 2
+    heading: Gesamtergebnis
+    quote: 'Die Zufriedenheit mit Arbeitsmitteln wurde auf einer Skala von eins bis fünf mit 3.9 bewertet. '
+    reference_status: provisional
+  - section_index: 3
+    heading: Freitext A
+    quote: 'Eine Rückmeldung lautet: «In unserem Aussenstandort bin ich die einzige Person, die an drei Tag'
+    reference_status: provisional
+  - section_index: 4
+    heading: Freitext B
+    quote: 'Eine weitere Rückmeldung lautet: «Seit der Umstellung des Systems werden Vorgänge mehrfach erfa'
+    reference_status: provisional
+  - section_index: 5
+    heading: Umgang mit kleinen Gruppen
+    quote: Für Teams mit weniger als fünf Antworten werden keine Einzelergebnisse ausgewiesen. Dennoch wur
+    reference_status: provisional
+  - section_index: 6
+    heading: Massnahmen und Einschränkungen
+    quote: Die nächsten Workshops sollen die Zusammenarbeit zwischen Betrieb und Fachbereichen verbessern.
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Befragungsresultate können rückführbare Aussagen enthalten; ISV-Schadenskriterien separat prüfen.
+  evidence_excerpts:
+  - quote: bekannten Dienstplänen könnte die Person für einen begrenzten Empfängerkreis erkennbar machen.
+    locator: full_text_search
+    verified_in_document: true
+  - quote: beschreibt einen betrieblichen Prozess und enthält keine unmittelbar identifizierende Angabe. Die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die nächsten Workshops sollen die Zusammenarbeit zwischen Betrieb und Fachbereichen verbessern.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

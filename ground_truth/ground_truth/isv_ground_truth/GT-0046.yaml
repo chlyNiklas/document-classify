@@ -1,0 +1,82 @@
+schema_version: '1.0'
+test:
+  id: GT-0046
+  source_document_type: DOC-16
+  title: Architekturübersicht einer gemeinsamen Authentisierungsplattform
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0046_DOC-16.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 8c625905cdfa0119664c9264caa24934e5f5984bd842ef043b2db4231d434a17
+test_hypotheses:
+  primary_focus: technical_risk_no_personal_data
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Ein föderierter Anmeldedienst verbindet sieben Fachanwendungen.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Darstellung nennt Sicherheitszonen und logische Abhängigkeiten.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Abschnitt beschreibt eine mögliche Ausfallkaskade beim zentralen Identitätsdienst.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Es werden keine Nutzerkonten, Zugangsdaten oder Klarnamen genannt.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Die Netzwerkadressen im Beispiel stammen aus reservierten Dokumentationsbereichen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Architektur ist noch in der Sicherheitsabnahme.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Architekturdetails können schutzrelevante technische Abhängigkeiten offenlegen; konkrete Folgen prüfen.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: mit dem zugehörigen Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten
+    locator: full_text_search
+    verified_in_document: true
+  - quote: sich an die zurzeit bekannten Einzelheiten und vermeidet eine vorgreifende Gesamtbewertung.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

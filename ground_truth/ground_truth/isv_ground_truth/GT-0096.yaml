@@ -1,0 +1,79 @@
+schema_version: '1.0'
+test:
+  id: GT-0096
+  source_document_type: DOC-08
+  title: Angebotsvergleich für Übersetzungsleistungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0096_DOC-08.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 08db60308ba3c2b52a4c79886d9e05e20f4e49ed5c19d5c3727d19f5ee47b3f3
+test_hypotheses:
+  primary_focus: commercial_information
+  candidate_dimensions:
+  - evidence: Drei Unternehmen offerieren Sprachdienstleistungen
+    review_required: true
+  - evidence: Die Kontaktdaten gehören zu namentlichen Ansprechpersonen
+    review_required: true
+  - evidence: Preisblätter enthalten Geschäftsbedingungen und Rabattstaffeln
+    review_required: true
+  - evidence: Eine Anbieterin nutzt eine allgemein gehaltene Geheimhaltungsklausel
+    review_required: true
+  - evidence: Ein Anhängsel wurde fälschlich mit einer höchsten Einstufung überschrieben
+    review_required: true
+  - evidence: Die Vergabestelle hat noch keine Zuschlagsentscheidung getroffen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Vergabestatus, Angebotsinhalte und Interessen des Bundes müssen berücksichtigt werden.
+  evidence_excerpts:
+  - quote: innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als
+      öffentliche
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Abklärung darf nicht aus dem blossen Auftreten eines Schlagworts auf eine verbindliche Informationsklassifizierung
+    locator: full_text_search
+    verified_in_document: true
+  - quote: weder automatisch harmlos noch automatisch klassifiziert. Die Ablage in der Geschäftsverwaltung erfolgt
+      unter
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

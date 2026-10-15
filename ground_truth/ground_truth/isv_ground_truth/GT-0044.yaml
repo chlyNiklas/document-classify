@@ -1,0 +1,84 @@
+schema_version: '1.0'
+test:
+  id: GT-0044
+  source_document_type: DOC-14
+  title: Aggregierter Bericht zu Arbeitsunfällen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0044_DOC-14.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: faa1b1c13b84dcab2a5bc95c5aba1613bd4c6c16e6ef1a6132efb8de90874faf
+test_hypotheses:
+  primary_focus: negative_control
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Im Quartal wurden 38 Unfallmeldungen gezählt.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die Daten werden nur für Gruppen mit mindestens 30 Personen ausgewiesen.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Es werden keine Namen, Personalnummern oder Einzelfallchronologien veröffentlicht.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Rohdaten bleiben in einem nicht mitgelieferten Fachsystem.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Eine Abbildung zeigt die Häufigkeit nach Quartal und breiter Tätigkeitsgruppe.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Zusammenstellung beruht auf vollständig synthetischen Zahlen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Anonymisierte Statistiken können öffentlich sein; kleine Gruppen und Veröffentlichungskontext gesondert
+    prüfen.
+  evidence_excerpts:
+  - quote: Beschreibung hält sich an die zurzeit bekannten Einzelheiten und vermeidet eine vorgreifende
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Befund erscheint. Es werden keine Namen, Personalnummern oder Einzelfallchronologien veröffentlicht.
+      Im
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

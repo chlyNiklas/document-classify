@@ -1,0 +1,69 @@
+schema_version: 0.1-draft
+case_id: GT-0009
+document:
+  filename: GT-0009_DOC-16.txt
+  type_id: DOC-16
+  format: txt
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Systemübersicht: zentraler Identitätsdienst'
+  focus:
+  - technical_risk
+  - no_personal_data
+  - missing_context
+facts:
+  evidence:
+  - section: 1
+    heading: Systemzweck
+    quote: Der zentrale Identitätsdienst übernimmt die Anmeldung für die Anwendungen Orion, Vega und Atlas. Die
+      Anme
+  - section: 2
+    heading: Betriebsabhängigkeiten
+    quote: 'Eine Fehlkonfiguration der Richtlinienverteilung könnte bewirken, dass alle drei Anwendungen keine neuen '
+  - section: 3
+    heading: Weiteres Vorgehen
+    quote: Ein Architekturreview soll Möglichkeiten zur Entkopplung prüfen. Die Kritikalität der betroffenen Geschäf
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Architekturdetails können schutzrelevante technische Abhängigkeiten offenlegen; konkrete Folgen prüfen.
+  evidence_excerpts:
+  - quote: Atlas. Die Anmeldung erfolgt über zwei redundante Knoten in unterschiedlichen Betriebszonen.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

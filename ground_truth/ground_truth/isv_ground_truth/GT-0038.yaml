@@ -1,0 +1,83 @@
+schema_version: '1.0'
+test:
+  id: GT-0038
+  source_document_type: DOC-08
+  title: Offertvergleich für die Wartung einer Rechenzentrumsanlage
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0038_DOC-08.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 1a5ead2942171dc306282b9465fe46e932605056edf9df0163a79deb398f568e
+test_hypotheses:
+  primary_focus: contract_terms_vs_classification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Offerten enthalten technische Leistungsversprechen von drei Anbietern.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Eine Klausel bezeichnet sämtliche Anhänge als streng vertraulich.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein Preisblatt zeigt Rabatte, die nur während der Evaluation gelten.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Angebotskontakte sind geschäftlich bezeichnete natürliche Personen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Das gewählte Vergabeverfahren ist noch nicht abgeschlossen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Eine technische Beilage enthält eine öffentlich zugängliche Produktbeschreibung.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Vergabestatus, Angebotsinhalte und Interessen des Bundes müssen berücksichtigt werden.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Das gewählte Vergabeverfahren ist noch nicht abgeschlossen. Für die Weiterbearbeitung wird jeweils die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: gewählte Vergabeverfahren ist noch nicht abgeschlossen. Die zuständige Fachfunktion prüft die
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

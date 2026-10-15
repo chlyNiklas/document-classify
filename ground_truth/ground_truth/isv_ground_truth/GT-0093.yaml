@@ -1,0 +1,81 @@
+schema_version: '1.0'
+test:
+  id: GT-0093
+  source_document_type: DOC-05
+  title: Jahresbericht zu einem Hotline-Testbetrieb
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0093_DOC-05.docx
+  format: docx
+  synthetic: true
+  sha256: ec5e0f323690bb5c261837e8c55fee67fac7280b83e7ac181ae9f1fa1c8192ac
+test_hypotheses:
+  primary_focus: aggregated_information
+  candidate_dimensions:
+  - evidence: Der Bericht fasst 3400 synthetische Kontakte zusammen
+    review_required: true
+  - evidence: Einige seltene Anfragearten kommen nur in einer Region vor
+    review_required: true
+  - evidence: Es existiert ein internes Fallregister ausserhalb des Berichts
+    review_required: true
+  - evidence: Ein Organigramm nennt mehrere Dienststellen, aber keine Personen
+    review_required: true
+  - evidence: Bei der Auswertung zeigen sich unklare Dubletten
+    review_required: true
+  - evidence: Die Veröffentlichung einer Kurzfassung ist geplant
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Lageinformationen können geschäftskritische Abhängigkeiten enthalten; Schadensfolgen sind nicht vollständig
+    belegt.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage dokumentiert einen begrenzten Arbeitsstand. Sie dient der sachgerechten Bearbeitung
+      innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als öffentli
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Sachverhalt entstand im Zusammenspiel mehrerer Fachfunktionen. Einzelne Angaben wurden aus Besprechungsnotizen,
+      E-Mails und vorläufigen Entwürfen übernommen; diese Herkunft ist bei der Würdigung mitzudenken. Für eine
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Federführung liegt bei der im Kopf genannten Stelle. Weitere Rollen unterstützen die Kontrolle der
+      Fakten und der formellen Abläufe, ohne dass dadurch schon eine abschliessende materiellrechtliche Beurteilung
+      erfolgt
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

@@ -1,0 +1,97 @@
+schema_version: '1.0'
+test:
+  id: GT-0022
+  source_document_type: DOC-23
+  title: Fallübersicht zur Koordination von Unterstützungsleistungen
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0022_DOC-23.txt
+  format: txt
+  synthetic: true
+  sha256: 56ab64eb801e88d844b23f8eba4e73dcc0fd018f17557559473f0560de31916f
+test_hypotheses:
+  primary_focus: verknuepfung
+  candidate_dimensions:
+  - section: Zweck und Entstehung
+    observation: Jeder Vorgang enthält eine Fall-ID, eine Kalenderwoche und den bearbeitenden Bereich.
+    review_required: true
+  - section: Datensätze
+    observation: Ein anderer Eintrag nennt chronische Erschöpfung und wiederholte Behandlungstermine.
+    review_required: true
+  - section: Verknüpfungsfelder
+    observation: In einem weiteren Teil wird für F-184 der Standort Nord und die einzige Funktion Einsatzdisposition
+      aufgeführt.
+    review_required: true
+  - section: Sachliche Merkmale
+    observation: Bei drei Fällen werden finanzielle Engpässe und die Rückkehr an den Arbeitsplatz miteinander verbunden.
+    review_required: true
+  - section: Bearbeitungsschritte
+    observation: Die protokollierte Übermittlung erfolgte an vier bezeichnete Stellen.
+    review_required: true
+  - section: Datenqualität
+    observation: Ein anderer Datensatz enthält zwei abweichende Beschäftigungsgrade.
+    review_required: true
+  - section: Risikohinweis
+    observation: Das kleine Team und die seltenen Funktionsbezeichnungen begrenzen den Kreis möglicher Personen
+      stark.
+    review_required: true
+  - section: Weiteres Vorgehen
+    observation: Die fallbezogene Fassung bleibt für die interne Bearbeitung verfügbar.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Falllisten mit personenbezogenen Angaben sind datenschutzrechtlich zu würdigen, ISV-Einstufung unabhängig
+    prüfen.
+  evidence_excerpts:
+  - quote: Die Liste ist ein Arbeitsexport und nicht als öffentliche Statistik konzipiert. Für die Einordnung ist
+      zu beachten, ob die Angaben als einzelne Beobachtungen, als zusammengefasste Informationen oder als Aussagen
+      über kon
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Der Export wurde für eine einmalige Sitzung erstellt und anschliessend in einem gesonderten Verzeichnis
+      abgelegt. Die protokollierte Übermittlung erfolgte an vier bezeichnete Stellen. Der Abschnitt dokumentiert
+      den derze
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Zugriffsberechtigung und Aufbewahrungsfrist werden neu bewertet. Vor einer Weitergabe soll geprüft
+      werden, ob alle Empfänger den notwendigen Kontext kennen und ob die im Text enthaltenen Informationen für
+      den angegeb
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

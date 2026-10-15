@@ -1,0 +1,78 @@
+schema_version: 0.1-draft
+case_id: GT-0005
+document:
+  filename: GT-0005_DOC-08.pdf
+  type_id: DOC-08
+  format: pdf
+  synthetic: true
+  language: de-CH
+scenario:
+  title: 'Offerte: Dokumentenmanagement'
+  focus:
+  - commercial_information
+  - ordinary_personal_data
+  - misleading_classification_label
+facts:
+  evidence:
+  - section: 1
+    heading: Leistungsgegenstand
+    quote: 'Lieferung von 400 Lizenzen für ein Dokumentenmanagementsystem und Dienstleistungen für Konfiguration
+      und '
+  - section: 2
+    heading: Preise
+    quote: 'Lizenzierung pro Jahr: CHF 92 000. Einführungspauschale: CHF 48 500. Optionaler Support: CHF 14 000
+      pro J'
+  - section: 3
+    heading: Ansprechpersonen
+    quote: 'Angebotsleitung: Karim Sommer, karim.sommer@alpenwerk.example; Auftraggeberin: Sofia Berg, sofia.berg@bun'
+  - section: 4
+    heading: Vertraulichkeitsklausel
+    quote: «Dieses Angebot ist vertraulich zu behandeln.» Die Klausel bezeichnet eine vertragliche Erwartung der
+      Anb
+  - section: 5
+    heading: Weiteres Vorgehen
+    quote: Die Angebotsprüfung ist noch nicht abgeschlossen. Informationen zu anderen eingereichten Angeboten enthäl
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: insufficient_context
+    legal_basis: []
+    catalogue_entry: null
+    note: Vorläufige Testannahme; BIT/BV-Kataloge noch nicht eingearbeitet.
+  privacy:
+    expected_findings: TO_BE_REVIEWED
+    note: Positive und negative Befunde sowie Art. 5 DSG müssen fachlich annotiert werden.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Vergabestatus, Angebotsinhalte und Interessen des Bundes müssen berücksichtigt werden.
+  evidence_excerpts:
+  - quote: der Anbieterin und trifft keine Festlegung einer Klassifizierung nach ISG/ISV.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

@@ -1,0 +1,79 @@
+schema_version: '1.0'
+test:
+  id: GT-0061
+  source_document_type: DOC-21
+  title: Chronologie eines Bewilligungsverfahrens mit Einsprache
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0061_DOC-21.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: d8ca5f7fec4ca478e1cf2bdea68058240e5dcc6d16e2a6372be3c6a899b0b029
+test_hypotheses:
+  primary_focus: sensitive_personal_data
+  candidate_dimensions:
+  - evidence: Eine fiktive Betreiberin beantragt eine befristete Zulassung; ihre Vertreterin wird namentlich genannt
+    review_required: true
+  - evidence: Eine Eingabe enthält Angaben über ein laufendes verwaltungsrechtliches Verfahren gegen den Betreiber
+    review_required: true
+  - evidence: Ein Zeuge hat seine private Telefonnummer auf einem Begleitblatt hinterlassen
+    review_required: true
+  - evidence: Der Entscheid ist noch nicht rechtskräftig und die Anhörung läuft
+    review_required: true
+  - evidence: Die zusammenfassende öffentliche Mitteilung soll Verfahrensdetails auslassen
+    review_required: true
+  - evidence: Ein Teil der Akten geht auf Angaben einer dritten Partei zurück
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Der Verfahrenskontext kann schutzrelevant sein; DSG-Kategorien begründen nicht automatisch ISV-Klassifizierung.
+  evidence_excerpts:
+  - quote: innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als
+      öffentliche
+    locator: full_text_search
+    verified_in_document: true
+  - quote: weder automatisch harmlos noch automatisch klassifiziert. Für die Qualitätssicherung vermerkt die Bearbeitung
+      die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: 'Aktennotiz hält fest: Die zusammenfassende öffentliche Mitteilung soll Verfahrensdetails auslassen Falls
+      dieser'
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

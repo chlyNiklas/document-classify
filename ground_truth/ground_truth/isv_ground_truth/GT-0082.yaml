@@ -1,0 +1,81 @@
+schema_version: '1.0'
+test:
+  id: GT-0082
+  source_document_type: DOC-18
+  title: Abschlussbericht zu einem fingierten Sicherheitsereignis
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0082_DOC-18.docx
+  format: docx
+  synthetic: true
+  sha256: 5573f18e36525b9a8825e7105dc8943b04f241312a5783c20448954e85ab9765
+test_hypotheses:
+  primary_focus: technical_and_personal_data
+  candidate_dimensions:
+  - evidence: Eine Fehlkonfiguration führte zu einem kurzzeitigen Zugriffstest
+    review_required: true
+  - evidence: Die Zeitleiste enthält Rollen und geschäftliche Kontakte
+    review_required: true
+  - evidence: Ein Systemauszug zeigt fiktive Nutzerkennungen
+    review_required: true
+  - evidence: Eine externe Meldung wurde geprüft und mangels Voraussetzungen nicht ausgelöst
+    review_required: true
+  - evidence: Es gibt widersprüchliche Angaben zur Dauer der Störung
+    review_required: true
+  - evidence: Die Freigabe zur Weitergabe an den Lieferanten ist offen
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Für Incident-Berichte sind Angaben zu Schwachstellen, Systemkritikalität und Schadensfolgen ausschlaggebend.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage dokumentiert einen begrenzten Arbeitsstand. Sie dient der sachgerechten Bearbeitung
+      innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als öffentli
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die zugrunde liegende Aktenlage ist heterogen. Neben eindeutig dokumentierten Beobachtungen finden sich
+      Planungsannahmen, zeitlich gebundene Aussagen und Punkte, zu denen noch Nachweise fehlen. In einer ergänzenden
+      Stell
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die zugrunde liegende Aktenlage ist heterogen. Neben eindeutig dokumentierten Beobachtungen finden sich
+      Planungsannahmen, zeitlich gebundene Aussagen und Punkte, zu denen noch Nachweise fehlen. Eine weitere Aktennotiz
+      hä
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

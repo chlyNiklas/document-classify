@@ -1,0 +1,88 @@
+schema_version: '1.0'
+test:
+  id: GT-0055
+  source_document_type: DOC-03
+  title: Aktenvermerk über Rückmeldungen in einer Kleingemeinde
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0055_DOC-03.docx
+  format: docx
+  synthetic: true
+  sha256: 77c88583b0f74042c05bcc2a930e8e6bbe8c50cbbe428fda211f02bc23602666
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Bei einer Ortsbegehung wurden Aussagen von drei Funktionsinhabern erfasst.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Die einzige Schulhauswartin einer kleinen Ortschaft wird ohne Namen beschrieben.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Eine Rückmeldung erwähnt eine bevorstehende medizinische Behandlung.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Ein öffentlicher Gemeinderatsbericht enthält dieselbe seltene Funktion.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Für eine spätere Weitergabe ist eine gekürzte Version vorgesehen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Eine direkte Einwilligung der betroffenen Person ist nicht dokumentiert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Interne Personal- oder Organisationsinformationen begründen nicht allein eine ISV-Stufe.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Ein öffentlicher Gemeinderatsbericht enthält dieselbe seltene Funktion. Zu Beginn der Bearbeitung wurde
+      festgelegt, dass die tatsächlichen Feststellungen von Annahmen und Arbeitshypothesen getrennt erscheinen sollen.
+      Die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Für die weitere Bearbeitung wird der Abschnitt gemeinsam mit den übrigen Feststellungen gelesen. Ein
+      öffentlicher Gemeinderatsbericht enthält dieselbe seltene Funktion. Die zuständige Fachfunktion prüft die
+      tatsächlichen
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

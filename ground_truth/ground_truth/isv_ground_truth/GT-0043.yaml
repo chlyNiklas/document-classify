@@ -1,0 +1,88 @@
+schema_version: '1.0'
+test:
+  id: GT-0043
+  source_document_type: DOC-13
+  title: Bewerbungsdossier für eine technische Führungsfunktion
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0043_DOC-13.docx
+  format: docx
+  synthetic: true
+  sha256: d265a04674ff2d8d59f26b7ad912d2d3761d729dadee3ed520302d0f0bfbfaa4
+test_hypotheses:
+  primary_focus: mixed_data_categories
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Bewerberin Lara Beispiel legt berufliche Stationen und Referenzen vor.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Ein Arbeitszeugnis nennt konkrete Leistungen und Führungsaufgaben.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Ein freiwilliger Anhang erwähnt eine frühere längere medizinische Auszeit.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Auswahlkommission bewertet die fachliche Eignung anhand einer Matrix.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein ehemaliger Arbeitgeber bestätigt lediglich den Beschäftigungszeitraum.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Die Eignungsbewertung erfolgt durch Menschen und nicht automatisiert.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Bewerbungs- und Referenzdaten sind datenschutzrechtlich gesondert zu beurteilen.
+  evidence_excerpts:
+  - quote: Die vorliegende Unterlage wurde im Rahmen der regulären Geschäftsführung erstellt. Sie richtet sich an
+      einen bezeichneten internen Empfängerkreis; eine spätere Verwendung in anderem Zusammenhang ist noch nicht
+      beschlosse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: An der Bearbeitung wirkten die fachlich verantwortliche Stelle, die zuständige Koordination und eine
+      prüfende Zweitperson mit. Die Aufgaben sind in einem separaten Arbeitsauftrag beschrieben; der vorliegende
+      Bericht erse
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Feststellungen wurden mit den im Geschäftsdossier verfügbaren Unterlagen abgeglichen. Ein offener
+      Punkt wird ausdrücklich als offen bezeichnet, damit eine vorläufige Beobachtung nicht als abgeschlossener
+      Befund ersch
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

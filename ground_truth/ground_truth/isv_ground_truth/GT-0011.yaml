@@ -1,0 +1,91 @@
+schema_version: 0.2-draft
+case_id: GT-0011
+document:
+  filename: GT-0011_DOC-07.pdf
+  type_id: DOC-07
+  format: pdf
+  synthetic: true
+  language: de-CH
+  sha256: c15ec3a1acc7b89c455de4fc8a6e8c544f2cc5e9203581e9e150eeede8bb747b
+scenario:
+  title: 'Budgetbericht 2027: Fachanwendungen und Betriebsaufwand'
+  length_words_approx: 330
+facts:
+  candidate_evidence:
+  - section_index: 1
+    heading: Ausgangslage
+    quote: Für das Budgetjahr 2027 wurde der Betriebsaufwand der Fachanwendungen neu erhoben. Die vorliege
+    reference_status: provisional
+  - section_index: 2
+    heading: Kostenannahmen
+    quote: Für den Basisbetrieb sind 3.24 Millionen Franken vorgesehen, für Wartung und Releasewechsel wei
+    reference_status: provisional
+  - section_index: 3
+    heading: Priorisierung
+    quote: 'Der Ersatz des internen Fallverwaltungssystems ist als erstes Vorhaben vorgesehen, gefolgt von '
+    reference_status: provisional
+  - section_index: 4
+    heading: Finanzielle Risiken
+    quote: Zwei Beschaffungen sind noch nicht abgeschlossen. Die hier veranschlagten Summen können sich de
+    reference_status: provisional
+  - section_index: 5
+    heading: Entscheidbedarf
+    quote: Die Geschäftsleitung wird gebeten, die Reihenfolge der Vorhaben und die Annahmen zur Reserve zu
+    reference_status: provisional
+  - section_index: 6
+    heading: Protokoll der Rückmeldungen
+    quote: In einer Vorbesprechung wurden einzelne Beträge beanstandet. Die Projektleitung hält fest, dass
+    reference_status: provisional
+  validation: pending_manual_review
+legal_assessment:
+  review_status: PENDING_LEGAL_REVIEW
+  information_security:
+    expected: null
+    status: UNASSESSED
+    catalogue_entry: null
+    note: ISG/ISV und BIT/BV-Kataloge müssen fachlich geprüft werden. GEHEIM ist ausserhalb des aktuellen Tests.
+  privacy:
+    status: UNASSESSED
+    expected_findings: []
+    note: Personendaten, Kategorien Art. 5 DSG sowie Identifizierbarkeit separat manuell annotieren.
+review:
+  status: draft
+  reviewer: null
+  approved_at: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Nicht jede unveröffentlichte Budgetangabe ist automatisch nach ISG klassifiziert; Auswirkungen einer
+    Offenlegung prüfen.
+  evidence_excerpts:
+  - quote: Finanzen / Entwurf für die Geschäftsleitung | 15. Oktober 2026 | Synthetischer Testfall
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Für das Budgetjahr 2027 wurde der Betriebsaufwand der Fachanwendungen neu erhoben. Die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: individuellen Lohnangaben. Vergleiche mit veröffentlichten Vorjahreswerten sind nur eingeschränkt
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

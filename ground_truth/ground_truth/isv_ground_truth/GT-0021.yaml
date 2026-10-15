@@ -1,0 +1,94 @@
+schema_version: '1.0'
+test:
+  id: GT-0021
+  source_document_type: DOC-24
+  title: Weisung zur Verwendung generativer Assistenzsysteme
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0021_DOC-24.docx
+  format: docx
+  synthetic: true
+  sha256: 77c6d2e5c4d4994594b2a3ee7c62ca6dbbd9bc9f42536652f84da5fb9a75691b
+test_hypotheses:
+  primary_focus: negativkontrolle
+  candidate_dimensions:
+  - section: Ausgangslage
+    observation: In den Schulungsunterlagen steht der Satz «GEHEIM ist nicht gleich personenbezogen» als didaktisches
+      Beispiel.
+    review_required: true
+  - section: Geltungsbereich
+    observation: Fremde Dokumente dürfen nicht ohne Prüfung der zulässigen Bearbeitung importiert werden.
+    review_required: true
+  - section: Klassifizierungsbeispiele
+    observation: Die Beispielsätze enthalten keine operativen Einsatzdetails und keine tatsächlich geltenden Einstufungsentscheide.
+    review_required: true
+  - section: Personendaten in Beispielen
+    observation: Die Schulung verwendet bewusst synthetische Personen und Institutionen.
+    review_required: true
+  - section: Abläufe bei Unklarheit
+    observation: Ein vermerkter Datentyp allein bewirkt keine Einstufung nach Informationssicherheitsrecht.
+    review_required: true
+  - section: Rollen und Verantwortung
+    observation: Die genannten Rollen sind organisatorische Funktionen und keine personenbezogenen Fallakten.
+    review_required: true
+  - section: Dokumentationspflicht
+    observation: Die Weisung stellt keine konkrete Sicherheitslage eines produktiven Systems dar.
+    review_required: true
+  - section: Inkraftsetzung
+    observation: Eine noch ausstehende Unterschrift der Leitung ist im Freigabeprotokoll festgehalten.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Das Zitat oder die Erklärung einer Klassifizierungsstufe klassifiziert die Arbeitshilfe nicht selbst.
+  evidence_excerpts:
+  - quote: Einige Teams interpretierten die Beispiele irrtümlich als Klassifizierungsanweisung. Für die Einordnung
+      ist zu beachten, ob die Angaben als einzelne Beobachtungen, als zusammengefasste Informationen oder als Aussagen
+      übe
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Die Weisung gilt für interne Entwürfe, Vorlagen, Zusammenfassungen und öffentliche Kommunikation. Die
+      Verantwortung für den Inhalt verbleibt bei der sachbearbeitenden Stelle. Fremde Dokumente dürfen nicht ohne
+      Prüfung de
+    locator: full_text_search
+    verified_in_document: true
+  - quote: In Anhang A werden die Markierungen INTERN, VERTRAULICH und nicht klassifiziert nur zur Schulung erläutert.
+      Die Beispielsätze enthalten keine operativen Einsatzdetails und keine tatsächlich geltenden Einstufungsentscheid
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

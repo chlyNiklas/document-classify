@@ -1,0 +1,78 @@
+schema_version: '1.0'
+test:
+  id: GT-0091
+  source_document_type: DOC-03
+  title: Vermerk zu einer anonymen Beschwerde
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0091_DOC-03.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: a9aec4d99fff8cafbf1cc8c6076205144544d31c0c3030ba995460021578ef21
+test_hypotheses:
+  primary_focus: indirect_identification
+  candidate_dimensions:
+  - evidence: Eine anonyme Eingabe schildert interne Unstimmigkeiten
+    review_required: true
+  - evidence: Die einzige Person mit einer Spezialfunktion wird indirekt beschrieben
+    review_required: true
+  - evidence: Ein Verweis auf eine längere psychologische Behandlung steht in der Eingabe
+    review_required: true
+  - evidence: Die Verwaltung hat den Wahrheitsgehalt nicht überprüft
+    review_required: true
+  - evidence: Die Beschwerde darf nicht mit einer erwiesenen Tatsache verwechselt werden
+    review_required: true
+  - evidence: Eine datenschutzkonforme Aktenweitergabe wird geprüft
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  working_hypothesis_not_validated: not_classified
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Interne Personal- oder Organisationsinformationen begründen nicht allein eine ISV-Stufe.
+  evidence_excerpts:
+  - quote: innerhalb der fiktiven Verwaltungseinheit und ist weder als bereits genehmigter Endentscheid noch als
+      öffentliche
+    locator: full_text_search
+    verified_in_document: true
+  - quote: weder automatisch harmlos noch automatisch klassifiziert. Für die Qualitätssicherung vermerkt die Bearbeitung
+      die
+    locator: full_text_search
+    verified_in_document: true
+  - quote: noch automatisch klassifiziert. Die Ablage in der Geschäftsverwaltung erfolgt unter einer fiktiven Vorgangsnummer.
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.

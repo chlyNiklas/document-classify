@@ -1,0 +1,14 @@
+Öffentlicher Hinweis zu Software-Updates
+========================================
+
+AUSGANGSLAGE
+Eine allgemeine Verbraucherinformation erklärt, weshalb Sicherheitsupdates auf privaten Geräten wichtig sind.
+
+INHALT UND EINZELHEITEN
+Der Text empfiehlt automatische Updates, Datensicherungen und das Prüfen offizieller Herstellerhinweise. Als Illustration dient ein frei erfundenes Gerät ohne technische Schwachstellendetails, Kennungen oder Angriffswege zu realen Systemen.
+
+EINORDNUNG DES SACHVERHALTS
+Der allgemeine Ratgeber beschreibt weder die Sicherheitslage einer konkreten Behörde noch Angaben, mit denen sich eine reale Schwachstelle ausnutzen liesse.
+
+WEITERES VORGEHEN
+Der Ratgeber wird in einer öffentlichen Awareness-Kampagne verteilt.

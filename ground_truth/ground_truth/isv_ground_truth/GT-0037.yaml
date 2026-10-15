@@ -1,0 +1,85 @@
+schema_version: '1.0'
+test:
+  id: GT-0037
+  source_document_type: DOC-07
+  title: Mehrjahresbudget und interne Szenariorechnung
+  review_status: pending_legal_review
+  split: unassigned
+artifact:
+  file: documents/GT-0037_DOC-07.pdf
+  format: pdf_text
+  synthetic: true
+  sha256: 72301ec95c7b297c767d8e9400fd19ac0647133a9192235c97d49f7542424547
+test_hypotheses:
+  primary_focus: financial_context
+  candidate_dimensions:
+  - section: Ausgangslage und Auftrag
+    observation: Die Rechnung unterscheidet zwischen gesicherten Mitteln und Planwerten.
+    review_required: true
+  - section: Geltungsbereich und beteiligte Stellen
+    observation: Eine geplante Sanierung hängt von der Bewilligung eines Folgeprojekts ab.
+    review_required: true
+  - section: Dokumentierte Feststellungen
+    observation: Für das Jahr 2028 sind mehrere ausdrücklich unverbindliche Ansätze vermerkt.
+    review_required: true
+  - section: Datenbasis und Nachvollziehbarkeit
+    observation: Die Unterlagen enthalten keine Angaben zu natürlichen Personen.
+    review_required: true
+  - section: Bisherige Bearbeitung
+    observation: Ein Angebotspreis wurde aus einer noch laufenden Verhandlung übernommen.
+    review_required: true
+  - section: Fachliche Einordnung
+    observation: Ein öffentlicher Finanzbericht enthält nur die bereits beschlossenen Summen.
+    review_required: true
+privacy_assessment:
+  status: not_yet_validated
+  expected_categories: null
+information_security_assessment:
+  status: pending_catalogue_and_legal_review
+  classification: null
+  allowed_levels:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  - insufficient_context
+approval:
+  legal_reviewer: null
+  date: null
+isv_expected_classification_proposal:
+  status: PROVISIONAL_NOT_LEGAL_GROUND_TRUTH
+  classification: insufficient_context
+  candidate_levels_for_review:
+  - not_classified
+  - INTERN
+  - VERTRAULICH
+  working_hypothesis_not_validated: INTERN
+  working_hypothesis_warning: Nur grobe Testhypothese anhand der Dokumentart, ausdrücklich keine fachlich belastbare
+    ISV-Einstufung. Nicht als Soll-Label zum Scoring verwenden.
+  basis: document_content_and_ISG_ISV_general_criteria
+  reasoning: Nicht jede unveröffentlichte Budgetangabe ist automatisch nach ISG klassifiziert; Auswirkungen einer
+    Offenlegung prüfen.
+  evidence_excerpts:
+  - quote: Sachzusammenhang sichtbar wird. Die Beschreibung hält sich an die zurzeit bekannten Einzelheiten und
+    locator: full_text_search
+    verified_in_document: true
+  - quote: Ein öffentlicher Finanzbericht enthält nur die bereits beschlossenen Summen. Die im Text genannten Werte
+    locator: full_text_search
+    verified_in_document: true
+  - quote: öffentlicher Finanzbericht enthält nur die bereits beschlossenen Summen. Die zuständige Fachfunktion
+      prüft
+    locator: full_text_search
+    verified_in_document: true
+  legal_references:
+  - ISG Art. 11–13
+  - ISV Art. 16–20
+  catalogue:
+    BIT: not_provided
+    BV: not_provided
+    matched_entry: null
+  missing_context:
+  - Konkrete Folgen unberechtigter Kenntnisnahme für Schutzinteressen nach ISG
+  - Anwendbare BIT/BV-Klassifizierungskatalogeinträge und Geltungsbereich
+  independent_of_DSG: true
+  human_legal_review_required: true
+  note: Kandidaten sind Prüfoptionen, keine belegten oder verbindlichen Klassifizierungen. Eine fehlende automatische
+    Zuordnung darf nicht als nicht klassifiziert interpretiert werden.
