@@ -15,6 +15,12 @@ RUN uv sync --frozen --no-dev
 # Copy the application code.
 COPY koby_classify ./koby_classify
 
+# Bake the classification rulebooks into the image and point the service at
+# them, so a deployed container needs no rulebook files from the host.
+COPY regelwerk/ /app/regelwerk/
+ENV KOBY_ISG_RULEBOOK_PATH=/app/regelwerk/REGELWERK_ISG_KLASSIFIZIERUNG.md \
+    KOBY_DSG_RULEBOOK_PATH=/app/regelwerk/REGELWERK_DSG_KLASSIFIZIERUNG.md
+
 EXPOSE 8000
 
 CMD ["/app/.venv/bin/uvicorn", "koby_classify.main:app", "--host", "0.0.0.0", "--port", "8000"]

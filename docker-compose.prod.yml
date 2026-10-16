@@ -1,0 +1,77 @@
+# Production deployment — pulls prebuilt images from GHCR and exposes
+# everything through an existing Traefik reverse proxy (external network).
+#
+# Required environment (put this in a .env file next to this compose file):
+#   DOMAIN              — public domain, e.g. classify.example.com
+#   API_PATH            — public path prefix routed DIRECTLY to the backend
+#                         via Traefik (default: /v1). The backend itself serves
+#                         under KOBY_CLASSIFY_API_PREFIX (default /v1), so keep
+#                         both consistent if you change either.
+#   TRAEFIK_NETWORK     — name of Traefik's external network (default: traefik)
+#   TRAEFIK_ENTRYPOINT  — Traefik entrypoint for HTTPS (default: websecure)
+#   TRAEFIK_CERTRESOLVER— Traefik certificate resolver (default: letsencrypt)
+#
+# Private GHCR packages? `docker login ghcr.io` with a PAT first, or make the
+# packages public.
+
+networks:
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK:-traefik}
+  internal:
+
+services:
+  classify-service:
+    image: ghcr.io/chlyniklas/classify-service:dev
+    container_name: classify-service
+    env_file:
+      - ./classify-service/.env
+    environment:
+      # Same-origin (Traefik serves UI and API under one domain), so CORS is
+      # only a safety net — still set it to the real origin.
+      KOBY_CLASSIFY_cors_origins: https://${DOMAIN}
+    networks:
+      - internal
+      - traefik
+    labels:
+      - traefik.enable=true
+      # Backend route is configurable: ${API_PATH} on the public domain.
+      # More specific than the UI's plain Host rule, so it wins for this path.
+      - traefik.http.routers.classify-service.rule=Host(`${DOMAIN}`) && PathPrefix(`${API_PATH:-/v1}`)
+      - traefik.http.routers.classify-service.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
+      - traefik.http.routers.classify-service.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      - traefik.http.services.classify-service.loadbalancer.server.port=8000
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/v1/health', timeout=5)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  classify-ui:
+    image: ghcr.io/chlyniklas/classify-ui:dev
+    container_name: classify-ui
+    networks:
+      - internal
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.classify-ui.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.classify-ui.entrypoints=${TRAEFIK_ENTRYPOINT:-websecure}
+      - traefik.http.routers.classify-ui.tls.certresolver=${TRAEFIK_CERTRESOLVER:-letsencrypt}
+      - traefik.http.services.classify-ui.loadbalancer.server.port=80
+    depends_on:
+      classify-service:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
