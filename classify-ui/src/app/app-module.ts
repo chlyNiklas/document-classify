@@ -1,11 +1,4 @@
-import {
-	LOCALE_ID,
-	NgModule,
-	inject,
-	provideAppInitializer,
-	provideBrowserGlobalErrorListeners,
-	provideZoneChangeDetection
-} from '@angular/core';
+import {LOCALE_ID, NgModule, inject, provideAppInitializer, provideBrowserGlobalErrorListeners, provideZoneChangeDetection} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing-module';
 import {App} from './app';
@@ -23,7 +16,6 @@ import {
 } from '@oblique/oblique';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi, withXhr} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
-import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
@@ -54,7 +46,6 @@ registerLocaleData(localeITCH);
 		AppRoutingModule,
 		ObButtonModule,
 		MatButtonModule,
-		MatChipsModule,
 		MatIconModule,
 		MatTableModule,
 		MatTabsModule,
@@ -82,7 +73,7 @@ registerLocaleData(localeITCH);
 				applicationName: 'classify-ui',
 				conformity: 'none',
 				createdOn: new Date('2026-10-15'),
-				applicationOperator: 'Koby Classify',
+				applicationOperator: 'KOBY Classify',
 				contact: [{email: 'foo@bit.admin.ch'}]
 			},
 			language: {hasLanguageInUrl: false}

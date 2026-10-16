@@ -2,9 +2,6 @@
 	<div class="work-review__header">
 		<h2>{{ 'koby.work.review.title' | translate }}</h2>
 		<span class="work-review__document">{{ document().name }}</span>
-		<mat-chip-set>
-			<mat-chip class="success">{{ 'koby.work.status.pending' | translate }}</mat-chip>
-		</mat-chip-set>
 		<button type="button" mat-button obButton="secondary" data-testid="json-finding-action" (click)="openJson()">
 			{{ 'koby.work.json.action' | translate }}
 		</button>

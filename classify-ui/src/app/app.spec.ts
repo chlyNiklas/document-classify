@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+import {Router} from '@angular/router';
 import {ObMasterLayoutModule, ObMasterLayoutService, provideObliqueTestingConfiguration} from '@oblique/oblique';
 import {beforeAll, vi} from 'vitest';
 import {App} from './app';
@@ -36,13 +37,12 @@ describe('App', () => {
 		expect(app).toBeTruthy();
 	});
 
-	it('offers the workbench navigation item for the single section', () => {
-		const fixture = TestBed.createComponent(App);
-		fixture.detectChanges();
-		const anchorHrefs = [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLAnchorElement>('a')]
-			.map(anchor => anchor.getAttribute('href'));
-		expect(anchorHrefs).toContain('/work');
-		expect(anchorHrefs).not.toContain('/rules');
+	it('redirects the Oblique home route to the work surface', async () => {
+		const router = TestBed.inject(Router);
+
+		await router.navigateByUrl('/home');
+
+		expect(router.url).toBe('/work');
 	});
 
 	it('the guidance content state is available for the off-canvas surface', () => {
