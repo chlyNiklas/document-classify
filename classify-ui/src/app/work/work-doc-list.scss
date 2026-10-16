@@ -83,5 +83,8 @@
 }
 
 .doclist__empty {
+	// The empty state carries no text: reserve a stable area so the list region
+	// does not collapse to zero height when there are no documents.
 	color: variables.$ob-gray-dark;
+	min-height: variables.$ob-spacing-xxl;
 }

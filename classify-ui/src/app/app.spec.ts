@@ -36,13 +36,13 @@ describe('App', () => {
 		expect(app).toBeTruthy();
 	});
 
-	it('offers the workbench navigation items for the two sections', () => {
+	it('offers the workbench navigation item for the single section', () => {
 		const fixture = TestBed.createComponent(App);
 		fixture.detectChanges();
 		const anchorHrefs = [...(fixture.nativeElement as HTMLElement).querySelectorAll<HTMLAnchorElement>('a')]
 			.map(anchor => anchor.getAttribute('href'));
 		expect(anchorHrefs).toContain('/work');
-		expect(anchorHrefs).toContain('/rules');
+		expect(anchorHrefs).not.toContain('/rules');
 	});
 
 	it('the guidance content state is available for the off-canvas surface', () => {

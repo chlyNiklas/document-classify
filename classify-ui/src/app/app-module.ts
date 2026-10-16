@@ -34,7 +34,6 @@ import {WorkDocList} from './work/work-doc-list';
 import {WorkReview} from './work/work-review';
 import {ReviewIsg} from './work/review-isg';
 import {ReviewDsg} from './work/review-dsg';
-import {Rules} from './rules/rules';
 import {DemoOffCanvas} from './shared/demo-off-canvas';
 import {TranslatePipe} from '@ngx-translate/core';
 import {registerLocaleData} from '@angular/common';
@@ -69,7 +68,7 @@ registerLocaleData(localeITCH);
 		OAuthModule.forRoot(),
 		TranslatePipe
 	],
-	declarations: [App, Work, WorkIntake, WorkDocList, WorkReview, ReviewIsg, ReviewDsg, Rules, DemoOffCanvas],
+	declarations: [App, Work, WorkIntake, WorkDocList, WorkReview, ReviewIsg, ReviewDsg, DemoOffCanvas],
 	providers: [
 		provideBrowserGlobalErrorListeners(),
 		provideZoneChangeDetection({eventCoalescing: true}),

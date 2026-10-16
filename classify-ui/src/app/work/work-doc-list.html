@@ -56,5 +56,6 @@
 		<tr *matRowDef="let row; columns: displayedColumns" mat-row class="doclist__row" [class.doclist__row--selected]="row.selected"></tr>
 	</table>
 } @else {
-	<p class="doclist__empty">{{ "koby.work.empty" | translate }}</p>
+	<!-- Reserved, text-free empty state: the sentence was removed with the simplified surface. -->
+	<div class="doclist__empty" aria-hidden="true"></div>
 }

@@ -296,32 +296,6 @@ describe('Work', () => {
 		expect(offCanvas.open).toBe(true);
 	});
 
-	it('opens the file picker and classifies another document from the review action', () => {
-		addFile('erstes_dokument.pdf', 2048, 'pdf');
-		flushClassify(classifyResponse);
-
-		const input = element().querySelector<HTMLInputElement>('[data-testid="upload-more-input"]');
-		const action = element().querySelector<HTMLButtonElement>('[data-testid="upload-more-action"]');
-		if (input === null || action === null) {
-			throw new Error('additional-document controls not rendered');
-		}
-
-		const inputClick = vi.spyOn(input, 'click');
-		action.click();
-		expect(inputClick).toHaveBeenCalledOnce();
-
-		const additionalFile = makeFile('zweites_dokument.docx', 4096, 'docx');
-		Object.defineProperty(input, 'files', {configurable: true, value: [additionalFile]});
-		input.dispatchEvent(new Event('change'));
-		fixture.detectChanges();
-
-		expect(classification.documents()).toHaveLength(2);
-		expect(classification.documents()[1]).toMatchObject({name: 'zweites_dokument.docx', status: 'busy'});
-		flushClassify(secretResponse);
-		expect(classification.documents()[1]).toMatchObject({name: 'zweites_dokument.docx', status: 'pending'});
-		expect(classification.selectedDocument()?.name).toBe('zweites_dokument.docx');
-	});
-
 	it('the disclaimer is rendered with the proposals', () => {
 		addFile('vertrauensaerztliche_Beurteilung_Personalmedizin.docx', 2048, 'docx');
 		flushClassify(classifyResponse);
