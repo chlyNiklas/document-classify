@@ -1,12 +1,13 @@
 import asyncio
 import logging
+import uuid
 from collections.abc import Iterable
 from time import monotonic
 from typing import Literal, TypeVar
 
 from pydantic import BaseModel, ValidationError
 
-from koby_classify.adapters.koby import KobyClient, KobyClientError
+from koby_classify.adapters.base import AssessConnector, ConnectorError
 from koby_classify.classification.chunking import chunk_text
 from koby_classify.classification.detectors import detect_structured_personal_data
 from koby_classify.classification.models import (
@@ -54,13 +55,13 @@ DETECTION_SEVERITY = {
 class ClassificationService:
     def __init__(
         self,
-        koby: KobyClient,
+        connector: AssessConnector,
         *,
         isg_system_prompt: str,
         dsg_system_prompt: str,
         chunk_characters: int = 12_000,
     ) -> None:
-        self._koby = koby
+        self._connector = connector
         self._isg_system_prompt = isg_system_prompt
         self._dsg_system_prompt = dsg_system_prompt
         self._chunk_characters = chunk_characters
@@ -72,6 +73,7 @@ class ClassificationService:
         language: ResponseLanguage = ResponseLanguage.GERMAN,
     ) -> ClassificationResponse:
         started_at = monotonic()
+        session_id = str(uuid.uuid4())
         chunks = chunk_text(request.text, self._chunk_characters)
         deterministic_findings = detect_structured_personal_data(request.text)
         chunk_findings = [detect_structured_personal_data(chunk) for chunk in chunks]
@@ -84,6 +86,7 @@ class ClassificationService:
                     system_prompt=self._isg_system_prompt,
                     schema=IsgIsvAssessment,
                     language=language,
+                    session_id=session_id,
                 ),
                 self._assess_chunks(
                     chunks=chunks,
@@ -93,6 +96,7 @@ class ClassificationService:
                     schema=DsgAssessment,
                     deterministic_findings_by_chunk=chunk_findings,
                     language=language,
+                    session_id=session_id,
                 ),
                 return_exceptions=True,
             )
@@ -145,6 +149,7 @@ class ClassificationService:
         system_prompt: str,
         schema: type[Assessment],
         language: ResponseLanguage,
+        session_id: str,
         deterministic_findings_by_chunk: list[list[DsgFinding]] | None = None,
     ) -> list[Assessment]:
         results: list[Assessment] = []
@@ -170,6 +175,7 @@ class ClassificationService:
                 deterministic_findings=deterministic_findings,
                 language=language,
                 document_part=(chunk_number, chunk_count),
+                session_id=session_id,
             )
             results.append(result)
         return results
@@ -185,13 +191,14 @@ class ClassificationService:
         language: ResponseLanguage,
         deterministic_findings: list[DsgFinding] | None = None,
         document_part: tuple[int, int] | None = None,
+        session_id: str,
     ) -> Assessment:
         started_at = monotonic()
         validation_feedback: str | None = None
         try:
             for attempt in range(2):
                 try:
-                    model_output = await self._koby.assess(
+                    model_output = await self._connector.assess(
                         text,
                         assessment=assessment,
                         system_prompt=system_prompt,
@@ -199,8 +206,9 @@ class ClassificationService:
                         validation_feedback=validation_feedback,
                         language=language,
                         document_part=document_part,
+                        session_id=session_id,
                     )
-                except KobyClientError as error:
+                except ConnectorError as error:
                     raise ClassificationUnavailableError(
                         f"{display_name} assessment failed: {error}"
                     ) from error

@@ -5,7 +5,6 @@ from koby_classify.classification.models import (
     DsgFinding,
 )
 
-
 AHV_CANDIDATE_PATTERN = re.compile(r"(?<!\d)756(?:[.\s-]?\d){10}(?!\d)")
 
 

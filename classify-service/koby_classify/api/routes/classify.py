@@ -21,7 +21,6 @@ from koby_classify.extraction.service import (
     extract_text,
 )
 
-
 router = APIRouter()
 
 

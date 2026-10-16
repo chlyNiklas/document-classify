@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 ISG_RULEBOOK_FILENAME = "REGELWERK_ISG_KLASSIFIZIERUNG.md"
 DSG_RULEBOOK_FILENAME = "REGELWERK_DSG_KLASSIFIZIERUNG.md"
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]

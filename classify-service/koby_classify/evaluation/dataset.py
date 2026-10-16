@@ -8,7 +8,6 @@ from typing import Any
 
 import yaml
 
-
 ISG_LABELS = {
     "NOT_CLASSIFIED": "unclassified",
     "not_classified": "unclassified",

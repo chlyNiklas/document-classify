@@ -43,6 +43,31 @@ The service requests `low` model reasoning effort by default because classificat
 rules and a constrained schema. Configure `KOBY_REASONING_EFFORT` as `low`, `medium`, or `high`
 if the selected KOBY model supports a different tradeoff.
 
+## LLM providers
+
+The classification engine is selected with `LLM_PROVIDER`. Supported values are `koby` (default)
+and `opencode`. Exactly one connector is instantiated per process; KOBY configuration and behaviour
+are unchanged when `LLM_PROVIDER` is unset or set to `koby`.
+
+With `LLM_PROVIDER=opencode`, the service calls the OpenCode Go OpenAI-compatible endpoint
+(`POST <base>/chat/completions`) with static bearer authentication and the following settings:
+
+- `OPENCODE_API_KEY` (required): the static OpenCode API key, sent as `Authorization: Bearer ...`.
+- `OPENCODE_MODEL`: the model identifier sent in each request. The built-in default is
+  `glm-5.3-flash`.
+- `OPENCODE_BASE_URL`: endpoint base, default `https://opencode.ai/inference/go/openai/v1`.
+- `OPENCODE_TIMEOUT_SECONDS`: request timeout, default 120 seconds.
+- `OPENCODE_REASONING_EFFORT`: `low` (default), `medium`, or `high`. Low keeps latency short for
+  this bounded classification task.
+
+OpenCode requests are always sent with `"stream": true` and carry a `User-Agent:
+`x-opencode-session` header. One session id is generated per classification run, so all requests of
+the same document classification (chunks, ISG/DSG assessments and validation retries) share it.
+
+**Privacy guidance:** the default model `glm-5.3-flash` retains prompts for 0 days and does not
+train on prompts. For compliance documents, operators MUST NOT switch to models that train on
+prompts (e.g. Gemini Argon, Muse Spark).
+
 The service loads the compact `REGELWERK_ISG_KLASSIFIZIERUNG.md` and
 `REGELWERK_DSG_KLASSIFIZIERUNG.md` policy packs from the repository root at startup. It sends two
 concurrent KOBY requests: one with only the ISG/ISV rules and one with only the DSG rules. The

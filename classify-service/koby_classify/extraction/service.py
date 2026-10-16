@@ -7,7 +7,6 @@ from docx.table import Table
 from docx.text.paragraph import Paragraph
 from pypdf import PdfReader
 
-
 DOCX_CONTENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 MAX_DOCX_UNCOMPRESSED_BYTES = 50 * 1024 * 1024
 

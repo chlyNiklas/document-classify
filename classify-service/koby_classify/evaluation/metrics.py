@@ -4,7 +4,6 @@ from collections import Counter
 from statistics import mean, median
 from typing import Any
 
-
 ISG_ORDER = ["unclassified", "internal", "confidential", "secret"]
 DSG_ORDER = [
     "no_personal_data",
