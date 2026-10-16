@@ -3,7 +3,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Annotated, Literal
 
-from pydantic import AliasChoices, BeforeValidator, Field, SecretStr
+from pydantic import AliasChoices, BeforeValidator, Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
@@ -13,6 +13,12 @@ def _split_origins(value: object) -> object:
         if stripped.startswith("["):
             return json.loads(stripped)
         return [origin.strip() for origin in stripped.split(",") if origin.strip()]
+    return value
+
+
+def _split_csv(value: object) -> object:
+    if isinstance(value, str):
+        return [item.strip() for item in value.split(",") if item.strip()]
     return value
 
 
@@ -63,9 +69,39 @@ class Settings(BaseSettings):
     max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)
     max_extracted_characters: int = Field(default=100_000, gt=0)
     classification_chunk_characters: int = Field(default=50_000, gt=0)
+    auth_enabled: bool = False
+    auth_issuer: str | None = None
+    auth_audience: str | None = None
+    auth_jwks_url: str | None = None
+    auth_algorithms: Annotated[list[str], NoDecode, BeforeValidator(_split_csv)] = Field(
+        default_factory=lambda: ["RS256"],
+        min_length=1,
+    )
+    auth_required_scope: str = Field(default="document:classify", min_length=1)
+    auth_jwks_cache_seconds: int = Field(default=300, gt=0)
     cors_origins: Annotated[list[str], NoDecode, BeforeValidator(_split_origins)] = [
         "http://localhost:4200"
     ]
+
+    @model_validator(mode="after")
+    def validate_auth_configuration(self) -> "Settings":
+        if not self.auth_enabled:
+            return self
+        missing = [
+            name
+            for name, value in {
+                "KOBY_CLASSIFY_AUTH_ISSUER": self.auth_issuer,
+                "KOBY_CLASSIFY_AUTH_AUDIENCE": self.auth_audience,
+                "KOBY_CLASSIFY_AUTH_JWKS_URL": self.auth_jwks_url,
+            }.items()
+            if not value
+        ]
+        if missing:
+            raise ValueError(
+                "Authentication is enabled but required settings are missing: "
+                + ", ".join(missing)
+            )
+        return self
 
 
 @lru_cache

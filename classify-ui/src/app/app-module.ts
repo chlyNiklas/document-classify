@@ -1,4 +1,11 @@
-import {LOCALE_ID, NgModule, provideBrowserGlobalErrorListeners, provideZoneChangeDetection} from '@angular/core';
+import {
+	LOCALE_ID,
+	NgModule,
+	inject,
+	provideAppInitializer,
+	provideBrowserGlobalErrorListeners,
+	provideZoneChangeDetection
+} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing-module';
 import {App} from './app';
@@ -15,7 +22,7 @@ import {
 	ObSpinnerModule,
 	provideObliqueConfiguration
 } from '@oblique/oblique';
-import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi, withXhr} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi, withXhr} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
@@ -38,6 +45,9 @@ import {registerLocaleData} from '@angular/common';
 import localeDECH from '@angular/common/locales/de-CH';
 import localeFRCH from '@angular/common/locales/fr-CH';
 import localeITCH from '@angular/common/locales/it-CH';
+import {OAuthModule} from 'angular-oauth2-oidc';
+import {authInterceptor} from './auth/auth.interceptor';
+import {AuthService} from './auth/auth.service';
 
 registerLocaleData(localeDECH);
 registerLocaleData(localeFRCH);
@@ -62,12 +72,16 @@ registerLocaleData(localeITCH);
 		ObOffCanvasModule,
 		ObSelectableModule,
 		ObMasterLayoutModule,
+		OAuthModule.forRoot(),
 		TranslatePipe
 	],
 	declarations: [App, Work, WorkIntake, WorkDocList, WorkBusy, WorkReview, ReviewIsg, ReviewDsg, WorkEvidence, Rules, DemoOffCanvas, DemoDocPreview],
 	providers: [
 		provideBrowserGlobalErrorListeners(),
 		provideZoneChangeDetection({eventCoalescing: true}),
+		provideAppInitializer(async () => {
+			await inject(AuthService).initialize();
+		}),
 		provideObliqueConfiguration({
 			icon: {registerObliqueIcons: true},
 			translate: {locales: {locales: ['de-CH', 'fr-CH', 'it-CH'], defaultLanguage: 'de'}},
@@ -81,7 +95,7 @@ registerLocaleData(localeITCH);
 			language: {hasLanguageInUrl: false}
 		}),
 		{provide: HTTP_INTERCEPTORS, useClass: ObHttpApiInterceptor, multi: true},
-		provideHttpClient(withXhr(), withInterceptorsFromDi()),
+		provideHttpClient(withXhr(), withInterceptors([authInterceptor]), withInterceptorsFromDi()),
 		{provide: LOCALE_ID, useValue: 'de-CH'}
 	],
 	bootstrap: [App]

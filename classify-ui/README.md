@@ -12,6 +12,33 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Authentication
+
+The UI supports OIDC Authorization Code flow with PKCE. It loads its identity-provider settings at
+runtime from `src/assets/auth-config.json`, allowing the same compiled image to be configured per
+environment. Authentication is disabled in the checked-in configuration so local development works
+without an identity provider.
+
+For a deployment, copy `auth-config.example.json`, replace its placeholder values, and serve or
+mount it at `/usr/share/nginx/html/assets/auth-config.json` in the UI container. The identity
+provider's public browser client must allow the UI's exact origin as its redirect and post-logout
+redirect URI. Do not configure a client secret in the browser client.
+
+Example Docker mount:
+
+```yaml
+services:
+  classify-ui:
+    volumes:
+      - ./auth-config.json:/usr/share/nginx/html/assets/auth-config.json:ro
+```
+
+When authentication is enabled, application bootstrap waits for the OIDC callback to be processed.
+An unauthenticated visitor is redirected to the identity provider before protected routes render.
+The access token is attached only to requests under the configured API's `/v1/` path. The API must
+be configured for the audience and required scope that the identity provider puts into the UI's
+access token.
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:

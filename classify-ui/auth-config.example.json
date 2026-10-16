@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "issuer": "https://identity.example/realms/classify",
+  "clientId": "classify-ui",
+  "scope": "openid profile document:classify"
+}
