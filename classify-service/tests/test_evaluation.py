@@ -1,4 +1,3 @@
-import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -8,7 +7,6 @@ import httpx
 from koby_classify.evaluation.dataset import load_dataset
 from koby_classify.evaluation.metrics import build_report_summary
 from koby_classify.evaluation.runner import evaluate_cases
-
 
 VALID_RESPONSE = {
     "isg_isv": {
@@ -100,6 +98,7 @@ information_security:
 
             async def handler(request: httpx.Request) -> httpx.Response:
                 self.assertEqual(request.headers["accept-language"], "de")
+                self.assertEqual(request.headers["authorization"], "Bearer test-token")
                 self.assertIn(b'filename="GT-0101_DOC-01.txt"', await request.aread())
                 return httpx.Response(200, json=VALID_RESPONSE)
 
@@ -109,6 +108,7 @@ information_security:
                 language="de",
                 concurrency=1,
                 timeout_seconds=10,
+                access_token="test-token",
                 transport=httpx.MockTransport(handler),
             )
             summary = build_report_summary(results)

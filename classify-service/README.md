@@ -68,6 +68,43 @@ without document content.
 
 The API is then available at `http://127.0.0.1:8000` and the OpenAPI UI at `http://127.0.0.1:8000/docs`.
 
+## Inbound API authentication
+
+The classification endpoint can validate OAuth 2.0 bearer access tokens issued by an OIDC provider.
+This is separate from `KOBY_CLIENT_ID` and `KOBY_CLIENT_SECRET`, which the service uses for its
+outbound calls to the KOBY model gateway.
+
+Authentication is off by default for local development. Enable it in a deployed environment with:
+
+```dotenv
+KOBY_CLASSIFY_AUTH_ENABLED=true
+KOBY_CLASSIFY_AUTH_ISSUER=https://identity.example/realms/classify
+KOBY_CLASSIFY_AUTH_AUDIENCE=classify-api
+KOBY_CLASSIFY_AUTH_JWKS_URL=https://identity.example/realms/classify/protocol/openid-connect/certs
+KOBY_CLASSIFY_AUTH_ALGORITHMS=RS256
+KOBY_CLASSIFY_AUTH_REQUIRED_SCOPE=document:classify
+```
+
+When enabled, `POST /v1/classify` requires a signed access token with the configured issuer,
+audience, and scope. The service caches signing keys and refreshes them on rotation. `GET /health`
+stays public so orchestration platforms can probe the service. The API never accepts browser client
+secrets.
+
+Register two clients at the identity provider:
+
+- A public browser client for the Angular UI, using Authorization Code flow with PKCE and an exact
+  redirect URI matching the UI origin.
+- A confidential service client for other applications. Those applications should use the Client
+  Credentials flow to obtain a token for the API audience and `document:classify` scope.
+
+PKCE protects an interactive public client; it is not an authentication flow for unattended
+machine clients. The API treats both token types the same after issuance and validates each token
+independently.
+
+For provider compatibility, permissions are read from the standard `scope` or `scp` claim and from
+application `roles`. Machine tokens may identify the caller through `client_id`, `azp`, or `appid`
+when there is no user subject.
+
 ## CORS
 
 The API enables CORS so browser front-ends can call it directly. The allowed origins are
@@ -81,6 +118,7 @@ Classify a document:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/v1/classify \
+  -H "Authorization: Bearer $ACCESS_TOKEN" \
   -H 'Accept-Language: de' \
   -F 'file=@/absolute/path/to/document.pdf'
 ```
@@ -135,10 +173,14 @@ per-result `review_required` flag.
 With the API running, evaluate every discovered `GT-*.yaml` case and write a JSON report:
 
 ```bash
+export KOBY_CLASSIFY_EVALUATION_TOKEN="$ACCESS_TOKEN"
 uv run python -m koby_classify.evaluation \
   --dataset ../ground_truth \
   --output ../evaluation-results/latest.json
 ```
+
+`KOBY_CLASSIFY_EVALUATION_TOKEN` is optional when API authentication is disabled. Its value is sent
+as a bearer token but is never written to the evaluation report.
 
 The evaluator exercises the public multipart HTTP endpoint, validates every successful response
 against the API schema, retains each raw prediction, and reports latency, failures, prediction

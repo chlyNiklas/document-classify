@@ -19,6 +19,7 @@ async def evaluate_cases(
     language: str,
     concurrency: int,
     timeout_seconds: float,
+    access_token: str | None = None,
     transport: httpx.AsyncBaseTransport | None = None,
 ) -> list[dict[str, Any]]:
     semaphore = asyncio.Semaphore(concurrency)
@@ -32,6 +33,7 @@ async def evaluate_cases(
                     case,
                     endpoint=endpoint,
                     language=language,
+                    access_token=access_token,
                 )
             )
             for case in cases
@@ -52,6 +54,7 @@ async def _evaluate_case(
     *,
     endpoint: str,
     language: str,
+    access_token: str | None,
 ) -> dict[str, Any]:
     started_at = monotonic()
     result: dict[str, Any] = {
@@ -67,10 +70,13 @@ async def _evaluate_case(
         content_type = (
             mimetypes.guess_type(case.document_path.name)[0] or "application/octet-stream"
         )
+        headers = {"Accept-Language": language}
+        if access_token:
+            headers["Authorization"] = f"Bearer {access_token}"
         async with semaphore:
             response = await client.post(
                 endpoint,
-                headers={"Accept-Language": language},
+                headers=headers,
                 files={"file": (case.document_path.name, content, content_type)},
             )
         result["http_status"] = response.status_code

@@ -1,6 +1,9 @@
-import { platformBrowser } from '@angular/platform-browser';
-import { AppModule } from './app/app-module';
+import {platformBrowser} from '@angular/platform-browser';
+import {loadRuntimeAuthConfig, runtimeAuthConfig} from './app/auth/auth-config';
+import {AppModule} from './app/app-module';
 
-platformBrowser()
-  .bootstrapModule(AppModule, {})
-  .catch((err: unknown) => console.error(err));
+loadRuntimeAuthConfig()
+	.then(async config => {
+		await platformBrowser([{provide: runtimeAuthConfig, useValue: config}]).bootstrapModule(AppModule, {});
+	})
+	.catch((error: unknown) => console.error('Application startup failed', error));

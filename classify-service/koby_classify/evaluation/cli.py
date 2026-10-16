@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -10,7 +11,6 @@ from typing import Any
 from koby_classify.evaluation.dataset import DatasetError, LoadedDataset, load_dataset
 from koby_classify.evaluation.metrics import build_report_summary
 from koby_classify.evaluation.runner import evaluate_cases
-
 
 DEFAULT_DATASET_ROOT = Path(__file__).resolve().parents[3] / "ground_truth"
 
@@ -46,6 +46,7 @@ def main(argv: list[str] | None = None) -> int:
             language=args.language,
             concurrency=args.concurrency,
             timeout_seconds=args.timeout,
+            access_token=os.environ.get("KOBY_CLASSIFY_EVALUATION_TOKEN"),
         )
     )
     report = _build_report(dataset, args, results)
@@ -104,6 +105,7 @@ def _build_report(
             "language": args.language,
             "concurrency": args.concurrency,
             "timeout_seconds": args.timeout,
+            "authenticated": bool(os.environ.get("KOBY_CLASSIFY_EVALUATION_TOKEN")),
         },
         "dataset": dataset.summary(),
         "summary": build_report_summary(results),

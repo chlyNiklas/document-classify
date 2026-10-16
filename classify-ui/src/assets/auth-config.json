@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "issuer": "",
+  "clientId": "",
+  "scope": "openid profile document:classify"
+}
