@@ -8,8 +8,10 @@
 ## Aufgabe
 
 Schlage genau eine Informationsklassifizierung vor. Die Klassifizierung betrifft die möglichen
-Folgen einer Kenntnisnahme durch Unberechtigte. Datenschutzbefunde allein erzeugen keine
-ISG/ISV-Klassifizierung.
+Folgen einer Kenntnisnahme durch Unberechtigte. Personendaten spielen für die ISG/ISV-Klassifizierung
+keine Rolle: Ob ein Dokument Personendaten enthält und wie schützenswürdig diese sind, ist für die
+ISG/ISV-Stufe unbeachtlich und wird ausschliesslich im DSG-Teil der API-Antwort beurteilt.
+Datenschutzbefunde allein erzeugen keine ISG/ISV-Klassifizierung.
 
 Zulässige Werte:
 
