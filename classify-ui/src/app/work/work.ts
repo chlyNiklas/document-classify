@@ -1,12 +1,12 @@
-import {Component, effect, inject, viewChild} from '@angular/core';
+import {Component, afterRenderEffect, inject, viewChild} from '@angular/core';
 import {ObNotificationService, ObSpinnerService} from '@oblique/oblique';
-import type {DocumentBusy, DocumentPending} from '../classification/classification';
+import type {DocumentPending} from '../classification/classification';
 import {ClassificationService} from '../classification/classification.service';
 import {OffCanvasState} from '../shared/off-canvas-state.service';
 import {WorkIntake} from './work-intake';
 
 /** Spinner channel of the work page busy state. */
-const workSpinnerChannel = 'work-analysis';
+export const workSpinnerChannel = 'work-analysis';
 
 @Component({
 	selector: 'app-work',
@@ -24,22 +24,20 @@ export class Work {
 	private readonly spinnerService = inject(ObSpinnerService);
 
 	constructor() {
-		// The spinner channel is active while any document analysis runs.
-		effect(() => {
+		// The spinner channel is (re-)activated after render while any document
+		// analysis runs so that spinners rendered while the channel is already
+		// active — e.g. a second busy document — also receive the activation
+		// event (design D2).
+		afterRenderEffect(() => {
 			const analysisRunning = this.service.documents().some(entry => entry.status === 'busy');
 			if (analysisRunning) {
+				this.spinnerService.deactivate(workSpinnerChannel);
 				this.spinnerService.activate(workSpinnerChannel);
 			} else {
 				this.spinnerService.deactivate(workSpinnerChannel);
 			}
 		});
 	}
-
-	/** The document in the busy state (first busy document of the workbench). */
-	busyDocument: () => DocumentBusy | null = () => {
-		const entry = this.service.documents().find((item): item is DocumentBusy => item.status === 'busy');
-		return entry ?? null;
-	};
 
 	/** The selected document once its classification finished. */
 	pendingDocument: () => DocumentPending | null = () => {

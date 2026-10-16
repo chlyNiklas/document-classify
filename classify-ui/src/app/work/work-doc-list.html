@@ -20,9 +20,19 @@
 				[class.doclist__status--failed]="row.failed"
 				[class.doclist__status--done]="!row.busy && !row.failed"
 			>
-				{{ row.statusLabel | translate }}
-				@if (row.reasonLabel !== null) {
-					<span class="doclist__reason">{{ row.reasonLabel | translate }}</span>
+				@if (row.busy) {
+					<!-- The wrapper gives the spinner a stable DOM parent: as a direct
+					     child of the @if content the spinner cannot capture its parent
+					     element while the embedded view fragment is still detached. -->
+					<span class="doclist__spinner">
+						<ob-spinner [channel]="spinnerChannel" />
+					</span>
+					<span class="doclist__status-hidden">{{ row.statusLabel | translate }}</span>
+				} @else {
+					{{ row.statusLabel | translate }}
+					@if (row.reasonLabel !== null) {
+						<span class="doclist__reason">{{ row.reasonLabel | translate }}</span>
+					}
 				}
 			</td>
 		</ng-container>

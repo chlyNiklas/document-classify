@@ -23,7 +23,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {Work} from './work/work';
 import {WorkIntake} from './work/work-intake';
 import {WorkDocList} from './work/work-doc-list';
-import {WorkBusy} from './work/work-busy';
 import {WorkReview} from './work/work-review';
 import {ReviewIsg} from './work/review-isg';
 import {ReviewDsg} from './work/review-dsg';
@@ -58,7 +57,7 @@ registerLocaleData(localeITCH);
 		ObMasterLayoutModule,
 		TranslatePipe
 	],
-	declarations: [App, Work, WorkIntake, WorkDocList, WorkBusy, WorkReview, ReviewIsg, ReviewDsg, Rules, DemoOffCanvas],
+	declarations: [App, Work, WorkIntake, WorkDocList, WorkReview, ReviewIsg, ReviewDsg, Rules, DemoOffCanvas],
 	providers: [
 		provideBrowserGlobalErrorListeners(),
 		provideZoneChangeDetection({eventCoalescing: true}),

@@ -2,6 +2,7 @@ import {Component, computed, inject, output} from '@angular/core';
 import type {ClassifyDocument} from '../classification/classification';
 import {ClassificationService} from '../classification/classification.service';
 import {fileSizeValue} from '../shared/demo-presenters';
+import {workSpinnerChannel} from './work';
 
 /** Document list row view: name, meta text, status label, status flags and the failure reason. */
 export interface DocumentRow {
@@ -50,6 +51,9 @@ export class WorkDocList {
 	});
 
 	readonly displayedColumns: readonly string[] = ['filename', 'status', 'actions'];
+
+	/** Spinner channel shared with the work page effect (design D2). */
+	readonly spinnerChannel = workSpinnerChannel;
 
 	readonly canceled = output<string>();
 

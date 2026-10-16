@@ -6,10 +6,6 @@
 
 	<app-work-intake (canceled)="cancel($event)" />
 
-	@if (busyDocument(); as document) {
-		<app-work-busy [document]="document" (canceled)="cancel($event)" />
-	}
-
 	@if (pendingDocument(); as document) {
 		<app-work-review [document]="document" />
 	}

@@ -1,5 +1,5 @@
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {ObEUploadEventType, type ObIUploadEvent, ObNotificationService, provideObliqueTestingConfiguration} from '@oblique/oblique';
+import {ObEUploadEventType, type ObIUploadEvent, ObNotificationService, ObSpinnerService, provideObliqueTestingConfiguration} from '@oblique/oblique';
 import {HttpTestingController, type TestRequest, provideHttpClientTesting} from '@angular/common/http/testing';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -8,7 +8,7 @@ import {AppModule} from '../app-module';
 import {environment} from '../../environments/environment';
 import type {ClassifyResponse, DocumentFailed} from '../classification/classification';
 import {ClassificationService} from '../classification/classification.service';
-import {Work} from './work';
+import {Work, workSpinnerChannel} from './work';
 import type {WorkIntake} from './work-intake';
 
 const bytesPerMegabyte = 1024 * 1024;
@@ -119,6 +119,12 @@ describe('Work', () => {
 		return fixture.nativeElement as HTMLElement;
 	}
 
+	/** Lets pending spinner-channel events (delay(0)) and their view updates settle. */
+	async function settle(): Promise<void> {
+		await new Promise(resolve => setTimeout(resolve));
+		fixture.detectChanges();
+	}
+
 	it('renders one document row with status and actions per added file (table render)', () => {
 		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
 		flushClassify(classifyResponse);
@@ -163,18 +169,55 @@ describe('Work', () => {
 		expect(classification.documents().length).toBe(acceptedCountBefore);
 	});
 
-	it('the busy state shows a single pending indication and reaches the review area', () => {
+	it('a busy document shows the inline row spinner in place of the status label and stays interactive', async () => {
 		addFile('typ_pruefung.docx', 1024, 'docx');
-		fixture.detectChanges();
+		await settle();
 
-		expect(element().querySelector('[data-testid="busy-state"]')).toBeTruthy();
-		expect(element().querySelector('[data-testid="busy-label"]')?.textContent).toContain('koby.work.busy.analysing');
-		expect(element().querySelectorAll('.stages__item')).toHaveLength(0);
+		const busyCell = element().querySelector('.doclist__status--busy');
+		expect(busyCell?.querySelector('ob-spinner')).toBeTruthy();
+		// the status label is replaced: only the visually hidden accessible name remains
+		expect(busyCell?.querySelector('.doclist__status-hidden')?.textContent).toContain('koby.work.status.busy');
+		// the rest of the page stays interactive: no fixed overlay
+		expect(element().querySelector('.ob-overlay-fixed')).toBeNull();
 		expect(element().querySelector('[data-testid="review-area"]')).toBeNull();
+		expect(element().querySelectorAll('.stages__item')).toHaveLength(0);
 
 		flushClassify(classifyResponse);
+		expect(element().querySelector('.doclist__status--done')?.textContent).toContain('koby.work.status.pending');
+		expect(element().querySelector('.doclist__row ob-spinner')).toBeNull();
 		expect(element().querySelector('[data-testid="review-area"]')).toBeTruthy();
-		expect(element().querySelector('[data-testid="busy-state"]')).toBeNull();
+	});
+
+	it('the spinner appears for rows rendered while the channel is already active', async () => {
+		addFile('erste_pruefung.docx', 1024, 'docx');
+		await settle();
+		addFile('zweite_pruefung.pdf', 1024, 'pdf');
+		await settle();
+
+		const spinners = element().querySelectorAll('.doclist__row ob-spinner');
+		expect(spinners).toHaveLength(2);
+		for (const spinner of spinners) {
+			expect(spinner.querySelector('.ob-spinner-fade-in')).toBeTruthy();
+		}
+
+		flushClassify(classifyResponse);
+		flushClassify(classifyResponse);
+	});
+
+	it('activates the work-analysis spinner channel while a document is busy and deactivates when none is', () => {
+		const spinnerService = TestBed.inject(ObSpinnerService);
+		const activate = vi.spyOn(spinnerService, 'activate');
+		const deactivate = vi.spyOn(spinnerService, 'deactivate');
+
+		addFile('typ_pruefung.docx', 1024, 'docx');
+		expect(activate).toHaveBeenCalledWith(workSpinnerChannel);
+
+		activate.mockClear();
+		deactivate.mockClear();
+
+		flushClassify(classifyResponse);
+		expect(deactivate).toHaveBeenCalledWith(workSpinnerChannel);
+		expect(activate).not.toHaveBeenCalled();
 	});
 
 	it('cancelling the analysis aborts the in-flight request and removes the document', () => {
