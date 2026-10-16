@@ -1,4 +1,5 @@
 import {Component, computed, inject, signal} from '@angular/core';
+import {ObMasterLayoutService} from '@oblique/oblique';
 import {OffCanvasState} from './shared/off-canvas-state.service';
 
 @Component({
@@ -18,6 +19,13 @@ export class App {
 		}
 		return state.kind === 'guidance' ? 'koby.chrome.guidance.title' : 'koby.work.json.title';
 	});
+
+	private readonly masterLayout = inject(ObMasterLayoutService);
+
+	constructor() {
+		// Oblique does not render the off-canvas surface unless it is explicitly enabled.
+		this.masterLayout.layout.hasOffCanvas = true;
+	}
 
 	/** Opens the shared off-canvas guidance content. */
 	openGuidance(): void {

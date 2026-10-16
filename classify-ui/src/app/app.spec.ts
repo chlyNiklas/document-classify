@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {ObMasterLayoutModule, provideObliqueTestingConfiguration} from '@oblique/oblique';
+import {ObMasterLayoutModule, ObMasterLayoutService, provideObliqueTestingConfiguration} from '@oblique/oblique';
 import {beforeAll, vi} from 'vitest';
 import {App} from './app';
 import {AppModule} from './app-module';
@@ -53,6 +53,15 @@ describe('App', () => {
 		app.openGuidance();
 
 		expect(offCanvasState.content()?.kind).toBe('guidance');
+	});
+
+	it('enables the shared off-canvas surface', () => {
+		const masterLayout = {layout: {hasOffCanvas: false}};
+		TestBed.overrideProvider(ObMasterLayoutService, {useValue: masterLayout});
+
+		TestBed.runInInjectionContext(() => new App());
+
+		expect(masterLayout.layout.hasOffCanvas).toBe(true);
 	});
 
 	it('the app header shows the proposal labelling note', () => {

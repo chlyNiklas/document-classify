@@ -31,14 +31,15 @@ export class WorkReview {
 		this.moreFilesInput().nativeElement.click();
 	}
 
-	/** Validates files added via "Weiteres Dokument hochladen"; rejected files only raise the alert. */
+	/** Validates and classifies files added via "Weiteres Dokument hochladen". */
 	readMoreFiles(event: Event): void {
 		const target = event.target;
 		if (!(target instanceof HTMLInputElement)) {
 			return;
 		}
 		if (target.files !== null) {
-			this.service.validate([...target.files]);
+			const {accepted} = this.service.validate([...target.files]);
+			this.service.addFiles(accepted);
 		}
 		target.value = '';
 	}

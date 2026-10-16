@@ -13,7 +13,7 @@
 	</ng-container>
 
 	<!-- Shared off-canvas sidebar content (guidance, findings JSON). -->
-	<ng-container obOffCanvasTitle>{{ offCanvasTitle() }}</ng-container>
+	<ng-container obOffCanvasTitle>{{ offCanvasTitle() | translate }}</ng-container>
 	<ng-container obOffCanvasContent>
 		@if (offCanvasState.content()) {
 			<app-demo-off-canvas />

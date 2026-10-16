@@ -1,5 +1,12 @@
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {ObEUploadEventType, type ObIUploadEvent, ObNotificationService, ObSpinnerService, provideObliqueTestingConfiguration} from '@oblique/oblique';
+import {
+	ObEUploadEventType,
+	type ObIUploadEvent,
+	ObNotificationService,
+	ObOffCanvasService,
+	ObSpinnerService,
+	provideObliqueTestingConfiguration
+} from '@oblique/oblique';
 import {HttpTestingController, type TestRequest, provideHttpClientTesting} from '@angular/common/http/testing';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -8,6 +15,7 @@ import {AppModule} from '../app-module';
 import {environment} from '../../environments/environment';
 import type {ClassifyResponse, DocumentFailed} from '../classification/classification';
 import {ClassificationService} from '../classification/classification.service';
+import {OffCanvasState} from '../shared/off-canvas-state.service';
 import {Work, workSpinnerChannel} from './work';
 import type {WorkIntake} from './work-intake';
 
@@ -121,7 +129,9 @@ describe('Work', () => {
 
 	/** Lets pending spinner-channel events (delay(0)) and their view updates settle. */
 	async function settle(): Promise<void> {
-		await new Promise(resolve => setTimeout(resolve));
+		await new Promise(resolve => {
+			setTimeout(resolve);
+		});
 		fixture.detectChanges();
 	}
 
@@ -281,7 +291,7 @@ describe('Work', () => {
 		expect(element().querySelectorAll('[data-testid="dsg-finding"]')).toHaveLength(1);
 	});
 
-	it('the findings JSON of the selected document matches the stored response (Befund als JSON)', () => {
+	it('opens the selected document response from the "Befund als JSON" button', () => {
 		addFile('vertrauensaerztliche_Beurteilung_Personalmedizin.docx', 2048, 'docx');
 		flushClassify(classifyResponse);
 
@@ -289,10 +299,43 @@ describe('Work', () => {
 		if (entry.status !== 'pending') {
 			throw new Error('classification not complete');
 		}
-		const json = classification.buildJson(entry);
-		expect(json).toBe(classifyResponse);
-		expect(json.isg_isv.classification).toBe('confidential');
-		expect(json.dsg.classification).toBe('sensitive_personal_data');
+
+		const offCanvasState = TestBed.inject(OffCanvasState);
+		const offCanvas = TestBed.inject(ObOffCanvasService);
+		const action = element().querySelector<HTMLButtonElement>('[data-testid="json-finding-action"]');
+		expect(action).toBeTruthy();
+
+		action?.click();
+		fixture.detectChanges();
+
+		expect(offCanvasState.content()).toEqual({kind: 'json', document: entry});
+		expect(offCanvas.open).toBe(true);
+	});
+
+	it('opens the file picker and classifies another document from the review action', () => {
+		addFile('erstes_dokument.pdf', 2048, 'pdf');
+		flushClassify(classifyResponse);
+
+		const input = element().querySelector<HTMLInputElement>('[data-testid="upload-more-input"]');
+		const action = element().querySelector<HTMLButtonElement>('[data-testid="upload-more-action"]');
+		if (input === null || action === null) {
+			throw new Error('additional-document controls not rendered');
+		}
+
+		const inputClick = vi.spyOn(input, 'click');
+		action.click();
+		expect(inputClick).toHaveBeenCalledOnce();
+
+		const additionalFile = makeFile('zweites_dokument.docx', 4096, 'docx');
+		Object.defineProperty(input, 'files', {configurable: true, value: [additionalFile]});
+		input.dispatchEvent(new Event('change'));
+		fixture.detectChanges();
+
+		expect(classification.documents()).toHaveLength(2);
+		expect(classification.documents()[1]).toMatchObject({name: 'zweites_dokument.docx', status: 'busy'});
+		flushClassify(secretResponse);
+		expect(classification.documents()[1]).toMatchObject({name: 'zweites_dokument.docx', status: 'pending'});
+		expect(classification.selectedDocument()?.name).toBe('zweites_dokument.docx');
 	});
 
 	it('the disclaimer is rendered with the proposals', () => {
