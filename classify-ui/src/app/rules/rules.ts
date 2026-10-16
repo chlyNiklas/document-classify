@@ -2,15 +2,16 @@ import {Component} from '@angular/core';
 
 interface RuleRow {
 	key: 'none' | 'internal' | 'confidential' | 'secret';
-	proposed: boolean;
+	/** Whether the AI proposes the category: always, or only on escalation with an Art. 24 ISV reference. */
+	proposal: 'yes' | 'escalation';
 }
 
-/** ISG category table rows; "geheim" is documented as never proposed (manual only). */
+/** ISG category table rows; "geheim" is proposed only on escalation with an Art. 24 ISV reference. */
 const ruleRows: readonly RuleRow[] = [
-	{key: 'none', proposed: true},
-	{key: 'internal', proposed: true},
-	{key: 'confidential', proposed: true},
-	{key: 'secret', proposed: false}
+	{key: 'none', proposal: 'yes'},
+	{key: 'internal', proposal: 'yes'},
+	{key: 'confidential', proposal: 'yes'},
+	{key: 'secret', proposal: 'escalation'}
 ];
 
 @Component({

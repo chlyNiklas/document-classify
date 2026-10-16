@@ -5,39 +5,29 @@
 	<p class="card__hint">{{ 'koby.work.isg.possible' | translate }}</p>
 
 	<div class="tilerow" role="list">
-		@for (tileKey of tileKeys; track tileKey) {
-			<div
-				class="tile"
-				[class.tile--marked]="isMarked(tileKey)"
-				[class.tile--disabled]="isDisabled(tileKey)"
-				[attr.data-testid]="'isg-tile-' + tileKey"
-			>
+		@for (tileKey of visibleTileKeys(); track tileKey) {
+			<div class="tile" [class.tile--marked]="isMarked(tileKey)" [attr.data-testid]="'isg-tile-' + tileKey">
 				<b>{{ 'koby.work.isg.tile.' + tileKey | translate }}</b>
 				<span>{{ 'koby.work.isg.tile-desc.' + tileKey | translate }}</span>
-				@if (isDisabled(tileKey)) {
-					<small class="tile__note">
-						{{ 'koby.work.isg.note-never' | translate }}
-					</small>
-				} @else if (isMarked(tileKey)) {
-					<small class="tile__note">
-						{{ 'koby.work.tile.confidence' | translate: {confidence: tileConfidence(tileKey)} }}
-					</small>
-				}
 			</div>
 		}
 	</div>
 
-	@if (hasLowConfidence()) {
-		<ob-alert type="warning" data-testid="low-confidence-hint">
-			<strong>{{ 'koby.work.low-confidence.title' | translate }}</strong>
-			{{ 'koby.work.low-confidence.text' | translate }}
-		</ob-alert>
-	}
+	<div class="review-card__list" data-testid="isg-reasons">
+		<h4>{{ 'koby.work.justification' | translate }}</h4>
+		<ul>
+			@for (reason of result().isg.reasons; track reason) {
+				<li class="review-card__reason">{{ reason }}</li>
+			}
+		</ul>
+	</div>
 
-	<p class="review-card__justification">
-		<strong>{{ 'koby.work.justification' | translate }}</strong>
-		{{ result().justification }}
-	</p>
-
-	<app-work-evidence [references]="references()" (requestPreview)="requestPreview.emit()" />
+	<div class="review-card__list" data-testid="isg-legal-basis">
+		<h4>{{ 'koby.work.legal-basis' | translate }}</h4>
+		<ul>
+			@for (basis of result().isg.legalBasis; track basis) {
+				<li class="review-card__reference">{{ basis }}</li>
+			}
+		</ul>
+	</div>
 </section>

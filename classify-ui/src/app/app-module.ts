@@ -12,7 +12,6 @@ import {App} from './app';
 import {
 	ObAlertModule,
 	ObButtonModule,
-	ObCollapseModule,
 	ObFileUploadModule,
 	ObHttpApiInterceptor,
 	ObMasterLayoutModule,
@@ -28,18 +27,14 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {Work} from './work/work';
 import {WorkIntake} from './work/work-intake';
 import {WorkDocList} from './work/work-doc-list';
-import {WorkBusy} from './work/work-busy';
 import {WorkReview} from './work/work-review';
 import {ReviewIsg} from './work/review-isg';
 import {ReviewDsg} from './work/review-dsg';
-import {WorkEvidence} from './work/work-evidence';
 import {Rules} from './rules/rules';
 import {DemoOffCanvas} from './shared/demo-off-canvas';
-import {DemoDocPreview} from './shared/demo-doc-preview';
 import {TranslatePipe} from '@ngx-translate/core';
 import {registerLocaleData} from '@angular/common';
 import localeDECH from '@angular/common/locales/de-CH';
@@ -63,19 +58,17 @@ registerLocaleData(localeITCH);
 		MatIconModule,
 		MatTableModule,
 		MatTooltipModule,
-		MatProgressBarModule,
 		ObFileUploadModule,
 		ObAlertModule,
 		ObNotificationModule,
 		ObSpinnerModule,
-		ObCollapseModule,
 		ObOffCanvasModule,
 		ObSelectableModule,
 		ObMasterLayoutModule,
 		OAuthModule.forRoot(),
 		TranslatePipe
 	],
-	declarations: [App, Work, WorkIntake, WorkDocList, WorkBusy, WorkReview, ReviewIsg, ReviewDsg, WorkEvidence, Rules, DemoOffCanvas, DemoDocPreview],
+	declarations: [App, Work, WorkIntake, WorkDocList, WorkReview, ReviewIsg, ReviewDsg, Rules, DemoOffCanvas],
 	providers: [
 		provideBrowserGlobalErrorListeners(),
 		provideZoneChangeDetection({eventCoalescing: true}),

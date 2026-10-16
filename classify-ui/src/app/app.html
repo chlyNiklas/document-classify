@@ -4,15 +4,18 @@
 		{url: 'rules', label: 'koby.chrome.navigation.rules'}
 	]"
 >
-	<ng-container obHeaderTitle>{{ 'koby.chrome.title' | translate }}</ng-container>
+	<ng-container obHeaderTitle>
+		{{ 'koby.chrome.title' | translate }}
+		<span class="app__header-note">{{ 'koby.chrome.header-note' | translate }}</span>
+	</ng-container>
 	<ng-container obFooterInfo>
 		<p>&copy; {{ year() }} {{ 'koby.chrome.footer.owner' | translate }}</p>
 	</ng-container>
 
-	<!-- Shared off-canvas sidebar content (guidance, document preview, findings JSON). -->
+	<!-- Shared off-canvas sidebar content (guidance, findings JSON). -->
 	<ng-container obOffCanvasTitle>{{ offCanvasTitle() }}</ng-container>
 	<ng-container obOffCanvasContent>
-		@if (preview.content()) {
+		@if (offCanvasState.content()) {
 			<app-demo-off-canvas />
 		}
 	</ng-container>

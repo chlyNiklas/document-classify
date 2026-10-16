@@ -6,21 +6,51 @@
 
 	<div class="tilerow" role="list">
 		@for (tileKey of tileKeys; track tileKey) {
-			<div
-				class="tile"
-				[class.tile--marked]="isMarked(tileKey)"
-				[attr.data-testid]="'dsg-tile-' + tileKey"
-			>
+			<div class="tile" [class.tile--marked]="isMarked(tileKey)" [attr.data-testid]="'dsg-tile-' + tileKey">
 				<b>{{ 'koby.work.dsg.tile.' + tileKey | translate }}</b>
 				<span>{{ 'koby.work.dsg.tile-desc.' + tileKey | translate }}</span>
 			</div>
 		}
 	</div>
 
-	<p class="review-card__justification">
-		<strong>{{ 'koby.work.justification' | translate }}</strong>
-		{{ result().justification }}
-	</p>
+	<div class="dsg-profiling" data-testid="dsg-profiling">
+		<div class="dsg-profiling__item">
+			<span>{{ 'koby.work.dsg.profiling.label' | translate }}</span>
+			<b>{{ 'koby.work.dsg.detection.' + profilingKey() | translate }}</b>
+		</div>
+		<div class="dsg-profiling__item">
+			<span>{{ 'koby.work.dsg.profiling-high.label' | translate }}</span>
+			<b>{{ 'koby.work.dsg.detection.' + highRiskProfilingKey() | translate }}</b>
+		</div>
+	</div>
 
-	<app-work-evidence [references]="references()" (requestPreview)="requestPreview.emit()" />
+	<div class="review-card__list" data-testid="dsg-findings">
+		<h4>{{ 'koby.work.dsg.findings' | translate }}</h4>
+		<ul>
+			@for (finding of result().dsg.findings; track finding.type) {
+				<li class="review-card__reason" data-testid="dsg-finding">
+					{{ 'koby.work.dsg.finding-category.' + categoryKey(finding.category) | translate }}
+					· {{ 'koby.work.dsg.finding-count' | translate: {count: finding.count} }}
+				</li>
+			}
+		</ul>
+	</div>
+
+	<div class="review-card__list" data-testid="dsg-reasons">
+		<h4>{{ 'koby.work.justification' | translate }}</h4>
+		<ul>
+			@for (reason of result().dsg.reasons; track reason) {
+				<li class="review-card__reason">{{ reason }}</li>
+			}
+		</ul>
+	</div>
+
+	<div class="review-card__list" data-testid="dsg-legal-basis">
+		<h4>{{ 'koby.work.legal-basis' | translate }}</h4>
+		<ul>
+			@for (basis of result().dsg.legalBasis; track basis) {
+				<li class="review-card__reference">{{ basis }}</li>
+			}
+		</ul>
+	</div>
 </section>

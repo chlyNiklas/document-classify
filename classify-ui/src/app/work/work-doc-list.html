@@ -12,8 +12,28 @@
 
 		<ng-container matColumnDef="status">
 			<th *matHeaderCellDef mat-header-cell scope="col">{{ "koby.work.doclist.column.status" | translate }}</th>
-			<td *matCellDef="let row" mat-cell class="doclist__status" [class.doclist__status--busy]="row.busy" [class.doclist__status--done]="!row.busy">
-				{{ row.statusLabel | translate }}
+			<td
+				*matCellDef="let row"
+				mat-cell
+				class="doclist__status"
+				[class.doclist__status--busy]="row.busy"
+				[class.doclist__status--failed]="row.failed"
+				[class.doclist__status--done]="!row.busy && !row.failed"
+			>
+				@if (row.busy) {
+					<!-- The wrapper gives the spinner a stable DOM parent: as a direct
+					     child of the @if content the spinner cannot capture its parent
+					     element while the embedded view fragment is still detached. -->
+					<span class="doclist__spinner">
+						<ob-spinner [channel]="spinnerChannel" />
+					</span>
+					<span class="doclist__status-hidden">{{ row.statusLabel | translate }}</span>
+				} @else {
+					{{ row.statusLabel | translate }}
+					@if (row.reasonLabel !== null) {
+						<span class="doclist__reason">{{ row.reasonLabel | translate }}</span>
+					}
+				}
 			</td>
 		</ng-container>
 
@@ -21,24 +41,13 @@
 			<th *matHeaderCellDef mat-header-cell scope="col">{{ "koby.work.doclist.column.actions" | translate }}</th>
 			<td *matCellDef="let row" mat-cell>
 				<div class="doclist__actions">
-					<button
-						type="button"
-						mat-icon-button
-						obButton="secondary"
-						data-testid="doc-view"
-						[disabled]="row.selected"
-						[matTooltip]="'koby.work.evidence.show' | translate"
-						(click)="select(row.id)"
-					>
-						<mat-icon svgIcon="eye" />
-					</button>
-					@if (row.busy) {
+					@if (row.busy || row.failed) {
 						<button
 							type="button"
 							mat-icon-button
 							obButton="secondary"
 							data-testid="doc-cancel"
-							[matTooltip]="'koby.work.cancel.title' | translate"
+							[matTooltip]="row.actionLabel | translate"
 							(click)="cancel(row.id)"
 						>
 							<mat-icon svgIcon="delete" />
