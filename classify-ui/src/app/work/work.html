@@ -4,9 +4,11 @@
 		<p>{{ 'koby.work.guidance-alert.text' | translate }}</p>
 	</ob-alert>
 
-	<app-work-intake (canceled)="cancel($event)" />
+	<div class="work__columns">
+		<app-work-intake class="work__intake" (canceled)="cancel($event)" />
 
-	@if (pendingDocument(); as document) {
-		<app-work-review [document]="document" />
-	}
+		@if (pendingDocument(); as document) {
+			<app-work-review class="work__review" [document]="document" />
+		}
+	</div>
 </section>

@@ -13,7 +13,7 @@ The Classify UI SHALL present document classification as the primary and only en
 - **THEN** the default route shows the Arbeitsbereich review surface of the workbench
 
 ### Requirement: Document drop zone accepts exactly the supported formats
-The Classify UI SHALL let the end user add one or more Documents by drag-and-drop or file selection. Files in the supported formats (`pdf`, `docx`, `doc`, `xlsx`, `xls`, `csv`, `txt`, `md`, `eml`, `msg`, `ics`, `xml`, `pptx`, `rtf`, `odt`, `png`, `jpg`, `jpeg`, `tif`, `tiff`) SHALL become individual Document entries, each independently analysed. The UI SHALL reject other formats and files exceeding the size limit (50 MB) with a visible reason, without losing already added Documents.
+The Classify UI SHALL let the end user add one or more Documents by drag-and-drop or file selection. Files in the supported formats (`pdf`, `docx`, `md`, `txt`) SHALL become individual Document entries, each independently analysed. The UI SHALL reject other formats and files exceeding the size limit (10 MB) with a visible reason, without losing already added Documents.
 
 #### Scenario: Dropping a supported file
 - **WHEN** the end user drops a file in a supported format
@@ -35,15 +35,15 @@ The Classify UI SHALL submit the Document file as-is; it MUST NOT extract or tra
 - **THEN** the UI sends the intact file, not derived text
 
 ### Requirement: Pending state visible while classifying
-While a Document is being analysed, the Classify UI SHALL show a visible analysis pipeline that progresses through ordered stages (text extraction, personal-data recognition, rule application, proposal creation) as the analysis proceeds, and SHALL allow the end user to cancel the analysis of that Document.
+While a Document is being analysed, the Classify UI SHALL show a visible pending indication until the classification result or a failure is shown, and SHALL allow the end user to cancel the analysis of that Document.
 
 #### Scenario: Waiting for the result
 - **WHEN** a Document analysis runs and no result has arrived yet
-- **THEN** the UI displays the pipeline stages completing in order with a visible progress indication until the proposal result appears
+- **THEN** the UI displays a pending indication until the proposal result appears
 
 #### Scenario: Cancelling an analysis
 - **WHEN** the end user cancels a running analysis
-- **THEN** the Document is removed without a result and the UI confirms the cancellation by notification
+- **THEN** the in-flight request is aborted and the Document is removed without a result
 
 ### Requirement: Trilingual UI with German default
 The Classify UI SHALL be available in German (de-CH, default), French (fr-CH), and Italian (it-CH), with all user-facing text of the classification surface translated.
@@ -75,69 +75,55 @@ The master-layout main navigation SHALL offer the items "Arbeitsbereich" (route 
 - **THEN** the corresponding section is displayed at its route
 
 ### Requirement: ISG proposal review
-The Arbeitsbereich SHALL show, for the selected Document, a review card proposing one information-security category among "nicht klassifiziert", "intern", "vertraulich" and "geheim", with the proposal tile visually marked. The "geheim" tile SHALL be rendered as disabled and SHALL never be proposed or selectable.
+The Arbeitsbereich SHALL show, for the selected Document, a review card proposing one information-security category among "nicht klassifiziert", "intern", "vertraulich" and "geheim", with the proposal tile visually marked. The "geheim" tile SHALL be shown only when the classification is "geheim"; for every other classification it SHALL NOT be shown.
 
 #### Scenario: Proposal shown for selected document
 - **WHEN** the end user selects a Document with a completed analysis
 - **THEN** the review card shows that Document's proposed ISG category and marking
 
 #### Scenario: Geheim is never proposed
-- **WHEN** the review card for a Document is displayed
-- **THEN** the "geheim" tile is visible but disabled, and no proposal targets it
+- **WHEN** the review card is displayed for a Document whose classification is not "geheim"
+- **THEN** no "geheim" tile is shown and no proposal targets it
+
+#### Scenario: Geheim shown for a geheim classification
+- **WHEN** a Document's classification is "geheim"
+- **THEN** the "geheim" tile is shown as the marked proposal
 
 #### Scenario: Switching selected documents
 - **WHEN** the end user selects a different Document
-- **THEN** the review cards show that Document's own proposal, confidence and justification
-
-### Requirement: Proposal confidence and justification
-Each review card SHALL display the confidence of the simulated proposal and its justification text. When the confidence falls below 70 %, the UI SHALL additionally show a low-confidence hint that the model is unsure and the decision is at the reviewer's discretion.
-
-#### Scenario: Confidence below 70 per cent
-- **WHEN** a Document's simulated proposal confidence is below 70 %
-- **THEN** a low-confidence hint is shown next to the proposal
-
-#### Scenario: Confidence at 70 per cent or above
-- **WHEN** a Document's simulated proposal confidence is 70 % or higher
-- **THEN** the confidence is shown without the low-confidence hint
+- **THEN** the review cards show that Document's own proposal and justification
 
 ### Requirement: DSG assessment
-Each review card set SHALL include a DSG assessment with five assessment tiles — "keine Personendaten", "Personendaten", "besonders schützenswerte Personendaten", "Profiling", "Profiling mit hohem Risiko" — with the simulated proposal tile visually marked and its confidence shown.
+Each review card set SHALL include a DSG assessment with three assessment tiles — "keine Personendaten", "Personendaten", "besonders schützenswerte Personendaten" — with the proposed tile visually marked. The assessment SHALL additionally show the profiling status and the high-risk-profiling status, each reported as "nicht erkannt", "möglich" or "erkannt".
 
 #### Scenario: DSG proposal shown
 - **WHEN** a Document with a completed analysis is selected
-- **THEN** the DSG assessment shows the proposed assessment tile with its confidence
+- **THEN** the DSG assessment shows the proposed assessment tile among the three
 
-### Requirement: Evidence traceability
-Each review card SHALL offer a collapsible findings section listing evidence quotes with a marker letter and a reference (page and paragraph). Each evidence entry SHALL offer an action that opens a document preview showing the Document text with all evidence quotes marked by their letters.
-
-#### Scenario: Expanding findings
-- **WHEN** the end user expands the findings section of a review card
-- **THEN** the evidence quotes are listed with marker letters and references, each with a "Show in document" action
-
-#### Scenario: Document preview marks evidence
-- **WHEN** the end user activates "Im Dokument anzeigen" for any evidence entry
-- **THEN** a document preview opens showing the Document text with the quoted passages marked by their letter
+#### Scenario: Profiling status shown
+- **WHEN** a Document with a completed analysis is selected
+- **THEN** the DSG assessment shows the profiling and high-risk-profiling status of that Document
 
 ### Requirement: Findings JSON access
-The Arbeitsbereich SHALL offer an action opening the classification response ("Befund als JSON") in an off-canvas or dialog for the selected Document, showing the simulated response as formatted JSON, and SHALL provide a copy action that confirms success by notification.
+The Arbeitsbereich SHALL offer an action opening the classification response ("Befund als JSON") in an off-canvas or dialog for the selected Document, showing the classification response as formatted JSON, and SHALL provide a copy action that confirms success by notification.
 
 #### Scenario: Opening the findings JSON
 - **WHEN** the end user activates "Befund als JSON"
-- **THEN** the simulated classification response is shown as formatted JSON
+- **THEN** the classification response is shown as formatted JSON
 
 #### Scenario: Copying the findings JSON
 - **WHEN** the end user activates the copy action in the JSON view
 - **THEN** the JSON is copied to the clipboard and success is confirmed by notification
 
 ### Requirement: Demo result labelling
-The Classify UI SHALL make it clearly visible that all displayed classification results are simulated and carry no legal effect, and that final classification is performed by BIT liaisons. This labelling SHALL be visible wherever results are shown and in the app header (demo badge).
+The Classify UI SHALL make it clearly visible that all displayed classification results are proposals without legal effect, and that final classification is performed by BIT liaisons. This labelling SHALL be visible wherever results are shown and in the app header.
 
 #### Scenario: Results are labelled
 - **WHEN** proposal results are displayed for a Document
-- **THEN** a note stating that results have no legal effect and are simulated is visible in the results area
+- **THEN** a note stating that results have no legal effect and are proposals subject to specialist review is visible in the results area
 
 ### Requirement: Rules reference screen
-The Regelwerk route SHALL show a versioned reference of the classification rules: the ISG category table (meaning, legal basis, and whether the AI proposes that category — "geheim" marked as never proposed), the DSG definitions per Art. 5 DSG with short explanations, how confidence, justification and findings work, and a model/operations card stating the model and that processing stays within the federal Perimeter.
+The Regelwerk route SHALL show a versioned reference of the classification rules: the ISG category table (meaning, legal basis, and whether the AI proposes that category — "geheim" proposed only on escalation with an Art. 24 ISV reference), the DSG definitions per Art. 5 DSG with short explanations including the profiling detection status, how justification, legal basis and findings work, and a model/operations card stating the model and that processing stays within the federal Perimeter.
 
 #### Scenario: Opening the rules reference
 - **WHEN** the end user opens `/rules`
@@ -145,15 +131,62 @@ The Regelwerk route SHALL show a versioned reference of the classification rules
 
 #### Scenario: Geheim documented as never proposed
 - **WHEN** the ISG table is displayed
-- **THEN** the "geheim" row indicates that this category is not proposal-capable and is only classified manually
+- **THEN** the "geheim" row indicates this category is not proposed in the normal flow: it is proposed only on escalation with an Art. 24 ISV reference and otherwise classified manually
 
 ### Requirement: Review guidance
-The master-layout header SHALL provide a "Hinweise zur Prüfung" action opening guidance that states: results are proposals without legal effect, to check findings via "Im Dokument anzeigen", that low confidence means the model is undecided, and that "geheim" is only classified manually. The info alert in the Arbeitsbereich SHALL show the guidance title and text only, without an additional trigger action.
+The master-layout header SHALL provide a "Hinweise zur Prüfung" action opening guidance that states: results are proposals without legal effect, the findings list is shown for review, and the final classification is performed by BIT liaisons. The info alert in the Arbeitsbereich SHALL show the guidance title and text only, without an additional trigger action.
 
 #### Scenario: Opening the guidance
 - **WHEN** the end user activates the "Hinweise zur Prüfung" action in the master-layout header
-- **THEN** the guidance panel with those four points is displayed
+- **THEN** the guidance panel with those points is displayed
 
 #### Scenario: Info alert without trigger
 - **WHEN** the Arbeitsbereich info alert is displayed
 - **THEN** it shows only the guidance title and text, without a "Hinweise zur Prüfung" button
+
+### Requirement: Upload multipart contract
+The Classify UI SHALL upload the Document to `POST /v1/classify` as a multipart request with the file in a single field named `file`.
+
+#### Scenario: Successful upload request
+- **WHEN** the end user has provided a Document
+- **THEN** the UI issues one multipart POST with field `file` to `/v1/classify` and waits for the classification
+
+### Requirement: API base URL by environment
+The Classify UI SHALL call the Classify Service through a configurable base URL: the development environment targets `http://localhost:8000` and the production build calls the Classify Service on the same origin it is served from.
+
+#### Scenario: Development usage
+- **WHEN** the Classify UI runs on the local dev server against a locally running Classify Service
+- **THEN** requests go to `http://localhost:8000`
+
+#### Scenario: Production usage
+- **WHEN** the production build of the Classify UI is served
+- **THEN** classify requests are issued relative to the serving origin
+
+### Requirement: Proposal justification and legal basis
+Each review card SHALL display the reasons of the proposal as a list and the legal basis as references.
+
+#### Scenario: Reasons shown
+- **WHEN** a Document with a completed analysis is selected
+- **THEN** the review card shows the proposal's reasons as a list
+
+#### Scenario: Legal basis shown
+- **WHEN** a Document with a completed analysis is selected
+- **THEN** the review card shows the proposal's legal basis as references
+
+### Requirement: DSG findings list
+The DSG review card SHALL list the recognised findings, each showing its category ("Personendaten" or "besonders schützenswerte Personendaten") and count.
+
+#### Scenario: Findings listed
+- **WHEN** a Document with a completed analysis is selected
+- **THEN** the DSG review card lists that Document's findings with category and count
+
+### Requirement: Classification failures shown
+When a Document's classification request fails (service unavailable, an unsupported or unreadable Document, or the model cannot produce a valid result), the Classify UI SHALL mark that Document as failed with a visible reason and SHALL NOT lose the other Documents.
+
+#### Scenario: Service unavailable
+- **WHEN** the classify request fails without a response
+- **THEN** the Document is shown as failed with a reason and the other Documents remain unaffected
+
+#### Scenario: Model cannot produce a valid result
+- **WHEN** the service responds that the model could not produce a valid classification
+- **THEN** the Document is shown as failed with a reason

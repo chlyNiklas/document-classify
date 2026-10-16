@@ -8,3 +8,25 @@
 	padding: 0 variables.$ob-spacing-lg;
 }
 
+.work__columns {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: variables.$ob-spacing-xxl;
+	align-items: start;
+}
+
+.work__intake,
+.work__review {
+	display: block;
+}
+
+@media (width >= 80rem) {
+	.work__columns {
+		grid-template-columns: minmax(0, 2fr) 3fr;
+	}
+
+	.work__columns:has(> .work__intake:only-child) {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+

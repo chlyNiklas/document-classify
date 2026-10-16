@@ -31,6 +31,10 @@ While a Document is being analysed, the Classify UI SHALL show a visible analysi
 - **WHEN** a Document analysis runs and no result has arrived yet
 - **THEN** the UI displays the pipeline stages completing in order with a visible progress indication until the proposal result appears
 
+#### Scenario: Pending indication is accessible
+- **WHEN** a Document's row shows the pending indication
+- **THEN** the pending indication exposes an accessible name conveying that the Document is being analysed
+
 #### Scenario: Cancelling an analysis
 - **WHEN** the end user cancels a running analysis
 - **THEN** the Document is removed without a result and the UI confirms the cancellation by notification
