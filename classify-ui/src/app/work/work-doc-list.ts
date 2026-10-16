@@ -14,7 +14,7 @@ export interface DocumentRow {
 	selected: boolean;
 	/** i18n key of the visible failure reason (failed documents only). */
 	reasonLabel: string | null;
-	/** i18n key of the remove-action label ("Abbrechen" while analysing, "Dokument entfernen" when failed). */
+	/** i18n key of the remove-action label ("Abbrechen" while analysing, "Dokument entfernen" otherwise). */
 	actionLabel: string;
 }
 
@@ -25,7 +25,7 @@ const statusLabels: Record<ClassifyDocument['status'], string> = {
 };
 
 const busyActionLabel = 'koby.work.cancel.label';
-const failedActionLabel = 'koby.work.remove.label';
+const removeActionLabel = 'koby.work.remove.label';
 
 @Component({
 	selector: 'app-work-doc-list',
@@ -45,13 +45,13 @@ export class WorkDocList {
 			failed: entry.status === 'failed',
 			selected: entry.id === selectedId,
 			reasonLabel: entry.status === 'failed' ? entry.failureReason : null,
-			actionLabel: entry.status === 'failed' ? failedActionLabel : busyActionLabel
+			actionLabel: entry.status === 'busy' ? busyActionLabel : removeActionLabel
 		}));
 	});
 
 	readonly displayedColumns: readonly string[] = ['filename', 'status', 'actions'];
 
-	readonly canceled = output<string>();
+	readonly removed = output<string>();
 
 	private readonly service = inject(ClassificationService);
 
@@ -60,7 +60,8 @@ export class WorkDocList {
 		this.service.select(id);
 	}
 
-	cancel(id: string): void {
-		this.canceled.emit(id);
+	/** Removes the document from the list (aborts a running analysis). */
+	remove(id: string): void {
+		this.removed.emit(id);
 	}
 }

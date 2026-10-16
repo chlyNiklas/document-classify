@@ -27,7 +27,7 @@ export class WorkIntake {
 		}))
 	);
 
-	readonly canceled = output<string>();
+	readonly removed = output<string>();
 
 	private readonly service = inject(ClassificationService);
 
@@ -55,7 +55,7 @@ export class WorkIntake {
 		}
 	}
 
-	cancel(id: string): void {
-		this.canceled.emit(id);
+	remove(id: string): void {
+		this.removed.emit(id);
 	}
 }

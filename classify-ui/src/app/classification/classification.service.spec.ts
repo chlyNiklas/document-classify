@@ -156,12 +156,12 @@ describe('ClassificationService', () => {
 		});
 	});
 
-	it('cancel removes the document, tears down the in-flight request and the flushed response no longer touches anything', () => {
+	it('remove tears down the in-flight request and the flushed response no longer touches anything', () => {
 		addFile('bericht.pdf', 2048, 'pdf');
 		const request = httpMock.expectOne(classifyUrl);
 		const id = service.documents()[0].id;
 
-		service.cancel(id);
+		service.remove(id);
 
 		expect(service.documents()).toHaveLength(0);
 		expect(service.selectedId()).toBeNull();

@@ -6,7 +6,7 @@
 				{{ 'koby.work.guidance-alert.text' | translate }}
 			</ob-alert>
 
-			<app-work-intake class="work__intake" (canceled)="cancel($event)" />
+			<app-work-intake class="work__intake" (removed)="remove($event)" />
 		</div>
 
 		@if (pendingDocument(); as document) {

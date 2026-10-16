@@ -81,10 +81,12 @@ describe('Work', () => {
 		notificationInfo = vi.spyOn(notification, 'info');
 
 		// Oblique's testing configuration mocks the icon registration away, so the
-		// icon used by the document list actions column is stubbed here.
+		// icons used by the document list actions column are stubbed here.
 		const sanitizer = TestBed.inject(DomSanitizer);
 		const iconRegistry = TestBed.inject(MatIconRegistry);
-		iconRegistry.addSvgIconLiteral('delete', sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg"></svg>'));
+		const emptyIcon = sanitizer.bypassSecurityTrustHtml('<svg xmlns="http://www.w3.org/2000/svg"></svg>');
+		iconRegistry.addSvgIconLiteral('delete', emptyIcon);
+		iconRegistry.addSvgIconLiteral('eye', emptyIcon);
 
 		fixture = TestBed.createComponent(Work);
 	});
@@ -210,12 +212,42 @@ describe('Work', () => {
 		fixture.detectChanges();
 	});
 
+	it('offers the view and remove actions for every document, and the view action selects it', () => {
+		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
+		flushClassify(classifyResponse);
+		addFile('netzwerkplan_standort.pdf', 4096, 'pdf');
+		flushClassify(classifyResponse);
+		fixture.detectChanges();
+
+		expect(element().querySelectorAll('[data-testid="doc-view"]')).toHaveLength(2);
+		expect(element().querySelectorAll('[data-testid="doc-remove"]')).toHaveLength(2);
+
+		element().querySelectorAll<HTMLButtonElement>('[data-testid="doc-view"]')[0].click();
+		fixture.detectChanges();
+
+		expect(classification.selectedDocument()?.name).toBe('lohnliste_abteilung_q3.txt');
+		expect(element().querySelector('[data-testid="review-area"]')).toBeTruthy();
+	});
+
+	it('the remove action removes a completed document from the list', () => {
+		addFile('fertig.pdf', 2048, 'pdf');
+		flushClassify(classifyResponse);
+		fixture.detectChanges();
+
+		const remove = element().querySelector<HTMLButtonElement>('[data-testid="doc-remove"]');
+		remove?.click();
+		fixture.detectChanges();
+
+		expect(classification.documents()).toHaveLength(0);
+		expect(notificationInfo).toHaveBeenCalled();
+	});
+
 	it('cancelling the analysis aborts the in-flight request and removes the document', () => {
 		addFile('typ_pruefung.docx', 1024, 'docx');
 		fixture.detectChanges();
 
 		const request = httpMock.match(classifyUrl)[0];
-		element().querySelector<HTMLButtonElement>('[data-testid="doc-cancel"]')?.click();
+		element().querySelector<HTMLButtonElement>('[data-testid="doc-remove"]')?.click();
 		fixture.detectChanges();
 
 		expect(request.cancelled).toBe(true);

@@ -36,18 +36,26 @@
 			<th *matHeaderCellDef mat-header-cell scope="col">{{ "koby.work.doclist.column.actions" | translate }}</th>
 			<td *matCellDef="let row" mat-cell>
 				<div class="doclist__actions">
-					@if (row.busy || row.failed) {
-						<button
-							type="button"
-							mat-icon-button
-							obButton="secondary"
-							data-testid="doc-cancel"
-							[matTooltip]="row.actionLabel | translate"
-							(click)="cancel(row.id)"
-						>
-							<mat-icon svgIcon="delete" />
-						</button>
-					}
+					<button
+						type="button"
+						mat-icon-button
+						obButton="secondary"
+						data-testid="doc-view"
+						[matTooltip]="'koby.work.view.label' | translate"
+						(click)="select(row.id)"
+					>
+						<mat-icon svgIcon="eye" />
+					</button>
+					<button
+						type="button"
+						mat-icon-button
+						obButton="secondary"
+						data-testid="doc-remove"
+						[matTooltip]="row.actionLabel | translate"
+						(click)="remove(row.id)"
+					>
+						<mat-icon svgIcon="delete" />
+					</button>
 				</div>
 			</td>
 		</ng-container>

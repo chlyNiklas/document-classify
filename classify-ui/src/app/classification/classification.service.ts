@@ -66,10 +66,10 @@ export class ClassificationService implements OnDestroy {
 	}
 
 	/**
-	 * Cancels the classification of the document with the given id (tears down the
-	 * in-flight request via the document's own subscription) and removes it without a result.
+	 * Removes the document with the given id: tears down a running classification
+	 * (via the document's own subscription) and deletes it from the list.
 	 */
-	cancel(id: string): void {
+	remove(id: string): void {
 		this.files.delete(id);
 		this.subscriptions.get(id)?.unsubscribe();
 		this.subscriptions.delete(id);
