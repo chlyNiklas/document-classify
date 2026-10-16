@@ -66,6 +66,31 @@ class Settings(BaseSettings):
     )
     koby_ca_bundle: str | None = Field(default=None, validation_alias="KOBY_CA_BUNDLE")
     koby_verify_tls: bool = Field(default=True, validation_alias="KOBY_VERIFY_TLS")
+    llm_provider: Literal["koby", "opencode"] = Field(
+        default="koby",
+        validation_alias="LLM_PROVIDER",
+    )
+    opencode_api_key: SecretStr | None = Field(
+        default=None,
+        validation_alias="OPENCODE_API_KEY",
+    )
+    opencode_model: str | None = Field(
+        default=None,
+        validation_alias="OPENCODE_MODEL",
+    )
+    opencode_base_url: str = Field(
+        default="https://opencode.ai/inference/go/openai/v1",
+        validation_alias="OPENCODE_BASE_URL",
+    )
+    opencode_timeout_seconds: float = Field(
+        default=120.0,
+        gt=0,
+        validation_alias="OPENCODE_TIMEOUT_SECONDS",
+    )
+    opencode_reasoning_effort: Literal["low", "medium", "high"] | None = Field(
+        default="low",
+        validation_alias="OPENCODE_REASONING_EFFORT",
+    )
     max_upload_bytes: int = Field(default=10 * 1024 * 1024, gt=0)
     max_extracted_characters: int = Field(default=100_000, gt=0)
     classification_chunk_characters: int = Field(default=50_000, gt=0)

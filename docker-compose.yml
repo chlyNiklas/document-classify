@@ -10,6 +10,11 @@ services:
       - ./classify-service/.env
     environment:
       KOBY_CLASSIFY_cors_origins: http://localhost:4200
+      # OpenCode Go provider example (KOBY remains the default):
+      # LLM_PROVIDER: opencode
+      # OPENCODE_API_KEY: <your-opencode-api-key>
+      # OPENCODE_MODEL: glm-5.3-flash
+      # OPENCODE_REASONING_EFFORT: low
     restart: unless-stopped
 
   classify-ui:
