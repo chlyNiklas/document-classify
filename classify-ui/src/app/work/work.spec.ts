@@ -181,7 +181,7 @@ describe('Work', () => {
 		const busyCell = element().querySelector('.doclist__status--busy');
 		const spinnerIcon = busyCell?.querySelector<HTMLElement>('.doclist__spinner');
 		expect(spinnerIcon).toBeTruthy();
-		expect(getComputedStyle(spinnerIcon as HTMLElement).width).toBe('20px');
+		expect(busyCell?.querySelector('ob-spinner')).toBeNull();
 		// the status label is replaced: only the visually hidden accessible name remains
 		expect(busyCell?.querySelector('.doclist__status-hidden')?.textContent).toContain('koby.work.status.busy');
 		// the rest of the page stays interactive: no fixed overlay
@@ -202,8 +202,12 @@ describe('Work', () => {
 		const spinners = element().querySelectorAll('.doclist__row .doclist__spinner');
 		expect(spinners).toHaveLength(2);
 
-		flushClassify(classifyResponse);
-		flushClassify(classifyResponse);
+		const requests = httpMock.match(classifyUrl);
+		expect(requests).toHaveLength(2);
+		for (const request of requests) {
+			request.flush(classifyResponse);
+		}
+		fixture.detectChanges();
 	});
 
 	it('cancelling the analysis aborts the in-flight request and removes the document', () => {

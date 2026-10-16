@@ -19,7 +19,6 @@ import {
 	ObNotificationModule,
 	ObOffCanvasModule,
 	ObSelectableModule,
-	ObSpinnerModule,
 	provideObliqueConfiguration
 } from '@oblique/oblique';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi, withXhr} from '@angular/common/http';
@@ -64,7 +63,6 @@ registerLocaleData(localeITCH);
 		ObFileUploadModule,
 		ObAlertModule,
 		ObNotificationModule,
-		ObSpinnerModule,
 		ObOffCanvasModule,
 		ObSelectableModule,
 		ObMasterLayoutModule,

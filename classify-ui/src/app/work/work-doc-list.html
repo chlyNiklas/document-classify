@@ -21,12 +21,7 @@
 				[class.doclist__status--done]="!row.busy && !row.failed"
 			>
 				@if (row.busy) {
-					<!-- The wrapper gives the spinner a stable DOM parent: as a direct
-					     child of the @if content the spinner cannot capture its parent
-					     element while the embedded view fragment is still detached. -->
-					<span class="doclist__spinner">
-						<ob-spinner [channel]="spinnerChannel" />
-					</span>
+					<span class="doclist__spinner" aria-hidden="true"></span>
 					<span class="doclist__status-hidden">{{ row.statusLabel | translate }}</span>
 				} @else {
 					{{ row.statusLabel | translate }}
