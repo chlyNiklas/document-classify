@@ -20,7 +20,7 @@ It does not yet perform OCR, persistence or metadata updates.
 ```bash
 cp .env.example .env
 uv sync
-uv run uvicorn koby_classify.main:app --reload
+uv run uvicorn koby_classify.main:app --reload --reload-exclude '.venv/**'
 ```
 
 Configure `KOBY_LLM_URL` as either the model's `/v1` base URL or its complete
@@ -35,7 +35,7 @@ file instead, set `KOBY_CA_BUNDLE` to its absolute path. TLS verification remain
 For local testing against a known internal endpoint with a non-standard certificate,
 `KOBY_VERIFY_TLS=false` is available; do not use that setting in production.
 
-The token and model request timeout defaults to 120 seconds and can be changed with
+The token and model request timeout defaults to 300 seconds and can be changed with
 `KOBY_TIMEOUT_SECONDS`. Timeout, connection, protocol, and HTTP status failures are reported
 separately without exposing credentials or response contents.
 
@@ -56,7 +56,7 @@ With `LLM_PROVIDER=opencode`, the service calls the OpenCode Go OpenAI-compatibl
 - `OPENCODE_MODEL`: the model identifier sent in each request. The built-in default is
   `glm-5.3-flash`.
 - `OPENCODE_BASE_URL`: endpoint base, default `https://opencode.ai/inference/go/openai/v1`.
-- `OPENCODE_TIMEOUT_SECONDS`: request timeout, default 120 seconds.
+- `OPENCODE_TIMEOUT_SECONDS`: request timeout, default 300 seconds.
 - `OPENCODE_REASONING_EFFORT`: `low` (default), `medium`, or `high`. Low keeps latency short for
   this bounded classification task.
 

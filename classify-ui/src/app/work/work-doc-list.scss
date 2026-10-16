@@ -34,18 +34,35 @@
 	color: variables.$ob-success;
 }
 
-// The status cell hosts the inline ob-spinner (design D1/D4): the spinner
-// overlay fills the cell and its icon is centered vertically in the row.
 .doclist__status--busy {
 	position: relative;
+}
 
-	.ob-spinner svg {
-		width: 1.5rem;
+.doclist__spinner {
+	animation: doclist-spin 0.8s linear infinite;
+	block-size: 1.25rem;
+	border: 2px solid variables.$ob-gray-light;
+	border-radius: 50%;
+	border-top-color: variables.$ob-gray-dark;
+	display: inline-block;
+	inline-size: 1.25rem;
+	vertical-align: middle;
+}
+
+@keyframes doclist-spin {
+	to {
+		transform: rotate(360deg);
 	}
 }
 
-// Keeps the busy status reachable for assistive tech: the ob-spinner host is
-// aria-hidden, so the translated status text is rendered visually hidden.
+@media (prefers-reduced-motion: reduce) {
+	.doclist__spinner {
+		animation-duration: 2s;
+	}
+}
+
+// Keeps the busy status reachable for assistive tech while the compact visual
+// indicator remains decorative.
 .doclist__status-hidden {
 	height: 1px;
 	overflow: hidden;

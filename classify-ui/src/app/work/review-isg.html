@@ -1,8 +1,6 @@
-<section class="card review-card" data-testid="isg-card">
-	<header class="card__header">
-		<h3 class="card__title">{{ 'koby.work.isg.title' | translate }}</h3>
-	</header>
-	<p class="card__hint">{{ 'koby.work.isg.possible' | translate }}</p>
+<section class="review-panel" data-testid="isg-card">
+	<h3 class="ob-screen-reader-only">{{ 'koby.work.isg.title' | translate }}</h3>
+	<p class="review-panel__hint">{{ 'koby.work.isg.possible' | translate }}</p>
 
 	<div class="tilerow" role="list">
 		@for (tileKey of visibleTileKeys(); track tileKey) {

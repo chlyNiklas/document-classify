@@ -48,7 +48,7 @@ class Settings(BaseSettings):
     )
     koby_model: str | None = Field(default=None, validation_alias="KOBY_MODEL")
     koby_timeout_seconds: float = Field(
-        default=120.0,
+        default=300.0,
         gt=0,
         validation_alias="KOBY_TIMEOUT_SECONDS",
     )
@@ -83,7 +83,7 @@ class Settings(BaseSettings):
         validation_alias="OPENCODE_BASE_URL",
     )
     opencode_timeout_seconds: float = Field(
-        default=120.0,
+        default=300.0,
         gt=0,
         validation_alias="OPENCODE_TIMEOUT_SECONDS",
     )

@@ -11,6 +11,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: variables.$ob-spacing-default;
+	min-height: 3.5rem;
 
 	h2 {
 		margin: 0;
@@ -22,6 +23,19 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+
+.work-review__tabs {
+	background-color: #ffffff;
+	border: 1px solid variables.$ob-gray-light;
+	border-radius: variables.$ob-border-radius-base;
+	min-width: 0;
+	overflow: hidden;
+	padding: 0 variables.$ob-spacing-xxl variables.$ob-spacing-xxl;
+}
+
+.work-review__tab-panel {
+	padding-top: variables.$ob-spacing-xxl;
 }
 
 .work-review__footer {
@@ -43,4 +57,10 @@
 .work-review__disclaimer {
 	color: variables.$ob-gray-dark;
 	max-width: 480px;
+}
+
+@media (width < 48rem) {
+	.work-review__tabs {
+		padding-inline: variables.$ob-spacing-default;
+	}
 }

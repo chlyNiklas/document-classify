@@ -15,6 +15,17 @@
 	align-items: start;
 }
 
+.work__intake-column {
+	display: flex;
+	flex-direction: column;
+	gap: variables.$ob-spacing-xxl;
+	min-width: 0;
+}
+
+.work__intake-column > .work__guidance-alert {
+	margin: 0;
+}
+
 .work__intake,
 .work__review {
 	display: block;
@@ -25,8 +36,21 @@
 		grid-template-columns: minmax(0, 2fr) 3fr;
 	}
 
-	.work__columns:has(> .work__intake:only-child) {
+	.work__columns:not(:has(> .work__review)) {
 		grid-template-columns: minmax(0, 1fr);
+
+		.work__intake-column {
+			display: grid;
+			grid-template-columns: minmax(0, 2fr) 3fr;
+		}
+
+		.work__guidance-alert {
+			grid-column: 1;
+		}
+
+		.work__intake {
+			grid-column: 1 / -1;
+		}
 	}
 }
 

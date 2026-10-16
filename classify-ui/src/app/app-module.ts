@@ -14,6 +14,7 @@ import {
 	ObButtonModule,
 	ObFileUploadModule,
 	ObHttpApiInterceptor,
+	ObHttpApiInterceptorConfig,
 	ObMasterLayoutModule,
 	ObNotificationModule,
 	ObOffCanvasModule,
@@ -26,6 +27,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {Work} from './work/work';
 import {WorkIntake} from './work/work-intake';
@@ -57,6 +59,7 @@ registerLocaleData(localeITCH);
 		MatChipsModule,
 		MatIconModule,
 		MatTableModule,
+		MatTabsModule,
 		MatTooltipModule,
 		ObFileUploadModule,
 		ObAlertModule,
@@ -87,6 +90,14 @@ registerLocaleData(localeITCH);
 			},
 			language: {hasLanguageInUrl: false}
 		}),
+		{
+			provide: ObHttpApiInterceptorConfig,
+			useFactory: () => {
+				const config = new ObHttpApiInterceptorConfig();
+				config.api.spinner = false;
+				return config;
+			}
+		},
 		{provide: HTTP_INTERCEPTORS, useClass: ObHttpApiInterceptor, multi: true},
 		provideHttpClient(withXhr(), withInterceptors([authInterceptor]), withInterceptorsFromDi()),
 		{provide: LOCALE_ID, useValue: 'de-CH'}

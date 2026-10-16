@@ -26,7 +26,7 @@ class KobyClient:
         model: str | None = None,
         ca_bundle: str | None = None,
         verify_tls: bool = True,
-        timeout_seconds: float = 60.0,
+        timeout_seconds: float = 300.0,
         reasoning_effort: Literal["low", "medium", "high"] | None = "low",
     ) -> None:
         self._url = self._chat_completions_url(url)

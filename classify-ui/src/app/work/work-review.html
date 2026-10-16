@@ -10,9 +10,31 @@
 		</button>
 	</div>
 
-	<app-review-isg [result]="document().result" />
-
-	<app-review-dsg [result]="document().result" />
+	<div class="work-review__tabs" data-testid="assessment-tabs">
+		<mat-tab-group
+			mat-stretch-tabs="false"
+			preserveContent
+			animationDuration="200ms"
+			[aria-label]="'koby.work.review.title' | translate"
+		>
+			<mat-tab>
+				<ng-template mat-tab-label>
+					<span data-testid="isg-tab">{{ 'koby.work.isg.tab' | translate }}</span>
+				</ng-template>
+				<div class="work-review__tab-panel">
+					<app-review-isg [result]="document().result" />
+				</div>
+			</mat-tab>
+			<mat-tab>
+				<ng-template mat-tab-label>
+					<span data-testid="dsg-tab">{{ 'koby.work.dsg.tab' | translate }}</span>
+				</ng-template>
+				<div class="work-review__tab-panel">
+					<app-review-dsg [result]="document().result" />
+				</div>
+			</mat-tab>
+		</mat-tab-group>
+	</div>
 
 	<footer class="work-review__footer">
 		<p class="work-review__disclaimer">

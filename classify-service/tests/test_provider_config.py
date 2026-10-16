@@ -17,6 +17,8 @@ def _settings(**kwargs: Any) -> Settings:
 def test_default_provider_is_koby():
     settings = _settings()
     assert settings.llm_provider == "koby"
+    assert settings.koby_timeout_seconds == 300
+    assert settings.opencode_timeout_seconds == 300
 
 
 def test_provider_env_alias_and_unknown_value():

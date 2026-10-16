@@ -1,14 +1,16 @@
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
 	ObEUploadEventType,
+	ObHttpApiInterceptorConfig,
 	type ObIUploadEvent,
 	ObNotificationService,
 	ObOffCanvasService,
-	ObSpinnerService,
 	provideObliqueTestingConfiguration
 } from '@oblique/oblique';
 import {HttpTestingController, type TestRequest, provideHttpClientTesting} from '@angular/common/http/testing';
+import {TestbedHarnessEnvironment} from '@angular/cdk/testing/testbed';
 import {MatIconRegistry} from '@angular/material/icon';
+import {MatTabGroupHarness} from '@angular/material/tabs/testing';
 import {DomSanitizer} from '@angular/platform-browser';
 import {afterEach, beforeEach, describe, expect, it, vi} from 'vitest';
 import {AppModule} from '../app-module';
@@ -16,7 +18,7 @@ import {environment} from '../../environments/environment';
 import type {ClassifyResponse, DocumentFailed} from '../classification/classification';
 import {ClassificationService} from '../classification/classification.service';
 import {OffCanvasState} from '../shared/off-canvas-state.service';
-import {Work, workSpinnerChannel} from './work';
+import {Work} from './work';
 import type {WorkIntake} from './work-intake';
 
 const bytesPerMegabyte = 1024 * 1024;
@@ -127,14 +129,6 @@ describe('Work', () => {
 		return fixture.nativeElement as HTMLElement;
 	}
 
-	/** Lets pending spinner-channel events (delay(0)) and their view updates settle. */
-	async function settle(): Promise<void> {
-		await new Promise(resolve => {
-			setTimeout(resolve);
-		});
-		fixture.detectChanges();
-	}
-
 	it('renders one document row with status and actions per added file (table render)', () => {
 		addFile('lohnliste_abteilung_q3.txt', 2048, 'txt');
 		flushClassify(classifyResponse);
@@ -179,12 +173,15 @@ describe('Work', () => {
 		expect(classification.documents().length).toBe(acceptedCountBefore);
 	});
 
-	it('a busy document shows the inline row spinner in place of the status label and stays interactive', async () => {
+	it('a busy document shows a compact row spinner in place of the status label and stays interactive', () => {
+		expect(TestBed.inject(ObHttpApiInterceptorConfig).api.spinner).toBe(false);
+
 		addFile('typ_pruefung.docx', 1024, 'docx');
-		await settle();
 
 		const busyCell = element().querySelector('.doclist__status--busy');
-		expect(busyCell?.querySelector('ob-spinner')).toBeTruthy();
+		const spinnerIcon = busyCell?.querySelector<HTMLElement>('.doclist__spinner');
+		expect(spinnerIcon).toBeTruthy();
+		expect(getComputedStyle(spinnerIcon as HTMLElement).width).toBe('20px');
 		// the status label is replaced: only the visually hidden accessible name remains
 		expect(busyCell?.querySelector('.doclist__status-hidden')?.textContent).toContain('koby.work.status.busy');
 		// the rest of the page stays interactive: no fixed overlay
@@ -194,40 +191,19 @@ describe('Work', () => {
 
 		flushClassify(classifyResponse);
 		expect(element().querySelector('.doclist__status--done')?.textContent).toContain('koby.work.status.pending');
-		expect(element().querySelector('.doclist__row ob-spinner')).toBeNull();
+		expect(element().querySelector('.doclist__spinner')).toBeNull();
 		expect(element().querySelector('[data-testid="review-area"]')).toBeTruthy();
 	});
 
-	it('the spinner appears for rows rendered while the channel is already active', async () => {
+	it('shows a compact spinner for every concurrently analysed document', () => {
 		addFile('erste_pruefung.docx', 1024, 'docx');
-		await settle();
 		addFile('zweite_pruefung.pdf', 1024, 'pdf');
-		await settle();
 
-		const spinners = element().querySelectorAll('.doclist__row ob-spinner');
+		const spinners = element().querySelectorAll('.doclist__row .doclist__spinner');
 		expect(spinners).toHaveLength(2);
-		for (const spinner of spinners) {
-			expect(spinner.querySelector('.ob-spinner-fade-in')).toBeTruthy();
-		}
 
 		flushClassify(classifyResponse);
 		flushClassify(classifyResponse);
-	});
-
-	it('activates the work-analysis spinner channel while a document is busy and deactivates when none is', () => {
-		const spinnerService = TestBed.inject(ObSpinnerService);
-		const activate = vi.spyOn(spinnerService, 'activate');
-		const deactivate = vi.spyOn(spinnerService, 'deactivate');
-
-		addFile('typ_pruefung.docx', 1024, 'docx');
-		expect(activate).toHaveBeenCalledWith(workSpinnerChannel);
-
-		activate.mockClear();
-		deactivate.mockClear();
-
-		flushClassify(classifyResponse);
-		expect(deactivate).toHaveBeenCalledWith(workSpinnerChannel);
-		expect(activate).not.toHaveBeenCalled();
 	});
 
 	it('cancelling the analysis aborts the in-flight request and removes the document', () => {
@@ -281,14 +257,18 @@ describe('Work', () => {
 		expect(element().querySelector('[data-testid="isg-tile-secret"]')?.className).toContain('tile--marked');
 	});
 
-	it('the DSG assessment shows the proposal tile, the profiling readout and the findings', () => {
+	it('exposes the ISG and DSG assessments as selectable tabs', async () => {
 		addFile('vertrauensaerztliche_Beurteilung_Personalmedizin.docx', 2048, 'docx');
 		flushClassify(classifyResponse);
 
-		expect(element().querySelectorAll('[data-testid^="dsg-tile-"]')).toHaveLength(3);
-		expect(element().querySelector('[data-testid="dsg-tile-sensitive_personal_data"]')?.className).toContain('tile--marked');
-		expect(element().querySelector('[data-testid="dsg-profiling"]')?.textContent).toContain('koby.work.dsg.detection.possible');
-		expect(element().querySelectorAll('[data-testid="dsg-finding"]')).toHaveLength(1);
+		const tabGroup = await TestbedHarnessEnvironment.loader(fixture).getHarness(MatTabGroupHarness);
+		const tabs = await tabGroup.getTabs();
+		expect(tabs).toHaveLength(2);
+		expect(await Promise.all(tabs.map(async tab => tab.getLabel()))).toEqual(['koby.work.isg.tab', 'koby.work.dsg.tab']);
+		expect(await tabs[0].isSelected()).toBe(true);
+
+		await tabs[1].select();
+		expect(await tabs[1].isSelected()).toBe(true);
 	});
 
 	it('opens the selected document response from the "Befund als JSON" button', () => {

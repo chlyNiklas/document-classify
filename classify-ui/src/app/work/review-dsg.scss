@@ -2,17 +2,16 @@
 
 @use "../shared/demo-shared" as demo-shared;
 
-@include demo-shared.demo-card();
 @include demo-shared.demo-tiles();
 
-// The DSG card renders three classification tiles.
-.tilerow {
-	display: flex;
-	gap: variables.$ob-spacing-sm;
+.review-panel__hint {
+	color: variables.$ob-gray-dark;
+	margin: 0 0 variables.$ob-spacing-default;
+}
 
-	.tile {
-		flex: 1 1 0;
-	}
+// The DSG panel renders three classification tiles.
+.tilerow {
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
 }
 
 .dsg-profiling {

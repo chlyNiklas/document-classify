@@ -19,7 +19,7 @@ class OpenCodeGoClient:
         url: str | None,
         api_key: str | None,
         model: str | None = None,
-        timeout_seconds: float = 120.0,
+        timeout_seconds: float = 300.0,
         reasoning_effort: Literal["low", "medium", "high"] | None = "low",
     ) -> None:
         self._url = self._chat_completions_url(url)
