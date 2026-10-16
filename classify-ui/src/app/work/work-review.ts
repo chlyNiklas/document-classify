@@ -1,7 +1,8 @@
 import {Component, type ElementRef, inject, input, viewChild} from '@angular/core';
 import {ObOffCanvasService} from '@oblique/oblique';
-import {DemoPreviewService} from '../shared/demo-preview.service';
-import {type DemoDocumentWithResult, MockClassificationService} from '../mock/mock-classification.service';
+import type {DocumentPending} from '../classification/classification';
+import {ClassificationService} from '../classification/classification.service';
+import {OffCanvasState} from '../shared/off-canvas-state.service';
 
 @Component({
 	selector: 'app-work-review',
@@ -10,18 +11,18 @@ import {type DemoDocumentWithResult, MockClassificationService} from '../mock/mo
 	styleUrl: './work-review.scss'
 })
 export class WorkReview {
-	readonly document = input.required<DemoDocumentWithResult>();
+	readonly document = input.required<DocumentPending>();
 
 	readonly moreFilesInput = viewChild.required<ElementRef<HTMLInputElement>>('moreFilesInput');
 
 	/** Additional-document upload accepts the same file list as the drop zone. */
-	private readonly service = inject(MockClassificationService);
-	private readonly preview = inject(DemoPreviewService);
+	private readonly service = inject(ClassificationService);
+	private readonly offCanvasState = inject(OffCanvasState);
 	private readonly offCanvas = inject(ObOffCanvasService);
 
 	/** Opens the "Befund als JSON" view of the document in the shared off-canvas. */
 	openJson(): void {
-		this.preview.open({kind: 'json', document: this.document()});
+		this.offCanvasState.open({kind: 'json', document: this.document()});
 		this.offCanvas.open = true;
 	}
 

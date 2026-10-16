@@ -33,19 +33,17 @@
 							<td>{{ 'koby.rules.isg.desc.' + row.key | translate }}</td>
 							<td class="rules__nowrap">{{ 'koby.rules.isg.basis.' + row.key | translate }}</td>
 							<td class="rules__nowrap">
-								@if (row.proposed) {
-									<mat-chip-set>
+								<mat-chip-set>
+									@if (row.proposal === 'yes') {
 										<mat-chip class="success" data-testid="proposal-yes">
 											{{ 'koby.rules.isg.yes' | translate }}
 										</mat-chip>
-									</mat-chip-set>
-								} @else {
-									<mat-chip-set>
-										<mat-chip class="warning" data-testid="proposal-no">
-											{{ 'koby.rules.isg.no' | translate }}
+									} @else {
+										<mat-chip class="warning" data-testid="proposal-escalation">
+											{{ 'koby.rules.isg.escalation' | translate }}
 										</mat-chip>
-									</mat-chip-set>
-								}
+									}
+								</mat-chip-set>
 							</td>
 						</tr>
 					}
@@ -79,12 +77,12 @@
 				<h2 class="card__title">{{ 'koby.rules.principles.title' | translate }}</h2>
 			</header>
 			<dl class="rules__definitions">
-				<dt>{{ 'koby.rules.principles.term.confidence' | translate }}</dt>
-				<dd>{{ 'koby.rules.principles.def.confidence' | translate }}</dd>
-				<dt>{{ 'koby.rules.principles.term.justification' | translate }}</dt>
+				<dt data-testid="principles-justification">{{ 'koby.rules.principles.term.justification' | translate }}</dt>
 				<dd>{{ 'koby.rules.principles.def.justification' | translate }}</dd>
-				<dt>{{ 'koby.rules.principles.term.evidence' | translate }}</dt>
-				<dd>{{ 'koby.rules.principles.def.evidence' | translate }}</dd>
+				<dt data-testid="principles-legal-basis">{{ 'koby.rules.principles.term.legal-basis' | translate }}</dt>
+				<dd>{{ 'koby.rules.principles.def.legal-basis' | translate }}</dd>
+				<dt data-testid="principles-findings">{{ 'koby.rules.principles.term.findings' | translate }}</dt>
+				<dd>{{ 'koby.rules.principles.def.findings' | translate }}</dd>
 			</dl>
 		</section>
 

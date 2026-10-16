@@ -1,7 +1,7 @@
 import {Component, computed, inject} from '@angular/core';
 import {ObNotificationService} from '@oblique/oblique';
-import {MockClassificationService} from '../mock/mock-classification.service';
-import {DemoPreviewService} from '../shared/demo-preview.service';
+import {ClassificationService} from '../classification/classification.service';
+import {OffCanvasState} from '../shared/off-canvas-state.service';
 
 /** Flat JSON rendering with two-space indentation. */
 const jsonIndent = '  ';
@@ -12,7 +12,7 @@ const jsonIndent = '  ';
 	templateUrl: './demo-off-canvas.html'
 })
 export class DemoOffCanvas {
-	readonly content = inject(DemoPreviewService).content;
+	readonly content = inject(OffCanvasState).content;
 
 	// The classification service is resolved lazily: the JSON finding is computed on render only.
 	readonly jsonFinding = computed(() => {
@@ -24,7 +24,7 @@ export class DemoOffCanvas {
 	});
 
 	private readonly notification = inject(ObNotificationService);
-	private readonly classification = inject(MockClassificationService);
+	private readonly classification = inject(ClassificationService);
 
 	/** Copies the "Befund als JSON" text to the clipboard and confirms the success. */
 	copyJson(): void {

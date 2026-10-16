@@ -1,6 +1,6 @@
 import {Component, computed, inject, output} from '@angular/core';
 import {ObEUploadEventType, type ObIUploadEvent} from '@oblique/oblique';
-import {MockClassificationService} from '../mock/mock-classification.service';
+import {ClassificationService} from '../classification/classification.service';
 
 /** Rejection view of a file not taken over into the workbench. */
 export interface RejectionInfo {
@@ -29,7 +29,7 @@ export class WorkIntake {
 
 	readonly canceled = output<string>();
 
-	private readonly service = inject(MockClassificationService);
+	private readonly service = inject(ClassificationService);
 
 	readonly maxFileSize = (): number => this.service.maxFileSizeMegabytes;
 
